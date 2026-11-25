@@ -1,0 +1,260 @@
+{
+ "0|MMP": {
+  "s_scale": {
+   "Green": 1.2
+  }
+ },
+ "0|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.199
+  },
+  "pi": 0.18
+ },
+ "0|MMP-BV": {
+  "s": {
+   "Green": 0.199,
+   "Opportunity": 0.199
+  },
+  "pi": 0.18
+ },
+ "1|MMP": {
+  "s_scale": {
+   "Green": 1.2
+  }
+ },
+ "1|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.222
+  },
+  "pi": 0.153
+ },
+ "1|MMP-BV": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.35
+  },
+  "pi": 0.153
+ },
+ "2|MMP": {
+  "s_scale": {
+   "Green": 1.2
+  }
+ },
+ "2|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.158
+  },
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.42
+   ]
+  ]
+ },
+ "2|MMP-BV": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.158
+  },
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.43
+   ]
+  ]
+ },
+ "3|MMP": {
+  "s_scale": {
+   "Green": 1.2
+  }
+ },
+ "3|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.199
+  },
+  "pi": 0.153
+ },
+ "3|MMP-BV": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.158
+  },
+  "pi": 0.153
+ },
+ "4|MMP": {
+  "s_scale": {
+   "Green": 1.2
+  }
+ },
+ "4|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.287
+  },
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.08
+   ]
+  ]
+ },
+ "4|MMP-BV": {
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.08
+   ]
+  ]
+ },
+ "5|MMP": {
+  "s_scale": {
+   "Green": 1.2
+  }
+ },
+ "5|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.287
+  },
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.44
+   ]
+  ]
+ },
+ "5|MMP-BV": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.35
+  },
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.44
+   ]
+  ]
+ },
+ "6|MMP-T": {
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.39
+   ]
+  ]
+ },
+ "6|MMP-BV": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.35
+  },
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.4
+   ]
+  ]
+ },
+ "7|MMP-T": {
+  "pi": 0.153,
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.44
+   ]
+  ]
+ },
+ "7|MMP-BV": {
+  "shift": [
+   [
+    [
+     "Green",
+     "Labour"
+    ],
+    "Te Pāti Māori",
+    0.44
+   ]
+  ]
+ },
+ "8|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.199
+  },
+  "pi": 0.153
+ },
+ "8|MMP-BV": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.158
+  },
+  "pi": 0.153
+ },
+ "9|MMP": {
+  "s_scale": {
+   "Green": 1.2
+  }
+ },
+ "9|MMP-T": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.222
+  },
+  "pi": 0.153
+ },
+ "9|MMP-BV": {
+  "s": {
+   "Green": 0.158,
+   "Opportunity": 0.222
+  },
+  "pi": 0.153
+ }
+}

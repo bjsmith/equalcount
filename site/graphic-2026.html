@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Parliament 2026 Compared</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --orange: #F47B20; --hl: #FFE36E;
+  --nat: #0B57A4; --lab: #D7262B; --grn: #2E9E4B; --act: #E8B800; --nzf: #2B2F2D; --tpm: #7B2152; --top: #12A0B3;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper); }
+body { font-family: var(--body); color: var(--ink); }
+.g { width: 1080px; height: 1350px; padding: 44px 72px 30px; overflow: hidden; display: flex; flex-direction: column; }
+
+.kicker { font-family: var(--display); font-weight: 900; font-size: 28px; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
+h1 { font-family: var(--display); font-weight: 900; font-size: 50px; line-height: 1.04; letter-spacing: -.03em; letter-spacing: -.025em; margin: 10px 0 14px; }
+.lede { font-size: 24px; line-height: 1.35; color: var(--muted); margin: 0; }
+.lede b { color: var(--ink); }
+
+/* parliaments */
+.parls { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 26px; padding-right: 6px; }
+.pcard { background: var(--card); border: 2px solid var(--ink); border-radius: 8px; padding: 18px 16px 14px; text-align: center; }
+.pcard.new { box-shadow: 6px 6px 0 var(--ink); }
+.ptag { font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.pcard.new .ptag { color: var(--orange); }
+.pcard svg { display: block; margin: 8px auto 0; }
+.pnote { font-size: 18px; line-height: 1.3; color: var(--muted); margin-top: 6px; min-height: 48px; }
+.pnote b { color: var(--ink); }
+.ring { display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 3px solid var(--ink); background: var(--nat); vertical-align: -1px; margin-right: 4px; }
+
+/* table */
+table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 22px; }
+th { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: right; padding: 0 10px 8px; border-bottom: 2px solid var(--ink); }
+th:first-child { text-align: left; padding-left: 0; }
+td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+td:first-child { text-align: left; padding-left: 0; font-weight: 700; }
+td .dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; margin-right: 10px; vertical-align: -1px; }
+td.new { font-weight: 800; }
+td.why { text-align: left; font-size: 18px; color: var(--muted); width: 420px; }
+.chg { display: inline-block; min-width: 46px; text-align: center; font-weight: 800; font-size: 19px; border-radius: 999px; padding: 1px 8px; }
+.chg.down { background: #F4E3E3; color: #9A1E22; }
+.chg.zero { background: #E5EBE8; color: var(--muted); }
+tr.total td { border-bottom: none; border-top: 2px solid var(--ink); font-weight: 800; }
+
+.maj { margin: 18px 0 14px; }
+.mh { font-family: var(--display); font-weight: 900; font-size: 24px; text-align: center; margin-bottom: 10px; }
+.blocs { display: grid; grid-template-columns: 1.15fr 1.25fr .8fr; gap: 12px; }
+.blocs div { background: var(--card); border: 2px solid var(--ink); border-radius: 8px; padding: 8px 12px; text-align: center; display: flex; flex-direction: column; }
+.blocs span { font-size: 16px; font-weight: 700; color: var(--muted); }
+.blocs b { font-family: var(--display); font-weight: 900; font-size: 28px; line-height: 1.1; background: linear-gradient(transparent 62%, var(--hl) 62%); align-self: center; padding: 0 4px; }
+.blocs i { font-style: normal; font-size: 16px; color: var(--muted); }
+.maj b { background: linear-gradient(transparent 60%, var(--hl) 60%); padding: 0 3px; }
+
+.foot { margin-top: auto; border-top: 2px solid var(--ink); padding-top: 14px; font-size: 16px; line-height: 1.4; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+<div class="g">
+  <div class="kicker">Don't bin MMP. Tweak it.</div>
+  <h1>Same votes. Same electorate MPs.<br><span style="color:var(--orange)">Every voter counts equally.</span></h1>
+  <p class="lede">The 2026 Parliament under today's rules, and with the tweak. <b>Every electorate MP keeps their seat</b>, and every voter counts once towards Parliament's make-up.</p>
+
+  <div class="parls">
+    <div class="pcard">
+      <div class="ptag">Current rules</div>
+      <svg id="cur" width="440" height="236" viewBox="0 0 440 236"></svg>
+      <div class="pnote"><span class="ring"></span><b>11 overhang seats</b>: electorates not covered by party votes</div>
+    </div>
+    <div class="pcard new">
+      <div class="ptag">With the tweak</div>
+      <svg id="pro" width="440" height="236" viewBox="0 0 440 236"></svg>
+      <div class="pnote">Split votes fill those seats, so <b>every voter counts once</b></div>
+    </div>
+  </div>
+
+  <table>
+    <thead><tr><th>Party</th><th>Current</th><th>Tweak</th><th>Change</th><th style="text-align:left">Why</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <div class="maj">
+    <div class="mh">With the tweak, seats match votes</div>
+    <div class="blocs">
+      <div><span>National · ACT · NZ First</span><b>61 seats</b><i>party vote worth 60.4</i></div>
+      <div><span>Labour · Green · Te Pāti Māori</span><b>52 seats</b><i>party vote worth 52.4</i></div>
+      <div><span>Opportunity</span><b>7 seats</b><i>party vote worth 7.2</i></div>
+    </div>
+  </div>
+
+  <div class="foot">Based on the preliminary 2026 count. Split votes estimated from 2023 patterns. One Te Pāti Māori seat comes off other parties' list seats, as the Independent Electoral Review recommended.<br>Created with AI.</div>
+</div>
+<script>
+const P = [
+  { k: 'tpm', n: 'Te Pāti Māori', cur: 5,  pro: 5,  over: 4, why: 'Keeps all 5 electorates' },
+  { k: 'grn', n: 'Green',         cur: 16, pro: 14, why: 'Its voters helped elect Te Pāti Māori MPs' },
+  { k: 'lab', n: 'Labour',        cur: 36, pro: 33, why: 'Its voters helped elect Te Pāti Māori MPs' },
+  { k: 'top', n: 'Opportunity',   cur: 7,  pro: 7,  why: 'Few of its voters split this way' },
+  { k: 'nzf', n: 'NZ First',      cur: 12, pro: 10, why: 'Its voters helped elect National MPs' },
+  { k: 'act', n: 'ACT',           cur: 13, pro: 9,  why: 'Its voters helped elect National MPs' },
+  { k: 'nat', n: 'National',      cur: 42, pro: 42, over: 7, why: 'Keeps all 42 electorates' },
+];
+const css = k => getComputedStyle(document.documentElement).getPropertyValue('--' + k).trim();
+
+function hemicycle(n, CX, CY, R_IN, R_OUT, ROWS) {
+  const radii = [];
+  for (let i = 0; i < ROWS; i++) radii.push(R_IN + (R_OUT - R_IN) * i / (ROWS - 1));
+  const sum = radii.reduce((a, b) => a + b, 0);
+  const counts = radii.map(r => Math.round(n * r / sum));
+  let diff = n - counts.reduce((a, b) => a + b, 0);
+  for (let i = ROWS - 1; diff !== 0; i = (i - 1 + ROWS) % ROWS) { counts[i] += Math.sign(diff); diff -= Math.sign(diff); }
+  const pts = [];
+  radii.forEach((r, i) => {
+    const c = counts[i];
+    for (let j = 0; j < c; j++) {
+      const a = Math.PI * (1 - j / (c - 1));
+      pts.push({ x: CX + r * Math.cos(a), y: CY - r * Math.sin(a), a, r });
+    }
+  });
+  pts.sort((p, q) => q.a - p.a || p.r - q.r);
+  return pts;
+}
+
+function draw(id, key, total) {
+  const svg = document.getElementById(id);
+  const pts = hemicycle(total, 220, 216, 92, 206, 6);
+  let i = 0, out = '';
+  P.forEach(p => {
+    const n = p[key];
+    for (let j = 0; j < n; j++, i++) {
+      const pt = pts[i];
+      const isOver = key === 'cur' && p.over && (p.k === 'nat' ? j < p.over : j >= n - p.over);
+      out += `<circle cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="${isOver ? 6.2 : 7.6}" fill="${css(p.k)}"${isOver ? ` stroke="${css('ink')}" stroke-width="3.2"` : ''}/>`;
+    }
+  });
+  out += `<text x="220" y="200" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="900" font-size="64" fill="${css('ink')}">${total}</text>`;
+  out += `<text x="220" y="226" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="17" letter-spacing="2" fill="${css('muted')}">SEATS</text>`;
+  svg.innerHTML = out;
+}
+draw('cur', 'cur', 131);
+draw('pro', 'pro', 120);
+
+const order = ['nat', 'lab', 'grn', 'act', 'nzf', 'top', 'tpm'];
+let html = '';
+order.forEach(k => {
+  const p = P.find(x => x.k === k), d = p.pro - p.cur;
+  html += `<tr><td><span class="dot" style="background:${css(k)}"></span>${p.n}</td><td>${p.cur}</td><td class="new">${p.pro}</td>
+    <td><span class="chg ${d < 0 ? 'down' : 'zero'}">${d < 0 ? '−' + (-d) : '0'}</span></td><td class="why">${p.why}</td></tr>`;
+});
+html += `<tr class="total"><td>Total</td><td>131</td><td class="new">120</td><td><span class="chg down">−11</span></td><td class="why"></td></tr>`;
+document.getElementById('rows').innerHTML = html;
+</script>
+</body>
+</html>

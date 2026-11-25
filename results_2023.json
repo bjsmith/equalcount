@@ -1,0 +1,122 @@
+{
+  "party_votes": {
+    "National": 1085851,
+    "Labour": 767540,
+    "Green": 330907,
+    "ACT": 246473,
+    "NZ First": 173553,
+    "Te Pāti Māori": 87844
+  },
+  "party_votes_total_qualifying": 2692168,
+  "tpm_electorates": 6,
+  "tpm_entitlement": 4,
+  "split_ballots": {
+    "wasted (non-qualifying parties)": 3010,
+    "Labour": 23697,
+    "Green": 8248,
+    "National": 2920,
+    "NZ First": 2637,
+    "ACT": 536
+  },
+  "wasted_used": 3010,
+  "f": 0.8420051431108275,
+  "moved": {
+    "Labour": 19953,
+    "Green": 6945,
+    "National": 2459,
+    "NZ First": 2220,
+    "ACT": 451
+  },
+  "adjusted_votes": {
+    "National": 1083392,
+    "Labour": 747587,
+    "Green": 323962,
+    "ACT": 246022,
+    "NZ First": 171333,
+    "Te Pāti Māori": 122882
+  },
+  "seats": {
+    "current_law": {
+      "National": 48,
+      "Labour": 34,
+      "Green": 15,
+      "ACT": 11,
+      "NZ First": 8,
+      "Te Pāti Māori": 6,
+      "Total": 122,
+      "Left bloc": 55,
+      "Right bloc": 67
+    },
+    "review_rule": {
+      "National": 47,
+      "Labour": 34,
+      "Green": 14,
+      "ACT": 11,
+      "NZ First": 8,
+      "Te Pāti Māori": 6,
+      "Total": 120,
+      "Left bloc": 54,
+      "Right bloc": 66
+    },
+    "germany_rule": {
+      "National": 48,
+      "Labour": 34,
+      "Green": 15,
+      "ACT": 11,
+      "NZ First": 8,
+      "Te Pāti Māori": 4,
+      "Total": 120,
+      "Left bloc": 53,
+      "Right bloc": 67
+    },
+    "proposal": {
+      "National": 48,
+      "Labour": 33,
+      "Green": 14,
+      "ACT": 11,
+      "NZ First": 8,
+      "Te Pāti Māori": 6,
+      "Total": 120,
+      "Left bloc": 53,
+      "Right bloc": 67
+    }
+  },
+  "per_electorate_tpm_ballots": {
+    "66 Hauraki-Waikato": {
+      "total_for_tpm_candidate": 12845,
+      "party_vote_tpm": 6696,
+      "labour": 3454,
+      "green": 1184
+    },
+    "68 Tāmaki Makaurau": {
+      "total_for_tpm_candidate": 10017,
+      "party_vote_tpm": 5821,
+      "labour": 2474,
+      "green": 988
+    },
+    "69 Te Tai Hauāuru": {
+      "total_for_tpm_candidate": 16187,
+      "party_vote_tpm": 8606,
+      "labour": 4743,
+      "green": 1501
+    },
+    "70 Te Tai Tokerau": {
+      "total_for_tpm_candidate": 10362,
+      "party_vote_tpm": 5485,
+      "labour": 2800,
+      "green": 702
+    },
+    "71 Te Tai Tonga": {
+      "total_for_tpm_candidate": 12773,
+      "party_vote_tpm": 5257,
+      "labour": 2599,
+      "green": 2624
+    },
+    "72 Waiariki": {
+      "total_for_tpm_candidate": 21284,
+      "party_vote_tpm": 10555,
+      "labour": 7627,
+      "green": 1249
+    }
+  }
+}

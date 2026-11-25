@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Experiment 2: Calibrating to New Zealand elections, 2005–2023</title>
+<meta name="description" content="Experiment 2 asks how the overhang reforms perform on New Zealand&#x27;s actual elections, and on synthetic elections that look like them.">
+<meta property="og:title" content="Experiment 2: Calibrating to New Zealand elections, 2005–2023">
+<meta property="og:description" content="Experiment 2 asks how the overhang reforms perform on New Zealand&#x27;s actual elections, and on synthetic elections that look like them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --accent: #0B57A4; --mark: #FFF4C2; --code: #E6ECE9;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+    --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+  --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body);
+  font-size: 18px; line-height: 1.6; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+.sx-brand { color: var(--ink); }
+.layout { max-width: 1120px; margin: 0 auto; display: grid; gap: 40px; padding-block: 32px 80px;
+  grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .layout { grid-template-columns: 240px minmax(0, 1fr); } }
+.toc { font-size: 14px; line-height: 1.4; }
+.toc-inner { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding-right: 8px; }
+.toc p { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul ul { padding-left: 12px; }
+.toc li { margin: 6px 0; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+.toc .group { margin-top: 24px; }
+@media (max-width: 999px) { .toc-inner { position: static; max-height: none; }
+  .toc details:not([open]) ul { display: none; } }
+article { max-width: 760px; min-width: 0; }
+article h1, article h2, article h3, article h4 { font-family: var(--display); line-height: 1.15; text-wrap: balance; }
+article h1 { font-size: clamp(32px, 4.4vw, 48px); font-weight: 800; letter-spacing: -.015em; margin: 0 0 12px; }
+article h1 + h3 { font-family: var(--body); font-weight: 400; font-size: 21px; color: var(--muted); margin-top: 0; }
+article h2 { font-size: 28px; margin: 56px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+article h3 { font-size: 21px; margin: 36px 0 8px; }
+article h4 { font-size: 18px; margin: 28px 0 6px; }
+article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+article blockquote { margin: 20px 0; padding: 4px 18px; border-left: 3px solid var(--line); color: var(--muted); }
+article code { font-size: .86em; background: var(--code); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+article pre { background: var(--code); padding: 14px; border-radius: 8px; overflow: auto; font-size: 14px; }
+article pre code { background: none; padding: 0; }
+article img { max-width: 100%; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+table { border-collapse: collapse; font-size: 15px; line-height: 1.4; min-width: 100%; }
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; background: var(--code); }
+tr:last-child td { border-bottom: 0; }
+td { font-variant-numeric: tabular-nums; }
+.draft { background: var(--mark); border-radius: 8px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 56px;
+  padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
+.foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
+.meta { color: var(--muted); }
+
+.sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--body); font-size: 15px; }
+.sx-brand { font-family: var(--display); font-weight: 800; text-decoration: none; letter-spacing: -.01em; }
+.sx-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.sx-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.sx-links a:hover, .sx-links a[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+<nav class="sx-nav" aria-label="Site">
+  <a class="sx-brand" href="../">One ballot, counted twice</a>
+  <div class="sx-links"><a href="../">2023</a><a href="../2026/">2026</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
+</nav>
+<div class="layout">
+<aside class="toc"><div class="toc-inner">
+  <details open><summary class="meta" style="cursor:pointer;margin-bottom:8px">Contents</summary>
+  <ul><li><a href="#summary">Summary</a></li><li><a href="#question">Question</a></li><li><a href="#design">Design</a></li><li><a href="#results">Results</a></li><li><a href="#interpretation">Interpretation</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#reproducing">Reproducing</a></li></ul></details>
+  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html" aria-current="page">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li></ul></div>
+</div></aside>
+<article>
+<p class="draft"><strong>Working draft.</strong> Last updated 21 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
+<h1 id="experiment-2-calibrating-to-new-zealand-elections-20052023">Experiment 2: Calibrating to New Zealand elections, 2005–2023</h1>
+<h2 id="summary">Summary</h2>
+<p>Experiment 2 asks how the overhang reforms perform on New Zealand's actual elections, and on synthetic elections that look like them.</p>
+<p>It has two parts. <strong>Part A</strong> reruns the seven elections from 2005 to 2023 under every system, using the Electoral Commission's ballot-level split-vote data. <strong>Part B</strong> repeats Experiment 1's Monte Carlo, with 5,000 scenarios, but draws every parameter from what those seven elections show. Where a parameter can't be read directly from the results, such as how much voters split strategically, it was fitted to each election's electorate results by approximate Bayesian computation (ABC).</p>
+<ul>
+<li><strong>Real overhangs have been small, and every reform handles them.</strong> From 2005 to 2023 overhangs were 0–2 seats. MMP-T and MMP-BV covered every one by transferring 4,000–37,000 party votes. Only one needed absorbing or House growth: the Māori Party's 2011 overhang under MMP-BV.</li>
+<li><strong>On the actual elections, the reforms change little except where votes were wasted.</strong> Bloc seat deficits were small under every system. The largest, in 2008 (4.4 seats), came from NZ First falling below the threshold, not from overhang. MMP-BV cut it to 3.5 seats.</li>
+<li><strong>In elections like New Zealand's, overhangs are modest.</strong> The calibrated scenarios have no overhang in a third of cases, a median of 2 seats and a 99th percentile of 10. Most of it (83%) comes from Māori parties.</li>
+<li><strong>MMP-BV is the clear winner on bloc fairness.</strong> At 121 seats its median bloc seat deficit is 1.1, against 2.1 under MMP and 1.7 under MMP-T. 65% of scenarios need no extra seats to bring both blocs within one seat, and 99% need at most 58. Under MMP, 41% never get there at any size.</li>
+<li><strong>Most bloc imbalance in realistic elections comes from wasted votes, not overhang.</strong> With no overhang at all, MMP's median bloc deficit is still 1.7 seats; MMP-BV's is 0.9.</li>
+<li><strong>The cost of MMP-BV is party-level proportionality.</strong> Its Gallagher index is higher (2.1 against MMP's 1.4). In 42% of scenarios no parliament size brings every party within one seat of its raw party-vote share, against 5% under MMP.</li>
+<li><strong>The reforms almost never do worse than MMP on bloc fairness.</strong> MMP-BV is more than one seat worse in 1% of scenarios and never more than two seats worse.</li>
+<li><strong>The -X variants make little difference here.</strong> With overhangs this small, the transfer usually covers them. The House grows by at most 5–6 seats under the -X variants, against 18 under MMP.</li>
+</ul>
+<h2 id="question">Question</h2>
+<p>Experiment 1 tested the systems across a deliberately wide range of synthetic party systems: 2–5 parties per bloc, blocs from 30:70 to 50:50, and strategic voting anywhere from 0% to 100%. That showed where each rule can fail, but many of its scenarios look nothing like New Zealand. Half had overhangs of 11 seats or more.</p>
+<p>Experiment 2 asks two narrower questions:</p>
+<ol>
+<li>How would each system have handled the elections New Zealand actually had?</li>
+<li>Across elections that resemble New Zealand's in party structure, geography and voter behaviour, how do the systems compare?</li>
+</ol>
+<p>Like Experiment 1, it holds ballots fixed: every system faces the same votes. How voters would respond to each system's incentives is Experiment 3's question.</p>
+<h2 id="design">Design</h2>
+<h3 id="data">Data</h3>
+<p>For 2005, 2008, 2011, 2014, 2017, 2020 and 2023, the Electoral Commission publishes a split-vote table for every electorate. Each table records, for each party's voters, how their electorate votes were distributed across the candidates. 2002 and earlier have no per-electorate tables. That is 495 electorate tables, plus 2005's party votes by electorate, which its split-vote tables lack. From them:</p>
+<ul>
+<li>national party votes, the electorates each party won, and the qualifying parties;</li>
+<li>every party's vote share in every electorate;</li>
+<li>the national split-vote table for general and Māori electorates;</li>
+<li>each electorate's candidate vote shares;</li>
+<li>for each party that won electorates, the ballots for its winning candidates, by party vote. These are the pools MMP-T and MMP-BV transfer from.</li>
+</ul>
+<p><strong>Port Waikato 2023:</strong> the poll was cancelled after a candidate died. Its seat is credited to National, which won the by-election, within National's normal allocation. In reality the by-election added a 123rd seat.</p>
+<p><strong>Blocs.</strong> A party that supported a government after the election is in that government's bloc: confidence and supply, or coalition. Any other party is placed by where its voters' general-electorate votes went: towards Labour's candidates, Left; towards National's, Right.</p>
+<h3 id="systems-compared">Systems compared</h3>
+<p>These are the same ten systems as Experiment 3. In Part A the base size is 120, the size actually used at these elections. In Part B it is 121, as in Experiments 1 and 3.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MMP</strong></td>
+<td>Current system. Overhanging parties keep their extra electorates and the House grows.</td>
+</tr>
+<tr>
+<td><strong>MMP-T</strong></td>
+<td>Overhang Transfer (the explainer's Option 1). Only when a party overhangs: wasted party votes on ballots for its winning candidates count for it, as many as needed; then the same fraction of every split ballot for its winners. Anything left is absorbed within the fixed size.</td>
+</tr>
+<tr>
+<td><strong>MMP-BV</strong></td>
+<td>Backup Vote (the explainer's Option 2). At every election, a party vote for a party that doesn't qualify counts for the voter's electorate candidate's party, if that party qualifies. If a party still overhangs: split-ballot transfer, then absorption.</td>
+</tr>
+<tr>
+<td><strong>MMP-T-X</strong>, <strong>MMP-BV-X</strong></td>
+<td>As MMP-T / MMP-BV, but overhang the transfer can't cover is handled as under MMP: the party keeps its extra seats and the House grows.</td>
+</tr>
+<tr>
+<td><strong>…141</strong></td>
+<td>The same rules with 141 seats (71 electorates, 70 list). Part B only.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="part-a-the-actual-elections">Part A: the actual elections</h3>
+<p>Each election is rerun under each system at 120 seats, using its actual votes, electorate winners and split-ballot pools.</p>
+<p>As a check, MMP reproduces every Parliament: 121, 122, 121, 121, 120, 120 and 122 seats. The 2023 figure differs from the real 123 only because of the Port Waikato treatment above.</p>
+<h3 id="part-b-the-calibrated-monte-carlo">Part B: the calibrated Monte Carlo</h3>
+<p>The scenario generator is Experiment 1's:</p>
+<ul>
+<li>64 general and 7 Māori electorates;</li>
+<li>a left and right bloc, each with a leading party and partners;</li>
+<li>centrists allied to a random bloc;</li>
+<li>sub-threshold minor parties;</li>
+<li>Māori parties standing only in the Māori electorates;</li>
+<li>a random left–right lean and local strength for each party in each electorate;</li>
+<li>ballots built voter by voter.</li>
+</ul>
+<p>What changes is where its parameters come from.</p>
+<h4 id="parameters-measured-directly">Parameters measured directly</h4>
+<p>These are drawn uniformly over the range seen in the seven elections. The bloc split and strategic voting are made symmetric, so neither bloc is favoured.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Drawn from</th>
+<th>Seen 2005–2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left share of Left + Right party vote</td>
+<td>36–64%</td>
+<td>44–64%</td>
+</tr>
+<tr>
+<td>Parties of 1%+ per bloc, including the leader</td>
+<td>resampled from history</td>
+<td>left 2–3, right 1–3</td>
+</tr>
+<tr>
+<td>Leader's share of its bloc's vote</td>
+<td>70–96%</td>
+<td>Labour 70–86%, National 74–100%</td>
+</tr>
+<tr>
+<td>Centrist parties (NZ First, United Future, TOP)</td>
+<td>1 or 2, as observed; 2.6–8.7% and 1.5–2.7%</td>
+<td>as left</td>
+</tr>
+<tr>
+<td>Parties under 1%, no candidates</td>
+<td>1.2–4.3% in total</td>
+<td>1.2–4.3%</td>
+</tr>
+<tr>
+<td>Māori parties</td>
+<td>1 (5 elections in 7) or 2</td>
+<td>1–2</td>
+</tr>
+<tr>
+<td>Māori-party share of the Māori electorates' party vote</td>
+<td>12–30%</td>
+<td>12–30%</td>
+</tr>
+<tr>
+<td>Left–right lean across electorates (log-odds SD)</td>
+<td>0.43–0.53</td>
+<td>0.43–0.53</td>
+</tr>
+<tr>
+<td>Local spread of a party's vote (log SD): leaders / others</td>
+<td>0.06–0.13 / 0.21–0.48</td>
+<td>as left</td>
+</tr>
+<tr>
+<td>Valid votes per electorate: general / Māori</td>
+<td>33–42k / 18–27k</td>
+<td>as left</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Smaller parties' local support is far more uneven than the big parties'.</strong> After allowing for the left–right lean, a smaller party's local vote varies three to four times as much as Labour's or National's. A party with 9% nationally can poll 20–30% in its best seats. The Greens are the most concentrated (0.33–0.48) and ACT the least (0.21–0.34).</p>
+<h4 id="behaviour-fitted-by-approximate-bayesian-computation">Behaviour fitted by approximate Bayesian computation</h4>
+<p>Strategic and personal voting can't simply be read off the split-vote tables. When a Green voter ticks Labour's candidate, the table doesn't say whether that was strategy or a liking for the local MP. The parameters below were therefore fitted election by election.</p>
+<p><strong>Model.</strong> Each electorate's actual party votes are kept. Only how each party's voters cast their electorate vote is simulated:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Personal vote: a share of every party's voters back a candidate they like, spread across the candidates by local strength and a random appeal</td>
+<td>π; appeal spread σ_a</td>
+</tr>
+<tr>
+<td>Strategic voting: a share of each partner party's remaining voters back their bloc leader's candidate</td>
+<td>s_q, one per partner party</td>
+</tr>
+<tr>
+<td>Māori electorates: Labour voters / other Left voters backing the locally strongest Māori-party candidate</td>
+<td>s_M / s_Mo</td>
+</tr>
+<tr>
+<td>Standout candidates: a few smaller-party candidates in their side's stronger seats draw a share d of the voters who would otherwise back their bloc leader. This is the Epsom, Ōhāriu, Wigram and Auckland Central pattern.</td>
+<td>number n_st; strength d</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Fitting.</strong></p>
+<ol>
+<li>200,000 parameter sets were drawn per election from broad prior ranges.</li>
+<li>Each draw was scored against what actually happened:<ul>
+<li>the national split-vote rows;</li>
+<li>each electorate's Labour and National candidate shares;</li>
+<li>the Māori-party candidates' shares in the Māori electorates;</li>
+<li>the number of general electorates won by parties other than Labour or National, and the top three such vote shares;</li>
+<li>the number of Māori electorates won by Māori parties.</li>
+</ul>
+</li>
+<li>The closest 2% were kept and weighted by closeness.</li>
+<li>The well-identified parameters were then regression-adjusted (the standard Beaumont–Zhang–Balding correction): π, s_M, s_Mo, and the strategic rates of partner parties with 2%+ of the vote.</li>
+</ol>
+<p>Centrists' voters split towards both leaders, which a one-ally rule can't represent. Centrists are therefore simulated but left out of the fit.</p>
+<p><strong>Fitted values</strong> (median [5th–95th percentile]):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Personal vote π</th>
+<th>Māori electorates: Labour voters s_M</th>
+<th>Māori electorates: other Left s_Mo</th>
+<th>Standouts n_st</th>
+<th>Standout strength d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2005</td>
+<td>0.16 [0.16–0.17]</td>
+<td>0.32 [0.31–0.34]</td>
+<td>0.31 [0.26–0.35]</td>
+<td>5 [3–8]</td>
+<td>0.74 [0.56–0.96]</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>0.14 [0.14–0.15]</td>
+<td>0.46 [0.45–0.47]</td>
+<td>0.57 [0.53–0.61]</td>
+<td>5–6 [3–8]</td>
+<td>0.81 [0.59–0.98]</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>0.20 [0.20–0.20]</td>
+<td>0.30 [0.28–0.31]</td>
+<td>0.52 [0.49–0.55]</td>
+<td>3 [1–7]</td>
+<td>0.64 [0.40–0.93]</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>0.18 [0.17–0.18]</td>
+<td>0.29 [0.28–0.31]</td>
+<td>0.37 [0.34–0.40]</td>
+<td>3 [1–7]</td>
+<td>0.63 [0.41–0.92]</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>0.16 [0.16–0.17]</td>
+<td>0.22 [0.21–0.23]</td>
+<td>0.22 [0.18–0.25]</td>
+<td>4 [2–8]</td>
+<td>0.57 [0.36–0.88]</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>0.18 [0.17–0.18]</td>
+<td>0.29 [0.28–0.30]</td>
+<td>0.52 [0.49–0.56]</td>
+<td>4 [1–8]</td>
+<td>0.63 [0.36–0.95]</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>0.12 [0.12–0.13]</td>
+<td>0.43 [0.42–0.44]</td>
+<td>0.80 [0.77–0.80]</td>
+<td>6 [3–8]</td>
+<td>0.73 [0.51–0.94]</td>
+</tr>
+<tr>
+<td><strong>All</strong></td>
+<td><strong>0.16 [0.12–0.20]</strong></td>
+<td><strong>0.30 [0.22–0.46]</strong></td>
+<td><strong>0.51 [0.21–0.80]</strong></td>
+<td><strong>4 [2–8]</strong></td>
+<td><strong>0.69 [0.41–0.95]</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>Strategic rates for the main partner parties:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Party</th>
+<th>Rate of backing the bloc leader's candidate, by election</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Greens</td>
+<td>0.69 (2005), 0.59, 0.57, 0.55, 0.61, 0.67, 0.46 (2023)</td>
+</tr>
+<tr>
+<td>ACT</td>
+<td>0.82 (2008), 0.72 (2020), 0.66 (2023); poorly identified in 2005, 2014 and 2017, when ACT effectively stood only in Epsom</td>
+</tr>
+<tr>
+<td>Conservatives</td>
+<td>0.42 (2011), 0.51 (2014)</td>
+</tr>
+<tr>
+<td>NZ Loyal (2023)</td>
+<td>about 0.25, with a wide range: its voters mostly backed their own candidates</td>
+</tr>
+</tbody>
+</table></div>
+<p>The spread of candidate appeal, and the rates for parties under about 2%, are poorly identified. They are used with their full uncertainty.</p>
+<p><strong>Fit.</strong> Re-simulating the fitted parameters reproduces the actual elections closely on the partner parties' splits:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Observed (range across years)</th>
+<th>Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Green voters backing Labour's candidate</td>
+<td>0.47–0.62</td>
+<td>within 0.06 every year</td>
+</tr>
+<tr>
+<td>ACT voters backing National's candidate</td>
+<td>0.62–0.75</td>
+<td>within 0.05 every year</td>
+</tr>
+</tbody>
+</table></div>
+<p>It is weaker on electorate wins:</p>
+<ul>
+<li><strong>Māori parties' Māori-seat wins are over-predicted in 2008, 2011 and 2014.</strong> The worst year is 2014: 4.1 predicted against an actual 1.</li>
+<li><strong>Labour voters backing a Māori-party candidate run about 5 points high.</strong></li>
+<li><strong>Smaller parties' general-electorate wins are under-predicted:</strong> for example 3.3 against 5 in 2023.</li>
+</ul>
+<h4 id="how-the-monte-carlo-uses-the-fits">How the Monte Carlo uses the fits</h4>
+<ul>
+<li>Each scenario takes one joint draw of π, s_M, s_Mo, σ_a, n_st and d from a randomly chosen election.</li>
+<li>Each partner and centrist party takes its own strategic rate from a random historical partner party's fitted rate. So a scenario can have an ACT-like partner on one side and a Greens-like or NZ Loyal-like partner on the other.</li>
+</ul>
+<p><strong>Validation</strong> against the seven elections:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Calibrated scenarios</th>
+<th>2005–2023</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overhang at 121 (120): median / max</td>
+<td>2 / 15 (99th percentile 10)</td>
+<td>1 / 2</td>
+</tr>
+<tr>
+<td>Smaller-party general-electorate wins per election</td>
+<td>2.5</td>
+<td>2.6</td>
+</tr>
+<tr>
+<td>Māori-party Māori-electorate wins</td>
+<td>3.6</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>Votes on ballots wasting both ticks: median</td>
+<td>1.3%</td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<p>The scenarios' overhangs are a little larger than history's, mainly through the over-prediction of Māori-party seat wins.</p>
+<h3 id="measures">Measures</h3>
+<p>These match Experiments 1 and 3.</p>
+<ul>
+<li><strong>Bloc seat deficit:</strong> how many seats the worse-off bloc is short of its share of all party votes, including votes for parties that missed the threshold. Every party belongs to the left or right bloc, and centrists count with their ally.</li>
+<li><strong>Party seat deficit (rounded):</strong> each qualifying party's shortfall against its share of the qualifying party vote, rounded to whole seats, then summed.</li>
+<li><strong>Gallagher index:</strong> the conventional measure of party-level disproportionality.</li>
+<li><strong>Extra seats (b):</strong> the list seats to add beyond the base size so that no bloc is more than one seat short. This uses the bloc yardstick without voters who wasted both ticks.</li>
+<li><strong>Extra seats (a):</strong> the same, so that no party is more than one seat short.</li>
+<li><strong>Overhang:</strong> electorates won beyond the party's entitlement on raw party votes at the base size.</li>
+</ul>
+<h2 id="results">Results</h2>
+<h3 id="part-a-the-actual-elections-20052023-120-seats">Part A: the actual elections, 2005–2023 (120 seats)</h3>
+<p><strong>Bloc seat deficit (House size where it grows)</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Overhang</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP-T-X</th>
+<th>MMP-BV-X</th>
+<th>Votes transferred: MMP-T / MMP-BV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2005</td>
+<td>Māori Party 1</td>
+<td>0.1 (121)</td>
+<td>0.5</td>
+<td>0.5</td>
+<td>0.5</td>
+<td>0.5</td>
+<td>16,978 / 16,307</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>Māori Party 2</td>
+<td>4.4 (122)</td>
+<td>4.5</td>
+<td><strong>3.5</strong></td>
+<td>4.5</td>
+<td><strong>3.5</strong></td>
+<td>26,596 / 24,113</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>Māori Party 1</td>
+<td>0.2 (121)</td>
+<td>0.7</td>
+<td>0.3</td>
+<td>0.7</td>
+<td>0.2 (121)</td>
+<td>13,154 / 13,518</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>United Future 1</td>
+<td>0.4 (121)</td>
+<td>0.9</td>
+<td><strong>0.1</strong></td>
+<td>0.9</td>
+<td><strong>0.1</strong></td>
+<td>4,195 / 3,990</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>none</td>
+<td>1.8</td>
+<td>1.8</td>
+<td><strong>0.8</strong></td>
+<td>1.8</td>
+<td><strong>0.8</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>none</td>
+<td>0.2</td>
+<td>0.2</td>
+<td>1.2</td>
+<td>0.2</td>
+<td>1.2</td>
+<td>–</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>Te Pāti Māori 2</td>
+<td>1.5 (122)</td>
+<td><strong>0.4</strong></td>
+<td><strong>0.4</strong></td>
+<td><strong>0.4</strong></td>
+<td><strong>0.4</strong></td>
+<td>35,038 / 36,526</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Gallagher index</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2005</td>
+<td>0.95</td>
+<td>1.12</td>
+<td>1.12</td>
+</tr>
+<tr>
+<td>2008</td>
+<td>1.42</td>
+<td>1.34</td>
+<td>1.59</td>
+</tr>
+<tr>
+<td>2011</td>
+<td>0.84</td>
+<td>0.93</td>
+<td>0.92</td>
+</tr>
+<tr>
+<td>2014</td>
+<td>0.68</td>
+<td>0.87</td>
+<td>0.64</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>0.35</td>
+<td>0.35</td>
+<td>0.69</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>0.37</td>
+<td>0.37</td>
+<td>0.83</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>1.44</td>
+<td>1.51</td>
+<td>1.51</td>
+</tr>
+</tbody>
+</table></div>
+<p>Seat effects of the transfers were at most one or two seats per party. In 2023, for example, Labour and the Greens each lost one seat under MMP-T and MMP-BV, keeping Te Pāti Māori's six electorates within a 120-seat House. National, ACT and NZ First were unchanged.</p>
+<h3 id="part-b-calibrated-monte-carlo-5000-scenarios">Part B: calibrated Monte Carlo (5,000 scenarios)</h3>
+<p><strong>All scenarios, 121 seats</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP-T-X</th>
+<th>MMP-BV-X</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bloc seat deficit: median / 90th percentile</td>
+<td>2.1 / 5.1</td>
+<td>1.7 / 4.5</td>
+<td><strong>1.1 / 2.7</strong></td>
+<td>1.7 / 4.6</td>
+<td><strong>1.1 / 2.7</strong></td>
+</tr>
+<tr>
+<td>Blocs within one seat</td>
+<td>25%</td>
+<td>31%</td>
+<td>45%</td>
+<td>30%</td>
+<td><strong>46%</strong></td>
+</tr>
+<tr>
+<td>Extra seats (b): none needed</td>
+<td>30%</td>
+<td>37%</td>
+<td>65%</td>
+<td>38%</td>
+<td><strong>67%</strong></td>
+</tr>
+<tr>
+<td>Extra seats (b): 90th / 95th / 99th percentile</td>
+<td>never / never / never</td>
+<td>never / never / never</td>
+<td>10 / 20 / 58</td>
+<td>never / never / never</td>
+<td><strong>9 / 18 / 57</strong></td>
+</tr>
+<tr>
+<td>Extra seats (b): never reached within 400 seats</td>
+<td>41%</td>
+<td>35%</td>
+<td><strong>0%</strong></td>
+<td>35%</td>
+<td><strong>0%</strong></td>
+</tr>
+<tr>
+<td>Gallagher: median</td>
+<td><strong>1.4</strong></td>
+<td>1.6</td>
+<td>2.1</td>
+<td>1.5</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td>Party seat deficit (rounded): median / 90th percentile</td>
+<td>2 / 6</td>
+<td>2 / 6</td>
+<td>3 / 6</td>
+<td>2 / 6</td>
+<td>3 / 6</td>
+</tr>
+<tr>
+<td>Extra seats (a): none needed</td>
+<td><strong>48%</strong></td>
+<td>45%</td>
+<td>27%</td>
+<td>45%</td>
+<td>27%</td>
+</tr>
+<tr>
+<td>Extra seats (a): never reached within 400 seats</td>
+<td><strong>5%</strong></td>
+<td>9%</td>
+<td>42%</td>
+<td>9%</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>House: median / max</td>
+<td>123 / 139</td>
+<td>121</td>
+<td>121</td>
+<td>122 / 127</td>
+<td>122 / 126</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>All scenarios, 141 seats</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>MMP141</th>
+<th>MMP-T141</th>
+<th>MMP-BV141</th>
+<th>MMP-T-X141</th>
+<th>MMP-BV-X141</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bloc seat deficit: median / 90th percentile</td>
+<td>2.2 / 5.5</td>
+<td>1.8 / 5.1</td>
+<td><strong>1.1 / 2.8</strong></td>
+<td>1.8 / 5.1</td>
+<td><strong>1.0 / 2.9</strong></td>
+</tr>
+<tr>
+<td>Blocs within one seat</td>
+<td>24%</td>
+<td>29%</td>
+<td><strong>48%</strong></td>
+<td>30%</td>
+<td><strong>48%</strong></td>
+</tr>
+<tr>
+<td>Gallagher: median</td>
+<td><strong>0.9</strong></td>
+<td><strong>0.9</strong></td>
+<td>1.7</td>
+<td><strong>0.9</strong></td>
+<td>1.7</td>
+</tr>
+<tr>
+<td>House: median / max</td>
+<td>142 / 151</td>
+<td>141</td>
+<td>141</td>
+<td>141 / 145</td>
+<td>141 / 145</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Median bloc seat deficit at 121, by overhang size</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Overhang at 121</th>
+<th>Share of scenarios</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>34%</td>
+<td>1.7</td>
+<td>1.7</td>
+<td><strong>0.9</strong></td>
+</tr>
+<tr>
+<td>1–2 seats</td>
+<td>18%</td>
+<td>1.7</td>
+<td>1.7</td>
+<td><strong>0.9</strong></td>
+</tr>
+<tr>
+<td>3–5 seats</td>
+<td>32%</td>
+<td>2.5</td>
+<td>1.8</td>
+<td><strong>1.3</strong></td>
+</tr>
+<tr>
+<td>6 or more</td>
+<td>16%</td>
+<td>2.7</td>
+<td>1.7</td>
+<td><strong>1.5</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Where a reform does worse than MMP on bloc fairness</strong> (share of scenarios where its bloc seat deficit exceeds MMP's at the same size by more than the margin)</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Comparison</th>
+<th>&gt; 0</th>
+<th>&gt; 0.5 seat</th>
+<th>&gt; 1 seat</th>
+<th>&gt; 2 seats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMP-T vs MMP</td>
+<td>18%</td>
+<td>9%</td>
+<td>3%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>MMP-BV vs MMP</td>
+<td>13%</td>
+<td>6%</td>
+<td>1%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>MMP-T-X vs MMP</td>
+<td>17%</td>
+<td>9%</td>
+<td>3%</td>
+<td>0.1%</td>
+</tr>
+<tr>
+<td>MMP-BV-X vs MMP</td>
+<td>12%</td>
+<td>6%</td>
+<td>1%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>MMP-T141 vs MMP141</td>
+<td>16%</td>
+<td>9%</td>
+<td>4%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>MMP-BV141 vs MMP141</td>
+<td>12%</td>
+<td>6%</td>
+<td>1%</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table></div>
+<p>Strategic voting in these scenarios never falls far: the higher bloc's rate is 43–86% in 90% of them. Results barely vary across that range. MMP-BV has its blocs within one seat in 43–50% of scenarios in every band of strategic voting.</p>
+<h3 id="comparison-with-experiment-1">Comparison with Experiment 1</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Bloc seat deficit, 121 seats: median / 90th percentile</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Experiment 1 (wide synthetic range)</td>
+<td>6.2 / 14.5</td>
+<td>4.1 / 10.3</td>
+<td>2.0 / 7.7</td>
+</tr>
+<tr>
+<td>Experiment 2 (calibrated to NZ)</td>
+<td>2.1 / 5.1</td>
+<td>1.7 / 4.5</td>
+<td>1.1 / 2.7</td>
+</tr>
+</tbody>
+</table></div>
+<p>The ranking is the same, but realistic elections are much less extreme. Experiment 1's large failures came from fragmented party systems with heavy one-sided strategic voting, which New Zealand hasn't produced.</p>
+<h2 id="interpretation">Interpretation</h2>
+<p><strong>Overhang has been a small problem so far, and the reforms solve it cheaply.</strong> Every historical overhang was 1–2 seats, and every one was covered by transferring a small share of split ballots: at most about 37,000 votes, or 1.3% of the party vote. Under the reforms the House would have stayed at 120 in every election from 2005 to 2023. Only one case, the Māori Party's 2011 overhang under MMP-BV, could not be fully covered.</p>
+<p><strong>Wasted votes matter more than overhang.</strong> In both the real elections and the calibrated ones, the largest bloc imbalances come from parties falling below the threshold:</p>
+<ul>
+<li>NZ First in 2008;</li>
+<li>the Conservatives in 2011 and 2014;</li>
+<li>TOP, New Conservative and NZ Loyal more recently.</li>
+</ul>
+<p>MMP-BV is the only system that addresses this. Its backup vote rescues those voters wherever their electorate vote went to a qualifying ally. That is why it beats MMP-T even in scenarios with no overhang at all.</p>
+<p><strong>MMP-T is a targeted fix.</strong> It does nothing when there is no overhang. When there is one, it holds the bloc deficit roughly flat as the overhang grows (1.7–1.8 seats), while MMP's rises to 2.5–2.7.</p>
+<p><strong>The trade-off for MMP-BV is real and permanent.</strong> Counting backup votes moves seats away from what raw party votes would give each party. A bigger Parliament can't undo that, so the party-level target is never met in 42% of scenarios. This is a choice between two notions of proportionality:</p>
+<ul>
+<li>proportional to the party vote as cast (MMP and MMP-T are closer);</li>
+<li>proportional to voters' qualifying choices across both ticks, by bloc (MMP-BV is closer).</li>
+</ul>
+<p><strong>The fallback rule matters little in realistic conditions.</strong> The -X variants differ from the absorbing versions by at most a few hundredths of a seat at the median here, because transfers usually cover the whole overhang. Experiment 3 shows the fallback matters more once voters respond to the reforms and strategic splitting dries up.</p>
+<p><strong>Te Pāti Māori is the main source of overhang.</strong> 83% of overhang seats in the calibrated scenarios come from Māori parties. That reflects both the structure of the Māori electorates, where turnout is lower and the Māori-party vote is concentrated, and the model's tendency to over-predict Māori-party wins.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li><strong>Fixed behaviour.</strong> As in Experiment 1, voters behave the same way under every system. How behaviour would shift under each system is Experiment 3's subject.</li>
+<li><strong>Identification.</strong> The ABC separates personal from strategic voting well. It separates the spread of candidate appeal and the standout effects poorly. The rates for small partner parties are wide, and ACT's are poorly identified in years when it stood almost only in Epsom.</li>
+<li><strong>Fit gaps:</strong><ul>
+<li>Māori-party Māori-seat wins are over-predicted for 2008–2014, and Labour voters backing Māori-party candidates by about 5 points. That probably makes the calibrated overhangs somewhat larger than reality.</li>
+<li>Smaller parties' general-electorate wins are under-predicted in some years.</li>
+</ul>
+</li>
+<li><strong>Model simplifications:</strong><ul>
+<li>Māori electorates vote only for Māori and Left parties, and Māori parties get no votes elsewhere.</li>
+<li>Centrists are allied to one bloc at random, and are not fitted.</li>
+<li>Parties under 0.5% are pooled.</li>
+<li>A party counts as standing in an electorate only if its candidate got at least 1%.</li>
+</ul>
+</li>
+<li><strong>Data:</strong><ul>
+<li>The split-vote tables are given as percentages, so counts can be off by a vote or two.</li>
+<li>TOP's candidates are filed under "TOP" in the saved data, so TOP's split-vote row isn't used. TOP never qualified, so seat results are unaffected.</li>
+<li>Port Waikato 2023 is treated as described above.</li>
+</ul>
+</li>
+<li><strong>Bloc assignments are judgement calls</strong> where a party supported neither government. Those parties are placed by their voters' electorate votes.</li>
+</ul>
+<h2 id="reproducing">Reproducing</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data/raw/history/&lt;year&gt;.json</code></td>
+<td>Per-election data built from the Electoral Commission's split-vote tables</td>
+</tr>
+<tr>
+<td><code>mc_history.py</code></td>
+<td>Part A: every system on the actual elections → <code>results_history.json</code></td>
+</tr>
+<tr>
+<td><code>calibrate_history.py</code></td>
+<td>Directly measured parameters → <code>calibration.json</code></td>
+</tr>
+<tr>
+<td><code>abc_history.py</code></td>
+<td>ABC fit of the behavioural parameters → <code>abc_posterior.json</code>, <code>abc_summary.md</code> (draws cached in <code>abc_cache/</code>)</td>
+</tr>
+<tr>
+<td><code>mc_calibrated.py</code></td>
+<td>Part B: calibrated scenario generator and runner → <code>mc_results_calibrated.csv</code></td>
+</tr>
+<tr>
+<td><code>mc_analyse.py</code></td>
+<td>Summary tables → <code>mc_summary_calibrated.md</code></td>
+</tr>
+<tr>
+<td><code>mc_overhang.py</code></td>
+<td>Seat rules and measures shared with Experiments 1 and 3</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-bash">python3 mc_history.py
+python3 calibrate_history.py
+python3 abc_history.py 200000
+python3 mc_calibrated.py run 5000
+python3 mc_analyse.py mc_results_calibrated.csv mc_summary_calibrated.md
+</code></pre>
+<nav class="pager" aria-label="Report pages"><a href="../report/experiment-1.html">← Experiment 1: stress test</a><a href="../report/experiment-3.html">Experiment 3: futures from 2026 →</a></nav>
+<p class="foot">Generated from <code>report_experiment2.md</code>. This describes proposals for discussion, not current electoral law.</p>
+</article>
+</div>
+</body>
+</html>

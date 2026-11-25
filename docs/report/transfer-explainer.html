@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keeping Parliament proportional when votes are split</title>
+<meta name="description" content="This explainer describes a proposed change. It is not current law.">
+<meta property="og:title" content="Keeping Parliament proportional when votes are split">
+<meta property="og:description" content="This explainer describes a proposed change. It is not current law.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --accent: #0B57A4; --mark: #FFF4C2; --code: #E6ECE9;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+    --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+  --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body);
+  font-size: 18px; line-height: 1.6; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+.sx-brand { color: var(--ink); }
+.layout { max-width: 1120px; margin: 0 auto; display: grid; gap: 40px; padding-block: 32px 80px;
+  grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .layout { grid-template-columns: 240px minmax(0, 1fr); } }
+.toc { font-size: 14px; line-height: 1.4; }
+.toc-inner { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding-right: 8px; }
+.toc p { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul ul { padding-left: 12px; }
+.toc li { margin: 6px 0; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+.toc .group { margin-top: 24px; }
+@media (max-width: 999px) { .toc-inner { position: static; max-height: none; }
+  .toc details:not([open]) ul { display: none; } }
+article { max-width: 760px; min-width: 0; }
+article h1, article h2, article h3, article h4 { font-family: var(--display); line-height: 1.15; text-wrap: balance; }
+article h1 { font-size: clamp(32px, 4.4vw, 48px); font-weight: 800; letter-spacing: -.015em; margin: 0 0 12px; }
+article h1 + h3 { font-family: var(--body); font-weight: 400; font-size: 21px; color: var(--muted); margin-top: 0; }
+article h2 { font-size: 28px; margin: 56px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+article h3 { font-size: 21px; margin: 36px 0 8px; }
+article h4 { font-size: 18px; margin: 28px 0 6px; }
+article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+article blockquote { margin: 20px 0; padding: 4px 18px; border-left: 3px solid var(--line); color: var(--muted); }
+article code { font-size: .86em; background: var(--code); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+article pre { background: var(--code); padding: 14px; border-radius: 8px; overflow: auto; font-size: 14px; }
+article pre code { background: none; padding: 0; }
+article img { max-width: 100%; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+table { border-collapse: collapse; font-size: 15px; line-height: 1.4; min-width: 100%; }
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; background: var(--code); }
+tr:last-child td { border-bottom: 0; }
+td { font-variant-numeric: tabular-nums; }
+.draft { background: var(--mark); border-radius: 8px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 56px;
+  padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
+.foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
+.meta { color: var(--muted); }
+
+.sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--body); font-size: 15px; }
+.sx-brand { font-family: var(--display); font-weight: 800; text-decoration: none; letter-spacing: -.01em; }
+.sx-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.sx-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.sx-links a:hover, .sx-links a[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+<nav class="sx-nav" aria-label="Site">
+  <a class="sx-brand" href="../">One ballot, counted twice</a>
+  <div class="sx-links"><a href="../">2023</a><a href="../2026/">2026</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
+</nav>
+<div class="layout">
+<aside class="toc"><div class="toc-inner">
+  <details open><summary class="meta" style="cursor:pointer;margin-bottom:8px">Contents</summary>
+  <ul><li><a href="#in-brief">In brief</a></li><li><a href="#how-mmp-works-now">How MMP works now</a></li><li><a href="#the-problem-split-voting-by-design">The problem: split voting by design</a></li><li><a href="#the-principle-everyone-counts-once">The principle: everyone counts once</a></li><li><a href="#the-proposal">The proposal</a></li><li><a href="#worked-example">Worked example</a></li><li><a href="#a-real-example-the-2023-general-election">A real example: the 2023 general election</a></li><li><a href="#fair-between-blocs">Fair between blocs</a></li><li><a href="#it-changes-the-incentives">It changes the incentives</a></li><li><a href="#doing-the-calculation-on-paper">Doing the calculation on paper</a></li><li><a href="#why-transfer-a-proportional-share">Why transfer a proportional share?</a></li><li><a href="#alternatives-worth-considering">Alternatives worth considering</a></li><li><a href="#concerns-about-small-parties">Concerns about small parties</a></li><li><a href="#isnt-this-disregarding-my-vote">"Isn't this disregarding my vote?"</a></li><li><a href="#questions-and-answers">Questions and answers</a></li></ul></details>
+  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/">Full report</a></li><li><a href="../report/transfer-explainer.html" aria-current="page">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li></ul></div>
+</div></aside>
+<article>
+<p class="draft"><strong>Working draft.</strong> Last updated 15 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
+<h1 id="keeping-parliament-proportional-when-votes-are-split">Keeping Parliament proportional when votes are split</h1>
+<h3 id="a-proposal-for-handling-overhang-seats-under-mmp">A proposal for handling overhang seats under MMP</h3>
+<blockquote>
+<p>This explainer describes a <strong>proposed change</strong>. It is not current law.</p>
+</blockquote>
+<hr />
+<h2 id="in-brief">In brief</h2>
+<ul>
+<li><strong>Everyone counts once.</strong> Every voter gets an equal share of Parliament's proportionality. You fill that share with your party vote or with your electorate vote, but never with both.</li>
+<li>Normally your party vote fills it. Your electorate vote fills it only if the MP you elected has no party votes behind their seat, which is what an <strong>overhang seat</strong> is.</li>
+<li>Want to be sure your share goes to one party? Tick that party twice.</li>
+<li>Today, a split ballot that elects an overhang MP counts twice: once for the MP and again, in full, for another party. Groups of parties can use this deliberately to win more seats than their combined party vote earns.</li>
+<li>The proposal keeps every electorate MP and keeps Parliament at 120. It counts only as many split ballots as needed towards the electorate MP's party, and uses party votes that would otherwise be wasted first.</li>
+<li><strong>It's fair between blocs.</strong> Each group of parties ends up with about its combined share of the party vote.</li>
+<li><strong>It changes the incentives.</strong> Splitting your vote no longer wins your side extra seats, so parties stop asking for it. If that works, the rule will rarely be needed.</li>
+</ul>
+<hr />
+<h2 id="how-mmp-works-now">How MMP works now</h2>
+<p>When you vote, you tick:</p>
+<ol>
+<li><strong>a party</strong>: this decides how many seats each party gets in Parliament overall</li>
+<li><strong>a candidate in your electorate</strong>: this decides who represents your local area.</li>
+</ol>
+<p>After the election, each party that gets at least 5% of the party vote (or wins an electorate) is given a share of the 120 seats based on its party vote. This uses a calculation called the <strong>Sainte-Laguë formula</strong>.</p>
+<p>Electorate MPs are seated first. Each party's remaining seats are filled from its list.</p>
+<h3 id="what-is-an-overhang">What is an overhang?</h3>
+<p>An overhang happens when a party wins <strong>more electorates than its party vote entitles it to</strong>.</p>
+<p>For example, if a party's party vote gives it 37 seats but it wins 40 electorates, it has 3 overhang seats.</p>
+<p>Under current law, the party keeps all 40 electorate seats and the other parties keep their full share. Parliament grows to fit everyone in. In 2023, overhang seats took Parliament to 123 seats.</p>
+<hr />
+<h2 id="the-problem-split-voting-by-design">The problem: split voting by design</h2>
+<p>Overhangs used to happen by accident. Now some voters split their votes <strong>on purpose</strong>, to give a group of parties more seats than their combined party vote would earn.</p>
+<p>It works like this:</p>
+<ul>
+<li>Voters who support a group of parties give their <strong>electorate vote</strong> to the biggest party in the group, which wins the electorates.</li>
+<li>They give their <strong>party vote</strong> to a smaller partner party.</li>
+<li>The big party wins more electorates than its party vote entitles it to.</li>
+<li>The partner party gets its full share of list seats as well.</li>
+<li>Together, the group ends up with more seats than its share of the party vote.</li>
+</ul>
+<p>This can be done by any group of parties. It undermines the main purpose of MMP: that Parliament reflects how people voted.</p>
+<hr />
+<h2 id="the-principle-everyone-counts-once">The principle: everyone counts once</h2>
+<p>The best way to think about this proposal isn't as moving anyone's vote. It's as <strong>everyone getting an equal say in what Parliament looks like</strong>.</p>
+<p>Under MMP, the party vote decides each party's share of Parliament, <strong>including</strong> its electorate seats. A party's electorate MPs come out of the share its party vote earns. So for most voters, the electorate vote decides <em>who</em> their local MP is, and the party vote decides <em>how Parliament is made up</em>.</p>
+<p>An overhang seat breaks this. It's a seat with no party votes behind it. The voters who elected that MP have already shaped Parliament's make-up through their party vote for another party, and now they've added a seat on top. Their ballot counts twice. Everyone else's counts once.</p>
+<p>The proposal fixes this by giving every voter <strong>one equal share</strong> of Parliament's proportionality:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Your ballot</th>
+<th>What fills your share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Both ticks for the same party</td>
+<td>That party. Always.</td>
+</tr>
+<tr>
+<td>Split, and your electorate MP's seat is covered by their own party's votes</td>
+<td>Your party vote, exactly as today</td>
+</tr>
+<tr>
+<td>Split, and your electorate MP would be an overhang seat</td>
+<td>Your electorate vote, or part of it, only as much as is needed to cover that seat</td>
+</tr>
+<tr>
+<td>Party vote for a party that didn't qualify</td>
+<td>Your electorate vote, if your MP needs it. Today this vote counts for nothing.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nobody's vote is thrown away. The question is only <em>which</em> of your two choices fills your one share. And if you want to be certain it's a particular party, you can tick that party twice.</p>
+<hr />
+<h2 id="the-proposal">The proposal</h2>
+<p>When a party would have an overhang, a share of the split ballots that helped cause it fill their voters' share of Parliament through the <strong>electorate vote</strong> rather than the party vote. In practice, these ballots are counted <strong>as if the party vote followed the electorate vote</strong>. Only as many as are needed are counted this way, and the size of Parliament stays the same.</p>
+<h3 id="how-it-works-step-by-step">How it works, step by step</h3>
+<p><strong>Step 1: Apply the threshold</strong>
+Work out which parties qualify for seats, using the normal rules. This is done <strong>before</strong> any votes are moved, so no party can drop below the threshold because of a transfer.</p>
+<p><strong>Step 2: Check for an overhang</strong>
+Allocate seats using Sainte-Laguë as normal. If any party has won more electorates than its seat entitlement, continue. If not, the result stands.</p>
+<p><strong>Step 3: Use wasted votes first</strong>
+Look at ballots where:</p>
+<ul>
+<li>the electorate vote went to a <strong>winning candidate</strong> of the overhanging party, <strong>and</strong></li>
+<li>the party vote went to a party that <strong>didn't qualify</strong> for seats.</li>
+</ul>
+<p>Those party votes would otherwise count for nothing. Count them for the party whose candidate the voter chose, <strong>only as many as needed</strong> to cover the overhang. If that's enough, stop here.</p>
+<p><strong>Step 4: Transfer a proportional share of other split votes</strong>
+If an overhang remains, look at ballots where:</p>
+<ul>
+<li>the electorate vote went to a winning candidate of the overhanging party, <strong>and</strong></li>
+<li>the party vote went to a <strong>different qualifying party</strong>.</li>
+</ul>
+<p>The same small fraction (called <em>f</em>) of each of these party votes is transferred to the overhanging party. Every eligible ballot is treated the same way. No ballots are chosen at random.</p>
+<p>Because every eligible ballot gives up the same fraction, each party loses votes in proportion to how many of its voters split this way. Parties whose voters rarely split this way lose very little.</p>
+<p><strong>Optional safeguard: cap the loss</strong>
+No party can lose more than one seat through transfers. If an overhang remains after the cap is reached, the remaining overhang is handled by giving other parties fewer list seats, as the Independent Electoral Review recommended. (See <a href="#concerns-about-small-parties">Concerns about small parties</a>.)</p>
+<p><strong>Step 5: Allocate seats</strong>
+Allocate the 120 seats using Sainte-Laguë with the adjusted party votes. The overhanging party's entitlement now matches its electorate seats, and every other party's share is proportional.</p>
+<hr />
+<h2 id="worked-example">Worked example</h2>
+<p>This example uses made-up parties and numbers. Party B is Party A's likely coalition partner.</p>
+<ul>
+<li>Party A wins <strong>40 electorates</strong>.</li>
+<li>Party E gets 96,000 party votes but doesn't reach the threshold.</li>
+</ul>
+<h3 id="split-ballots-for-party-as-winning-candidates">Split ballots for Party A's winning candidates</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Party vote went to</th>
+<th>Number of ballots</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Party E (didn't qualify)</td>
+<td>12,000</td>
+</tr>
+<tr>
+<td>Party B</td>
+<td>150,000</td>
+</tr>
+<tr>
+<td>Party C</td>
+<td>20,000</td>
+</tr>
+<tr>
+<td>Party D</td>
+<td>10,000</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="results">Results</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Party</th>
+<th>Party votes (before)</th>
+<th>Seats under current law</th>
+<th>After Step 3</th>
+<th>Party votes (after)</th>
+<th>Final seats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>720,000</td>
+<td>40 <em>(37 + 3 overhang)</em></td>
+<td>38</td>
+<td>759,967</td>
+<td><strong>40</strong></td>
+</tr>
+<tr>
+<td>B</td>
+<td>360,000</td>
+<td>19</td>
+<td>19</td>
+<td>336,694</td>
+<td><strong>17</strong></td>
+</tr>
+<tr>
+<td>C</td>
+<td>840,000</td>
+<td>44</td>
+<td>43</td>
+<td>836,893</td>
+<td><strong>43</strong></td>
+</tr>
+<tr>
+<td>D</td>
+<td>384,000</td>
+<td>20</td>
+<td>20</td>
+<td>382,446</td>
+<td><strong>20</strong></td>
+</tr>
+<tr>
+<td>E</td>
+<td>96,000</td>
+<td>0</td>
+<td>0</td>
+<td>84,000</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td><strong>123</strong></td>
+<td>120</td>
+<td></td>
+<td><strong>120</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>What happened:</strong></p>
+<ol>
+<li><strong>Step 3:</strong> All 12,000 wasted Party E votes were counted for Party A. This took Party A from 37 to 38 seats. It still needed 2 more.</li>
+<li><strong>Step 4:</strong> The fraction needed was <em>f</em> = 0.1554, or about 15.5% of each eligible split vote:<ul>
+<li>23,306 votes moved from Party B</li>
+<li>3,107 votes moved from Party C</li>
+<li>1,554 votes moved from Party D</li>
+</ul>
+</li>
+<li><strong>Step 5:</strong> Party A's entitlement now equals its 40 electorates. Parliament stays at 120.</li>
+</ol>
+<p><strong>The effect:</strong></p>
+<ul>
+<li>Under current law, Parliament has 123 seats and Parties A and B together hold <strong>59</strong>.</li>
+<li>Under the proposal, Parliament has 120 seats and Parties A and B together hold <strong>57</strong>. That's close to their combined share of the party vote (about 47%, or 56 seats). The small difference comes from wasted Party E votes, and a small number of votes from Parties C and D, that followed their voters' electorate choice.</li>
+</ul>
+<hr />
+<h2 id="a-real-example-the-2023-general-election">A real example: the 2023 general election</h2>
+<p>In 2023, Te Pāti Māori won <strong>6 electorates</strong> but its party vote (3.08%) entitled it to only <strong>4 seats</strong>. That created <strong>2 overhang seats</strong>, and Parliament grew to 122.¹</p>
+<h3 id="who-split-their-vote">Who split their vote</h3>
+<p>These are voters in the six electorates Te Pāti Māori won who gave their electorate vote to the Te Pāti Māori candidate but their party vote to another party.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Party vote went to</th>
+<th>Split ballots</th>
+<th>Moved under the proposal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parties that didn't qualify</td>
+<td>3,010</td>
+<td>3,010 <em>(all, in Step 3)</em></td>
+</tr>
+<tr>
+<td>Labour</td>
+<td>23,696</td>
+<td>19,953</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>8,248</td>
+<td>6,945</td>
+</tr>
+<tr>
+<td>National</td>
+<td>2,920</td>
+<td>2,459</td>
+</tr>
+<tr>
+<td>NZ First</td>
+<td>2,637</td>
+<td>2,220</td>
+</tr>
+<tr>
+<td>ACT</td>
+<td>536</td>
+<td>451</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>41,047</strong></td>
+<td><strong>35,038</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>The wasted votes alone weren't enough to cover even one seat. Step 4 needed <em>f</em> = 0.842, meaning <strong>84% of each eligible split vote</strong> was moved. That's a large share, because the overhang was concentrated in just six electorates. In Waiariki, for example, 59% of people who party-voted Labour also voted for Rawiri Waititi.</p>
+<h3 id="seats-under-each-approach">Seats under each approach</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Party</th>
+<th>Current law</th>
+<th>Review's rule</th>
+<th>Germany's rule</th>
+<th>This proposal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>National</td>
+<td>48</td>
+<td>47</td>
+<td>48</td>
+<td>48</td>
+</tr>
+<tr>
+<td>Labour</td>
+<td>34</td>
+<td>34</td>
+<td>34</td>
+<td>33</td>
+</tr>
+<tr>
+<td>Green</td>
+<td>15</td>
+<td>14</td>
+<td>15</td>
+<td>14</td>
+</tr>
+<tr>
+<td>ACT</td>
+<td>11</td>
+<td>11</td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr>
+<td>NZ First</td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Te Pāti Māori</td>
+<td>6</td>
+<td>6</td>
+<td>4</td>
+<td>6</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>122</strong></td>
+<td><strong>120</strong></td>
+<td><strong>120</strong></td>
+<td><strong>120</strong></td>
+</tr>
+<tr>
+<td><em>Labour + Green + Te Pāti Māori</em></td>
+<td><em>55</em></td>
+<td><em>54</em></td>
+<td><em>53</em></td>
+<td><em>53</em></td>
+</tr>
+<tr>
+<td><em>National + ACT + NZ First</em></td>
+<td><em>67</em></td>
+<td><em>66</em></td>
+<td><em>67</em></td>
+<td><em>67</em></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="what-this-shows">What this shows</h3>
+<p><strong>Te Pāti Māori keeps its 6 seats, and that's all.</strong> Its share of Parliament rises only because Parliament shrinks: from 6 of 122 seats to 6 of 120.</p>
+<p><strong>The cost falls on its allies.</strong> The votes that make up Te Pāti Māori's 6 seats come mostly from Labour and Green party votes, so Labour and the Greens each lose a seat. The left bloc's share of Parliament falls from 45.1% to 44.2%. Every other party's share rises, and National's rises most (from 39.3% to 40.0%).</p>
+<p><strong>This is the intended result.</strong> The left bloc won 44.1% of the party votes that counted towards seats, but the overhang gave it 45.1% of Parliament. The proposal brings the bloc back to 44.2%, almost exactly its proportional share.</p>
+<p><strong>It's worse for the left bloc than the review's rule.</strong> The review's rule takes the overhang seats from all other parties, so National would have lost a seat. Under this proposal, the parties whose voters created the overhang bear its cost.</p>
+<p><strong>Germany's rule gives the same bloc totals, but at a high price.</strong> The two Te Pāti Māori candidates with the lowest vote shares (in Te Tai Tokerau and Tāmaki Makaurau) would not have taken their seats. Two of the seven Māori electorates would have been left without the MP their voters chose.</p>
+<p>¹ <em>National's later 123rd seat came from the Port Waikato by-election, held because a candidate died during the campaign. It isn't covered by this example.</em></p>
+<p><em>Split-ballot figures are calculated from the Electoral Commission's published split-voting percentages for each electorate, so they may differ from exact counts by a few votes.</em></p>
+<hr />
+<h2 id="fair-between-blocs">Fair between blocs</h2>
+<p>Governments in New Zealand are formed by groups of parties, so the question that matters most is whether each <strong>group</strong> gets its fair share of Parliament.</p>
+<h3 id="why-the-proposal-gets-blocs-right">Why the proposal gets blocs right</h3>
+<p>Strategic splitting happens <strong>inside</strong> a group: an ACT voter ticks the National candidate, or a Labour voter ticks the Te Pāti Māori candidate. When the proposal counts some of those ballots for the electorate MP's party, the votes move from one partner to the other. <strong>The group's total party vote doesn't change.</strong></p>
+<p>Once the overhang is covered, every party's seats are proportional to its counted votes. So each group's seats end up close to its <strong>combined party vote</strong>, which is the share it would get if nobody split at all.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Group's share of party vote</th>
+<th>Current law</th>
+<th>This proposal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2023:</strong> Labour, Green, Te Pāti Māori</td>
+<td>44.1% (52.9 of 120)</td>
+<td>55 of 122 (45.1%)</td>
+<td>53 of 120 (44.2%)</td>
+</tr>
+<tr>
+<td><strong>2023:</strong> National, ACT, NZ First</td>
+<td>55.9% (67.1 of 120)</td>
+<td>67 of 122 (54.9%)</td>
+<td>67 of 120 (55.8%)</td>
+</tr>
+<tr>
+<td><strong>2026*:</strong> Labour, Green, Te Pāti Māori</td>
+<td>43.6% (52.4 of 120)</td>
+<td>57 of 131 (43.5%)</td>
+<td>52 of 120 (43.3%)</td>
+</tr>
+<tr>
+<td><strong>2026*:</strong> National, ACT, NZ First</td>
+<td>50.4% (60.4 of 120)</td>
+<td>67 of 131 (51.1%)</td>
+<td>61 of 120 (50.8%)</td>
+</tr>
+<tr>
+<td><strong>2026*:</strong> Opportunity</td>
+<td>6.0% (7.2 of 120)</td>
+<td>7 of 131 (5.3%)</td>
+<td>7 of 120 (5.8%)</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>*2026 uses the preliminary count, with split votes estimated from 2023 patterns.</em></p>
+<p>The rule works on parties, not blocs. Nobody has to define which parties are allies. Fairness between blocs is a result of the rule, not a separate step in it.</p>
+<h3 id="where-it-isnt-exact">Where it isn't exact</h3>
+<p>The bloc result is close, but not perfect, for four reasons:</p>
+<ul>
+<li><strong>Some splitters cross blocs.</strong> A Labour voter who ticks a popular local National MP gets counted the same way as an ACT voter who does. Those ballots move votes <strong>into</strong> the overhanging party's group. In the 2026 estimate, about 24,000 Labour, Green and Opportunity votes would move to National. That's roughly why the right gets 61 seats, not 60.4. That seems fair: those voters did choose a National MP.</li>
+<li><strong>Wasted votes join the group.</strong> Party votes for parties that didn't qualify are used first, and they go to the overhanging party's group. Today they count for nobody.</li>
+<li><strong>Rounding.</strong> Sainte-Laguë works in whole seats, so each group can be up to about half a seat off.</li>
+<li><strong>Very large overhangs.</strong> If there aren't enough split votes to cover the overhang, the remainder is handled by the review's rule, which takes seats from every other party. This happens in the 2026 estimate for Te Pāti Māori, whose party vote was very small compared with its five electorates.</li>
+</ul>
+<h3 id="what-changes-inside-a-bloc">What changes inside a bloc</h3>
+<p>The proposal keeps each group's total about right, but it changes the <strong>split within</strong> the group. In the 2026 estimate, National keeps 42 seats while ACT drops from 13 to 9 and NZ First from 12 to 10. In 2023, Labour and the Greens each lose a seat while Te Pāti Māori keeps 6.</p>
+<p>This is the point of the rule. ACT's 13 seats under current law include the share of ACT voters who had already filled their share of Parliament by electing a National MP. Under the proposal, each of those voters counts once.</p>
+<h3 id="when-both-blocs-split">When both blocs split</h3>
+<p>The 2026 estimate shows something the 2023 example doesn't. When <strong>both</strong> groups create overhangs, the effects roughly cancel at the bloc level. The parties that lose out are the ones <strong>in neither group</strong>. Opportunity won 6.0% of the counted party vote but would get only 5.3% of a 131-seat Parliament. The proposal brings it back to 5.8%.</p>
+<hr />
+<h2 id="it-changes-the-incentives">It changes the incentives</h2>
+<p>The biggest effect of the proposal may not be the votes it counts differently. It's what it does to how parties campaign.</p>
+<h3 id="splitting-no-longer-pays">Splitting no longer pays</h3>
+<p>Today, a group of parties can win extra seats by asking its supporters to split: electorate vote for the big partner, party vote for the small one. Under the proposal, that tactic gains the group <strong>nothing</strong>. Any overhang it creates is covered by the group's own party votes, and its total seats stay about where its combined party vote puts them.</p>
+<p>For anyone trying to change the government, the double-counted split vote stops being a way to get there.</p>
+<h3 id="partners-start-competing-for-electorates">Partners start competing for electorates</h3>
+<p>Once splitting stops paying the group, it starts <strong>costing the smaller partner</strong>. Every electorate its supporters win for the big partner beyond its entitlement is paid for out of the smaller partner's party vote.</p>
+<ul>
+<li><strong>Small parties that rely on the party vote, alongside a big party that wins electorates</strong> (ACT and NZ First alongside National): they'll want to stop National winning more electorates than its party vote covers. So they'll stand serious candidates, contest electorates, and ask their supporters to tick ACT or NZ First twice.</li>
+<li><strong>Big parties that rely on the party vote, alongside a small party that wins electorates</strong> (Labour and the Greens alongside Te Pāti Māori): they'll want to stop Te Pāti Māori winning electorates its party vote doesn't cover. So they'll put more into their own electorate campaigns, especially in the Māori electorates, and ask their supporters to tick Labour or Green twice.</li>
+</ul>
+<p>Normally, competing for electorates inside your own group carries a risk: split the vote between partners and the other side might win the seat. Under MMP without overhangs, that doesn't change the group's total seats. Losing an electorate only changes <strong>which</strong> MP represents it. The other side's electorate seat comes out of its own party vote.</p>
+<h3 id="the-rule-that-makes-itself-unnecessary">The rule that makes itself unnecessary</h3>
+<p>If parties stop asking for strategic splits, and partners compete for electorates instead of handing them over, overhangs become rare. Then the rule rarely has to move any votes at all.</p>
+<p><strong>The incentive change is the whole point.</strong> The counting rule is mainly there to make strategic splitting pointless. If it works, voters will hardly ever see it used.</p>
+<h3 id="what-wont-go-away">What won't go away</h3>
+<p>Some overhangs aren't planned:</p>
+<ul>
+<li><strong>Local MPs with a strong personal vote.</strong> Some voters will always back a well-liked local MP from a party they don't party-vote for.</li>
+<li><strong>Parties built around electorates.</strong> A party can be strongest where it stands candidates, as Te Pāti Māori is in the Māori electorates, while its party vote nationally is small.</li>
+<li><strong>Fragmented Parliaments.</strong> When many parties share the vote, big parties can win most electorates on less than half the vote in each.</li>
+</ul>
+<p>For these, the counting rule still does the work. These are also the cases where the safeguards in <a href="#concerns-about-small-parties">Concerns about small parties</a> matter most.</p>
+<hr />
+<h2 id="doing-the-calculation-on-paper">Doing the calculation on paper</h2>
+<p>The calculation can be shown in a short table. It doesn't need a computer.</p>
+<p>Sainte-Laguë works by dividing each party's votes by 1, 3, 5, 7 and so on. These results are called <strong>quotients</strong>. The 120 highest quotients win seats.</p>
+<p>The overhanging party needs its quotient for its last electorate seat to make the top 120. For a party with <strong>E</strong> electorate seats, that quotient is its votes divided by <strong>(2E − 1)</strong>.</p>
+<p>As <em>f</em> goes up, the overhanging party's quotients rise and the rival parties' quotients fall. For each rival quotient that's currently ahead, the point where the overhanging party catches it is:</p>
+<blockquote>
+<p><strong>f = [(2E − 1) × v<sub>p</sub> − (2k − 1) × v<sub>A</sub>] ÷ [(2k − 1) × S + (2E − 1) × s<sub>p</sub>]</strong></p>
+</blockquote>
+<p>where:</p>
+<ul>
+<li><strong>v<sub>A</sub></strong> = the overhanging party's votes (after Step 3)</li>
+<li><strong>v<sub>p</sub></strong> = rival party p's votes</li>
+<li><strong>k</strong> = which of party p's quotients this is (1st, 2nd, 3rd…)</li>
+<li><strong>S</strong> = the total number of eligible split votes</li>
+<li><strong>s<sub>p</sub></strong> = how many of those went to party p.</li>
+</ul>
+<p><strong>To find <em>f</em>:</strong></p>
+<ol>
+<li>Count how many rival quotients the overhanging party needs to overtake. Call this <strong>m</strong>.</li>
+<li>Work out the catch-up point for each rival quotient near the line.</li>
+<li>Sort them from smallest to largest. The m-th one is <em>f</em>.</li>
+</ol>
+<p>In the example, Party A needed to overtake <strong>5</strong> rival quotients. The fifth catch-up point was <em>f</em> = 0.1554.</p>
+<hr />
+<h2 id="why-transfer-a-proportional-share">Why transfer a proportional share?</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>What it does</th>
+<th>Drawback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Current law</strong></td>
+<td>Overhang party keeps its extra seats; Parliament grows</td>
+<td>Groups of parties can gain seats by splitting votes</td>
+</tr>
+<tr>
+<td><strong>Independent Electoral Review (2023)</strong></td>
+<td>Overhang party keeps its seats; other parties get fewer list seats</td>
+<td>The overhanging group still gains; the seats just come from the other side</td>
+</tr>
+<tr>
+<td><strong>Germany (since 2023)</strong></td>
+<td>Electorate winners only take their seat if the party vote covers it</td>
+<td>Some electorates end up without the candidate who won the most votes. In New Zealand, this would mainly affect Māori electorates, which makes it unworkable here</td>
+</tr>
+<tr>
+<td><strong>This proposal</strong></td>
+<td>A calculated share of split votes follows the electorate vote</td>
+<td>Overrides some voters' party choice, in a small and predictable way</td>
+</tr>
+</tbody>
+</table></div>
+<p>The proposal:</p>
+<ul>
+<li>keeps every electorate MP</li>
+<li>keeps Parliament at a fixed size</li>
+<li>treats every eligible ballot the same way</li>
+<li>gives the same result on a recount</li>
+<li>removes the reason to split votes strategically, because the group no longer gains seats by doing it.</li>
+</ul>
+<p>If voters know that splitting won't increase their group's seats, most will stop doing it. In practice, transfers may rarely be needed.</p>
+<hr />
+<h2 id="alternatives-worth-considering">Alternatives worth considering</h2>
+<h3 id="option-1-partial-wasted-vote-transfer-as-above">Option 1: Partial wasted-vote transfer (as above)</h3>
+<p>Wasted votes are used first, but <strong>only as many as needed</strong> to cover the overhang. This still needs the catch-up calculation, but keeps the change narrow: it only applies when there's an overhang.</p>
+<h3 id="option-2-all-wasted-party-votes-follow-the-electorate-vote">Option 2: All wasted party votes follow the electorate vote</h3>
+<p>A simpler, broader rule: whenever a party vote goes to a party that doesn't qualify for seats, it's counted for the party of the voter's electorate candidate instead (if that party qualifies).</p>
+<ul>
+<li><strong>Benefit:</strong> No calculation needed for this step. Fewer votes are wasted at every election, not just when there's an overhang.</li>
+<li><strong>Drawback:</strong> It's a bigger change to how votes are counted. It's similar to the "spare vote" idea, which the Independent Electoral Review discussed in its 2023 report.</li>
+</ul>
+<p>Under either option, Step 4 still applies if an overhang remains.</p>
+<hr />
+<h2 id="concerns-about-small-parties">Concerns about small parties</h2>
+<p>Some people may worry that this proposal is unfair to small parties. Small parties rarely win electorates, so many of their supporters give their electorate vote to a big party's candidate. If that big party has an overhang, some of those small-party votes could be moved.</p>
+<h3 id="where-the-concern-is-fair">Where the concern is fair</h3>
+<p>The concern is strongest when Parliament is fragmented. If small parties together win a large share of the party vote, big parties can win most electorates with less than half the votes in each. That can create an overhang that nobody planned.</p>
+<p>In that case, small-party supporters who sincerely voted for a big party's local candidate could lose part of their party vote, even though nobody was trying to game the system. Asking them to give both votes to their own party isn't a full answer, because it means giving up a say in who their local MP is.</p>
+<h3 id="why-the-proposal-is-still-fairer-than-the-alternatives">Why the proposal is still fairer than the alternatives</h3>
+<p><strong>The cost has to fall on someone.</strong> An overhang seat isn't free under any rule:</p>
+<ul>
+<li>Under <strong>current law</strong>, Parliament grows and every vote is worth a little less.</li>
+<li>Under the <strong>review's rule</strong>, the seats come out of every other party's list.</li>
+<li>Under <strong>this proposal</strong>, the cost falls on the parties whose voters helped create the overhang.</li>
+</ul>
+<p>In the <a href="#worked-example">worked example</a>, Party D, a small party whose voters rarely split, does <strong>better</strong> under this proposal than under the review's rule (20 seats compared to 19). The question isn't really big parties against small parties. It's which small parties pay.</p>
+<p><strong>It isn't big parties against small parties.</strong> Every overhang in New Zealand so far has been created by a small party winning electorates. In 2023, the proposal moved votes <strong>towards</strong> Te Pāti Māori, a small party. The rule applies to whichever party has the overhang, whatever its size.</p>
+<p><strong>The effect is limited.</strong> Each overhang seat needs roughly 22,000–24,000 votes to be moved, spread across every eligible split ballot. A party only loses a seat if its voters make up a large share of the split ballots.</p>
+<p><strong>No party can be pushed out of Parliament.</strong> The threshold is applied before any votes are moved.</p>
+<p><strong>The current system isn't neutral either.</strong> When an overhang happens now, the bloc that creates it gets more seats per vote than everyone else. Small parties outside that bloc lose out, but quietly.</p>
+<h3 id="safeguards-that-could-help">Safeguards that could help</h3>
+<p><strong>Cap the loss.</strong> No party loses more than one seat through transfers. Anything left over is handled the way the review recommended. This still removes most of the reward for strategic splitting, while making sure no small party can be badly hurt by an overhang it didn't plan.</p>
+<p><strong>Fix the ratio of electorate seats to list seats.</strong> The review recommended keeping electorate seats at 60% of Parliament. That would make unplanned overhangs by large parties very rare, so transfers would mostly apply when voters split on purpose.</p>
+<p><strong>An exemption that wouldn't work:</strong> excusing voters whose party didn't stand a candidate in their electorate. Allied parties could simply withdraw their candidates to avoid the rule.</p>
+<hr />
+<h2 id="isnt-this-disregarding-my-vote">"Isn't this disregarding my vote?"</h2>
+<p>This is the most important objection to the proposal, and it deserves a straight answer.</p>
+<h3 id="what-the-proposal-does-change">What the proposal does change</h3>
+<p>For some voters, the electorate vote, not the party vote, fills their share of Parliament. That means their share goes to a different party from the one they ticked for their party vote. This is a real cost. The proposal is only justified if it brings a bigger gain in fairness.</p>
+<h3 id="every-voter-still-gets-the-same-share">Every voter still gets the same share</h3>
+<p>It helps to look at what each voter <strong>gets</strong>, not what they give up. Every voter gets exactly one equal share of Parliament's make-up. A voter whose electorate vote elects an overhang MP has already used their share: their MP holds a seat that no party votes paid for. Counting their party vote in full as well would give them two shares.</p>
+<p>So the proposal doesn't take something away from those voters. It stops them getting more than everyone else.</p>
+<h3 id="your-vote-isnt-thrown-away">Your vote isn't thrown away</h3>
+<p>If your share is filled by your electorate vote, it still counts in full towards seats in Parliament. It counts for the party of the candidate you chose in your electorate. Both parties were chosen by you, on the same ballot paper. And if you want to be sure your share goes to one party, you can give that party both your ticks.</p>
+<p>Compare this with current law: a party vote for a party that doesn't reach the threshold counts for nothing at all.</p>
+<h3 id="the-aim-is-equal-votes-not-smaller-ones">The aim is equal votes, not smaller ones</h3>
+<p>Under MMP, the party vote decides each party's share of Parliament, <strong>including</strong> its electorate seats. A party's electorate seats are normally taken out of the share its party vote earns.</p>
+<p>When a party has an overhang, its extra electorate seats aren't taken out of anything. So a split ballot that helps elect an overhang MP counts twice:</p>
+<ul>
+<li>once to win the electorate seat</li>
+<li>and again, in full, towards another party's share of seats.</li>
+</ul>
+<p>That gives those ballots more weight than other people's. Everyone else's vote ends up worth a little less.</p>
+<h3 id="what-this-looked-like-in-2023">What this looked like in 2023</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th></th>
+<th>Party votes</th>
+<th>Seats</th>
+<th>Party votes per seat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Current law</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Labour, Green and Te Pāti Māori</td>
+<td>1,186,291</td>
+<td>55 of 122</td>
+<td>21,569</td>
+</tr>
+<tr>
+<td>National, ACT and NZ First</td>
+<td>1,505,877</td>
+<td>67 of 122</td>
+<td>22,476</td>
+</tr>
+<tr>
+<td><strong>This proposal</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Labour, Green and Te Pāti Māori</td>
+<td>1,186,291</td>
+<td>53 of 120</td>
+<td>22,383</td>
+</tr>
+<tr>
+<td>National, ACT and NZ First</td>
+<td>1,505,877</td>
+<td>67 of 120</td>
+<td>22,476</td>
+</tr>
+</tbody>
+</table></div>
+<p><em>Party votes are the votes each group of parties actually received, before any transfer.</em></p>
+<p>Under current law, the group of parties with the overhang needed about 900 fewer votes to win each seat. Under the proposal, the gap almost disappears. The same would apply in the other direction if National, ACT or NZ First created an overhang.</p>
+<h3 id="this-principle-isnt-new">This principle isn't new</h3>
+<ul>
+<li>The <strong>Royal Commission on the Electoral System</strong>, which recommended MMP in 1986, listed fairness between political parties as one of its main tests for a voting system.</li>
+<li>In 2012, <strong>Germany's Federal Constitutional Court</strong> ruled that large numbers of overhang seats breached the principle that every vote should carry equal weight.</li>
+</ul>
+<h3 id="votes-are-already-transferred-in-other-systems">Votes are already transferred in other systems</h3>
+<p>New Zealand voters already accept a vote being partly moved to another choice they made. Under the <strong>Single Transferable Vote (STV)</strong>, used in some New Zealand local elections, when a candidate gets more votes than they need, a fraction of every one of their ballots is passed on to each voter's next choice.</p>
+<p>This proposal works the same way. The only difference is that the "next choice" is the other tick on your own ballot paper.</p>
+<h3 id="the-rules-are-known-in-advance">The rules are known in advance</h3>
+<p>Every voting system has rules that decide how votes turn into seats, such as the 5% threshold. This rule would be published before the election, so voters know how their ballot will be counted.</p>
+<h3 id="in-short">In short</h3>
+<p>Voters who split their vote still get both of their choices: their candidate is elected, and their party vote still counts. What they don't get is a ballot that counts for more than everyone else's.</p>
+<hr />
+<h2 id="questions-and-answers">Questions and answers</h2>
+<p><strong>Is my vote being thrown away?</strong>
+No. Every voter gets one equal share of Parliament's make-up. If your electorate vote fills that share, it still counts in full, for the party of the candidate you voted for. The rule only stops one ballot from counting twice. (See <a href="#isnt-this-disregarding-my-vote">"Isn't this disregarding my vote?"</a>)</p>
+<p><strong>How do I make sure my share goes to the party I want?</strong>
+Give that party both your ticks. A ballot with the same party for both votes is never counted differently.</p>
+<p><strong>Won't this just be gamed in some new way?</strong>
+The usual workaround for overhang rules is a "decoy" party that only stands electorate candidates while its supporters party-vote a partner. Under this proposal, the decoy's overhang is covered by its partner's party votes, so the group gains nothing. (See <a href="#it-changes-the-incentives">It changes the incentives</a>.)</p>
+<p><strong>Does this change who wins my electorate?</strong>
+No. Every electorate winner keeps their seat.</p>
+<p><strong>Could my party vote be moved?</strong>
+Only if all of these are true:</p>
+<ul>
+<li>you split your vote</li>
+<li>your electorate vote went to a winning candidate</li>
+<li>that candidate's party has an overhang.</li>
+</ul>
+<p>Even then, only a fraction of your party vote is counted differently, and only as much as is needed across everyone in the same situation.</p>
+<p><strong>Could a party fall below the threshold because of this?</strong>
+No. The threshold is applied before any votes are transferred.</p>
+<p><strong>Does it favour any party?</strong>
+No. It applies the same way to any party with an overhang, whatever its politics. In 2023 it would have cost the left bloc a seat. In 2026 it could cost the right bloc seats.</p>
+<p><strong>Why not just copy Germany?</strong>
+Germany doesn't seat electorate winners whose party vote doesn't cover them. In New Zealand, most overhangs have come from Māori electorates. Under Germany's rule, two Māori electorates would have been left without the MP their voters chose in 2023. That isn't workable here.</p>
+<p><strong>Why not just pick ballots at random?</strong>
+Random selection could give a different result each time votes are counted. Using the same fraction for every ballot gives the same result on any recount.</p>
+<hr />
+<p><em>This explainer describes a proposal for discussion. It does not describe current electoral law in Aotearoa New Zealand.</em></p>
+<nav class="pager" aria-label="Report pages"><a href="../report/">← Full report</a><a href="../report/experiment-1.html">Experiment 1: stress test →</a></nav>
+<p class="foot">Generated from <code>overhang-transfer-explainer.md</code>. This describes proposals for discussion, not current electoral law.</p>
+</article>
+</div>
+</body>
+</html>

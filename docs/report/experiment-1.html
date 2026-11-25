@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Experiment 1: A synthetic Monte Carlo comparison of overhang rules</title>
+<meta name="description" content="Under New Zealand&#x27;s MMP, a party that wins more electorates than its party vote entitles it to keeps the extra seats (&quot;overhang&quot;), and Parliament grows. Groups of parties can exploit this by splitting their votes. This e">
+<meta property="og:title" content="Experiment 1: A synthetic Monte Carlo comparison of overhang rules">
+<meta property="og:description" content="Under New Zealand&#x27;s MMP, a party that wins more electorates than its party vote entitles it to keeps the extra seats (&quot;overhang&quot;), and Parliament grows. Groups of parties can exploit this by splitting their votes. This e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --accent: #0B57A4; --mark: #FFF4C2; --code: #E6ECE9;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+    --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+  --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body);
+  font-size: 18px; line-height: 1.6; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+.sx-brand { color: var(--ink); }
+.layout { max-width: 1120px; margin: 0 auto; display: grid; gap: 40px; padding-block: 32px 80px;
+  grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .layout { grid-template-columns: 240px minmax(0, 1fr); } }
+.toc { font-size: 14px; line-height: 1.4; }
+.toc-inner { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding-right: 8px; }
+.toc p { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul ul { padding-left: 12px; }
+.toc li { margin: 6px 0; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+.toc .group { margin-top: 24px; }
+@media (max-width: 999px) { .toc-inner { position: static; max-height: none; }
+  .toc details:not([open]) ul { display: none; } }
+article { max-width: 760px; min-width: 0; }
+article h1, article h2, article h3, article h4 { font-family: var(--display); line-height: 1.15; text-wrap: balance; }
+article h1 { font-size: clamp(32px, 4.4vw, 48px); font-weight: 800; letter-spacing: -.015em; margin: 0 0 12px; }
+article h1 + h3 { font-family: var(--body); font-weight: 400; font-size: 21px; color: var(--muted); margin-top: 0; }
+article h2 { font-size: 28px; margin: 56px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+article h3 { font-size: 21px; margin: 36px 0 8px; }
+article h4 { font-size: 18px; margin: 28px 0 6px; }
+article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+article blockquote { margin: 20px 0; padding: 4px 18px; border-left: 3px solid var(--line); color: var(--muted); }
+article code { font-size: .86em; background: var(--code); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+article pre { background: var(--code); padding: 14px; border-radius: 8px; overflow: auto; font-size: 14px; }
+article pre code { background: none; padding: 0; }
+article img { max-width: 100%; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+table { border-collapse: collapse; font-size: 15px; line-height: 1.4; min-width: 100%; }
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; background: var(--code); }
+tr:last-child td { border-bottom: 0; }
+td { font-variant-numeric: tabular-nums; }
+.draft { background: var(--mark); border-radius: 8px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 56px;
+  padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
+.foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
+.meta { color: var(--muted); }
+
+.sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--body); font-size: 15px; }
+.sx-brand { font-family: var(--display); font-weight: 800; text-decoration: none; letter-spacing: -.01em; }
+.sx-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.sx-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.sx-links a:hover, .sx-links a[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+<nav class="sx-nav" aria-label="Site">
+  <a class="sx-brand" href="../">One ballot, counted twice</a>
+  <div class="sx-links"><a href="../">2023</a><a href="../2026/">2026</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
+</nav>
+<div class="layout">
+<aside class="toc"><div class="toc-inner">
+  <details open><summary class="meta" style="cursor:pointer;margin-bottom:8px">Contents</summary>
+  <ul><li><a href="#11-question">1.1 Question</a></li><li><a href="#12-systems-compared">1.2 Systems compared</a></li><li><a href="#13-method">1.3 Method</a></li><li><a href="#14-results">1.4 Results</a></li><li><a href="#15-discussion">1.5 Discussion</a></li><li><a href="#16-limitations">1.6 Limitations</a></li><li><a href="#17-reproducibility">1.7 Reproducibility</a></li></ul></details>
+  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html" aria-current="page">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li></ul></div>
+</div></aside>
+<article>
+<p class="draft"><strong>Working draft.</strong> Last updated 21 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
+<h1 id="experiment-1-a-synthetic-monte-carlo-comparison-of-overhang-rules">Experiment 1: A synthetic Monte Carlo comparison of overhang rules</h1>
+<h2 id="11-question">1.1 Question</h2>
+<p>Under New Zealand's MMP, a party that wins more electorates than its party vote entitles it to keeps the extra seats ("overhang"), and Parliament grows. Groups of parties can exploit this by splitting their votes. This experiment asks how two proposed rules for handling overhang compare with the current system, across a wide range of possible future party systems and voting behaviour:</p>
+<ol>
+<li>How proportional is Parliament to the <strong>party vote</strong>, party by party?</li>
+<li>How proportional is Parliament between the two <strong>blocs</strong> that form governments?</li>
+<li>How large would Parliament need to be for each rule to stay within one seat of proportional, for any outcome?</li>
+</ol>
+<h2 id="12-systems-compared">1.2 Systems compared</h2>
+<p>Every system is applied to exactly the same ballots in each scenario.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Size</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MMP</strong></td>
+<td>121</td>
+<td>The current system. Seats are allocated by Sainte-Laguë; a party keeps any electorates beyond its entitlement, and the House grows.</td>
+</tr>
+<tr>
+<td><strong>MMP-T</strong></td>
+<td>121</td>
+<td><strong>Overhang Transfer.</strong> Applies only when a party overhangs. (1) Party votes for parties that don't qualify, on ballots whose electorate vote elected one of the overhanging party's candidates, are counted for that party, only as many as needed. (2) If that isn't enough, the same fraction <em>f</em> of every other split ballot for its winning candidates is counted for it. (3) Any overhang still left is absorbed within the fixed size, with other parties receiving fewer list seats (the Independent Electoral Review's rule).</td>
+</tr>
+<tr>
+<td><strong>MMP-BV</strong></td>
+<td>121</td>
+<td><strong>Backup Vote.</strong> At every election, a party vote for a party that doesn't qualify is counted for the party of the voter's electorate candidate, if that party qualifies. If a party still overhangs, steps (2) and (3) of MMP-T apply.</td>
+</tr>
+<tr>
+<td><strong>MMP141</strong>, <strong>MMP-T141</strong>, <strong>MMP-BV141</strong></td>
+<td>141</td>
+<td>The same three rules with 20 more list seats.</td>
+</tr>
+</tbody>
+</table></div>
+<p>All systems use a 5% party-vote threshold, waived for any party that wins an electorate. Qualification is decided on raw party votes before any votes are reassigned, so no party can be pushed out of Parliament by a transfer.</p>
+<h2 id="13-method">1.3 Method</h2>
+<h3 id="scenario-generator">Scenario generator</h3>
+<p>Each of 5,000 scenarios builds a synthetic election from scratch. The design deliberately spans far more fragmented party systems than New Zealand has had, so as to stress-test each rule rather than to forecast.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parliament</td>
+<td>121 seats (141 for the larger variants); 64 general electorates and 7 Māori electorates</td>
+</tr>
+<tr>
+<td>Bloc balance</td>
+<td>Left : Right vote anywhere from 30:70 to 70:30 (uniform)</td>
+</tr>
+<tr>
+<td>Parties per bloc</td>
+<td>2–5 general parties in each bloc (uniform), with vote shares drawn at random (flat Dirichlet); "Left 1" and "Right 1" are each bloc's largest party</td>
+</tr>
+<tr>
+<td>Māori electorate parties</td>
+<td>0–2, in the left bloc, drawing votes only in the Māori electorates; together 10–60% of the party vote there</td>
+</tr>
+<tr>
+<td>Māori electorates</td>
+<td>vote only for Māori electorate parties and general left parties (a simplification)</td>
+</tr>
+<tr>
+<td>Centrist parties</td>
+<td>0–2, each 2–10% of the general vote, each allied to a randomly chosen bloc</td>
+</tr>
+<tr>
+<td>Minor parties</td>
+<td>1–10% of the vote in total, split randomly between Left minor, Right minor and Centre minor (allied to a random bloc). They never qualify and stand no candidates; their voters give the electorate vote to their bloc's largest party</td>
+</tr>
+<tr>
+<td>Geography</td>
+<td>each general electorate has a random left–right lean (logit SD 0.4), and each party a random local concentration; national totals are matched by iterative proportional fitting</td>
+</tr>
+<tr>
+<td>Turnout</td>
+<td>about 40,000 valid votes per general electorate; 24,000–30,000 per Māori electorate</td>
+</tr>
+</tbody>
+</table></div>
+<p>Electorate votes are built ballot by ballot, as a table of party vote × electorate candidate for each electorate:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Behaviour</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Personal vote</td>
+<td>a share π (0–15% per scenario) of every party's voters vote for a candidate they like, by random local appeal</td>
+</tr>
+<tr>
+<td>Strategic: bloc</td>
+<td>a share s_L or s_R (0–100% per scenario, independently) of each smaller bloc party's remaining voters give their electorate vote to their bloc's largest party. Centrists use their ally's rate</td>
+</tr>
+<tr>
+<td>Strategic: Māori</td>
+<td>in the Māori electorates, a share s_M (0–100%) of left voters, and of the weaker Māori party's voters, give their electorate vote to the locally strongest Māori party</td>
+</tr>
+<tr>
+<td>Sincere</td>
+<td>everyone else votes for their own party's candidate</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="measures">Measures</h3>
+<p><strong>Yardsticks:</strong></p>
+<ul>
+<li><strong>Party yardstick:</strong> each qualifying party's share of the qualifying party vote (raw party votes).</li>
+<li><strong>Bloc yardstick:</strong> each bloc's share of <em>all</em> party votes, including its parties that missed the threshold. Every party belongs to a bloc (centrists count with their ally), so the two blocs' fair shares add up to the whole House.</li>
+<li><strong>Countable bloc yardstick:</strong> the bloc yardstick without voters who wasted both ticks (party vote and electorate vote both for parties that don't qualify). No seat rule can count these voters.</li>
+</ul>
+<p><strong>Measures for each system, at its own size:</strong></p>
+<ul>
+<li><strong>Gallagher index</strong>, against the party yardstick.</li>
+<li><strong>Party seat deficit (rounded):</strong> each party's shortfall against the party yardstick, rounded to whole seats, then summed.</li>
+<li><strong>Bloc seat deficit:</strong> how many seats the worse-off bloc is short of its fair share, against the bloc yardstick.</li>
+<li><strong>Extra seats (a) and (b):</strong> the smallest number of seats to add beyond 121 so that (a) no party, or (b) no bloc (countable bloc yardstick), is more than one seat short. This is searched only for the 121-seat systems, up to 400 seats; electorates stay at 71. These figures are not a proposed mechanism; they indicate how large Parliament would have to be to accommodate the range of outcomes.</li>
+</ul>
+<h2 id="14-results">1.4 Results</h2>
+<h3 id="overview-of-the-scenarios">Overview of the scenarios</h3>
+<ul>
+<li><strong>Overhang</strong> (raw party votes, 121 seats): median 13 seats. 8% of scenarios have none, and 58% have 11 or more.</li>
+<li><strong>Māori electorate parties:</strong> present in 66% of scenarios, with a median overhang of 3 seats where present.</li>
+<li><strong>Voters wasting both ticks:</strong> a median of 2.7% of voters.</li>
+</ul>
+<h3 id="headline-results-all-5000-scenarios">Headline results (all 5,000 scenarios)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP141</th>
+<th>MMP-T141</th>
+<th>MMP-BV141</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bloc seat deficit: median</td>
+<td>6.2</td>
+<td>4.1</td>
+<td>2.0</td>
+<td>5.2</td>
+<td>3.7</td>
+<td><strong>1.5</strong></td>
+</tr>
+<tr>
+<td>Bloc seat deficit: 90th percentile</td>
+<td>14.5</td>
+<td>10.3</td>
+<td>7.7</td>
+<td>13.5</td>
+<td>9.7</td>
+<td><strong>5.1</strong></td>
+</tr>
+<tr>
+<td>Bloc seat deficit ≤ 1: share</td>
+<td>9%</td>
+<td>14%</td>
+<td>30%</td>
+<td>11%</td>
+<td>16%</td>
+<td><strong>37%</strong></td>
+</tr>
+<tr>
+<td>Party seat deficit (rounded): median</td>
+<td>8</td>
+<td>13</td>
+<td>15</td>
+<td><strong>5</strong></td>
+<td>6</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Gallagher index: median</td>
+<td>4.4</td>
+<td>8.2</td>
+<td>8.8</td>
+<td><strong>2.6</strong></td>
+<td>3.5</td>
+<td>5.2</td>
+</tr>
+<tr>
+<td>House size: median (max)</td>
+<td>134 (171)</td>
+<td>121</td>
+<td>121</td>
+<td>147 (188)</td>
+<td>141</td>
+<td>141</td>
+</tr>
+<tr>
+<td>Extra seats (b): share needing none</td>
+<td>10%</td>
+<td>16%</td>
+<td><strong>52%</strong></td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Extra seats (b): median / 95th / 99th percentile</td>
+<td>94 / &gt;279 / &gt;279</td>
+<td>66 / &gt;279 / &gt;279</td>
+<td><strong>0 / 32 / 68</strong></td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Extra seats (b): never reached within 400 seats</td>
+<td>45%</td>
+<td>44%</td>
+<td><strong>0%</strong></td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Extra seats (a): median</td>
+<td><strong>40</strong></td>
+<td>48</td>
+<td>&gt;279</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Extra seats (a): never reached within 400 seats</td>
+<td><strong>1%</strong></td>
+<td>3%</td>
+<td>86%</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="low-strategic-voting">Low strategic voting</h3>
+<p>These are the 285 scenarios where both blocs' strategic rates are at or below 25%:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP141</th>
+<th>MMP-T141</th>
+<th>MMP-BV141</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bloc seat deficit: median</td>
+<td>5.3</td>
+<td>6.5</td>
+<td>5.1</td>
+<td>4.6</td>
+<td>4.4</td>
+<td><strong>3.1</strong></td>
+</tr>
+<tr>
+<td>Party seat deficit (rounded): median</td>
+<td>6</td>
+<td>10</td>
+<td>11</td>
+<td><strong>4</strong></td>
+<td>5</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Extra seats (b): median</td>
+<td>58</td>
+<td>52</td>
+<td><strong>10</strong></td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>By strategic voting:</strong> share of scenarios with a bloc seat deficit of one seat or less, by the higher of the two blocs' strategic rates:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>max(s_L, s_R)</th>
+<th>Scenarios</th>
+<th>Overhang at 121: median</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP141</th>
+<th>MMP-T141</th>
+<th>MMP-BV141</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–20%</td>
+<td>174</td>
+<td>10</td>
+<td>11%</td>
+<td>9%</td>
+<td>11%</td>
+<td>10%</td>
+<td>11%</td>
+<td>20%</td>
+</tr>
+<tr>
+<td>20–40%</td>
+<td>605</td>
+<td>12</td>
+<td>10%</td>
+<td>11%</td>
+<td>15%</td>
+<td>13%</td>
+<td>14%</td>
+<td>21%</td>
+</tr>
+<tr>
+<td>40–60%</td>
+<td>1,009</td>
+<td>13</td>
+<td>10%</td>
+<td>11%</td>
+<td>21%</td>
+<td>11%</td>
+<td>16%</td>
+<td>31%</td>
+</tr>
+<tr>
+<td>60–80%</td>
+<td>1,414</td>
+<td>14</td>
+<td>9%</td>
+<td>16%</td>
+<td>33%</td>
+<td>12%</td>
+<td>18%</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>80–100%</td>
+<td>1,798</td>
+<td>14</td>
+<td>8%</td>
+<td>16%</td>
+<td>40%</td>
+<td>10%</td>
+<td>15%</td>
+<td>45%</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="where-a-reform-does-worse-than-the-current-system-on-bloc-fairness">Where a reform does worse than the current system on bloc fairness</h3>
+<p>Share of scenarios where the reform's bloc seat deficit exceeds that of the current system at the same size by more than the margin shown:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Comparison</th>
+<th>&gt; 0</th>
+<th>&gt; 0.5 seat</th>
+<th>&gt; 1 seat</th>
+<th>&gt; 2 seats</th>
+<th>&gt; 3 seats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMP-T vs MMP</td>
+<td>23%</td>
+<td>15%</td>
+<td>10%</td>
+<td>3%</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>MMP-BV vs MMP</td>
+<td>13%</td>
+<td>8%</td>
+<td>5%</td>
+<td>2%</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>MMP-T141 vs MMP141</td>
+<td>20%</td>
+<td>13%</td>
+<td>7%</td>
+<td>2%</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>MMP-BV141 vs MMP141</td>
+<td>11%</td>
+<td>7%</td>
+<td>3%</td>
+<td>1%</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table></div>
+<p>At 121 seats, the cases where MMP-BV is worse share one pattern. A single party of 34–36% sweeps nearly every electorate in a fragmented field, with little strategic voting, while its bloc partners fall below the threshold. Few of its electorate voters split with a qualifying party, so there is little to transfer, and the remaining overhang is absorbed at the other bloc's expense. The current system instead lets the House grow, which happens to spread the overhang.</p>
+<h3 id="where-mmp-bv141-falls-short">Where MMP-BV141 falls short</h3>
+<p>MMP-BV141 leaves a bloc more than one seat short in 63% of scenarios. Classified by main cause:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Cause</th>
+<th>Share of all scenarios</th>
+<th>Bloc seat deficit: median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wasted both ticks.</strong> The countable bloc deficit is ≤ 1, so the whole gap is voters no rule can count</td>
+<td>40%</td>
+<td>2.1</td>
+</tr>
+<tr>
+<td><strong>Overhang absorbed.</strong> An overhang the transfers can't cover is absorbed within 141 seats</td>
+<td>15%</td>
+<td>3.6</td>
+</tr>
+<tr>
+<td><strong>Transfers.</strong> The overhang was covered, but seats still moved between blocs</td>
+<td>7%</td>
+<td>3.1</td>
+</tr>
+<tr>
+<td><strong>Other.</strong> No overhang; some sub-threshold voters' electorate votes went to the other bloc</td>
+<td>1%</td>
+<td>2.7</td>
+</tr>
+</tbody>
+</table></div>
+<p>On the countable bloc yardstick, MMP-BV141 is short by more than one seat in 23% of scenarios. The "overhang absorbed" cases have, in medians:</p>
+<ul>
+<li>lower bloc strategic voting (55%, against 77% where MMP-BV141 is within one seat)</li>
+<li>a smaller leading party (26% against 32%), which nonetheless wins 55 of the 71 electorates</li>
+<li>more qualifying parties (7 against 6)</li>
+<li>a larger overhang at 141 seats (14 against 4)</li>
+<li>an absorbed Māori-party overhang (56% against 22%)</li>
+</ul>
+<p>In 79% of them, the bloc that ends up short is not the one that overhangs.</p>
+<p><strong>Against the current system:</strong> MMP-BV141 is at least one seat worse than both MMP and MMP141 in 84 scenarios (1.7%). They fall into three types:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Scenarios</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>38</td>
+<td>One bloc has many more voters who wasted both ticks. Under the current system that bloc's overhang (a Māori party's in 18 of 38 cases, a general party's in the rest) happens to offset them with extra seats. MMP-BV141 covers the overhang by transferring votes within the bloc, so the offset disappears.</td>
+</tr>
+<tr>
+<td>B</td>
+<td>43</td>
+<td>The same imbalance in wasted votes, with no overhang to offset it. One bloc's small-party supporters give their electorate vote to a big ally, so the backup vote counts their party vote. The other bloc's small-party supporters vote for their own candidates, so they waste both ticks. The current system counts neither group, so the imbalance never shows.</td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>An overhang, usually a Māori party's, is too large for the transfers to cover even at 141 seats. It is absorbed at the other bloc's expense.</td>
+</tr>
+</tbody>
+</table></div>
+<p>In types A and B, MMP-BV141 is within about one seat of proportional on the countable bloc yardstick (for example 0.2 and 0.5 seats in the worked cases), while the current system is 2–4 seats short. Leaving out voters who wasted both ticks, MMP-BV141 is at least one seat worse in only 0.7% of scenarios against MMP141, and 0.2% against MMP.</p>
+<h2 id="15-discussion">1.5 Discussion</h2>
+<ol>
+<li><strong>There is a trade-off between party and bloc proportionality.</strong><ul>
+<li>MMP-BV gives the best bloc fairness and the worst proportionality to individual party votes, because it deliberately reassigns wasted party votes at every election.</li>
+<li>The current system is the reverse: it keeps party votes intact, but lets overhang distort the balance between blocs.</li>
+<li>MMP-T sits between the two on both measures.</li>
+</ul>
+</li>
+<li><strong>Size does much of the work.</strong><ul>
+<li>141 seats improves every rule, mainly by preventing overhangs from arising.</li>
+<li>MMP-T141 comes close to the current system's party proportionality (median party deficit 6, against 5 for MMP141), at a fixed size, while improving bloc fairness (3.7 against 5.2).</li>
+<li>MMP-BV141 gives the best bloc fairness of all six systems.</li>
+</ul>
+</li>
+<li><strong>The reforms work best when strategic voting is high.</strong><ul>
+<li>Both reforms correct overhang by transferring split ballots, so they improve as strategic voting rises.</li>
+<li>Where little strategic voting occurs, overhangs still arise from plurality wins in fragmented fields, leaving little to transfer. At 121 seats, MMP-T then does slightly worse than the current system on bloc fairness and MMP-BV barely better (median bloc deficit 6.5 and 5.1, against 5.3); at 141, MMP-BV141 does clearly better (3.1 against 4.6 for MMP141).</li>
+<li>This matters because the reforms are intended to discourage strategic splitting: the world they aim to create is the one in which transfers do least, and Parliament's size matters most.</li>
+</ul>
+</li>
+<li><strong>The backup vote rewards strategic electorate votes by small-party supporters.</strong><ul>
+<li>A small-party supporter who votes for their own party's local candidate wastes both ticks.</li>
+<li>One who gives the electorate vote to a big ally keeps their party vote, counted for that ally.</li>
+<li>This effect accounts for most cases where MMP-BV141 does worse than the current system. It is small in seats, but it runs against the aim of reducing strategic electorate voting.</li>
+</ul>
+</li>
+<li><strong>Māori electorate parties are a recurring source of overhang</strong> that transfers cannot always cover: a party winning several Māori electorates on 1–3% of the party vote.</li>
+</ol>
+<h2 id="16-limitations">1.6 Limitations</h2>
+<ul>
+<li><strong>Behaviour is independent of the system.</strong> The same ballots are cast under every rule, so how each rule would change strategic voting is not modelled. The distribution of strategic behaviour in each scenario should not be read as a prediction for any particular system.</li>
+<li><strong>Overhangs are much larger than New Zealand's history</strong> (median 13 seats against 0–4 in real elections). This reflects the deliberately wide, fragmented range of party systems, and both electorate and list seats being fixed. The results describe how the rules behave under stress, not how likely each outcome is.</li>
+<li><strong>Simplifications:</strong><ul>
+<li>Māori electorates vote only for Māori electorate parties and left parties.</li>
+<li>Māori electorate parties get no votes in general electorates.</li>
+<li>Within-bloc vote shares are drawn from a flat distribution.</li>
+<li>Minor parties stand no candidates.</li>
+<li>Strategic voters always back their bloc's largest party nationally, not the locally strongest one.</li>
+<li>Ballot counts are expected values with no sampling noise.</li>
+</ul>
+</li>
+<li><strong>Yardstick choice shapes the comparison.</strong> The party yardstick penalises MMP-BV for its reassignment, by design. The bloc yardstick counts sub-threshold votes that only MMP-BV can use. Both are reported.</li>
+<li><strong>The extra-seats figures</strong> hold the number of electorates fixed at 71 and search only up to 400 seats.</li>
+</ul>
+<h2 id="17-reproducibility">1.7 Reproducibility</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mc_overhang.py</code></td>
+<td>Scenario generator and seat rules (scenario <em>k</em> uses random seed 1000 + <em>k</em>)</td>
+</tr>
+<tr>
+<td><code>mc_results.csv</code></td>
+<td>One row per scenario, all measures (produced by <code>python3 mc_overhang.py run 5000</code>)</td>
+</tr>
+<tr>
+<td><code>mc_analyse.py</code></td>
+<td>Summary tables</td>
+</tr>
+<tr>
+<td><code>mc_diagnose_bv141.py</code>, <code>mc_diagnose_bv141.md</code></td>
+<td>Causes of MMP-BV141 bloc shortfalls</td>
+</tr>
+<tr>
+<td><code>mc_worse_cases.py</code>, <code>mc_worse_cases.md</code></td>
+<td>Scenarios where MMP-BV141 is worse than both MMP and MMP141, with worked examples</td>
+</tr>
+</tbody>
+</table></div>
+<p><code>mc_overhang.py</code> has since gained further system variants for later experiments. The seat rules for the six systems here are unchanged: recomputing 300 scenarios with the current code reproduces the stored bloc deficits exactly.</p>
+<nav class="pager" aria-label="Report pages"><a href="../report/transfer-explainer.html">← The proposal, explained</a><a href="../report/experiment-2.html">Experiment 2: NZ elections 2005–2023 →</a></nav>
+<p class="foot">Generated from <code>experiment1_report.md</code>. This describes proposals for discussion, not current electoral law.</p>
+</article>
+</div>
+</body>
+</html>

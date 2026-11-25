@@ -1,0 +1,1104 @@
+{
+  "2005": {
+    "blocs": {
+      "Labour Party": "L (government)",
+      "National Party": "R (government)",
+      "New Zealand First Party": "L (government)",
+      "Green Party": "L (government)",
+      "United Future New Zealand": "L (government)",
+      "Maori Party": "L (voter lean)",
+      "Act New Zealand": "R (government)",
+      "Jim Anderton'S Progressive": "L (government)",
+      "Destiny New Zealand": "R (voter lean)"
+    },
+    "overhang_at_120": {
+      "Maori Party": 1
+    },
+    "seats": {
+      "MMP": {
+        "Act New Zealand": 2,
+        "Green Party": 6,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 50,
+        "Maori Party": 4,
+        "National Party": 48,
+        "New Zealand First Party": 7,
+        "United Future New Zealand": 3
+      },
+      "MMP-T": {
+        "Act New Zealand": 2,
+        "Green Party": 6,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 49,
+        "Maori Party": 4,
+        "National Party": 48,
+        "New Zealand First Party": 7,
+        "United Future New Zealand": 3
+      },
+      "MMP-BV": {
+        "Act New Zealand": 2,
+        "Green Party": 6,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 49,
+        "Maori Party": 4,
+        "National Party": 48,
+        "New Zealand First Party": 7,
+        "United Future New Zealand": 3
+      },
+      "MMP-T-X": {
+        "Act New Zealand": 2,
+        "Green Party": 6,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 49,
+        "Maori Party": 4,
+        "National Party": 48,
+        "New Zealand First Party": 7,
+        "United Future New Zealand": 3
+      },
+      "MMP-BV-X": {
+        "Act New Zealand": 2,
+        "Green Party": 6,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 49,
+        "Maori Party": 4,
+        "National Party": 48,
+        "New Zealand First Party": 7,
+        "United Future New Zealand": 3
+      }
+    },
+    "measures": {
+      "MMP": {
+        "house": 121,
+        "gallagher": 0.95,
+        "party_deficit": 1.6,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.49,
+        "bloc_deficit": 0.07,
+        "bloc_deficit_countable": 0.27,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T": {
+        "house": 120,
+        "gallagher": 1.12,
+        "party_deficit": 2.08,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.98,
+        "bloc_deficit": 0.48,
+        "bloc_deficit_countable": 0.68,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-BV": {
+        "house": 120,
+        "gallagher": 1.12,
+        "party_deficit": 2.08,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.98,
+        "bloc_deficit": 0.48,
+        "bloc_deficit_countable": 0.68,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T-X": {
+        "house": 120,
+        "gallagher": 1.12,
+        "party_deficit": 2.08,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.98,
+        "bloc_deficit": 0.48,
+        "bloc_deficit_countable": 0.68,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-BV-X": {
+        "house": 120,
+        "gallagher": 1.12,
+        "party_deficit": 2.08,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.98,
+        "bloc_deficit": 0.48,
+        "bloc_deficit_countable": 0.68,
+        "extra_a": 0,
+        "extra_b": 0
+      }
+    },
+    "bloc_short": {
+      "MMP": {
+        "L": 0.07,
+        "R": 0.0
+      },
+      "MMP-T": {
+        "L": 0.48,
+        "R": 0.0
+      },
+      "MMP-BV": {
+        "L": 0.48,
+        "R": 0.0
+      },
+      "MMP-T-X": {
+        "L": 0.48,
+        "R": 0.0
+      },
+      "MMP-BV-X": {
+        "L": 0.48,
+        "R": 0.0
+      }
+    },
+    "transfers": {
+      "MMP-T": {
+        "votes_moved": 16978,
+        "absorbed": []
+      },
+      "MMP-BV": {
+        "votes_moved": 16307,
+        "absorbed": []
+      },
+      "MMP-T-X": {
+        "votes_moved": 16978,
+        "absorbed": []
+      },
+      "MMP-BV-X": {
+        "votes_moved": 16307,
+        "absorbed": []
+      }
+    }
+  },
+  "2008": {
+    "blocs": {
+      "National Party": "R (government)",
+      "Labour Party": "L (government)",
+      "Green Party": "L (government)",
+      "New Zealand First Party": "L (voter lean)",
+      "Act New Zealand": "R (government)",
+      "Maori Party": "R (government)",
+      "Jim Anderton'S Progressive": "L (government)",
+      "United Future": "R (government)",
+      "The Bill And Ben Party": "R (voter lean)",
+      "Kiwi Party": "R (voter lean)"
+    },
+    "overhang_at_120": {
+      "Maori Party": 2
+    },
+    "seats": {
+      "MMP": {
+        "Act New Zealand": 5,
+        "Green Party": 9,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 43,
+        "Maori Party": 5,
+        "National Party": 58,
+        "United Future": 1
+      },
+      "MMP-T": {
+        "Act New Zealand": 5,
+        "Green Party": 8,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 43,
+        "Maori Party": 5,
+        "National Party": 57,
+        "United Future": 1
+      },
+      "MMP-BV": {
+        "Act New Zealand": 5,
+        "Green Party": 9,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 43,
+        "Maori Party": 5,
+        "National Party": 56,
+        "United Future": 1
+      },
+      "MMP-T-X": {
+        "Act New Zealand": 5,
+        "Green Party": 8,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 43,
+        "Maori Party": 5,
+        "National Party": 57,
+        "United Future": 1
+      },
+      "MMP-BV-X": {
+        "Act New Zealand": 5,
+        "Green Party": 9,
+        "Jim Anderton'S Progressive": 1,
+        "Labour Party": 43,
+        "Maori Party": 5,
+        "National Party": 56,
+        "United Future": 1
+      }
+    },
+    "measures": {
+      "MMP": {
+        "house": 122,
+        "gallagher": 1.42,
+        "party_deficit": 2.35,
+        "party_deficit_rounded": 2,
+        "max_party_deficit": 1.37,
+        "bloc_deficit": 4.42,
+        "bloc_deficit_countable": 3.59,
+        "extra_a": 4,
+        "extra_b": null
+      },
+      "MMP-T": {
+        "house": 120,
+        "gallagher": 1.34,
+        "party_deficit": 2.25,
+        "party_deficit_rounded": 3,
+        "max_party_deficit": 0.69,
+        "bloc_deficit": 4.48,
+        "bloc_deficit_countable": 3.66,
+        "extra_a": 0,
+        "extra_b": null
+      },
+      "MMP-BV": {
+        "house": 120,
+        "gallagher": 1.59,
+        "party_deficit": 2.62,
+        "party_deficit_rounded": 3,
+        "max_party_deficit": 1.69,
+        "bloc_deficit": 3.48,
+        "bloc_deficit_countable": 2.66,
+        "extra_a": 10,
+        "extra_b": null
+      },
+      "MMP-T-X": {
+        "house": 120,
+        "gallagher": 1.34,
+        "party_deficit": 2.25,
+        "party_deficit_rounded": 3,
+        "max_party_deficit": 0.69,
+        "bloc_deficit": 4.48,
+        "bloc_deficit_countable": 3.66,
+        "extra_a": 0,
+        "extra_b": null
+      },
+      "MMP-BV-X": {
+        "house": 120,
+        "gallagher": 1.59,
+        "party_deficit": 2.62,
+        "party_deficit_rounded": 3,
+        "max_party_deficit": 1.69,
+        "bloc_deficit": 3.48,
+        "bloc_deficit_countable": 2.66,
+        "extra_a": 10,
+        "extra_b": null
+      }
+    },
+    "bloc_short": {
+      "MMP": {
+        "L": 4.42,
+        "R": 0.0
+      },
+      "MMP-T": {
+        "L": 4.48,
+        "R": 0.0
+      },
+      "MMP-BV": {
+        "L": 3.48,
+        "R": 0.0
+      },
+      "MMP-T-X": {
+        "L": 4.48,
+        "R": 0.0
+      },
+      "MMP-BV-X": {
+        "L": 3.48,
+        "R": 0.0
+      }
+    },
+    "transfers": {
+      "MMP-T": {
+        "votes_moved": 26596,
+        "absorbed": []
+      },
+      "MMP-BV": {
+        "votes_moved": 24113,
+        "absorbed": []
+      },
+      "MMP-T-X": {
+        "votes_moved": 26596,
+        "absorbed": []
+      },
+      "MMP-BV-X": {
+        "votes_moved": 24113,
+        "absorbed": []
+      }
+    }
+  },
+  "2011": {
+    "blocs": {
+      "National Party": "R (government)",
+      "Labour Party": "L (government)",
+      "Green Party": "L (government)",
+      "New Zealand First Party": "L (voter lean)",
+      "Conservative Party": "R (voter lean)",
+      "Maori Party": "R (government)",
+      "Mana": "L (government)",
+      "Act New Zealand": "R (government)",
+      "United Future": "R (government)",
+      "Aotearoa Legalise Cannabis Party": "L (voter lean)"
+    },
+    "overhang_at_120": {
+      "Maori Party": 1
+    },
+    "seats": {
+      "MMP": {
+        "Act New Zealand": 1,
+        "Green Party": 14,
+        "Labour Party": 34,
+        "Mana": 1,
+        "Maori Party": 3,
+        "National Party": 59,
+        "New Zealand First Party": 8,
+        "United Future": 1
+      },
+      "MMP-T": {
+        "Act New Zealand": 1,
+        "Green Party": 14,
+        "Labour Party": 34,
+        "Mana": 1,
+        "Maori Party": 3,
+        "National Party": 58,
+        "New Zealand First Party": 8,
+        "United Future": 1
+      },
+      "MMP-BV": {
+        "Act New Zealand": 1,
+        "Green Party": 13,
+        "Labour Party": 34,
+        "Mana": 1,
+        "Maori Party": 3,
+        "National Party": 59,
+        "New Zealand First Party": 8,
+        "United Future": 1
+      },
+      "MMP-T-X": {
+        "Act New Zealand": 1,
+        "Green Party": 14,
+        "Labour Party": 34,
+        "Mana": 1,
+        "Maori Party": 3,
+        "National Party": 58,
+        "New Zealand First Party": 8,
+        "United Future": 1
+      },
+      "MMP-BV-X": {
+        "Act New Zealand": 1,
+        "Green Party": 14,
+        "Labour Party": 34,
+        "Mana": 1,
+        "Maori Party": 3,
+        "National Party": 59,
+        "New Zealand First Party": 8,
+        "United Future": 1
+      }
+    },
+    "measures": {
+      "MMP": {
+        "house": 121,
+        "gallagher": 0.84,
+        "party_deficit": 1.61,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.42,
+        "bloc_deficit": 0.2,
+        "bloc_deficit_countable": 0.32,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T": {
+        "house": 120,
+        "gallagher": 0.93,
+        "party_deficit": 1.75,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.76,
+        "bloc_deficit": 0.67,
+        "bloc_deficit_countable": 0.15,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-BV": {
+        "house": 120,
+        "gallagher": 0.92,
+        "party_deficit": 1.72,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.73,
+        "bloc_deficit": 0.33,
+        "bloc_deficit_countable": 0.85,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T-X": {
+        "house": 120,
+        "gallagher": 0.93,
+        "party_deficit": 1.75,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.76,
+        "bloc_deficit": 0.67,
+        "bloc_deficit_countable": 0.15,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-BV-X": {
+        "house": 121,
+        "gallagher": 0.84,
+        "party_deficit": 1.61,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.42,
+        "bloc_deficit": 0.2,
+        "bloc_deficit_countable": 0.32,
+        "extra_a": 0,
+        "extra_b": 0
+      }
+    },
+    "bloc_short": {
+      "MMP": {
+        "L": 0.0,
+        "R": 0.2
+      },
+      "MMP-T": {
+        "L": 0.0,
+        "R": 0.67
+      },
+      "MMP-BV": {
+        "L": 0.33,
+        "R": 0.0
+      },
+      "MMP-T-X": {
+        "L": 0.0,
+        "R": 0.67
+      },
+      "MMP-BV-X": {
+        "L": 0.0,
+        "R": 0.2
+      }
+    },
+    "transfers": {
+      "MMP-T": {
+        "votes_moved": 13154,
+        "absorbed": []
+      },
+      "MMP-BV": {
+        "votes_moved": 13518,
+        "absorbed": [
+          "Maori Party"
+        ]
+      },
+      "MMP-T-X": {
+        "votes_moved": 13154,
+        "absorbed": []
+      },
+      "MMP-BV-X": {
+        "votes_moved": 13518,
+        "absorbed": []
+      }
+    }
+  },
+  "2014": {
+    "blocs": {
+      "National Party": "R (government)",
+      "Labour Party": "L (government)",
+      "Green Party": "L (government)",
+      "New Zealand First Party": "L (voter lean)",
+      "Conservative": "R (voter lean)",
+      "Internet Mana": "L (government)",
+      "Maori Party": "R (government)",
+      "Act New Zealand": "R (government)"
+    },
+    "overhang_at_120": {
+      "United Future": 1
+    },
+    "seats": {
+      "MMP": {
+        "Act New Zealand": 1,
+        "Green Party": 14,
+        "Labour Party": 32,
+        "Maori Party": 2,
+        "National Party": 60,
+        "New Zealand First Party": 11,
+        "United Future": 1
+      },
+      "MMP-T": {
+        "Act New Zealand": 1,
+        "Green Party": 14,
+        "Labour Party": 32,
+        "Maori Party": 2,
+        "National Party": 59,
+        "New Zealand First Party": 11,
+        "United Future": 1
+      },
+      "MMP-BV": {
+        "Act New Zealand": 1,
+        "Green Party": 13,
+        "Labour Party": 32,
+        "Maori Party": 2,
+        "National Party": 60,
+        "New Zealand First Party": 11,
+        "United Future": 1
+      },
+      "MMP-T-X": {
+        "Act New Zealand": 1,
+        "Green Party": 14,
+        "Labour Party": 32,
+        "Maori Party": 2,
+        "National Party": 59,
+        "New Zealand First Party": 11,
+        "United Future": 1
+      },
+      "MMP-BV-X": {
+        "Act New Zealand": 1,
+        "Green Party": 13,
+        "Labour Party": 32,
+        "Maori Party": 2,
+        "National Party": 60,
+        "New Zealand First Party": 11,
+        "United Future": 1
+      }
+    },
+    "measures": {
+      "MMP": {
+        "house": 121,
+        "gallagher": 0.68,
+        "party_deficit": 1.31,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.7,
+        "bloc_deficit": 0.43,
+        "bloc_deficit_countable": 0.1,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T": {
+        "house": 120,
+        "gallagher": 0.87,
+        "party_deficit": 1.44,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 1.2,
+        "bloc_deficit": 0.9,
+        "bloc_deficit_countable": 0.57,
+        "extra_a": 1,
+        "extra_b": 0
+      },
+      "MMP-BV": {
+        "house": 120,
+        "gallagher": 0.64,
+        "party_deficit": 1.14,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.69,
+        "bloc_deficit": 0.1,
+        "bloc_deficit_countable": 0.43,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T-X": {
+        "house": 120,
+        "gallagher": 0.87,
+        "party_deficit": 1.44,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 1.2,
+        "bloc_deficit": 0.9,
+        "bloc_deficit_countable": 0.57,
+        "extra_a": 1,
+        "extra_b": 0
+      },
+      "MMP-BV-X": {
+        "house": 120,
+        "gallagher": 0.64,
+        "party_deficit": 1.14,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.69,
+        "bloc_deficit": 0.1,
+        "bloc_deficit_countable": 0.43,
+        "extra_a": 0,
+        "extra_b": 0
+      }
+    },
+    "bloc_short": {
+      "MMP": {
+        "L": 0.0,
+        "R": 0.43
+      },
+      "MMP-T": {
+        "L": 0.0,
+        "R": 0.9
+      },
+      "MMP-BV": {
+        "L": 0.1,
+        "R": 0.0
+      },
+      "MMP-T-X": {
+        "L": 0.0,
+        "R": 0.9
+      },
+      "MMP-BV-X": {
+        "L": 0.1,
+        "R": 0.0
+      }
+    },
+    "transfers": {
+      "MMP-T": {
+        "votes_moved": 4195,
+        "absorbed": []
+      },
+      "MMP-BV": {
+        "votes_moved": 3990,
+        "absorbed": []
+      },
+      "MMP-T-X": {
+        "votes_moved": 4195,
+        "absorbed": []
+      },
+      "MMP-BV-X": {
+        "votes_moved": 3990,
+        "absorbed": []
+      }
+    }
+  },
+  "2017": {
+    "blocs": {
+      "National Party": "R (government)",
+      "Labour Party": "L (government)",
+      "New Zealand First Party": "L (government)",
+      "Green Party": "L (government)",
+      "The Opportunities Party (Top)": "L (voter lean)",
+      "Maori Party": "L (voter lean)",
+      "Act New Zealand": "R (government)"
+    },
+    "overhang_at_120": {},
+    "seats": {
+      "MMP": {
+        "Act New Zealand": 1,
+        "Green Party": 8,
+        "Labour Party": 46,
+        "National Party": 56,
+        "New Zealand First Party": 9
+      },
+      "MMP-T": {
+        "Act New Zealand": 1,
+        "Green Party": 8,
+        "Labour Party": 46,
+        "National Party": 56,
+        "New Zealand First Party": 9
+      },
+      "MMP-BV": {
+        "Act New Zealand": 1,
+        "Green Party": 8,
+        "Labour Party": 47,
+        "National Party": 55,
+        "New Zealand First Party": 9
+      },
+      "MMP-T-X": {
+        "Act New Zealand": 1,
+        "Green Party": 8,
+        "Labour Party": 46,
+        "National Party": 56,
+        "New Zealand First Party": 9
+      },
+      "MMP-BV-X": {
+        "Act New Zealand": 1,
+        "Green Party": 8,
+        "Labour Party": 47,
+        "National Party": 55,
+        "New Zealand First Party": 9
+      }
+    },
+    "measures": {
+      "MMP": {
+        "house": 120,
+        "gallagher": 0.35,
+        "party_deficit": 0.51,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.45,
+        "bloc_deficit": 1.78,
+        "bloc_deficit_countable": 1.22,
+        "extra_a": 0,
+        "extra_b": 1
+      },
+      "MMP-T": {
+        "house": 120,
+        "gallagher": 0.35,
+        "party_deficit": 0.51,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.45,
+        "bloc_deficit": 1.78,
+        "bloc_deficit_countable": 1.22,
+        "extra_a": 0,
+        "extra_b": 1
+      },
+      "MMP-BV": {
+        "house": 120,
+        "gallagher": 0.69,
+        "party_deficit": 1.03,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.96,
+        "bloc_deficit": 0.78,
+        "bloc_deficit_countable": 0.22,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T-X": {
+        "house": 120,
+        "gallagher": 0.35,
+        "party_deficit": 0.51,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.45,
+        "bloc_deficit": 1.78,
+        "bloc_deficit_countable": 1.22,
+        "extra_a": 0,
+        "extra_b": 1
+      },
+      "MMP-BV-X": {
+        "house": 120,
+        "gallagher": 0.69,
+        "party_deficit": 1.03,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 0.96,
+        "bloc_deficit": 0.78,
+        "bloc_deficit_countable": 0.22,
+        "extra_a": 0,
+        "extra_b": 0
+      }
+    },
+    "bloc_short": {
+      "MMP": {
+        "L": 1.78,
+        "R": 0.0
+      },
+      "MMP-T": {
+        "L": 1.78,
+        "R": 0.0
+      },
+      "MMP-BV": {
+        "L": 0.78,
+        "R": 0.0
+      },
+      "MMP-T-X": {
+        "L": 1.78,
+        "R": 0.0
+      },
+      "MMP-BV-X": {
+        "L": 0.78,
+        "R": 0.0
+      }
+    },
+    "transfers": {
+      "MMP-T": {
+        "votes_moved": 0,
+        "absorbed": []
+      },
+      "MMP-BV": {
+        "votes_moved": 0,
+        "absorbed": []
+      },
+      "MMP-T-X": {
+        "votes_moved": 0,
+        "absorbed": []
+      },
+      "MMP-BV-X": {
+        "votes_moved": 0,
+        "absorbed": []
+      }
+    }
+  },
+  "2020": {
+    "blocs": {
+      "Labour Party": "L (government)",
+      "National Party": "R (government)",
+      "Green Party": "L (government)",
+      "Act New Zealand": "R (government)",
+      "New Zealand First Party": "L (voter lean)",
+      "The Opportunities Party (Top)": "L (voter lean)",
+      "New Conservative": "R (voter lean)",
+      "Maori Party": "L (government)",
+      "Advance Nz": "R (voter lean)"
+    },
+    "overhang_at_120": {},
+    "seats": {
+      "MMP": {
+        "Act New Zealand": 10,
+        "Green Party": 10,
+        "Labour Party": 65,
+        "Maori Party": 2,
+        "National Party": 33
+      },
+      "MMP-T": {
+        "Act New Zealand": 10,
+        "Green Party": 10,
+        "Labour Party": 65,
+        "Maori Party": 2,
+        "National Party": 33
+      },
+      "MMP-BV": {
+        "Act New Zealand": 10,
+        "Green Party": 10,
+        "Labour Party": 64,
+        "Maori Party": 2,
+        "National Party": 34
+      },
+      "MMP-T-X": {
+        "Act New Zealand": 10,
+        "Green Party": 10,
+        "Labour Party": 65,
+        "Maori Party": 2,
+        "National Party": 33
+      },
+      "MMP-BV-X": {
+        "Act New Zealand": 10,
+        "Green Party": 10,
+        "Labour Party": 64,
+        "Maori Party": 2,
+        "National Party": 34
+      }
+    },
+    "measures": {
+      "MMP": {
+        "house": 120,
+        "gallagher": 0.37,
+        "party_deficit": 0.61,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.29,
+        "bloc_deficit": 0.25,
+        "bloc_deficit_countable": 0.86,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-T": {
+        "house": 120,
+        "gallagher": 0.37,
+        "party_deficit": 0.61,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.29,
+        "bloc_deficit": 0.25,
+        "bloc_deficit_countable": 0.86,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-BV": {
+        "house": 120,
+        "gallagher": 0.83,
+        "party_deficit": 1.32,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 1.09,
+        "bloc_deficit": 1.25,
+        "bloc_deficit_countable": 1.86,
+        "extra_a": 1,
+        "extra_b": 6
+      },
+      "MMP-T-X": {
+        "house": 120,
+        "gallagher": 0.37,
+        "party_deficit": 0.61,
+        "party_deficit_rounded": 0,
+        "max_party_deficit": 0.29,
+        "bloc_deficit": 0.25,
+        "bloc_deficit_countable": 0.86,
+        "extra_a": 0,
+        "extra_b": 0
+      },
+      "MMP-BV-X": {
+        "house": 120,
+        "gallagher": 0.83,
+        "party_deficit": 1.32,
+        "party_deficit_rounded": 1,
+        "max_party_deficit": 1.09,
+        "bloc_deficit": 1.25,
+        "bloc_deficit_countable": 1.86,
+        "extra_a": 1,
+        "extra_b": 6
+      }
+    },
+    "bloc_short": {
+      "MMP": {
+        "L": 0.25,
+        "R": 0.0
+      },
+      "MMP-T": {
+        "L": 0.25,
+        "R": 0.0
+      },
+      "MMP-BV": {
+        "L": 1.25,
+        "R": 0.0
+      },
+      "MMP-T-X": {
+        "L": 0.25,
+        "R": 0.0
+      },
+      "MMP-BV-X": {
+        "L": 1.25,
+        "R": 0.0
+      }
+    },
+    "transfers": {
+      "MMP-T": {
+        "votes_moved": 0,
+        "absorbed": []
+      },
+      "MMP-BV": {
+        "votes_moved": 0,
+        "absorbed": []
+      },
+      "MMP-T-X": {
+        "votes_moved": 0,
+        "absorbed": []
+      },
+      "MMP-BV-X": {
+        "votes_moved": 0,
+        "absorbed": []
+      }
+    }
+  },
+  "2023": {
+    "blocs": {
+      "National Party": "R (government)",
+      "Labour Party": "L (government)",
+      "Green Party": "L (government)",
+      "Act New Zealand": "R (government)",
+      "New Zealand First Party": "R (government)",
+      "Te Pati Maori": "L (government)",
+      "The Opportunities Party (Top)": "L (voter lean)",
+      "New Zealand Loyal": "R (voter lean)",
+      "Newzeal": "R (voter lean)"
+    },
+    "overhang_at_120": {
+      "Te Pati Maori": 2
+    },
+    "seats": {
+      "MMP": {
+        "Act New Zealand": 11,
+        "Green Party": 15,
+        "Labour Party": 34,
+        "National Party": 48,
+        "New Zealand First Party": 8,
+        "Te Pati Maori": 6
+      },
+      "MMP-T": {
+        "Act New Zealand": 11,
+        "Green Party": 14,
+        "Labour Party": 33,
+        "National Party": 48,
+        "New Zealand First Party": 8,
+        "Te Pati Maori": 6
+      },
+      "MMP-BV": {
+        "Act New Zealand": 11,
+        "Green Party": 14,
+        "Labour Party": 33,
+        "National Party": 48,
+        "New Zealand First Party": 8,
+        "Te Pati Maori": 6
+      },
+      "MMP-T-X": {
+        "Act New Zealand": 11,
+        "Green Party": 14,
+        "Labour Party": 33,
+        "National Party": 48,
+        "New Zealand First Party": 8,
+        "Te Pati Maori": 6
+      },
+      "MMP-BV-X": {
+        "Act New Zealand": 11,
+        "Green Party": 14,
+        "Labour Party": 33,
+        "National Party": 48,
+        "New Zealand First Party": 8,
+        "Te Pati Maori": 6
+      }
+    },
+    "measures": {
+      "MMP": {
+        "house": 122,
+        "gallagher": 1.44,
+        "party_deficit": 2.16,
+        "party_deficit_rounded": 2,
+        "max_party_deficit": 1.21,
+        "bloc_deficit": 1.53,
+        "bloc_deficit_countable": 0.89,
+        "extra_a": 3,
+        "extra_b": 0
+      },
+      "MMP-T": {
+        "house": 120,
+        "gallagher": 1.51,
+        "party_deficit": 2.36,
+        "party_deficit_rounded": 2,
+        "max_party_deficit": 1.21,
+        "bloc_deficit": 0.41,
+        "bloc_deficit_countable": 0.22,
+        "extra_a": 5,
+        "extra_b": 0
+      },
+      "MMP-BV": {
+        "house": 120,
+        "gallagher": 1.51,
+        "party_deficit": 2.36,
+        "party_deficit_rounded": 2,
+        "max_party_deficit": 1.21,
+        "bloc_deficit": 0.41,
+        "bloc_deficit_countable": 0.22,
+        "extra_a": 5,
+        "extra_b": 0
+      },
+      "MMP-T-X": {
+        "house": 120,
+        "gallagher": 1.51,
+        "party_deficit": 2.36,
+        "party_deficit_rounded": 2,
+        "max_party_deficit": 1.21,
+        "bloc_deficit": 0.41,
+        "bloc_deficit_countable": 0.22,
+        "extra_a": 5,
+        "extra_b": 0
+      },
+      "MMP-BV-X": {
+        "house": 120,
+        "gallagher": 1.51,
+        "party_deficit": 2.36,
+        "party_deficit_rounded": 2,
+        "max_party_deficit": 1.21,
+        "bloc_deficit": 0.41,
+        "bloc_deficit_countable": 0.22,
+        "extra_a": 5,
+        "extra_b": 0
+      }
+    },
+    "bloc_short": {
+      "MMP": {
+        "L": 0.0,
+        "R": 1.53
+      },
+      "MMP-T": {
+        "L": 0.0,
+        "R": 0.41
+      },
+      "MMP-BV": {
+        "L": 0.0,
+        "R": 0.41
+      },
+      "MMP-T-X": {
+        "L": 0.0,
+        "R": 0.41
+      },
+      "MMP-BV-X": {
+        "L": 0.0,
+        "R": 0.41
+      }
+    },
+    "transfers": {
+      "MMP-T": {
+        "votes_moved": 35038,
+        "absorbed": []
+      },
+      "MMP-BV": {
+        "votes_moved": 36526,
+        "absorbed": []
+      },
+      "MMP-T-X": {
+        "votes_moved": 35038,
+        "absorbed": []
+      },
+      "MMP-BV-X": {
+        "votes_moved": 36526,
+        "absorbed": []
+      }
+    }
+  }
+}

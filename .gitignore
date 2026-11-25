@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+.venv/
+dist/
+.claude/settings.local.json
+
+# Large or frequently regenerated raw outputs. Not committed: published as a
+# GitHub Release asset instead (see make_data_release.sh).
+runs/*/records.jsonl.gz
+runs/*/measures.csv
+paradox_results.csv
+paradox_recheck.csv
+abc_cache/
+
+# Third-party report: link to it rather than redistribute it.
+Independent-Electoral-Review-Final-Report-November-2023.pdf

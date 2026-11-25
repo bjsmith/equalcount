@@ -1,0 +1,1019 @@
+{
+  "note": "Counterfactual: every voter gives their electorate vote to the candidate of",
+  "2023": {
+    "year": 2023,
+    "qualifying": [
+      "National",
+      "Labour",
+      "Green",
+      "ACT",
+      "NZ First"
+    ],
+    "party_vote_pct_of_qualifying": {
+      "National": 41.7,
+      "Labour": 29.5,
+      "Green": 12.7,
+      "ACT": 9.5,
+      "NZ First": 6.7
+    },
+    "bloc_vote_pct_of_qualifying": {
+      "Right bloc": 57.8,
+      "Left bloc": 42.2
+    },
+    "electorates_actual": {
+      "National": 43,
+      "Labour": 17,
+      "Green": 3,
+      "ACT": 2,
+      "Te Pāti Māori": 6
+    },
+    "electorates_straight_ticket": {
+      "National": 54,
+      "Labour": 16,
+      "Green": 2
+    },
+    "entitlement_120": {
+      "National": 50,
+      "Labour": 36,
+      "Green": 15,
+      "ACT": 11,
+      "NZ First": 8
+    },
+    "overhang": {
+      "National": 4
+    },
+    "seats": {
+      "current_law": {
+        "National": 54,
+        "Labour": 36,
+        "Green": 15,
+        "ACT": 11,
+        "NZ First": 8,
+        "Total": 124,
+        "Right bloc": 73,
+        "Left bloc": 51
+      },
+      "proposal_equals_review_rule": {
+        "National": 54,
+        "Labour": 33,
+        "Green": 14,
+        "ACT": 11,
+        "NZ First": 8,
+        "Total": 120,
+        "Right bloc": 73,
+        "Left bloc": 47
+      }
+    },
+    "bloc_seat_pct": {
+      "current_law": {
+        "Right bloc": 58.9,
+        "Left bloc": 41.1
+      },
+      "proposal_equals_review_rule": {
+        "Right bloc": 60.8,
+        "Left bloc": 39.2
+      }
+    },
+    "electorates": [
+      {
+        "electorate": "Auckland Central",
+        "winner": "National",
+        "runner_up": "Green",
+        "margin_pct": 9.3
+      },
+      {
+        "electorate": "Banks Peninsula",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 5.5
+      },
+      {
+        "electorate": "Bay of Plenty",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 31.0
+      },
+      {
+        "electorate": "Botany",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 39.6
+      },
+      {
+        "electorate": "Christchurch Central",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 2.7
+      },
+      {
+        "electorate": "Christchurch East",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 5.9
+      },
+      {
+        "electorate": "Coromandel",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 24.7
+      },
+      {
+        "electorate": "Dunedin",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 4.1
+      },
+      {
+        "electorate": "East Coast",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 7.3
+      },
+      {
+        "electorate": "East Coast Bays",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 44.5
+      },
+      {
+        "electorate": "Epsom",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 37.4
+      },
+      {
+        "electorate": "Hamilton East",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 18.5
+      },
+      {
+        "electorate": "Hamilton West",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 15.4
+      },
+      {
+        "electorate": "Hutt South",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 1.6
+      },
+      {
+        "electorate": "Ilam",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 21.6
+      },
+      {
+        "electorate": "Invercargill",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 18.2
+      },
+      {
+        "electorate": "Kaikōura",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 21.5
+      },
+      {
+        "electorate": "Kaipara ki Mahurangi",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 32.1
+      },
+      {
+        "electorate": "Kelston",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 6.2
+      },
+      {
+        "electorate": "Mana",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 9.6
+      },
+      {
+        "electorate": "Māngere",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 43.5
+      },
+      {
+        "electorate": "Manurewa",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 23.6
+      },
+      {
+        "electorate": "Maungakiekie",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 14.6
+      },
+      {
+        "electorate": "Mt Albert",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 6.1
+      },
+      {
+        "electorate": "Mt Roskill",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 13.6
+      },
+      {
+        "electorate": "Napier",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 14.9
+      },
+      {
+        "electorate": "Nelson",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 3.3
+      },
+      {
+        "electorate": "New Lynn",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 10.7
+      },
+      {
+        "electorate": "New Plymouth",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 18.8
+      },
+      {
+        "electorate": "North Shore",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 33.8
+      },
+      {
+        "electorate": "Northcote",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 20.9
+      },
+      {
+        "electorate": "Northland",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 14.5
+      },
+      {
+        "electorate": "Ōhāriu",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 5.6
+      },
+      {
+        "electorate": "Ōtaki",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 6.6
+      },
+      {
+        "electorate": "Pakuranga",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 42.6
+      },
+      {
+        "electorate": "Palmerston North",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 2.6
+      },
+      {
+        "electorate": "Panmure-Ōtāhuhu",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 26.9
+      },
+      {
+        "electorate": "Papakura",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 32.0
+      },
+      {
+        "electorate": "Port Waikato",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 32.7
+      },
+      {
+        "electorate": "Rangitata",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 19.3
+      },
+      {
+        "electorate": "Rangitīkei",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 20.2
+      },
+      {
+        "electorate": "Remutaka",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 8.1
+      },
+      {
+        "electorate": "Rongotai",
+        "winner": "Green",
+        "runner_up": "Labour",
+        "margin_pct": 0.7
+      },
+      {
+        "electorate": "Rotorua",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 18.3
+      },
+      {
+        "electorate": "Selwyn",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 32.1
+      },
+      {
+        "electorate": "Southland",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 33.4
+      },
+      {
+        "electorate": "Taieri",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 0.7
+      },
+      {
+        "electorate": "Takanini",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 25.5
+      },
+      {
+        "electorate": "Tāmaki",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 36.2
+      },
+      {
+        "electorate": "Taranaki-King Country",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 31.3
+      },
+      {
+        "electorate": "Taupō",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 24.4
+      },
+      {
+        "electorate": "Tauranga",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 28.9
+      },
+      {
+        "electorate": "Te Atatū",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 4.4
+      },
+      {
+        "electorate": "Tukituki",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 16.8
+      },
+      {
+        "electorate": "Upper Harbour",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 28.3
+      },
+      {
+        "electorate": "Waikato",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 34.1
+      },
+      {
+        "electorate": "Waimakariri",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 19.3
+      },
+      {
+        "electorate": "Wairarapa",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 12.1
+      },
+      {
+        "electorate": "Waitaki",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 22.8
+      },
+      {
+        "electorate": "Wellington Central",
+        "winner": "Green",
+        "runner_up": "Labour",
+        "margin_pct": 13.0
+      },
+      {
+        "electorate": "West Coast-Tasman",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 10.4
+      },
+      {
+        "electorate": "Whanganui",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 9.4
+      },
+      {
+        "electorate": "Whangaparāoa",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 39.4
+      },
+      {
+        "electorate": "Whangārei",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 16.4
+      },
+      {
+        "electorate": "Wigram",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 5.9
+      },
+      {
+        "electorate": "Hauraki-Waikato",
+        "winner": "Labour",
+        "runner_up": "Te Pāti Māori",
+        "margin_pct": 12.2
+      },
+      {
+        "electorate": "Ikaroa-Rāwhiti",
+        "winner": "Labour",
+        "runner_up": "Te Pāti Māori",
+        "margin_pct": 31.5
+      },
+      {
+        "electorate": "Tāmaki Makaurau",
+        "winner": "Labour",
+        "runner_up": "Te Pāti Māori",
+        "margin_pct": 13.8
+      },
+      {
+        "electorate": "Te Tai Hauāuru",
+        "winner": "Labour",
+        "runner_up": "Te Pāti Māori",
+        "margin_pct": 6.2
+      },
+      {
+        "electorate": "Te Tai Tokerau",
+        "winner": "Labour",
+        "runner_up": "Te Pāti Māori",
+        "margin_pct": 18.3
+      },
+      {
+        "electorate": "Te Tai Tonga",
+        "winner": "Labour",
+        "runner_up": "Te Pāti Māori",
+        "margin_pct": 14.8
+      },
+      {
+        "electorate": "Waiariki",
+        "winner": "Labour",
+        "runner_up": "Te Pāti Māori",
+        "margin_pct": 5.6
+      }
+    ]
+  },
+  "2026": {
+    "year": 2026,
+    "qualifying": [
+      "National",
+      "Labour",
+      "Green",
+      "ACT",
+      "NZ First",
+      "Opportunity"
+    ],
+    "party_vote_pct_of_qualifying": {
+      "National": 29.6,
+      "Labour": 29.8,
+      "Green": 13.5,
+      "ACT": 11.1,
+      "NZ First": 9.9,
+      "Opportunity": 6.1
+    },
+    "bloc_vote_pct_of_qualifying": {
+      "Right bloc": 50.6,
+      "Left bloc": 43.3
+    },
+    "electorates_actual": {
+      "National": 42,
+      "Labour": 21,
+      "Green": 2,
+      "ACT": 1,
+      "Te Pāti Māori": 5
+    },
+    "electorates_straight_ticket": {
+      "National": 40,
+      "Labour": 31
+    },
+    "entitlement_120": {
+      "National": 36,
+      "Labour": 36,
+      "Green": 16,
+      "ACT": 13,
+      "NZ First": 12,
+      "Opportunity": 7
+    },
+    "overhang": {
+      "National": 4
+    },
+    "seats": {
+      "current_law": {
+        "National": 40,
+        "Labour": 36,
+        "Green": 16,
+        "ACT": 13,
+        "NZ First": 12,
+        "Opportunity": 7,
+        "Total": 124,
+        "Right bloc": 65,
+        "Left bloc": 52
+      },
+      "proposal_equals_review_rule": {
+        "National": 40,
+        "Labour": 34,
+        "Green": 15,
+        "ACT": 13,
+        "NZ First": 11,
+        "Opportunity": 7,
+        "Total": 120,
+        "Right bloc": 64,
+        "Left bloc": 49
+      }
+    },
+    "bloc_seat_pct": {
+      "current_law": {
+        "Right bloc": 52.4,
+        "Left bloc": 41.9
+      },
+      "proposal_equals_review_rule": {
+        "Right bloc": 53.3,
+        "Left bloc": 40.8
+      }
+    },
+    "electorates": [
+      {
+        "electorate": "Auckland Central",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 0.8
+      },
+      {
+        "electorate": "Banks Peninsula",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 2.0
+      },
+      {
+        "electorate": "Botany",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 33.0
+      },
+      {
+        "electorate": "Christchurch Central",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 9.0
+      },
+      {
+        "electorate": "Christchurch East",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 15.6
+      },
+      {
+        "electorate": "Coromandel",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 15.3
+      },
+      {
+        "electorate": "Dunedin",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 7.5
+      },
+      {
+        "electorate": "East Cape",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 2.0
+      },
+      {
+        "electorate": "East Coast Bays",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 26.1
+      },
+      {
+        "electorate": "Epsom",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 26.1
+      },
+      {
+        "electorate": "Glendene",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 18.0
+      },
+      {
+        "electorate": "Hamilton East",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 1.5
+      },
+      {
+        "electorate": "Hamilton West",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 2.7
+      },
+      {
+        "electorate": "Henderson",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 18.5
+      },
+      {
+        "electorate": "Hutt South",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 11.8
+      },
+      {
+        "electorate": "Ilam",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 9.9
+      },
+      {
+        "electorate": "Invercargill",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 6.6
+      },
+      {
+        "electorate": "Kaikōura",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 14.5
+      },
+      {
+        "electorate": "Kaipara ki Mahurangi",
+        "winner": "National",
+        "runner_up": "ACT",
+        "margin_pct": 20.3
+      },
+      {
+        "electorate": "Kapiti",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 2.9
+      },
+      {
+        "electorate": "Kenepuru",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 22.3
+      },
+      {
+        "electorate": "Māngere",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 53.2
+      },
+      {
+        "electorate": "Manurewa",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 42.8
+      },
+      {
+        "electorate": "Maungakiekie",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 1.9
+      },
+      {
+        "electorate": "Mt Albert",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 6.1
+      },
+      {
+        "electorate": "Mt Maunganui",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 19.7
+      },
+      {
+        "electorate": "Mt Roskill",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 2.1
+      },
+      {
+        "electorate": "Napier",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 8.4
+      },
+      {
+        "electorate": "Nelson",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 1.9
+      },
+      {
+        "electorate": "New Plymouth",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 10.0
+      },
+      {
+        "electorate": "North Shore",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 20.3
+      },
+      {
+        "electorate": "Northcote",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 4.0
+      },
+      {
+        "electorate": "Northland",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 9.0
+      },
+      {
+        "electorate": "Ōtāhuhu",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 48.5
+      },
+      {
+        "electorate": "Pakuranga",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 26.6
+      },
+      {
+        "electorate": "Palmerston North",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 6.2
+      },
+      {
+        "electorate": "Papakura",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 9.8
+      },
+      {
+        "electorate": "Port Waikato",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 17.5
+      },
+      {
+        "electorate": "Rangitata",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 10.3
+      },
+      {
+        "electorate": "Rangitīkei",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 3.6
+      },
+      {
+        "electorate": "Remutaka",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 20.3
+      },
+      {
+        "electorate": "Rotorua",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 8.1
+      },
+      {
+        "electorate": "Selwyn",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 15.6
+      },
+      {
+        "electorate": "Southland",
+        "winner": "National",
+        "runner_up": "ACT",
+        "margin_pct": 22.1
+      },
+      {
+        "electorate": "Taieri",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 8.4
+      },
+      {
+        "electorate": "Takanini",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 0.5
+      },
+      {
+        "electorate": "Tāmaki",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 20.6
+      },
+      {
+        "electorate": "Taranaki-King Country",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 18.0
+      },
+      {
+        "electorate": "Taupō",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 14.0
+      },
+      {
+        "electorate": "Tauranga",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 17.5
+      },
+      {
+        "electorate": "Tukituki",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 9.3
+      },
+      {
+        "electorate": "Upper Harbour",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 16.8
+      },
+      {
+        "electorate": "Waikato",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 21.1
+      },
+      {
+        "electorate": "Waimakariri",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 8.6
+      },
+      {
+        "electorate": "Wairarapa",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 2.1
+      },
+      {
+        "electorate": "Waitākere",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 5.9
+      },
+      {
+        "electorate": "Waitaki",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 16.6
+      },
+      {
+        "electorate": "Wellington Bays",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 5.3
+      },
+      {
+        "electorate": "Wellington North",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 3.3
+      },
+      {
+        "electorate": "West Coast-Tasman",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 8.9
+      },
+      {
+        "electorate": "Whanganui",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 4.4
+      },
+      {
+        "electorate": "Whangaparāoa",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 23.5
+      },
+      {
+        "electorate": "Whangārei",
+        "winner": "National",
+        "runner_up": "Labour",
+        "margin_pct": 6.9
+      },
+      {
+        "electorate": "Wigram",
+        "winner": "Labour",
+        "runner_up": "National",
+        "margin_pct": 4.8
+      },
+      {
+        "electorate": "Hauraki-Waikato",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 16.1
+      },
+      {
+        "electorate": "Ikaroa-Rāwhiti",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 23.1
+      },
+      {
+        "electorate": "Tāmaki Makaurau",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 13.0
+      },
+      {
+        "electorate": "Te Tai Hauāuru",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 9.7
+      },
+      {
+        "electorate": "Te Tai Tokerau",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 7.8
+      },
+      {
+        "electorate": "Te Tai Tonga",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 3.3
+      },
+      {
+        "electorate": "Waiariki",
+        "winner": "Labour",
+        "runner_up": "Green",
+        "margin_pct": 8.8
+      }
+    ]
+  }
+}

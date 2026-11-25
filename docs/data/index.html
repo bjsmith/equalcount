@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Data and code</title>
+<meta name="description" content="Simulation outputs, raw ballot states and scripts behind the overhang reform analysis.">
+<meta property="og:title" content="Data and code">
+<meta property="og:description" content="Simulation outputs, raw ballot states and scripts behind the overhang reform analysis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --accent: #0B57A4; --mark: #FFF4C2; --code: #E6ECE9;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+    --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+  --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body);
+  font-size: 18px; line-height: 1.6; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+.sx-brand { color: var(--ink); }
+.layout { max-width: 1120px; margin: 0 auto; display: grid; gap: 40px; padding-block: 32px 80px;
+  grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .layout { grid-template-columns: 240px minmax(0, 1fr); } }
+.toc { font-size: 14px; line-height: 1.4; }
+.toc-inner { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding-right: 8px; }
+.toc p { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul ul { padding-left: 12px; }
+.toc li { margin: 6px 0; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+.toc .group { margin-top: 24px; }
+@media (max-width: 999px) { .toc-inner { position: static; max-height: none; }
+  .toc details:not([open]) ul { display: none; } }
+article { max-width: 760px; min-width: 0; }
+article h1, article h2, article h3, article h4 { font-family: var(--display); line-height: 1.15; text-wrap: balance; }
+article h1 { font-size: clamp(32px, 4.4vw, 48px); font-weight: 800; letter-spacing: -.015em; margin: 0 0 12px; }
+article h1 + h3 { font-family: var(--body); font-weight: 400; font-size: 21px; color: var(--muted); margin-top: 0; }
+article h2 { font-size: 28px; margin: 56px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+article h3 { font-size: 21px; margin: 36px 0 8px; }
+article h4 { font-size: 18px; margin: 28px 0 6px; }
+article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+article blockquote { margin: 20px 0; padding: 4px 18px; border-left: 3px solid var(--line); color: var(--muted); }
+article code { font-size: .86em; background: var(--code); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+article pre { background: var(--code); padding: 14px; border-radius: 8px; overflow: auto; font-size: 14px; }
+article pre code { background: none; padding: 0; }
+article img { max-width: 100%; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+table { border-collapse: collapse; font-size: 15px; line-height: 1.4; min-width: 100%; }
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; background: var(--code); }
+tr:last-child td { border-bottom: 0; }
+td { font-variant-numeric: tabular-nums; }
+.draft { background: var(--mark); border-radius: 8px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 56px;
+  padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
+.foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
+.meta { color: var(--muted); }
+
+.sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--body); font-size: 15px; }
+.sx-brand { font-family: var(--display); font-weight: 800; text-decoration: none; letter-spacing: -.01em; }
+.sx-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.sx-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.sx-links a:hover, .sx-links a[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+<nav class="sx-nav" aria-label="Site">
+  <a class="sx-brand" href="../">One ballot, counted twice</a>
+  <div class="sx-links"><a href="../">2023</a><a href="../2026/">2026</a><a href="../report/">Full report</a><a href="../data/" aria-current="page">Data &amp; code</a></div>
+</nav>
+<div class="layout">
+<aside class="toc"><div class="toc-inner"><p>On this page</p><ul>
+<li><a href="#inputs">Inputs</a></li><li><a href="#worked-examples">Worked examples</a></li><li><a href="#experiment-1-synthetic-stress-test">Experiment 1: synthetic stress test</a></li><li><a href="#experiment-2-new-zealand-elections-and-calibrated-scenarios">Experiment 2: New Zealand elections and calibrated scenarios</a></li><li><a href="#experiment-3-adaptive-futures-from-2026">Experiment 3: adaptive futures from 2026</a></li><li><a href="#cross-experiment-checks">Cross-experiment checks</a></li>
+<li><a href="#code">Code</a></li><li><a href="#reproduce">Reproducing the results</a></li></ul></div></aside>
+<article>
+<h1>Data and code</h1>
+<p>Everything behind the <a href="../report/">report</a> is in the GitHub repository. Summary results and inputs are committed
+directly. The raw ballot states and per-run measures are too large for the repository, so they are attached to the latest release as a single download.</p>
+<p class="draft"><strong>Working draft.</strong> Built 25 November 2026. Simulations are still being rerun, so files may change.</p>
+<h2 id="inputs">Inputs</h2><div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th><th>Size</th><th>Where</th></tr></thead><tbody><tr><td><code>data/raw/2023/</code></td><td>Electoral Commission 2023 results and split-vote tables (general and Māori electorates).</td><td>23.6 KB</td><td>In repository</td></tr><tr><td><code>data/raw/2026_preliminary/</code></td><td>2026 preliminary count by electorate and nationally (special votes not included).</td><td>7.9 KB</td><td>In repository</td></tr><tr><td><code>data/raw/history/</code></td><td>Election results 2005–2023 used for the historical recounts and calibration.</td><td>93.5 KB</td><td>In repository</td></tr><tr><td><code>2026_Preliminary_Results_-_Vote_Splitting_Analysis.xlsx</code></td><td>Spreadsheet working of the 2026 preliminary vote-splitting estimate.</td><td>43.7 KB</td><td>In repository</td></tr></tbody></table></div><h2 id="worked-examples">Worked examples</h2><div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th><th>Size</th><th>Where</th></tr></thead><tbody><tr><td><code>results_2023.json</code></td><td>2023 under the transfer rule (the explainer's example).</td><td>2.5 KB</td><td>In repository</td></tr><tr><td><code>results_2026.json</code></td><td>2026 provisional result and transfer estimate.</td><td>18.6 KB</td><td>In repository</td></tr><tr><td><code>results_levelling.json</code></td><td>Extra list seats needed for full proportionality, with and without the transfer.</td><td>14.6 KB</td><td>In repository</td></tr><tr><td><code>results_straight_ticket.json</code></td><td>Counterfactual where every voter votes a straight ticket.</td><td>22.9 KB</td><td>In repository</td></tr></tbody></table></div><h2 id="experiment-1-synthetic-stress-test">Experiment 1: synthetic stress test</h2><div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th><th>Size</th><th>Where</th></tr></thead><tbody><tr><td><code>mc_results.csv</code></td><td>One row per scenario (5,000), every rule applied to the same ballots.</td><td>3.2 MB</td><td>In repository</td></tr><tr><td><code>mc_summary.md</code></td><td>Summary tables.</td><td>15.3 KB</td><td>In repository</td></tr><tr><td><code>runs/exp1/records.jsonl.gz</code></td><td>Raw ballot states for every scenario.</td><td>6.8 MB</td><td>Release download</td></tr><tr><td><code>runs/exp1/measures.csv</code></td><td>Shared measures computed from the raw states.</td><td>17.7 MB</td><td>Release download</td></tr></tbody></table></div><h2 id="experiment-2-new-zealand-elections-and-calibrated-scenarios">Experiment 2: New Zealand elections and calibrated scenarios</h2><div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th><th>Size</th><th>Where</th></tr></thead><tbody><tr><td><code>results_history.json</code></td><td>2005–2023 recounted under each rule.</td><td>25.8 KB</td><td>In repository</td></tr><tr><td><code>calibration.json</code></td><td>Parameters measured from 2005–2023.</td><td>9.4 KB</td><td>In repository</td></tr><tr><td><code>abc_posterior.json</code></td><td>Approximate Bayesian computation posterior for the behavioural parameters.</td><td>3.0 MB</td><td>In repository</td></tr><tr><td><code>mc_results_calibrated.csv</code></td><td>One row per calibrated scenario (5,000).</td><td>3.3 MB</td><td>In repository</td></tr><tr><td><code>mc_summary_calibrated.md</code></td><td>Summary tables.</td><td>9.9 KB</td><td>In repository</td></tr><tr><td><code>runs/exp2_history/records.jsonl.gz</code></td><td>Raw ballot states, actual elections.</td><td>9.8 KB</td><td>Release download</td></tr><tr><td><code>runs/exp2/records.jsonl.gz</code></td><td>Raw ballot states, calibrated scenarios.</td><td>6.5 MB</td><td>Release download</td></tr><tr><td><code>runs/exp2/measures.csv</code></td><td>Shared measures computed from the raw states.</td><td>16.8 MB</td><td>Release download</td></tr></tbody></table></div><h2 id="experiment-3-adaptive-futures-from-2026">Experiment 3: adaptive futures from 2026</h2><div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th><th>Size</th><th>Where</th></tr></thead><tbody><tr><td><code>futures/</code></td><td>Stage 1: ten futures reasoned election by election (digests, reasoning, overrides).</td><td>7.4 MB</td><td>In repository</td></tr><tr><td><code>runs/exp3_baseline/results.csv</code></td><td>Stage 2: 1,000 walks × 5 elections × each rule.</td><td>4.4 MB</td><td>In repository</td></tr><tr><td><code>runs/exp3_copycat/results.csv</code></td><td>Scenario where other blocs copy the split-list strategy.</td><td>4.4 MB</td><td>In repository</td></tr><tr><td><code>runs/exp3_escalation/results.csv</code></td><td>Scenario where split-list strategies escalate.</td><td>4.4 MB</td><td>In repository</td></tr><tr><td><code>runs/exp3_baseline/records.jsonl.gz</code></td><td>Raw ballot states, baseline walks.</td><td>49.2 MB</td><td>Release download</td></tr><tr><td><code>runs/exp3_copycat/records.jsonl.gz</code></td><td>Raw ballot states, copycat walks.</td><td>49.3 MB</td><td>Release download</td></tr><tr><td><code>runs/exp3_escalation/records.jsonl.gz</code></td><td>Raw ballot states, escalation walks.</td><td>49.4 MB</td><td>Release download</td></tr><tr><td><code>runs/exp3_baseline/measures.csv</code></td><td>Shared measures, baseline walks.</td><td>34.3 MB</td><td>Release download</td></tr></tbody></table></div><h2 id="cross-experiment-checks">Cross-experiment checks</h2><div class="table-wrap"><table><thead><tr><th>File</th><th>Contents</th><th>Size</th><th>Where</th></tr></thead><tbody><tr><td><code>runs/summary_measures.md</code></td><td>Shared measures across Experiments 1–3.</td><td>3.6 KB</td><td>In repository</td></tr><tr><td><code>paradox_summary.md</code></td><td>Monotonicity (more votes, fewer seats) search across every rule.</td><td>3.3 KB</td><td>In repository</td></tr><tr><td><code>paradox_results.csv</code></td><td>Every perturbation tested in the paradox search.</td><td>143.5 MB</td><td>Release download</td></tr></tbody></table></div>
+<h2 id="code">Code</h2>
+<p>Python 3, standard library and NumPy. Each script's docstring explains how to run it.</p>
+<div class="table-wrap"><table><thead><tr><th>Script</th><th>What it does</th></tr></thead><tbody><tr><td><code>model.py</code></td><td>2023 NZ election under the proposed overhang-transfer rule.</td></tr><tr><td><code>model_2026.py</code></td><td>2026 NZ election (preliminary count) under the proposed overhang-transfer rule.</td></tr><tr><td><code>model_levelling.py</code></td><td>How many extra list seats does full proportionality need, with and without the fix?</td></tr><tr><td><code>model_straight_ticket.py</code></td><td>Counterfactual: every voter gives their electorate vote to the candidate of the party they gave their party vote to (&quot;straight-ticket&quot;).</td></tr><tr><td><code>mc_overhang.py</code></td><td>Monte Carlo comparison of the Current System and the Proposed System.</td></tr><tr><td><code>mc_analyse.py</code></td><td>Summarise mc_results.csv (from `python3 mc_overhang.py run N`) into mc_summary.md.</td></tr><tr><td><code>mc_history.py</code></td><td>Current System vs Proposed System (Option 2) on actual elections, 2005–2023.</td></tr><tr><td><code>calibrate_history.py</code></td><td>Estimate Monte Carlo parameters from the 2005–2023 elections.</td></tr><tr><td><code>abc_history.py</code></td><td>Approximate Bayesian computation for the behavioural parameters, 2005–2023.</td></tr><tr><td><code>mc_calibrated.py</code></td><td>Monte Carlo calibrated to New Zealand elections, 2005–2023.</td></tr><tr><td><code>mc_future.py</code></td><td>Experiment 3: five future elections (2029–2041) from the 2026 provisional result.</td></tr><tr><td><code>futures_reason.py</code></td><td>Between-round reasoning for Experiment 3 (mc_future.py).</td></tr><tr><td><code>mc_future_walks.py</code></td><td>Experiment 3 at scale: 1,000 random walks from 2026 to 2041.</td></tr><tr><td><code>mc_future_floor.py</code></td><td>Experiment 3 benchmark (run: python3 mc_future_floor.py 1000): on each simulated election&#x27;s party votes, allocate seats by pure PR (Sainte-Laguë on parties over the threshold, no electorates) at 121 seats. This is the best any overhang fix could do on those ballots.</td></tr><tr><td><code>measures.py</code></td><td>Shared measures for Experiments 1–3, computed from stored raw results.</td></tr><tr><td><code>analyse_measures.py</code></td><td>Summarise runs/&lt;experiment&gt;/measures.csv (from measures.py) into runs/summary_measures.md.</td></tr><tr><td><code>mc_paradox.py</code></td><td>Monotonicity (&quot;negative vote weight&quot;) tests for every seat rule.</td></tr><tr><td><code>run_all_measures.sh</code></td><td>Rerun Experiments 1–3 storing raw ballot states, then compute every measure from them.</td></tr><tr><td><code>build_site.py</code></td><td>Build the GitHub Pages site in docs/.</td></tr></tbody></table></div>
+<h2 id="reproduce">Reproducing the results</h2>
+<p><code>run_all_measures.sh</code> reruns Experiments 1–3, stores the raw ballot states in <code>runs/</code>, and computes every shared measure from them.
+The full run takes several hours. <code>analyse_measures.py</code> then rebuilds the summary tables.</p>
+<p class="foot">Election data: <a href="https://www.electionresults.govt.nz/">Electoral Commission</a>. Seats are allocated with the Sainte-Laguë formula used in New Zealand elections.</p>
+</article></div>
+</body>
+</html>

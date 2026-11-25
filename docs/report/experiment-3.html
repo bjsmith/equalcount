@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Experiment 3: Where each system leads from 2026</title>
+<meta name="description" content="Experiment 3 asks what happens over the next five elections (2029–2041) if New Zealand keeps MMP, or adopts one of the overhang reforms in time for 2029, once voters and parties respond to the incentives each system crea">
+<meta property="og:title" content="Experiment 3: Where each system leads from 2026">
+<meta property="og:description" content="Experiment 3 asks what happens over the next five elections (2029–2041) if New Zealand keeps MMP, or adopts one of the overhang reforms in time for 2029, once voters and parties respond to the incentives each system crea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --accent: #0B57A4; --mark: #FFF4C2; --code: #E6ECE9;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+    --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+  --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body);
+  font-size: 18px; line-height: 1.6; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+.sx-brand { color: var(--ink); }
+.layout { max-width: 1120px; margin: 0 auto; display: grid; gap: 40px; padding-block: 32px 80px;
+  grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .layout { grid-template-columns: 240px minmax(0, 1fr); } }
+.toc { font-size: 14px; line-height: 1.4; }
+.toc-inner { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding-right: 8px; }
+.toc p { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul ul { padding-left: 12px; }
+.toc li { margin: 6px 0; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+.toc .group { margin-top: 24px; }
+@media (max-width: 999px) { .toc-inner { position: static; max-height: none; }
+  .toc details:not([open]) ul { display: none; } }
+article { max-width: 760px; min-width: 0; }
+article h1, article h2, article h3, article h4 { font-family: var(--display); line-height: 1.15; text-wrap: balance; }
+article h1 { font-size: clamp(32px, 4.4vw, 48px); font-weight: 800; letter-spacing: -.015em; margin: 0 0 12px; }
+article h1 + h3 { font-family: var(--body); font-weight: 400; font-size: 21px; color: var(--muted); margin-top: 0; }
+article h2 { font-size: 28px; margin: 56px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+article h3 { font-size: 21px; margin: 36px 0 8px; }
+article h4 { font-size: 18px; margin: 28px 0 6px; }
+article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+article blockquote { margin: 20px 0; padding: 4px 18px; border-left: 3px solid var(--line); color: var(--muted); }
+article code { font-size: .86em; background: var(--code); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+article pre { background: var(--code); padding: 14px; border-radius: 8px; overflow: auto; font-size: 14px; }
+article pre code { background: none; padding: 0; }
+article img { max-width: 100%; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+table { border-collapse: collapse; font-size: 15px; line-height: 1.4; min-width: 100%; }
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; background: var(--code); }
+tr:last-child td { border-bottom: 0; }
+td { font-variant-numeric: tabular-nums; }
+.draft { background: var(--mark); border-radius: 8px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 56px;
+  padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
+.foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
+.meta { color: var(--muted); }
+
+.sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--body); font-size: 15px; }
+.sx-brand { font-family: var(--display); font-weight: 800; text-decoration: none; letter-spacing: -.01em; }
+.sx-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.sx-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.sx-links a:hover, .sx-links a[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+<nav class="sx-nav" aria-label="Site">
+  <a class="sx-brand" href="../">One ballot, counted twice</a>
+  <div class="sx-links"><a href="../">2023</a><a href="../2026/">2026</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
+</nav>
+<div class="layout">
+<aside class="toc"><div class="toc-inner">
+  <details open><summary class="meta" style="cursor:pointer;margin-bottom:8px">Contents</summary>
+  <ul><li><a href="#summary">Summary</a></li><li><a href="#question">Question</a></li><li><a href="#design">Design</a></li><li><a href="#results">Results</a></li><li><a href="#interpretation">Interpretation</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#reproducing">Reproducing</a></li></ul></details>
+  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html" aria-current="page">Experiment 3: futures from 2026</a></li></ul></div>
+</div></aside>
+<article>
+<p class="draft"><strong>Working draft.</strong> Last updated 23 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
+<h1 id="experiment-3-where-each-system-leads-from-2026">Experiment 3: Where each system leads from 2026</h1>
+<h2 id="summary">Summary</h2>
+<p>Experiment 3 asks what happens over the next five elections (2029–2041) if New Zealand keeps MMP, or adopts one of the overhang reforms in time for 2029, once voters and parties respond to the incentives each system creates.</p>
+<p>Starting from the 2026 provisional result, 1,000 simulated futures were run under ten systems. In every future, voters and parties adapt between elections according to written reasoning about each group's interests.</p>
+<ul>
+<li><strong>Under current MMP, overhang becomes entrenched.</strong> Splitting pays, so both blocs keep doing it. The median overhang is 11 seats per election and the House is typically 132 seats, reaching 155 in the worst case. Te Pāti Māori (TPM) keeps winning most Māori electorates on about half a percent of the party vote.</li>
+<li><strong>The reforms end the reward for splitting, and voters respond.</strong> Partner parties campaign for two ticks, and under the absorbing reforms TPM rebuilds its party vote to about 5–6%. Overhang falls steadily under every reform.</li>
+<li><strong>At 121 seats, absorbing leftover overhang backfires.</strong> Once splitting stops, the remaining overhang comes mostly from a large party winning electorates on plurality. Absorbing it within a fixed House costs the other bloc list seats. Under MMP-T and MMP-BV the bloc with fewer votes wins the majority in 7–8% of elections, against 5.6% under MMP.</li>
+<li><strong>Letting the House grow for leftover overhang (the "-X" variants) fixes that, at small cost.</strong> MMP-T-X and MMP-BV-X bring minority-bloc wins back to MMP's level (5.2–5.7%). The House grows by about 2 seats typically and 17–19 at worst, against MMP's 34. The cost is that TPM's strategy survives, because its leftover overhang still adds seats for its bloc.</li>
+<li><strong>141 seats does most of the work.</strong> With 71 electorates and 70 list seats, overhang under the reforms largely disappears by 2035. MMP-BV-X141 performs best overall: median bloc seat deficit 1.4, minority-bloc wins 3.6%, a House of 141 typically and at most 152.</li>
+<li><strong>Some imbalance remains under every system.</strong> It comes mainly from votes wasted on parties below the threshold and from swings in the party system, not from overhang. Bloc seat deficits drift upward over the period under all ten systems.</li>
+<li><strong>Under MMP, things only get worse if gaming escalates, and that is the real risk.</strong> The baseline futures hold the 2026 level flat; they don't recover it. Two scenarios add escalation: a bloc copies the Te Pāti Māori playbook in general seats, where a big party's supporters keep ticking its candidates but party-vote an ally.<ul>
+<li>If blocs copy only in reaction to the other side (the <strong>copycat</strong> scenario), little changes.</li>
+<li>If they adopt it because it pays (the <strong>escalation</strong> scenario), MMP deteriorates steadily: by 2041 the median overhang is 30 seats, the median House 151 (up to 180), the Gallagher index 9.7, and the minority bloc wins 11% of elections. Over 2029–2041, 37% of futures have at least one minority-bloc government.</li>
+<li>Every reform is unaffected, because the playbook gains nothing under a transfer rule.</li>
+<li>MMP141 doesn't protect against escalation: its House reaches 197.</li>
+</ul>
+</li>
+<li><strong>MMP-BV-X141 removes essentially all the imbalance an overhang fix can remove.</strong> As a benchmark, seats were allocated by pure proportional representation (no electorates, so no overhang is possible) on the same simulated ballots. At the 5% threshold that gives a median bloc seat deficit of 1.4 and minority-bloc majorities in 4.6–4.8% of elections. MMP-BV-X141 matches it on bloc fairness (1.4) and does better on wrong winners (3.6%), because the Backup Vote rescues some votes the threshold would waste. Lowering the threshold to 3.5% would do more than any overhang rule: 0.7–0.8 and 2.7–2.9% on the same benchmark.</li>
+<li><strong>The results hold across reasoning assumptions.</strong> How fast voters learn, how hard parties campaign and how much voters consolidate barely affect the outcomes (all correlations below 0.13). The differences between systems come from the rules themselves.</li>
+</ul>
+<h2 id="question">Question</h2>
+<p>Experiments 1 and 2 compared the systems on fixed ballots: the same voter behaviour under every system. That shows how each set of rules handles a given election, but not how voters would behave once they understand those rules.</p>
+<p>Experiment 3 adds that feedback. If a reform removes the payoff from strategic splitting, voters should split less, which shrinks the overhang the reform was built to handle. If a reform creates new incentives, voters should respond to those too. The question is where those dynamics lead, election by election, from where New Zealand is now.</p>
+<h2 id="design">Design</h2>
+<h3 id="systems-compared">Systems compared</h3>
+<p>All systems keep 71 electorates (64 general and 7 Māori). The 141-seat versions add 20 list seats.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>Size</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MMP</strong></td>
+<td>121</td>
+<td>Current system. Overhanging parties keep their extra electorates and the House grows.</td>
+</tr>
+<tr>
+<td><strong>MMP-T</strong></td>
+<td>121</td>
+<td>Overhang Transfer (the explainer's Option 1). Only when a party overhangs: wasted party votes on ballots for its winning candidates count for it, as many as needed; then the same fraction of every split ballot for its winners. Anything left is absorbed within 121 seats (the Independent Electoral Review rule).</td>
+</tr>
+<tr>
+<td><strong>MMP-BV</strong></td>
+<td>121</td>
+<td>Backup Vote (the explainer's Option 2). At every election, a party vote for a party that doesn't qualify counts for the voter's electorate candidate's party, if that party qualifies. If a party still overhangs: split-ballot transfer, then absorption, as in MMP-T.</td>
+</tr>
+<tr>
+<td><strong>MMP-T-X</strong>, <strong>MMP-BV-X</strong></td>
+<td>121+</td>
+<td>As MMP-T / MMP-BV, but overhang the transfer can't cover is handled as under current MMP: the party keeps its extra seats and the House grows.</td>
+</tr>
+<tr>
+<td><strong>MMP141</strong>, <strong>MMP-T141</strong>, <strong>MMP-BV141</strong>, <strong>MMP-T-X141</strong>, <strong>MMP-BV-X141</strong></td>
+<td>141</td>
+<td>The same five rules with 141 seats.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Every future runs MMP in 2026. The reformed systems take effect in 2029.</p>
+<h3 id="starting-point-2026-fixed">Starting point: 2026 (fixed)</h3>
+<p>The 2026 provisional result is the starting point in every future. That includes national party votes, each electorate's party votes, and the resulting electoral map: each party's local strength relative to its national vote. Only elections from 2029 on are simulated.</p>
+<p>Voter behaviour at 2026 was fitted so the model reproduces the 2026 electorate results. It gives National 42 electorates, and TPM 6 of the 7 Māori electorates (5 in reality). The fit implies:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Behaviour</th>
+<th>2026 value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left partners' voters (mainly Green) giving their electorate vote to Labour</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Right partners' voters (ACT, NZ First) giving their electorate vote to National</td>
+<td>35%</td>
+</tr>
+<tr>
+<td>Left voters in Māori electorates giving their electorate vote to TPM</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>Personal vote: voters backing a candidate they like regardless of party</td>
+<td>20%: the top of the range Experiment 2 fitted for 2005–2023 (12–20%, median 16%)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Simulated under MMP at 121 seats, this 2026 starting point produces an 11-seat overhang (National 6, TPM 5) and a 132-seat House. The provisional result itself produced 131 seats at 120.</p>
+<h3 id="what-changes-between-elections">What changes between elections</h3>
+<p><strong>Events outside voters' strategy</strong> are the same across all ten systems within a future:</p>
+<ul>
+<li>a swing between the blocs, sized from 2005–2026 and pulled back toward an even split over time;</li>
+<li>party drift within each bloc, larger for smaller parties;</li>
+<li>drift for centrist parties;</li>
+<li>a 15% chance each election of a new party starting with 1–4%;</li>
+<li>parties under 0.5% folding into their side's minor-party group;</li>
+<li>slow drift in the electoral map.</li>
+</ul>
+<p><strong>Voters' and parties' responses</strong> depend on what the last election taught them under their system. These were reasoned through election by election, putting each group of voters and each party in turn in their own position. Voters are treated as partly rational and partly attentive: a reform's effects are learned over several elections, faster when its effects are visible.</p>
+<h3 id="the-reasoning">The reasoning</h3>
+<p>The full reasoning before each election is in <code>futures/reasoning_2032.md</code> to <code>reasoning_2041.md</code>. In outline:</p>
+<p><strong>Current MMP (and MMP141).</strong> Splitting pays and nothing penalises it.</p>
+<ul>
+<li>Partner parties' voters split a little more each time their leader overhangs and keeps the seats.</li>
+<li>Where the left wins on an overhang, the right copies the cup-of-tea approach more openly: some National voters party-vote a partner while still ticking the National candidate.</li>
+<li>Where the right wins more seats than votes, the left pushes Green voters in marginal seats to tick Labour.</li>
+<li>TPM's Māori-seat strategy keeps paying, so it continues and strengthens.</li>
+</ul>
+<p><strong>Reforms, first election (2029).</strong> Voters have barely adapted, so large transfers happen: 55,000–220,000 party votes in the hand-reasoned runs. Partner parties lose seats, and that's public.</p>
+<p><strong>Reforms, later elections:</strong></p>
+<ul>
+<li><strong>ACT and NZ First</strong> lost seats because their voters ticked National candidates. They run "two ticks" campaigns. Their voters are engaged, so splitting falls fast.</li>
+<li><strong>Green and Opportunity voters</strong> respond more slowly. Their splits are more often personal.</li>
+<li><strong>Left voters</strong> who saw Labour lose list seats because some of them ticked a National MP they liked split less on personal grounds, but only somewhat.</li>
+<li><strong>TPM (absorbing reforms)</strong> gains nothing from its overhang, and the left pays for it in list seats. It switches to asking for the party vote, rebuilding toward the roughly 3–5% that its Māori-seat wins require.</li>
+<li><strong>Consolidation (absorbing reforms, from 2038).</strong> Once splitting has largely stopped, any remaining overhang comes from plurality wins, and it is absorbed from the other side's list seats. Backing your own side's strongest candidate where the other leader would otherwise win now costs nothing, so engaged partner voters in marginal seats begin doing it.</li>
+<li><strong>Backup Vote.</strong> Voters learn that a vote for a small party isn't wasted if their electorate vote goes to a qualifying ally. Small parties gain a little, and their voters choose a qualifying candidate.</li>
+<li><strong>-X variants.</strong> Leftover overhang still adds seats for its bloc, so TPM's strategy still pays and TPM doesn't change course. Only the Greens, whose voters' party votes are being transferred to TPM, push for two ticks in Māori seats.</li>
+</ul>
+<h3 id="two-stages">Two stages</h3>
+<ol>
+<li><strong>Ten hand-reasoned futures.</strong> Each election's outcome in each future was reviewed before reasoning about the next. Those judgements were written down and encoded as rules.</li>
+<li><strong>One thousand walks.</strong> The same rules, applied automatically, with each future drawing its own strength for every rule. Each range brackets the hand-reasoned value; for example, the strength of ACT and NZ First's two-tick campaigns, and TPM's recovery speed and target. This spans a range of plausible reasoning trajectories rather than one.<ul>
+<li>The rules follow roles (left leader, right partners, and so on), not party names. That matters because about 22% of simulated elections reach a situation the hand-reasoned runs never saw. A change of bloc leader (the Greens leading the left, or ACT or NZ First leading the right) accounts for 14%, and Te Pāti Māori polling over 5% for 10.5%; some elections have both.</li>
+</ul>
+</li>
+</ol>
+<p>The ten hand-reasoned futures, rerun with the role-based rules, give results consistent with the thousand walks.</p>
+<h3 id="measures">Measures</h3>
+<p>These match Experiments 1 and 2.</p>
+<ul>
+<li><strong>Bloc seat deficit:</strong> how many seats the worse-off bloc is short of its share of all party votes, including votes for parties that missed the threshold. Every party belongs to the left or right bloc; centrists count with their ally (Opportunity counts as a left ally throughout).</li>
+<li><strong>Gallagher index:</strong> the conventional measure of how far each party's seat share is from its share of the qualifying party vote.</li>
+<li><strong>Minority-bloc majority:</strong> the bloc with fewer party votes holds a majority of the House.</li>
+<li><strong>Overhang:</strong> electorates won beyond the party's entitlement on raw party votes at the system's size.</li>
+</ul>
+<h2 id="results">Results</h2>
+<h3 id="all-elections-20292041-1000-walks-5-elections">All elections, 2029–2041 (1,000 walks × 5 elections)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>Overhang: median / 90th / max</th>
+<th>House: median / 99th / max</th>
+<th>Bloc seat deficit: median / 90th / 99th</th>
+<th>Blocs within 1 seat</th>
+<th>Gallagher</th>
+<th>Minority-bloc majority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMP</td>
+<td>11 / 20 / 34</td>
+<td>132 / 149 / 155</td>
+<td>2.2 / 5.5 / 9.2</td>
+<td>24%</td>
+<td>4.1</td>
+<td>5.6%</td>
+</tr>
+<tr>
+<td>MMP-T</td>
+<td>6 / 15 / 29</td>
+<td>121</td>
+<td>2.5 / 6.2 / 9.2</td>
+<td>22%</td>
+<td>3.8</td>
+<td>7.8%</td>
+</tr>
+<tr>
+<td>MMP-BV</td>
+<td>7 / 16 / 30</td>
+<td>121</td>
+<td>2.3 / 6.3 / 9.2</td>
+<td>24%</td>
+<td>4.3</td>
+<td>7.4%</td>
+</tr>
+<tr>
+<td>MMP-T-X</td>
+<td>5 / 14 / 28</td>
+<td>122 / 133 / 138</td>
+<td>2.2 / 5.3 / 8.1</td>
+<td>24%</td>
+<td>3.2</td>
+<td>5.7%</td>
+</tr>
+<tr>
+<td>MMP-BV-X</td>
+<td>6 / 15 / 30</td>
+<td>123 / 133 / 140</td>
+<td>2.0 / 5.0 / 7.7</td>
+<td>27%</td>
+<td>3.6</td>
+<td>5.2%</td>
+</tr>
+<tr>
+<td>MMP141</td>
+<td>6 / 15 / 30</td>
+<td>147 / 164 / 171</td>
+<td>2.0 / 5.3 / 8.9</td>
+<td>27%</td>
+<td>3.2</td>
+<td>4.3%</td>
+</tr>
+<tr>
+<td>MMP-T141</td>
+<td>3 / 9 / 24</td>
+<td>141</td>
+<td>1.6 / 4.3 / 8.2</td>
+<td>34%</td>
+<td>1.5</td>
+<td>4.6%</td>
+</tr>
+<tr>
+<td>MMP-BV141</td>
+<td>3 / 10 / 25</td>
+<td>141</td>
+<td>1.4 / 3.8 / 6.7</td>
+<td>39%</td>
+<td>1.8</td>
+<td>4.0%</td>
+</tr>
+<tr>
+<td>MMP-T-X141</td>
+<td>1 / 8 / 22</td>
+<td>141 / 145 / 150</td>
+<td>1.7 / 4.4 / 7.6</td>
+<td>33%</td>
+<td><strong>0.7</strong></td>
+<td>4.6%</td>
+</tr>
+<tr>
+<td><strong>MMP-BV-X141</strong></td>
+<td>2 / 9 / 25</td>
+<td>141 / 146 / 152</td>
+<td><strong>1.4 / 3.7 / 6.3</strong></td>
+<td>38%</td>
+<td>1.4</td>
+<td><strong>3.6%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="over-a-whole-future-20292041-per-walk">Over a whole future (2029–2041, per walk)</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>Futures with at least one minority-bloc majority</th>
+<th>Largest House in the future: median / 95th / max</th>
+<th>Worst bloc seat deficit in the future: median / 95th</th>
+<th>Minority-bloc majority in close elections (blocs 48–52%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMP</td>
+<td>23%</td>
+<td>138 / 148 / 155</td>
+<td>4.7 / 9.1</td>
+<td>27%</td>
+</tr>
+<tr>
+<td>MMP-T</td>
+<td>32%</td>
+<td>121</td>
+<td>5.3 / 9.2</td>
+<td>34%</td>
+</tr>
+<tr>
+<td>MMP-BV</td>
+<td>30%</td>
+<td>121</td>
+<td>5.4 / 9.1</td>
+<td>32%</td>
+</tr>
+<tr>
+<td>MMP-T-X</td>
+<td>24%</td>
+<td>125 / 132 / 138</td>
+<td>4.7 / 7.9</td>
+<td>28%</td>
+</tr>
+<tr>
+<td>MMP-BV-X</td>
+<td>22%</td>
+<td>126 / 133 / 140</td>
+<td>4.4 / 7.6</td>
+<td>27%</td>
+</tr>
+<tr>
+<td>MMP141</td>
+<td>19%</td>
+<td>152 / 163 / 171</td>
+<td>4.3 / 8.6</td>
+<td>23%</td>
+</tr>
+<tr>
+<td>MMP-T141</td>
+<td>21%</td>
+<td>141</td>
+<td>3.8 / 8.0</td>
+<td>26%</td>
+</tr>
+<tr>
+<td>MMP-BV141</td>
+<td>18%</td>
+<td>141</td>
+<td>3.4 / 6.5</td>
+<td>23%</td>
+</tr>
+<tr>
+<td>MMP-T-X141</td>
+<td>20%</td>
+<td>143 / 145 / 150</td>
+<td>3.8 / 7.4</td>
+<td>25%</td>
+</tr>
+<tr>
+<td><strong>MMP-BV-X141</strong></td>
+<td><strong>16%</strong></td>
+<td>143 / 146 / 152</td>
+<td><strong>3.3 / 6.1</strong></td>
+<td><strong>20%</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="election-by-election">Election by election</h3>
+<p><strong>Median overhang / median House</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP-T-X</th>
+<th>MMP-BV-X</th>
+<th>MMP141</th>
+<th>MMP-T141</th>
+<th>MMP-BV141</th>
+<th>MMP-T-X141</th>
+<th>MMP-BV-X141</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2029</td>
+<td>11 / 132</td>
+<td>10 / 121</td>
+<td>10 / 121</td>
+<td>10 / 124</td>
+<td>10 / 124</td>
+<td>6 / 147</td>
+<td>5 / 141</td>
+<td>5 / 141</td>
+<td>5 / 143</td>
+<td>5 / 143</td>
+</tr>
+<tr>
+<td>2032</td>
+<td>11 / 132</td>
+<td>8 / 121</td>
+<td>8 / 121</td>
+<td>6 / 122</td>
+<td>6 / 123</td>
+<td>6 / 147</td>
+<td>3 / 141</td>
+<td>4 / 141</td>
+<td>2 / 141</td>
+<td>3 / 141</td>
+</tr>
+<tr>
+<td>2035</td>
+<td>11 / 132</td>
+<td>6 / 121</td>
+<td>7 / 121</td>
+<td>4 / 121</td>
+<td>5 / 122</td>
+<td>6 / 147</td>
+<td>2 / 141</td>
+<td>2 / 141</td>
+<td>0 / 141</td>
+<td>0 / 141</td>
+</tr>
+<tr>
+<td>2038</td>
+<td>11 / 132</td>
+<td>4 / 121</td>
+<td>6 / 121</td>
+<td>4 / 121</td>
+<td>5 / 122</td>
+<td>6 / 147</td>
+<td>0 / 141</td>
+<td>1 / 141</td>
+<td>0 / 141</td>
+<td>0 / 141</td>
+</tr>
+<tr>
+<td>2041</td>
+<td>11 / 132</td>
+<td>4 / 121</td>
+<td>6 / 121</td>
+<td>3 / 121</td>
+<td>5 / 122</td>
+<td>6 / 147</td>
+<td>0 / 141</td>
+<td>1 / 141</td>
+<td>0 / 141</td>
+<td>0 / 141</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Median bloc seat deficit (share of elections with a minority-bloc majority)</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP-T-X</th>
+<th>MMP-BV-X</th>
+<th>MMP141</th>
+<th>MMP-T141</th>
+<th>MMP-BV141</th>
+<th>MMP-T-X141</th>
+<th>MMP-BV-X141</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2029</td>
+<td>1.8 (4%)</td>
+<td>1.6 (5%)</td>
+<td>1.4 (4%)</td>
+<td>1.2 (3%)</td>
+<td>1.1 (2%)</td>
+<td>1.7 (4%)</td>
+<td>1.0 (3%)</td>
+<td>0.9 (3%)</td>
+<td>1.0 (3%)</td>
+<td>1.0 (2%)</td>
+</tr>
+<tr>
+<td>2032</td>
+<td>2.1 (6%)</td>
+<td>2.6 (9%)</td>
+<td>2.4 (8%)</td>
+<td>2.4 (6%)</td>
+<td>2.1 (6%)</td>
+<td>1.7 (4%)</td>
+<td>1.6 (5%)</td>
+<td>1.4 (4%)</td>
+<td>1.7 (4%)</td>
+<td>1.3 (4%)</td>
+</tr>
+<tr>
+<td>2035</td>
+<td>2.4 (6%)</td>
+<td>2.9 (10%)</td>
+<td>2.8 (9%)</td>
+<td>2.7 (7%)</td>
+<td>2.5 (7%)</td>
+<td>2.1 (4%)</td>
+<td>1.9 (5%)</td>
+<td>1.6 (4%)</td>
+<td>2.0 (5%)</td>
+<td>1.7 (5%)</td>
+</tr>
+<tr>
+<td>2038</td>
+<td>2.5 (6%)</td>
+<td>2.9 (8%)</td>
+<td>2.9 (8%)</td>
+<td>2.6 (6%)</td>
+<td>2.4 (6%)</td>
+<td>2.2 (5%)</td>
+<td>2.0 (5%)</td>
+<td>1.7 (4%)</td>
+<td>2.0 (5%)</td>
+<td>1.7 (4%)</td>
+</tr>
+<tr>
+<td>2041</td>
+<td>2.6 (6%)</td>
+<td>2.8 (7%)</td>
+<td>2.9 (8%)</td>
+<td>2.5 (6%)</td>
+<td>2.4 (6%)</td>
+<td>2.4 (4%)</td>
+<td>2.0 (4%)</td>
+<td>1.7 (4%)</td>
+<td>2.0 (6%)</td>
+<td>1.7 (4%)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Te Pāti Māori in 2041: median party vote / share of left voters in Māori seats ticking TPM</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>MMP</th>
+<th>MMP-T</th>
+<th>MMP-BV</th>
+<th>MMP-T-X</th>
+<th>MMP-BV-X</th>
+<th>MMP141</th>
+<th>MMP-T141</th>
+<th>MMP-BV141</th>
+<th>MMP-T-X141</th>
+<th>MMP-BV-X141</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5% / 50%</td>
+<td>5.7% / 15%</td>
+<td>5.7% / 15%</td>
+<td>0.5% / 23%</td>
+<td>0.6% / 23%</td>
+<td>0.5% / 50%</td>
+<td>5.6% / 15%</td>
+<td>5.7% / 15%</td>
+<td>0.5% / 23%</td>
+<td>0.6% / 23%</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="benchmark-how-close-to-the-best-an-overhang-fix-could-do">Benchmark: how close to the best an overhang fix could do?</h3>
+<p>On each simulated election's party votes, seats were also allocated by pure proportional representation: Sainte-Laguë at 121 seats over the parties that pass the threshold, with no electorates. No overhang is possible under that rule, so it shows how much imbalance would remain even if overhang were handled perfectly. Each pathway's own ballots are used, since behaviour differs between pathways.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ballots from</th>
+<th>As run: bloc seat deficit / minority-bloc majority / Gallagher</th>
+<th>Pure PR, 5% threshold</th>
+<th>Pure PR, 3.5% threshold</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMP</td>
+<td>2.2 / 5.6% / 4.1</td>
+<td>1.4 / 4.8% / 0.4</td>
+<td>0.8 / 2.8% / 0.4</td>
+</tr>
+<tr>
+<td>MMP-T-X</td>
+<td>2.2 / 5.7% / 3.2</td>
+<td>1.4 / 4.7% / 0.4</td>
+<td>0.8 / 2.7% / 0.4</td>
+</tr>
+<tr>
+<td>MMP-BV-X</td>
+<td>2.0 / 5.2% / 3.6</td>
+<td>1.4 / 4.6% / 0.4</td>
+<td>0.7 / 2.8% / 0.4</td>
+</tr>
+<tr>
+<td>MMP-BV-X141</td>
+<td>1.4 / 3.6% / 1.4</td>
+<td>1.4 / 4.7% / 0.4</td>
+<td>0.7 / 2.9% / 0.4</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>How to read this:</strong></p>
+<ul>
+<li>Of MMP's median bloc seat deficit of 2.2, only about 0.8 seats comes from overhang. The other 1.4 is caused by the 5% threshold.</li>
+<li>Of MMP's 5.6% rate of minority-bloc majorities, only about 0.8 points comes from overhang.</li>
+<li>Overhang does account for almost all of MMP's Gallagher index: 4.1 against 0.4.</li>
+<li><strong>MMP-BV-X141 removes all of the overhang-caused bloc imbalance and goes slightly beyond it.</strong> The Backup Vote rescues some votes the threshold would otherwise waste. Its remaining Gallagher of 1.4 is mostly the Backup Vote itself, which by design moves rescued votes away from raw party-vote shares.</li>
+<li><strong>Lowering the threshold to 3.5%</strong> (the Independent Electoral Review's recommendation) would roughly halve what remains, more than any overhang rule can achieve.</li>
+</ul>
+<h3 id="scenarios-escalation-under-mmp">Scenarios: escalation under MMP</h3>
+<p>The baseline futures let existing players adjust their behaviour, but nobody adopts a new strategy. Two scenarios add the escalation people fear: a bloc copies the Te Pāti Māori playbook in general seats.</p>
+<p><strong>The split-list playbook.</strong> The bloc leader's supporters keep ticking its electorate candidates but give their party vote to an allied partner. The leader's list entitlement shrinks while it keeps its electorates, so its overhang grows, and the partner gains list seats. Once a bloc adopts it, a further 5–25% of the leader's voters shift each election, up to a cap.</p>
+<p>Under the transfer reforms, those split ballots would be transferred straight back, so the playbook gains nothing and no bloc adopts it. All reform pathways therefore give identical results in every scenario.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Who adopts, and when</th>
+<th>Share of leader voters moved per election (cap)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Baseline</strong></td>
+<td>Nobody</td>
+<td>–</td>
+</tr>
+<tr>
+<td><strong>Copycat</strong></td>
+<td>A bloc reacts to the other side winning more seats than votes (chance up to 10–40% per election), or to the other side having adopted it (+20–50%)</td>
+<td>5–15% (cap 30–70%)</td>
+</tr>
+<tr>
+<td><strong>Escalation</strong></td>
+<td>As copycat, with stronger reactions (20–50%, +30–60%), plus a 10–30% chance each election of adopting it simply because it pays</td>
+<td>10–25% (cap 50–90%)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>MMP under escalation, by year</strong> (share of the 1,000 futures in which each bloc has adopted the playbook; medians unless stated)</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Adopted: left / right</th>
+<th>Overhang: median / 90th</th>
+<th>House: median / 90th / max</th>
+<th>Gallagher</th>
+<th>Minority-bloc majority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2029</td>
+<td>20% / 32%</td>
+<td>13 / 23</td>
+<td>134 / 144 / 153</td>
+<td>4.4</td>
+<td>5.6%</td>
+</tr>
+<tr>
+<td>2032</td>
+<td>50% / 57%</td>
+<td>16 / 27</td>
+<td>137 / 148 / 162</td>
+<td>5.4</td>
+<td>9.5%</td>
+</tr>
+<tr>
+<td>2035</td>
+<td>68% / 73%</td>
+<td>20 / 34</td>
+<td>141 / 155 / 171</td>
+<td>6.7</td>
+<td>10.0%</td>
+</tr>
+<tr>
+<td>2038</td>
+<td>82% / 84%</td>
+<td>26 / 39</td>
+<td>147 / 160 / 175</td>
+<td>8.4</td>
+<td>10.7%</td>
+</tr>
+<tr>
+<td>2041</td>
+<td>88% / 90%</td>
+<td>30 / 43</td>
+<td>151 / 164 / 180</td>
+<td>9.7</td>
+<td>11.2%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>All elections 2029–2041, by scenario</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>System</th>
+<th>Baseline: bloc seat deficit / House max / minority-bloc majority</th>
+<th>Copycat: same</th>
+<th>Escalation: same</th>
+<th>Futures with at least one minority-bloc majority (baseline / escalation)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMP</td>
+<td>2.2 / 155 / 5.6%</td>
+<td>2.3 / 168 / 6.0%</td>
+<td><strong>3.9 / 180 / 9.4%</strong></td>
+<td>23% / <strong>37%</strong></td>
+</tr>
+<tr>
+<td>MMP141</td>
+<td>2.0 / 171 / 4.3%</td>
+<td>2.0 / 182 / 4.4%</td>
+<td><strong>3.0 / 197 / 7.7%</strong></td>
+<td>19% / <strong>31%</strong></td>
+</tr>
+<tr>
+<td>MMP-BV-X</td>
+<td>2.0 / 140 / 5.2%</td>
+<td>unchanged</td>
+<td>unchanged</td>
+<td>22% / 22%</td>
+</tr>
+<tr>
+<td>MMP-BV-X141</td>
+<td>1.4 / 152 / 3.6%</td>
+<td>unchanged</td>
+<td>unchanged</td>
+<td>16% / 16%</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>What the scenarios show:</strong></p>
+<ul>
+<li><strong>Reactive copying alone changes little.</strong> Under MMP both blocs already game, so the other side rarely looks over-represented by much, and the trigger seldom fires.</li>
+<li><strong>If the playbook is adopted because it pays, MMP keeps deteriorating.</strong><ul>
+<li>By 2041 the median House is 151, three times the 2026 overhang.</li>
+<li>Party-level disproportionality is about 10 times the 2005–2023 norm.</li>
+<li>Minority-bloc governments are twice as likely as in the baseline.</li>
+</ul>
+</li>
+<li><strong>141 seats is no protection on its own.</strong> MMP141 under escalation has a median House of 156 and a maximum of 197.</li>
+<li><strong>The reforms are immune by construction.</strong> That's the strongest argument for them in this experiment. Their value is not that they make 2029 much fairer than MMP. It's that they remove the payoff that would let MMP get worse.</li>
+</ul>
+<h2 id="interpretation">Interpretation</h2>
+<p><strong>Why the gains look modest.</strong> The imbalance that overhang causes under MMP in these futures is real but bounded. Both blocs game the system, and their overhangs partly cancel. So MMP's main harms in these futures are a large, unpredictable House and escalating gaming, more than a systematic tilt between the blocs. On bloc fairness and wrong winners, the remaining gap is caused by the threshold, and no overhang rule can close it. The reforms are close to the ceiling of what an overhang fix can do. If one bloc games much more effectively than the other, as in the asymmetric scenarios of Experiment 1, MMP's harm is far larger, and the reforms' protection is worth more.</p>
+<p><strong>MMP: a stable arms race, unless the playbook spreads.</strong> In the baseline, overhang doesn't grow without limit, but it doesn't shrink either: about 11 seats per election, and a House of 130–140 is normal. Both blocs game the system, and the two blocs' overhangs partly cancel. That keeps bloc imbalance moderate but makes it unpredictable: in close elections the minority bloc wins the majority 27% of the time. MMP141 halves the overhang, but the House still grows beyond 141 in most elections, reaching 171 at worst.</p>
+<p><strong>MMP-T and MMP-BV at 121: the right incentives, the wrong fallback.</strong> These reforms do what they were designed to do on behaviour: splitting falls, TPM rebuilds its party vote, and overhang shrinks year after year. But the overhang that remains comes from plurality wins, mostly a strong National winning electorates against a divided left. No split ballots can be transferred to cover it, and absorbing it within 121 seats hands the cost to the other bloc. That is why these two systems have the highest rates of minority-bloc majorities (7–8%, or one future in three over 15 years). This is the same failure mode identified at the very start of the work: once strategic splitting stops, the remaining overhang is the kind transfers can't fix.</p>
+<p><strong>The -X variants at 121: a better fallback.</strong> Growing the House for leftover overhang, as MMP already does, removes the absorption penalty. Wrong-winner risk returns to MMP's level, and the House grows by only 2–3 seats typically. The trade-off is incentive strength: leftover overhang still rewards the bloc that creates it, so TPM's strategy persists (party vote stays around 0.5%). The reward is far smaller than under MMP, because the transfer covers most of the overhang first.</p>
+<p><strong>141 seats.</strong> With 70 list seats against 71 electorates, overhang from plurality wins becomes rare. Under the reforms it has almost disappeared by 2035. All four 141-seat reforms beat MMP on bloc fairness and party-level proportionality, and MMP-BV-X141 does best on bloc fairness and wrong-winner risk. The Backup Vote's rescue of votes for sub-threshold parties is what separates the BV systems from the T systems at 141 seats.</p>
+<p><strong>What no system fixes.</strong> Bloc seat deficits drift up over the period under every system: about 2.2 → 2.6 under MMP, and 1.0 → 1.7 under MMP-BV-X141. Under MMP-BV-X141, the bloc seat deficit is correlated with the share of wasted votes (0.48), not with overhang (0.04). The remaining imbalance comes from the party system itself, through parties falling below the threshold and the threshold squeeze, not from how overhang is handled.</p>
+<p><strong>How robust are these findings?</strong> The strength drawn for each reasoning rule barely affects outcomes. Across the 1,000 walks, the correlation between any rule strength and a future's average bloc seat deficit is at most 0.12 in absolute value. The ranking of systems reflects their rules, not the precise reasoning assumptions.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li><strong>Reasoning is modelled, not observed.</strong> The responses are judgements about how voters and parties would react. They are written out and varied, but not tested against real behaviour under these systems.</li>
+<li><strong>The escalation scenarios are assumptions, not forecasts.</strong> How likely a bloc is to adopt the split-list playbook, and how far it pushes it, are judgement calls, varied across the walks. The scenarios show what happens if escalation occurs, not how likely it is.</li>
+<li><strong>The 2026 starting point is provisional.</strong> It uses the preliminary count, and TPM's extreme split (0.6% party vote, five electorates) dominates the early elections.</li>
+<li><strong>Simplifications in the party system:</strong><ul>
+<li>Opportunity counts as a left ally throughout.</li>
+<li>Māori parties' votes are modelled through the Māori electorates.</li>
+<li>Drift between elections may be somewhat strong: leader swaps, which have never happened under MMP, occur in some futures.</li>
+</ul>
+</li>
+<li><strong>Fixed electorates.</strong> The number of electorates stays at 71, and boundaries are fixed apart from slow drift.</li>
+<li><strong>One rule per bloc.</strong> Behaviour is modelled bloc-wide, by role. Local campaigns, candidate retirements and deals beyond the "standout candidate" mechanism aren't modelled individually.</li>
+</ul>
+<h2 id="reproducing">Reproducing</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mc_future.py</code></td>
+<td>The engine: starting point, one election, behaviour rules, between-election events</td>
+</tr>
+<tr>
+<td><code>futures_reason.py</code></td>
+<td>The between-election reasoning rules, by election</td>
+</tr>
+<tr>
+<td><code>futures/reasoning_2032.md</code> … <code>reasoning_2041.md</code></td>
+<td>The written reasoning</td>
+</tr>
+<tr>
+<td><code>futures/digest_&lt;year&gt;.md</code>, <code>futures/summary.md</code></td>
+<td>The ten hand-reasoned futures (role-based rerun)</td>
+</tr>
+<tr>
+<td><code>mc_future_walks.py</code></td>
+<td>The 1,000-walk runner, with every rule's hand value and drawn range</td>
+</tr>
+<tr>
+<td><code>futures_walks/results.csv</code>, <code>futures_walks/summary.md</code></td>
+<td>All 50,000 simulated elections and their summary</td>
+</tr>
+<tr>
+<td><code>mc_future_floor.py</code></td>
+<td>The pure-PR benchmark (5% and 3.5% thresholds) on the same ballots</td>
+</tr>
+<tr>
+<td><code>futures_walks_copycat/</code>, <code>futures_walks_escalation/</code></td>
+<td>The two escalation scenarios (<code>mc_future_walks.py 1000 --copycat</code> / <code>--escalation</code>; playbook rules in <code>mc_future.copycat</code>)</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-bash">python3 mc_future.py init &amp;&amp; python3 mc_future.py round 2029
+for y in 2032 2035 2038 2041; do python3 futures_reason.py $y &amp;&amp; python3 mc_future.py round $y; done
+python3 mc_future_walks.py 1000
+python3 mc_future_walks.py 1000 --copycat
+python3 mc_future_walks.py 1000 --escalation
+python3 mc_future_floor.py 1000
+</code></pre>
+<nav class="pager" aria-label="Report pages"><a href="../report/experiment-2.html">← Experiment 2: NZ elections 2005–2023</a></nav>
+<p class="foot">Generated from <code>report_experiment3.md</code>. This describes proposals for discussion, not current electoral law.</p>
+</article>
+</div>
+</body>
+</html>

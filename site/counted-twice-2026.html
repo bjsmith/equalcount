@@ -1,0 +1,817 @@
+<title>One Ballot, Counted Twice (2026)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: ballot-paper hero, then a scroll story. Text steps on the left,
+   a sticky Parliament of dots on the right (on top, on phones). */
+:root {
+  --paper: #F2F5F4;
+  --card: #FFFFFF;
+  --ink: #121A17;
+  --muted: #5A6862;
+  --line: #D3DCD8;
+  --mark: #FFE36E;
+  --ballot: #FBFCF7;
+  --nat: #0B57A4;
+  --lab: #D7262B;
+  --grn: #2E9E4B;
+  --act: #E8B800;
+  --nzf: #2B2F2D;
+  --tpm: #7B2152;
+  --waste: #9AA6A0;
+  --orange: #F47B20;
+  --top: #12A0B3;
+  --fair: #DCE4E0;
+  --on-orange: #141414;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+    --mark: #6B5A00; --ballot: #1B2420;
+    --nat: #4C8FE0; --lab: #EF5257; --grn: #4CC06B; --act: #F2CB2E; --nzf: #B9C2BE; --tpm: #D0609A; --waste: #6C7A74; --fair: #2F3B37; --top: #4CC5D4;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+  --mark: #6B5A00; --ballot: #1B2420;
+  --nat: #4C8FE0; --lab: #EF5257; --grn: #4CC06B; --act: #F2CB2E; --nzf: #B9C2BE; --tpm: #D0609A; --waste: #6C7A74; --fair: #2F3B37; --top: #4CC5D4;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 18px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.02; }
+p { margin: 0; }
+mark { background: var(--mark); color: inherit; padding: 0 .15em; border-radius: 2px; }
+a { color: inherit; }
+.num { font-variant-numeric: tabular-nums; }
+.eyebrow { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: 1120px; margin: 0 auto; padding-block: 56px 40px;
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: center;
+}
+.hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 800; letter-spacing: -.015em; margin-top: 12px; }
+.hero .lede { margin-top: 20px; font-size: 21px; max-width: 36ch; }
+.hero .lede-2 { margin-top: 12px; font-size: 19px; color: var(--muted); max-width: 36ch; }
+.hero .scroll-hint { margin-top: 28px; color: var(--muted); font-size: 15px; display: flex; gap: 8px; align-items: center; }
+.hero .scroll-hint svg { animation: bob 1.8s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(5px); } }
+
+.ballot {
+  --ink: #111; --line: #CFCFCF; --muted: #555; --tpm: #111;
+  background: #FFF; color: #111; border: 1.5px solid #111; border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+  font-size: 15px; min-width: 0;
+}
+.ballot-head { background: var(--orange); color: var(--on-orange); border-bottom: 1.5px solid var(--ink); padding: 10px 14px; display: flex; justify-content: space-between; gap: 8px; font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.ballot-cols { display: grid; grid-template-columns: 1fr 1fr; }
+.bcell { padding: 0 14px; display: flex; flex-direction: column; justify-content: flex-end; }
+.bcell.right { border-left: 2px solid var(--orange); }
+.bcell.head { padding-top: 12px; padding-bottom: 4px; }
+.bcell.foot { padding-bottom: 14px; }
+.bcell h3 { font-family: var(--body); font-size: 14px; font-weight: 700; border-bottom: 3px solid var(--orange); padding-bottom: 4px; }
+.bcell small { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+.bcell .option { flex: 1; }
+.option.empty { min-height: 34px; }
+.option { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.option .oname { flex: 1; min-width: 0; line-height: 1.25; }
+.option .oparty { display: block; font-size: 12px; color: var(--muted); }
+.option .pdot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+.option.more { color: var(--muted); font-size: 13px; font-style: italic; padding-left: 20px; }
+.option .oval { width: 34px; height: 22px; border: 2px solid var(--orange); border-radius: 50%; flex: none; position: relative; }
+.option .oval svg { position: absolute; left: 2px; top: -12px; width: 40px; height: 36px; overflow: visible; }
+.tick { fill: none; stroke: var(--tpm); stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 60; stroke-dashoffset: 0; animation: draw .7s ease-out both; }
+.tick.t2 { animation-delay: .9s; }
+@keyframes draw { from { stroke-dashoffset: 60; } }
+.ballot-notes { display: grid; grid-template-columns: 1fr 1fr; border-top: 1.5px solid var(--ink); background: #FFF4EA; }
+.ballot-notes p { padding: 10px 14px; font-size: 13.5px; line-height: 1.35; }
+.ballot-notes p + p { border-left: 1.5px dashed var(--ink); }
+.ballot-notes b { color: var(--tpm); }
+.ballot-caption { margin-top: 18px; color: var(--muted); font-size: 14px; text-align: center; }
+
+/* ---------- Scroll story ---------- */
+.story {
+  max-width: 1180px; margin: 0 auto;
+  display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 48px;
+}
+.figure {
+  grid-column: 2; grid-row: 1;
+  position: sticky; top: calc(env(safe-area-inset-top, 0px) + 4vh); height: 92vh;
+  display: flex; flex-direction: column; justify-content: center; gap: 12px; min-width: 0;
+}
+.mode { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1.5px solid var(--ink); margin-bottom: 8px; transition: background .4s, border-color .4s; }
+.mode.alt { background: var(--orange); border-color: var(--orange); color: var(--on-orange); }
+.figure > * { transition: opacity .5s; }
+.figure.faded .fig-text, .figure.faded svg.chart, .figure.faded .legend { opacity: .12; }
+.fig-caption { font-family: var(--display); font-weight: 800; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.1; min-height: 1.1em; }
+.fig-sub { color: var(--muted); font-size: 15px; margin-top: 4px; min-height: 1.4em; }
+.figure svg.chart { width: 100%; height: auto; max-height: 62vh; display: block; overflow: visible; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; min-height: 48px; align-content: flex-start; transition: opacity .4s; }
+.legend .chip { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.legend .sw { width: 11px; height: 11px; border-radius: 50%; }
+.legend .delta { font-weight: 700; color: var(--lab); }
+.legend .delta.zero { display: none; }
+
+.steps { grid-column: 1; grid-row: 1; padding-block: 30vh 40vh; display: grid; gap: 70vh; min-width: 0; }
+.step {
+  background: var(--card); border: 1px solid var(--line); border-radius: 6px;
+  padding: 26px 26px 28px; display: grid; gap: 14px; max-width: 34em;
+  transition: border-color .3s, box-shadow .3s;
+}
+.step.is-active { border-color: var(--ink); }
+.step h2 { font-size: clamp(23px, 2.6vw, 30px); font-weight: 700; line-height: 1.15; }
+.step .big { font-family: var(--display); font-weight: 800; font-size: 54px; line-height: 1; letter-spacing: -.02em; }
+.step .fine { color: var(--muted); font-size: 15px; }
+.step.turn {
+  position: relative; z-index: 3; width: calc(235.3% + 48px); max-width: none;
+  background: var(--orange); color: var(--on-orange); border: 0; border-radius: 4px;
+  min-height: 70vh; align-content: center; padding: 48px clamp(24px, 6vw, 80px);
+}
+.step.turn .eyebrow { color: var(--on-orange); opacity: .8; }
+.step.turn h2 { font-size: clamp(34px, 5vw, 60px); font-weight: 800; line-height: 1.05; max-width: 16ch; }
+.step.turn p { font-size: 20px; max-width: 40em; }
+
+/* SVG marks */
+.seat, .bdot { transition: transform .9s cubic-bezier(.65,0,.25,1), opacity .6s, fill .6s; }
+.seat.extra { stroke: var(--ink); stroke-width: 3; }
+.layer { transition: opacity .5s; }
+.chart text { fill: var(--ink); font-family: var(--body); }
+.chart .lbl { font-size: 15px; font-weight: 600; text-anchor: middle; }
+.chart .lbl-muted { font-size: 13px; fill: var(--muted); text-anchor: middle; }
+.chart .ttl { font-size: 15px; font-weight: 700; }
+.chart text.start { text-anchor: start; }
+.chart .gap { font-size: 14px; font-weight: 700; fill: var(--tpm); }
+.chart text.end { text-anchor: end; }
+.chart .bloc { font-size: 13px; font-weight: 700; fill: var(--muted); }
+.chart .inbar { font-size: 16px; font-weight: 700; fill: #fff; }
+.maj { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 4 4; }
+.guide { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 5 4; }
+.ring { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 4 4; transition: opacity .5s; }
+.blocbox { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.fair { fill: var(--fair); }
+.chart circle.over { stroke: var(--ink); stroke-width: 2.5; }
+.bdot path { transition: fill .6s; }
+.seatbox { fill: none; stroke: var(--ink); stroke-width: 1.2; transition: stroke .6s, stroke-width .6s; }
+.seatbox.vacant { stroke: var(--muted); stroke-dasharray: 3 3; }
+.seatbox.filled { stroke-width: 2.5; }
+.chart circle.short { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.chart .note { font-size: 13px; font-weight: 700; fill: var(--ink); }
+.chart .diff { font-size: 14px; font-weight: 700; fill: var(--ink); }
+
+/* ---------- After the story ---------- */
+.after { max-width: 1120px; margin: 0 auto; padding-block: 40px 72px; display: grid; gap: 56px; }
+.verdict { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.verdict .col { border: 1.5px solid var(--ink); border-radius: 6px; padding: 24px; background: var(--card); display: grid; gap: 12px; align-content: start; }
+.verdict .col.fix { border-color: var(--orange); border-width: 3px; }
+.verdict h3 { font-size: 30px; font-weight: 800; }
+.verdict ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.section-head { display: grid; gap: 10px; max-width: 40em; }
+.section-head h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 800; }
+.qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; }
+.qa div { display: grid; gap: 6px; border-top: 1.5px solid var(--ink); padding-top: 14px; }
+.qa h3 { font-family: var(--body); font-size: 19px; font-weight: 700; line-height: 1.3; }
+.qa p { color: var(--ink); max-width: 38em; }
+footer { border-top: 1px solid var(--line); padding-block: 24px 40px; max-width: 1120px; margin: 0 auto; color: var(--muted); font-size: 14px; display: grid; gap: 8px; }
+footer p { max-width: 75ch; }
+
+:focus-visible { outline: 3px solid var(--tpm); outline-offset: 2px; }
+
+/* ---------- Phones / narrow ---------- */
+@media (max-width: 860px) {
+  body { font-size: 17px; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 36px; padding-block: 36px 24px; }
+  .story { gap: 28px; }
+}
+@media (max-height: 640px) {
+  .figure svg.chart { max-height: 52vh; }
+  .fig-caption { font-size: 20px; }
+  .legend { min-height: 0; font-size: 12.5px; }
+}
+@media (max-width: 680px) {
+  .story { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .figure {
+    grid-column: 1; grid-row: 1; top: env(safe-area-inset-top, 0px); height: auto; z-index: 2;
+    background: var(--paper); padding-block: 12px 10px; justify-content: flex-start; gap: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .figure svg.chart { max-height: 30svh; }
+  .mode { margin-bottom: 4px; font-size: 11px; }
+  .fig-sub { font-size: 13px; }
+  .legend { font-size: 12.5px; min-height: 36px; gap: 2px 10px; }
+  .steps { grid-column: 1; grid-row: 2; padding-block: 24px 50vh; gap: 55vh; position: relative; z-index: 1; }
+  .step { padding: 20px; }
+  .step.turn { width: 100%; min-height: 60vh; padding: 32px 24px; }
+}
+@media (max-width: 860px) {
+  .verdict, .qa { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seat, .bdot, .layer, .legend { transition: none !important; }
+  .tick, .hero .scroll-hint svg { animation: none !important; }
+}
+</style>
+
+<header class="hero">
+  <div>
+    <p class="eyebrow">Aotearoa New Zealand · 2026 General Election</p>
+    <h1>One ballot, counted twice</h1>
+    <p class="lede">Under MMP, your party vote decides how many seats each party gets in Parliament. In 2026, split voting meant National and Te Pāti Māori won 11 more electorates than their party votes give them. Parliament would grow to 131 seats.</p>
+    <p class="lede-2">Find out what happened, and how a proposed change to the rules would work. Based on the preliminary count.</p>
+    <p class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v11M3 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      Scroll down
+    </p>
+  </div>
+  <div style="min-width:0">
+    <div class="ballot" role="img" aria-label="An example split ballot: party vote for ACT, electorate vote for the National candidate">
+      <div class="ballot-head"><span>Example voting paper</span><span>Coromandel</span></div>
+      <div class="ballot-cols">
+        <div class="bcell head"><h3>Party vote</h3><small>Tick 1 party</small></div>
+        <div class="bcell head right"><h3>Electorate vote</h3><small>Tick 1 candidate</small></div>
+        <div class="bcell"><div class="option"><span class="pdot" style="background:#E8B800" aria-hidden="true"></span><span class="oname">ACT New Zealand</span><span class="oval"><svg viewBox="0 0 40 36"><path class="tick" d="M4 20 L14 30 L36 4"/></svg></span></div></div>
+        <div class="bcell right"><div class="option empty"></div></div>
+        <div class="bcell"><div class="option"><span class="pdot" style="background:#D7262B" aria-hidden="true"></span><span class="oname">Labour Party</span><span class="oval"></span></div></div>
+        <div class="bcell right"><div class="option"><span class="pdot" style="background:#D7262B" aria-hidden="true"></span><span class="oname">BENNETT, Glen<span class="oparty">Labour Party</span></span><span class="oval"></span></div></div>
+        <div class="bcell"><div class="option"><span class="pdot" style="background:#0B57A4" aria-hidden="true"></span><span class="oname">National Party</span><span class="oval"></span></div></div>
+        <div class="bcell right"><div class="option"><span class="pdot" style="background:#0B57A4" aria-hidden="true"></span><span class="oname">SIMPSON, Scott<span class="oparty">National Party</span></span><span class="oval"><svg viewBox="0 0 40 36"><path class="tick t2" d="M4 20 L14 30 L36 4"/></svg></span></div></div>
+        <div class="bcell"><div class="option"><span class="pdot" style="background:#2B2F2D" aria-hidden="true"></span><span class="oname">New Zealand First Party</span><span class="oval"></span></div></div>
+        <div class="bcell right"><div class="option empty"></div></div>
+        <div class="bcell"><div class="option empty"></div></div>
+        <div class="bcell right"><div class="option more"><span class="oname">+ 5 other candidates</span></div></div>
+        <div class="bcell foot"></div><div class="bcell foot right"></div>
+      </div>
+      <div class="ballot-notes">
+        <p>This party vote counts <b>in full</b> towards ACT’s seats.</p>
+        <p>This electorate vote helps elect an extra National MP who <b>isn’t counted</b> in any party’s share.</p>
+      </div>
+    </div>
+    <p class="ballot-caption">You can split your vote like this, and lots of people do. When many people do it, the seats in Parliament can stop matching the party vote.</p>
+  </div>
+</header>
+
+<main class="story">
+  <div class="figure" id="fig" aria-live="polite">
+    <div class="fig-text">
+      <span class="mode" id="mode">Current rules</span>
+      <div class="fig-caption" id="figCaption">Parliament after the 2026 General Election</div>
+      <div class="fig-sub" id="figSub">Each dot is an MP · dotted line marks a majority</div>
+    </div>
+    <svg class="chart" id="chart" viewBox="0 0 520 340" role="img" aria-labelledby="figCaption">
+      <g id="seats"></g>
+      <g id="majLayer" class="layer">
+        <line class="maj" x1="260" y1="270" x2="260" y2="18"></line>
+        <text class="lbl-muted start" x="266" y="13" id="majText">66 for a majority</text>
+        <text class="bloc start" x="22" y="296" id="blocL">Lab · Grn · TPM 57</text>
+        <text class="bloc end" x="498" y="296" id="blocR">Nat · ACT · NZF 67</text>
+      </g>
+      <g id="ballotLayer" class="layer" style="opacity:0">
+        <text class="ttl" x="260" y="112" text-anchor="middle" id="moveTitle" style="opacity:0"></text>
+        <g id="groupLabels"></g>
+        <g id="voteKey"></g>
+      </g>
+      <g id="slotLayer" class="layer" style="opacity:0">
+        <text class="lbl" x="260" y="10" id="slotTitle" style="font-size:13.5px"></text>
+        <g id="slots"></g>
+      </g>
+      <g id="bdots"></g>
+      <g id="seatLabel" class="layer">
+        <text class="lbl" x="260" y="312" id="seatCount" style="font-size:40px;font-family:var(--display);font-weight:800">131</text>
+        <text class="lbl-muted" x="260" y="333">seats</text>
+      </g>
+      <g id="blocLayer" class="layer" style="opacity:0"></g>
+    </svg>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <div class="steps">
+    <section class="step" data-state="current">
+      <p class="eyebrow">The 2026 result</p>
+      <h2>After the 2026 election, Parliament would have 131 seats, 11 more than usual</h2>
+      <p>Under MMP, you have 2 votes. Your party vote decides how many seats each party gets in Parliament. Your electorate vote chooses your local MP.</p>
+      <p>Electorate MPs normally count as part of their party’s share of seats. In 2026, 2 parties won more electorates than their party vote gives them.</p>
+      <p class="fine">These figures use the preliminary count from election night. Official results are due on 27 November.</p>
+    </section>
+
+    <section class="step" data-state="overhang">
+      <p class="eyebrow">Overhang seats</p>
+      <h2>National won 42 electorates, but its party vote covers only 35 of them</h2>
+      <p>Te Pāti Māori won 5 electorates, but its party vote covers only 1.</p>
+      <p>A party keeps every electorate it wins, so Parliament grows to fit the seats that aren’t covered. That’s 11 <mark>overhang seats</mark>, the most since MMP began in 1996.</p>
+    </section>
+
+    <section class="step" data-state="splitnat">
+      <p class="eyebrow">Split votes · National</p>
+      <h2>Many people who voted for a National candidate gave their party vote to ACT or NZ First</h2>
+      <p>We estimate about 272,000 people in National’s 42 electorates gave their electorate vote to the National candidate and their party vote to another party. About 155,000 of them party-voted ACT, and about 63,000 party-voted NZ First.</p>
+      <p>Their party votes counted in full for ACT and NZ First. Their electorate votes helped elect National’s 7 overhang MPs.</p>
+    </section>
+
+    <section class="step" data-state="splittpm">
+      <p class="eyebrow">Split votes · Te Pāti Māori</p>
+      <h2>Most of Te Pāti Māori’s electorate votes came from Green and Labour voters</h2>
+      <p>Te Pāti Māori got 13,845 party votes across the country. Its 5 winning candidates got about 68,000 electorate votes.</p>
+      <p>We estimate about 61,000 of those came from people who gave their party vote to another party, mostly the Green Party (about 30,000) and Labour (about 25,000).</p>
+    </section>
+
+    <section class="step" data-state="sharenow">
+      <p class="eyebrow">The overall result</p>
+      <h2>The two overhangs mostly cancel out, but Parliament grows by 11</h2>
+      <p>National, ACT and NZ First won 50.4% of the party vote for parties in Parliament. That’s about 66.0 of 131 seats. They got 67, a majority by 1 seat.</p>
+      <p>Labour, the Green Party and Te Pāti Māori won 43.6%, about 57.2 seats. They got 57. The Opportunity Party won 6.0%, about 7.9 seats. It got 7.</p>
+      <p class="fine">These figures leave out votes for parties that didn’t get into Parliament.</p>
+    </section>
+
+    <section class="step turn" data-state="turn">
+      <p class="eyebrow">He huarahi hou · A different approach</p>
+      <h2>What if the rules were different?</h2>
+      <p>So far, this is what happened under the current rules. The rest of this page looks at a proposed change to the law, and how the 2026 result would look under it.</p>
+    </section>
+
+    <section class="step" data-state="vacnat">
+      <p class="eyebrow">How it would work · National</p>
+      <h2>7 of National’s seats aren’t covered by its party vote</h2>
+      <p>Think of each electorate seat as needing to be covered by party votes. National’s party vote covers 35 of the 42 electorates it won. The other 7 are empty.</p>
+      <p>The change only applies when a party has empty seats like these. It fills them with the party votes of people who split their vote: they gave a National candidate their electorate vote, but gave their party vote to someone else.</p>
+    </section>
+
+    <section class="step" data-state="movenat">
+      <p class="eyebrow">How it would work · National</p>
+      <h2>48% of each split vote would count for National</h2>
+      <p>It starts with about 2,800 party votes for parties that didn’t get into Parliament. Then the same share of every other split vote moves, until National’s party vote covers its 42 electorates. That share is 48%.</p>
+      <p>That’s about 132,000 votes. Most come from ACT (about 74,000) and NZ First (about 30,000) voters, because they made up most of the split votes.</p>
+    </section>
+
+    <section class="step" data-state="vactpm">
+      <p class="eyebrow">How it would work · Te Pāti Māori</p>
+      <h2>Te Pāti Māori’s party vote covers 1 of its 5 seats</h2>
+      <p>The same applies to Te Pāti Māori. It won 5 electorates, and its party vote covers 1 of them, so 4 seats are empty.</p>
+    </section>
+
+    <section class="step" data-state="movetpm">
+      <p class="eyebrow">How it would work · Te Pāti Māori</p>
+      <h2>Every split vote for a Te Pāti Māori candidate would count for the party</h2>
+      <p>Most people who gave a Te Pāti Māori candidate their electorate vote gave their party vote to the Green Party or Labour. Under the change, all of those votes, about 60,000, would count for Te Pāti Māori. That covers 4 of its 5 electorates.</p>
+      <p class="fine">The fifth seat comes off the other parties’ list seats, as the Independent Electoral Review recommended, so Parliament still has 120 seats.</p>
+    </section>
+
+    <section class="step" data-state="proposal">
+      <p class="eyebrow">The result</p>
+      <h2>Every electorate keeps its MP, and Parliament has 120 seats</h2>
+      <p>National keeps its 42 seats and Te Pāti Māori keeps 5. ACT has 4 fewer seats and NZ First 2 fewer, because many of their voters gave their electorate vote to National. Labour has 3 fewer and the Green Party 2 fewer, mostly because many of their voters gave their electorate vote to Te Pāti Māori.</p>
+      <p>National, ACT and NZ First would still have a majority, with 61 of 120 seats.</p>
+    </section>
+
+    <section class="step" data-state="sharefix">
+      <p class="eyebrow">Proportional representation</p>
+      <h2>Each side’s seats are closer to its party vote</h2>
+      <p>With the change, National, ACT and NZ First get 61 of 120 seats. Their party vote gives them about 60.4. Labour, the Green Party and Te Pāti Māori get 52, against about 52.4. The Opportunity Party gets 7, against about 7.2.</p>
+      <p class="fine">The Opportunity Party isn’t counted in either group.</p>
+    </section>
+  </div>
+</main>
+
+<section class="after">
+  <div class="verdict">
+    <div class="col">
+      <p class="eyebrow">Current rules</p>
+      <h3>131 seats</h3>
+      <ul>
+        <li>National keeps 7 overhang seats, and Te Pāti Māori keeps 4</li>
+        <li>ACT, NZ First, Labour and the Green Party keep all their list seats</li>
+        <li>Parliament gets 11 extra seats</li>
+        <li>National, ACT and NZ First get 51.1% of the seats with 50.4% of the party vote</li>
+      </ul>
+    </div>
+    <div class="col fix">
+      <p class="eyebrow">With the proposed change</p>
+      <h3>120 seats</h3>
+      <ul>
+        <li>Every electorate MP keeps their seat</li>
+        <li>48% of National’s split votes, and all of Te Pāti Māori’s, count for the electorate vote’s party</li>
+        <li>ACT 9 (4 fewer), NZ First 10 (2 fewer), Labour 33 (3 fewer), Green Party 14 (2 fewer)</li>
+        <li>National, ACT and NZ First get 50.8% of the seats with 50.4% of the party vote</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <p class="eyebrow">Ngā pātai · Common questions</p>
+    <h2>Does this change my vote?</h2>
+  </div>
+  <div class="qa">
+    <div>
+      <h3>Would my party vote be thrown away?</h3>
+      <p>No. If part of your party vote moves, it counts for the party of the candidate you gave your electorate vote to. You chose both.</p>
+    </div>
+    <div>
+      <h3>Why would ACT and NZ First lose seats?</h3>
+      <p>Many of their voters gave their electorate vote to a National candidate. That helped National win more electorates than its party vote covers. Under the change, part of those party votes would count for National instead.</p>
+    </div>
+    <div>
+      <h3>Does it only affect one side?</h3>
+      <p>No. In 2026 it affects both. Votes move to National from ACT and NZ First voters, and to Te Pāti Māori from Labour and Green voters.</p>
+    </div>
+    <div>
+      <h3>Could a small party drop out of Parliament?</h3>
+      <p>No. The 5% threshold is checked before any votes move.</p>
+    </div>
+    <div>
+      <h3>Why not just leave out the extra MPs?</h3>
+      <p>Germany does this. In 2026, it would leave 7 National electorates and 4 Māori electorates without the MP their voters chose.</p>
+    </div>
+    <div>
+      <h3>Are these the final numbers?</h3>
+      <p>No. They use the preliminary count. Special votes and the official split-vote figures could change the result by a seat or so.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>This describes a proposal for discussion. It is not current electoral law.</strong></p>
+  <p><strong>How we worked this out.</strong> We used the preliminary count from election night (7 November 2026) from the <a href="https://www.electionresults.govt.nz/electionresults_2026_preliminary/" target="_blank" rel="noopener">Electoral Commission</a> as if it were final. Special votes aren’t included. Official results are due on 27 November.</p>
+  <p>The Electoral Commission doesn’t publish split-vote figures until the official results, so we estimated them. For each electorate National or Te Pāti Māori won, we assumed each party’s voters split their votes the same way as in 2023 (using general electorates for National and Māori electorates for Te Pāti Māori). We then scaled the numbers so they add up to the winning candidate’s 2026 vote. Electorate boundaries changed in 2025, so this is an approximation.</p>
+  <p>If moving all of a party’s split votes isn’t enough to cover its overhang, the rest comes off other parties’ list seats, as the Independent Electoral Review recommended. In 2026 this applies to 1 Te Pāti Māori seat.</p>
+  <p>National, ACT and NZ First are grouped together, as are Labour, the Green Party and Te Pāti Māori. The Opportunity Party isn’t counted in either group.</p>
+  <p>We tested other assumptions about how people split their votes. National, ACT and NZ First get 61 or 62 seats in every case, ACT 9 or 10, NZ First 10 or 11, and the Green Party 14 or 15.</p>
+  <p>Seats are allocated with the Sainte-Laguë formula used in New Zealand elections. In the split-vote pictures, 1 dot is about 5,000 votes.</p>
+</footer>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const W = 520, CX = 260, CY = 270, R_OUT = 240, R_IN = 92, ROWS = 8, DOT = 7.7;
+  const $ = id => document.getElementById(id);
+  const col = k => `var(--${k})`;
+  const fmt = n => n.toLocaleString("en-NZ");
+  const tr = (x, y, s = 1) => `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${s})`;
+  function el(tag, attrs, parent, text) {
+    const e = document.createElementNS(NS, tag);
+    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    if (text != null) e.textContent = text;
+    parent.appendChild(e); return e;
+  }
+
+  // Seating order, left to right. Figures from model_2026.py (preliminary count).
+  const PARTIES = [
+    { k: "tpm", name: "Te Pāti Māori" },
+    { k: "grn", name: "Green" },
+    { k: "lab", name: "Labour" },
+    { k: "top", name: "Opportunity" },
+    { k: "nat", name: "National" },
+    { k: "act", name: "ACT" },
+    { k: "nzf", name: "NZ First" },
+  ];
+  const CURRENT  = { tpm: 5, grn: 16, lab: 36, top: 7, nat: 42, act: 13, nzf: 12 };
+  const PROPOSAL = { tpm: 5, grn: 14, lab: 33, top: 7, nat: 42, act: 9,  nzf: 10 };
+  const ENTITLED = { nat: 35, tpm: 1 };
+
+  // Estimated split votes for winning candidates; 1 dot ≈ 5,000 votes.
+  const POOLS = {
+    nat: { target: "nat", name: "National", groups: [
+      { k: "act",   label: "ACT",           total: 155266, moved: 74464, n: 31, move: 15 },
+      { k: "nzf",   label: "NZ First",      total: 62858,  moved: 30146, n: 13, move: 6 },
+      { k: "top",   label: "Opportunity",   total: 21419,  moved: 10272, n: 4,  move: 2 },
+      { k: "lab",   label: "Labour",        total: 20102,  moved: 9641,  n: 4,  move: 2 },
+      { k: "grn",   label: "Green",         total: 9266,   moved: 4444,  n: 2,  move: 1 },
+      { k: "waste", label: "Didn’t get in", total: 2804,   moved: 2804,  n: 1,  move: 1 },
+    ] },
+    tpm: { target: "tpm", name: "Te Pāti Māori", groups: [
+      { k: "grn",   label: "Green",         total: 29574, moved: 29574, n: 6, move: 6 },
+      { k: "lab",   label: "Labour",        total: 24865, moved: 24865, n: 5, move: 5 },
+      { k: "waste", label: "Others",        total: 5968,  moved: 5968,  n: 1, move: 1 },
+    ] },
+  };
+
+  // ---------- Parliament ----------
+  function hemicycle(n) {
+    const radii = [];
+    for (let i = 0; i < ROWS; i++) radii.push(R_IN + (R_OUT - R_IN) * i / (ROWS - 1));
+    const sum = radii.reduce((a, b) => a + b, 0);
+    const counts = radii.map(r => Math.round(n * r / sum));
+    let diff = n - counts.reduce((a, b) => a + b, 0);
+    for (let i = ROWS - 1; diff !== 0; i = (i - 1 + ROWS) % ROWS) { counts[i] += Math.sign(diff); diff -= Math.sign(diff); }
+    // Keep the middle clear for the majority line: every row splits evenly
+    // left/right, except one row when the total is odd (its centre seat is
+    // the seat that decides a majority).
+    const odd = counts.map((c, i) => c % 2 ? i : -1).filter(i => i >= 0);
+    const keep = n % 2 ? odd.shift() : -1;
+    while (odd.length >= 2) { counts[odd.pop()] += 1; counts[odd.pop()] -= 1; }
+    const pts = [];
+    radii.forEach((r, i) => {
+      const c = counts[i];
+      for (let j = 0; j < c; j++) {
+        const a = Math.PI * (1 - j / (c - 1));
+        pts.push({ x: CX + r * Math.cos(a), y: CY - r * Math.sin(a), a, r });
+      }
+    });
+    pts.sort((p, q) => q.a - p.a || p.r - q.r);
+    return pts;
+  }
+  function layoutSeats(counts) {
+    const pts = hemicycle(Object.values(counts).reduce((a, b) => a + b, 0));
+    const out = {}; let i = 0;
+    PARTIES.forEach(p => { out[p.k] = pts.slice(i, i + counts[p.k]); i += counts[p.k]; });
+    return out;
+  }
+  const L_CUR = layoutSeats(CURRENT), L_PRO = layoutSeats(PROPOSAL);
+
+  const seats = [];
+  PARTIES.forEach(p => {
+    for (let i = 0; i < Math.max(CURRENT[p.k], PROPOSAL[p.k]); i++) {
+      const c = el("circle", { r: DOT, class: "seat" }, $("seats"));
+      c.style.fill = col(p.k);
+      if (p.k === "act") { c.style.stroke = "var(--ink)"; c.style.strokeOpacity = ".25"; }
+      seats.push({ el: c, k: p.k, i });
+    }
+  });
+
+
+  // A split ballot: left half is the electorate vote, right half the party vote.
+  const half = (r, right) => { const x = right ? 0.7 : -0.7; return `M${x} ${-r} A${r} ${r} 0 0 ${right ? 1 : 0} ${x} ${r} Z`; };
+  function voteDot(parent, r, ev, pv, cls) {
+    const g = el("g", { class: cls }, parent);
+    const a = el("path", { d: half(r, 0) }, g); a.style.fill = col(ev);
+    const b = el("path", { d: half(r, 1) }, g); b.style.fill = col(pv);
+    return { g, ev: a, pv: b };
+  }
+  // Key under the split votes.
+  const key = (() => {
+    const k = $("voteKey"), y = 326;
+    el("text", { x: CX - 16, y: y + 5, class: "lbl-muted", style: "text-anchor:end" }, k, "Electorate vote");
+    el("text", { x: CX + 16, y: y + 5, class: "lbl-muted start" }, k, "Party vote");
+    const d = voteDot(k, 9, "tpm", "muted", "");
+    d.g.setAttribute("transform", `translate(${CX} ${y})`);
+    return d;
+  })();
+
+  // ---------- Split votes ----------
+  const COLS = 4, STEP = 17, GAP = 16, BASE = 258;
+  const bdots = [];
+  Object.entries(POOLS).forEach(([pk, pool]) => {
+    const gw = COLS * STEP, n = pool.groups.length;
+    const x0 = (W - (n * gw + (n - 1) * GAP)) / 2;
+    pool.labels = el("g", {}, $("groupLabels"));
+    let pileN = 0;
+    pool.groups.forEach((g, gi) => {
+      g.gi = gi; g.x0 = x0 + gi * (gw + GAP);
+      el("text", { x: g.x0 + gw / 2, y: BASE + 30, class: "lbl", style: "font-size:13px" }, pool.labels, g.label);
+      g.countEl = el("text", { x: g.x0 + gw / 2, y: BASE + 48, class: "lbl-muted num" }, pool.labels, fmt(g.total));
+      for (let i = 0; i < g.n; i++) {
+        const v = voteDot($("bdots"), 6.8, pool.target, g.k, "bdot");
+        const d = { el: v.g, pv: v.pv, pk, g, i, moved: i >= g.n - g.move };
+        bdots.push(d);
+      }
+    });
+    bdots.filter(d => d.pk === pk && d.moved && d.g.k === "waste").forEach(d => d.pile = pileN++);
+    bdots.filter(d => d.pk === pk && d.moved && d.g.k !== "waste").forEach(d => d.pile = pileN++);
+  });
+  const gridPos = (g, i) => ({ x: g.x0 + STEP / 2 + (i % COLS) * STEP, y: BASE - Math.floor(i / COLS) * STEP });
+
+  // ---------- Seats vs party vote, by group ----------
+  const QUAL = 2397806;
+  const GROUPS = [
+    { name: "Labour · Green · Te Pāti Māori", parties: ["lab", "grn", "tpm"], votes: 1046077, box: [4, 4, 252, 206] },
+    { name: "National · ACT · NZ First", parties: ["nat", "act", "nzf"], votes: 1207431, box: [264, 4, 252, 206] },
+    { name: "Opportunity", parties: ["top"], votes: 144298, strip: true },
+  ];
+
+  // One line saying how a group's seats compare with its share, with the mark used on the grid.
+  // Whole seats only: a group 0.2 under its share has no seat missing.
+  function shareLine(g, x, y, n, F) {
+    const k = n - Math.round(F), a = Math.abs(k);
+    if (k > 0) { const o = el("circle", { cx: x + 7, cy: y - 5, r: 6.2, class: "over" }, g); o.style.fill = "var(--muted)"; }
+    if (k < 0) el("circle", { cx: x + 7, cy: y - 5, r: 5.4, class: "short" }, g);
+    el("text", { x: k ? x + 22 : x, y, class: "diff start" }, g,
+      k ? `${a} seat${a > 1 ? "s" : ""} ${k > 0 ? "more" : "fewer"} than their share` : "Seats match their share");
+  }
+  function shareKey(g, x, y, F, extra) {
+    el("rect", { x, y: y - 11, width: 15, height: 13, class: "fair" }, g);
+    el("text", { x: x + 22, y, class: "lbl-muted start" }, g, `Their share: about ${F.toFixed(1)} seats${extra || ""}`);
+  }
+
+  // Label the over/short marks right where they sit on the grid.
+  function markNote(g, cx, cy, cols, ST, n, F) {
+    const k = n - Math.round(F); if (!k || !cols) return;
+    const a = Math.abs(k), L = Math.max(n, Math.round(F)) - 1, txt = `${a} ${k > 0 ? "over" : "short"}`;
+    if (L % cols <= cols - 5) el("text", { x: cx(L) + ST + 4, y: cy(L) + ST / 2 + 4.5, class: "note start" }, g, "← " + txt);
+    else el("text", { x: cx(L) + ST, y: cy(L) + ST + 14, class: "note", style: "text-anchor:end" }, g, txt + " ↑");
+  }
+  function drawGroups(counts, total) {
+    const g = $("blocLayer"); g.textContent = "";
+    const ST = 17;
+    const diffText = (n, F) => {
+      const d = n - F, a = Math.abs(d).toFixed(1);
+      return `${a} seat${Math.abs(d) >= 1.05 ? "s" : ""} ${d > 0 ? "over" : "under"} their share`;
+    };
+    GROUPS.forEach(b => {
+      const share = b.votes / QUAL, F = share * total;
+      const n = b.parties.reduce((a, k) => a + counts[k], 0);
+      let cx, cy;
+      if (!b.strip) {
+        const [x0, y0, w, h] = b.box, C = 12;
+        el("rect", { x: x0, y: y0, width: w, height: h, rx: 10, class: "blocbox" }, g);
+        el("text", { x: x0 + 12, y: y0 + 20, class: "ttl start", style: "font-size:13.5px" }, g, b.name);
+        el("text", { x: x0 + 12, y: y0 + 36, class: "lbl-muted start" }, g, (share * 100).toFixed(1) + "% of the party vote");
+        const gx = x0 + (w - C * ST) / 2, gy = y0 + 44;
+        cx = i => gx + (i % C) * ST; cy = i => gy + Math.floor(i / C) * ST;
+        el("text", { x: x0 + 12, y: y0 + 166, class: "ttl start" }, g, `Got ${n} seats`);
+        shareKey(g, x0 + 12, y0 + 182, F);
+        shareLine(g, x0 + 12, y0 + 199, n, F);
+      } else {
+        el("rect", { x: 4, y: 216, width: 512, height: 50, rx: 10, class: "blocbox" }, g);
+        el("text", { x: 16, y: 237, class: "ttl start", style: "font-size:13.5px" }, g, b.name);
+        el("text", { x: 16, y: 254, class: "lbl-muted start" }, g, (share * 100).toFixed(1) + "% of the party vote");
+        cx = i => 150 + i * ST; cy = () => 232;
+        shareKey(g, 306, 237, F, ` · got ${n}`);
+        shareLine(g, 306, 254, n, F);
+      }
+      for (let i = 0; i < Math.ceil(F); i++) {
+        el("rect", { x: cx(i), y: cy(i), width: ST * Math.min(1, F - i), height: ST, class: "fair" }, g);
+      }
+      let i = 0;
+      b.parties.forEach(k => {
+        for (let j = 0; j < counts[k]; j++, i++) {
+          const c = el("circle", { cx: cx(i) + ST / 2, cy: cy(i) + ST / 2, r: 6.2, class: i >= Math.round(F) ? "over" : "" }, g);
+          c.style.fill = col(k);
+        }
+      });
+      for (; i < Math.round(F); i++) el("circle", { cx: cx(i) + ST / 2, cy: cy(i) + ST / 2, r: 5.4, class: "short" }, g);
+      markNote(g, cx, cy, b.strip ? 0 : 12, ST, n, F);
+    });
+  }
+
+
+  // ---------- Electorate seats, as boxes filled with party votes ----------
+  // A seat is "covered" when its box is full of party votes. Seats the party's
+  // own party vote covers start full; the rest start empty (dashed), and the
+  // votes that move under the proposal fill them.
+  const SEATSETS = {
+    nat: { name: "National", n: 42, base: 35, cap: 4, cols: 2, step: 8, sc: 0.55, perRow: 21, gap: 2 },
+    tpm: { name: "Te Pāti Māori", n: 5, base: 1, cap: 4, cols: 2, step: 13, sc: 0.9, perRow: 5, gap: 10 },
+  };
+  Object.entries(SEATSETS).forEach(([k, S]) => {
+    const rows = Math.ceil(S.cap / S.cols);
+    S.w = S.cols * S.step + 4; S.h = rows * S.step + 4;
+    S.g = el("g", { style: "opacity:0", class: "layer" }, $("slots"));
+    S.boxes = [];
+    for (let i = 0; i < S.n; i++) {
+      const row = Math.floor(i / S.perRow), inRow = Math.min(S.perRow, S.n - row * S.perRow);
+      const x = CX - (inRow * S.w + (inRow - 1) * S.gap) / 2 + (i % S.perRow) * (S.w + S.gap);
+      const y = 22 + row * (S.h + S.gap);
+      const rect = el("rect", { x, y, width: S.w, height: S.h, rx: 3, class: "seatbox" + (i < S.base ? "" : " vacant") }, S.g);
+      const box = { x, y, rect };
+      if (i < S.base) for (let j = 0; j < S.cap; j++) {
+        const c = cellPos(S, box, j);
+        el("circle", { cx: c.x, cy: c.y, r: (k === "nat" ? 6.8 : 7.6) * S.sc, style: `fill:${col(k)}` }, S.g);
+      }
+      S.boxes.push(box);
+    }
+  });
+  function cellPos(S, box, j) {
+    return { x: box.x + 2 + S.step / 2 + (j % S.cols) * S.step, y: box.y + 2 + S.step / 2 + Math.floor(j / S.cols) * S.step };
+  }
+  // Where the m-th moved vote lands: the next empty spot in the first seat not yet full.
+  function seatPos(k, m) {
+    const S = SEATSETS[k];
+    return cellPos(S, S.boxes[S.base + Math.floor(m / S.cap)], m % S.cap);
+  }
+  function showSlots(k, now) {
+    Object.entries(SEATSETS).forEach(([kk, S]) => S.g.style.opacity = kk === k ? 1 : 0);
+    $("slotLayer").style.opacity = k ? 1 : 0;
+    if (!k) return;
+    const S = SEATSETS[k];
+    S.boxes.forEach((b, i) => {
+      if (i < S.base) return;
+      const on = i < now;
+      b.rect.classList.toggle("vacant", !on);
+      b.rect.classList.toggle("filled", on);
+      b.rect.style.transitionDelay = on ? "2.2s" : "0s";
+    });
+    $("slotTitle").textContent = `${S.name}’s ${S.n} electorate seats · ` +
+      (now > S.base ? (now === S.n ? `all ${S.n} now covered` : `${now} now covered`) : `${S.base} covered by its own party vote`);
+  }
+
+  // ---------- Legend ----------
+  function legend(counts, base) {
+    $("legend").innerHTML = PARTIES.slice().sort((a, b) => counts[b.k] - counts[a.k]).map(p => {
+      const d = base ? counts[p.k] - base[p.k] : 0;
+      return `<span class="chip"><span class="sw" style="background:${col(p.k)}"></span>${p.name} <b class="num">${counts[p.k]}</b>` +
+        `<span class="delta ${d ? "" : "zero"}">${d}</span></span>`;
+    }).join("");
+    $("legend").style.opacity = 1;
+  }
+
+  const DOTS = "Each dot is about 5,000 votes (estimated)";
+  const PARL = "Each dot is an MP · dotted line marks a majority";
+  const STATES = {
+    current:  { cap: "Parliament after the 2026 General Election", sub: PARL },
+    overhang: { cap: "National and Te Pāti Māori: 11 overhang seats", sub: "The outlined dots are seats their party vote doesn’t cover" },
+    splitnat: { cap: "Split votes in the 42 electorates National won", sub: "People who gave National their electorate vote, by party vote · " + DOTS },
+    splittpm: { cap: "Split votes in the 5 electorates Te Pāti Māori won", sub: "People who gave Te Pāti Māori their electorate vote, by party vote · " + DOTS },
+    sharenow: { cap: "Seats compared with the party vote", sub: "Current rules · 131 seats" },
+    turn:     { cap: "Parliament after the 2026 General Election", sub: PARL },
+    vacnat:   { cap: "National’s 42 electorate seats", sub: "Each box is an electorate seat, full when party votes cover it · " + DOTS },
+    vactpm:   { cap: "Te Pāti Māori’s 5 electorate seats", sub: "Each box is an electorate seat, full when party votes cover it · " + DOTS },
+    movenat:  { cap: "National: 48% of each split vote", sub: "From people who gave National their electorate vote · " + DOTS + " · Each box is an electorate seat, full when its party vote covers it" },
+    movetpm:  { cap: "Te Pāti Māori: its split votes", sub: "From people who gave Te Pāti Māori their electorate vote · " + DOTS + " · Each box is an electorate seat, full when its party vote covers it" },
+    proposal: { cap: "Parliament with the proposed change", sub: PARL },
+    sharefix: { cap: "Seats compared with the party vote", sub: "With the proposed change · 120 seats" },
+  };
+  const ALT = ["turn", "vacnat", "vactpm", "movenat", "movetpm", "proposal", "sharefix"];
+  const BALLOT = { splitnat: ["nat", false], splittpm: ["tpm", false], vacnat: ["nat", false], vactpm: ["tpm", false], movenat: ["nat", true], movetpm: ["tpm", true] };
+
+  function show(state) {
+    const s = STATES[state];
+    $("figCaption").textContent = s.cap; $("figSub").textContent = s.sub;
+    const alt = ALT.includes(state);
+    $("mode").textContent = alt ? "Proposed change" : "Current rules";
+    $("mode").classList.toggle("alt", alt);
+    $("fig").classList.toggle("faded", state === "turn");
+
+    const parl = ["current", "overhang", "proposal", "turn"].includes(state);
+    const groups = state === "sharenow" || state === "sharefix";
+    const [poolK, moving] = BALLOT[state] || [null, false];
+
+    // Parliament
+    const pro = state === "proposal";
+    const L = pro ? L_PRO : L_CUR, counts = pro ? PROPOSAL : CURRENT;
+    seats.forEach(d => {
+      const list = L[d.k], here = d.i < list.length, p = list[Math.min(d.i, list.length - 1)];
+      const isOver = d.k in ENTITLED && d.i >= ENTITLED[d.k];
+      d.el.classList.toggle("extra", isOver && (state === "current" || state === "overhang"));
+      let op = parl && here ? 1 : 0;
+      if (state === "overhang" && !isOver) op = .15;
+      d.el.style.opacity = op;
+      d.el.style.transform = parl ? tr(p.x, p.y, here ? 1 : 0.01) : tr(CX, CY - 60, 0.01);
+    });
+    $("seatLabel").style.opacity = parl ? 1 : 0;
+    $("majLayer").style.opacity = parl ? 1 : 0;
+    const total = pro ? 120 : 131;
+    $("seatCount").textContent = total;
+    $("majText").textContent = (Math.floor(total / 2) + 1) + " for a majority";
+    $("blocL").textContent = "Lab · Grn · TPM " + (counts.lab + counts.grn + counts.tpm);
+    $("blocR").textContent = "Nat · ACT · NZF " + (counts.nat + counts.act + counts.nzf);
+
+    // Split votes
+    $("ballotLayer").style.opacity = poolK ? 1 : 0;
+    let pileTotal = 0;
+    Object.entries(POOLS).forEach(([pk, pool]) => {
+      pool.labels.style.opacity = pk === poolK ? 1 : 0;
+      pool.groups.forEach(g => {
+        const gone = pk === poolK && moving;
+        if (gone) pileTotal += g.moved;
+        g.countEl.textContent = gone ? (g.total - g.moved ? fmt(g.total - g.moved) + " left" : "all moved") : fmt(g.total);
+      });
+    });
+    const COVER = { vacnat: ["nat", 35], vactpm: ["tpm", 1], movenat: ["nat", 42], movetpm: ["tpm", 4] }[state];
+    if (COVER) showSlots(...COVER);
+    else showSlots(null);
+    if (poolK) key.ev.style.fill = col(POOLS[poolK].target);
+    $("moveTitle").style.opacity = moving ? 1 : 0;
+    if (poolK) $("moveTitle").textContent = `Now counted for ${POOLS[poolK].name}: ${fmt(pileTotal)}`;
+    bdots.forEach(d => {
+      const vis = d.pk === poolK;
+      const m = vis && moving && d.moved;
+      const pos = m ? seatPos(d.pk, d.pile) : gridPos(d.g, d.i);
+      d.el.style.transitionDelay = m ? (d.g.gi * 0.3 + (d.pile % 6) * 0.03) + "s" : "0s";
+      d.pv.style.fill = m ? col(POOLS[d.pk].target) : col(d.g.k);
+      d.pv.style.transitionDelay = d.el.style.transitionDelay;
+      d.el.style.opacity = vis ? 1 : 0;
+      d.el.style.transform = tr(pos.x, pos.y, vis ? (m ? SEATSETS[d.pk].sc : 1) : 0.01);
+    });
+
+    // Seats vs party vote
+    $("blocLayer").style.opacity = groups ? 1 : 0;
+    if (groups) drawGroups(state === "sharefix" ? PROPOSAL : CURRENT, state === "sharefix" ? 120 : 131);
+
+    if (parl) legend(counts, pro ? CURRENT : null);
+    else $("legend").style.opacity = 0;
+  }
+
+  show("current");
+
+  let active = null;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.target !== active) {
+        if (active) active.classList.remove("is-active");
+        active = e.target; active.classList.add("is-active");
+        show(active.dataset.state);
+      }
+    });
+  }, { rootMargin: "-55% 0px -40% 0px" });
+  document.querySelectorAll(".step").forEach(s => io.observe(s));
+})();
+</script>

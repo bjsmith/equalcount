@@ -1,0 +1,321 @@
+
+====================================================================================================
+Scenario 0: Left:Right 57%:43% | strategic s_L=36% s_R=49% s_M=20% | personal π=10% | minor parties 1.6% | wasted both ticks 0.2%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      31.6   32.0   45   39           45           45           45           45           45    45 (-1.4)    45 (-0.4)    45 (-0.4)    45 (-1.1)    45 (-1.1)
+Left 2        L      11.0   11.0    0   14    14 (-0.6)    11 (-2.6)    10 (-3.6)    11 (-2.8)    11 (-2.8)    16 (-0.2)    15 (-0.8)    15 (-0.8)           16    15 (-1.0)
+Left 3        L       5.9    5.9    0    7     7 (-0.8)     6 (-1.3)     6 (-1.3)     6 (-1.4)     6 (-1.4)     8 (-0.6)     8 (-0.5)     8 (-0.5)     8 (-0.6)     8 (-0.6)
+Left 4        L       5.5    5.6    0    7     7 (-0.3)     5 (-1.8)     5 (-1.8)     6 (-0.9)     5 (-1.9)     8 (-0.1)            8            8     8 (-0.1)     8 (-0.1)
+Left 5        L       0.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Māori 1       L       1.6    1.6    5    2            5            5            5            5            5            5            5            5            5            5
+Right 1       R      23.7   24.8   21   29    29 (-2.3)    28 (-1.2)    29 (-0.2)    29 (-0.7)           30    34 (-0.7)           34           34    34 (-0.5)           35
+Right 2       R      13.6   13.6    0   17    17 (-1.0)    16 (-0.7)    16 (-0.7)    16 (-1.0)    16 (-1.0)           20    19 (-0.5)    19 (-0.5)    19 (-0.8)    19 (-0.8)
+Centre 1      L       5.3    5.3    0    6     6 (-1.0)     5 (-1.5)     5 (-1.5)     5 (-1.6)     5 (-1.6)            8     7 (-0.6)     7 (-0.6)            8            8
+Left minor    L       0.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       1.2    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       0.2    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               61.5                            84           77           76           78           77           90           88           88           90           89
+Bloc R               38.5                     46 (-4.0)    44 (-2.5)    45 (-1.5)    45 (-2.3)    46 (-1.3)    54 (-1.4)    53 (-1.2)    53 (-1.2)    53 (-2.0)    54 (-1.0)
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               2.79         4.56         4.74         4.16         4.26         1.55         1.49         1.49         1.52         1.61
+  Party seat deficit                      5.98         9.03         9.03         8.35         8.70         3.02         2.76         2.76         2.99         3.51
+  Party deficit (rounded)                    6            9            9            9            9            3            2            2            3            4
+  Max party deficit                       2.34         2.58         3.58         2.80         2.80         1.40         0.82         0.82         1.08         1.08
+  Bloc seat deficit                       3.99         2.53         1.53         2.30         1.30         1.37         1.22         1.22         1.99         0.99
+  Bloc deficit (countable)                4.10         2.63         1.63         2.40         1.40         1.49         1.34         1.34         2.11         1.11
+  Either-choice party deficit             1.52         1.76         1.76         1.71         1.71         1.15         1.23         1.23         1.17         1.17
+  Either-choice max party def.            0.85         0.25         0.25         0.24         0.24         0.16         0.18         0.18         0.17         0.17
+  Either-choice bloc deficit              0.81         0.00         0.00         0.00         0.00         0.00         0.00         0.00         0.00         0.00
+  Extra seats (a) party≤1                   14           18           19           16           17            -            -            -            -            -
+  Extra seats (b) bloc≤1                    35           29           11           28            4            -            -            -            -            -
+  Extra (c) either-party≤1                   0            0            0            0            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                    0            0            0            0            0            -            -            -            -            -
+
+====================================================================================================
+Scenario 1: Left:Right 61%:39% | strategic s_L=20% s_R=88% s_M=3% | personal π=14% | minor parties 9.1% | wasted both ticks 0.0%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      28.3   32.9   35   38    38 (-3.7)    36 (-1.4)           39    36 (-1.4)           40    43 (-4.0)    42 (-1.6)           46    42 (-1.6)           46
+Left 2        L      22.5   22.7    3   30    30 (-3.2)    29 (-0.7)    27 (-2.7)    29 (-0.7)    27 (-3.0)    35 (-2.3)    34 (-0.6)    32 (-2.6)    34 (-0.6)    32 (-2.6)
+Right 1       R      14.3   17.3   33   19           33           33           33           33           33           33           33           33           33           33
+Right 2       R       7.9    8.0    0   10    10 (-1.6)     6 (-4.4)     5 (-5.4)     6 (-4.4)     5 (-5.5)    12 (-1.1)     9 (-3.1)     8 (-4.1)     9 (-3.1)     8 (-4.1)
+Right 3       R       5.6    5.7    0    7     7 (-1.3)     4 (-3.4)     4 (-3.4)     4 (-3.4)     4 (-3.5)     9 (-0.3)     6 (-2.7)     6 (-2.7)     6 (-2.7)     6 (-2.7)
+Centre 1      L       7.4    7.6    0   10    10 (-1.0)     9 (-0.8)     9 (-0.8)     9 (-0.8)     9 (-0.9)    11 (-1.3)    11 (-0.4)    10 (-1.4)    11 (-0.4)    10 (-1.4)
+Centre 2      R       5.5    5.7    0    7     7 (-1.2)     4 (-3.3)     4 (-3.3)     4 (-3.3)     4 (-3.4)     9 (-0.2)     6 (-2.5)     6 (-2.5)     6 (-2.5)     6 (-2.5)
+Left minor    L       5.2    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       1.8    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  R       1.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               63.4                     78 (-7.5)    74 (-2.7)    75 (-1.7)    74 (-2.7)    76 (-1.3)    89 (-7.3)    87 (-2.3)    88 (-1.3)    87 (-2.3)    88 (-1.3)
+Bloc R               36.6                            57           47           46           47           46           63           54           53           54           53
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               6.89         9.15         9.46         9.15         9.42         4.89         6.09         6.47         6.09         6.47
+  Party seat deficit                     11.94        14.12        15.72        14.12        16.26         9.29        11.00        13.42        11.00        13.42
+  Party deficit (rounded)                   12           13           15           13           16            8           12           14           12           14
+  Max party deficit                       3.73         4.41         5.41         4.41         5.50         3.98         3.13         4.13         3.13         4.13
+  Bloc seat deficit                       7.54         2.67         1.67         2.67         1.30         7.31         2.34         1.34         2.34         1.34
+  Bloc deficit (countable)                7.54         2.67         1.67         2.67         1.30         7.31         2.34         1.34         2.34         1.34
+  Either-choice party deficit             2.65         0.15         0.00         0.15         0.00         2.53         0.12         0.00         0.12         0.00
+  Either-choice max party def.            2.33         0.15         0.00         0.15         0.00         2.41         0.12         0.00         0.12         0.00
+  Either-choice bloc deficit              2.65         0.00         0.00         0.00         0.00         1.80         0.00         0.00         0.00         0.00
+  Extra seats (a) party≤1                   65           69         >279           69         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                    77           79            2           79            2            -            -            -            -            -
+  Extra (c) either-party≤1                  29            0            0            0            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                   22            0            0            0            0            -            -            -            -            -
+
+====================================================================================================
+Scenario 2: Left:Right 50%:50% | strategic s_L=24% s_R=100% s_M=4% | personal π=0% | minor parties 3.5% | wasted both ticks 1.6%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      20.2   21.1   11   26    26 (-6.7)    24 (-1.8)    25 (-0.8)    25 (-1.5)    26 (-0.5)    30 (-5.9)    29 (-1.1)    30 (-0.1)    29 (-1.1)    30 (-0.1)
+Left 2        L      12.7   12.7    0   16    16 (-4.5)    15 (-1.2)    15 (-1.2)    16 (-0.6)    16 (-0.6)    19 (-3.5)    18 (-0.9)    18 (-0.9)    18 (-0.9)    18 (-0.9)
+Left 3        L      11.8   11.8    0   15    15 (-4.1)    14 (-1.1)    14 (-1.1)    15 (-0.5)    14 (-1.5)    18 (-3.0)    17 (-0.6)    17 (-0.6)    17 (-0.6)    17 (-0.6)
+Left 4        L       5.4    5.4    0    7     7 (-1.8)            7     6 (-0.9)     7 (-0.1)     7 (-0.1)     8 (-1.6)     8 (-0.1)     8 (-0.1)     8 (-0.1)     8 (-0.1)
+Left 5        L       2.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 1       R      22.2   25.1   60   28           60           60           60           60           60           60           60           60           60           60
+Right 2       R      13.8   13.8    0   18    18 (-4.3)    1 (-16.6)    1 (-16.6)    1 (-17.1)    1 (-17.1)    20 (-4.5)    6 (-14.6)    5 (-15.6)    6 (-14.6)    5 (-15.6)
+Right 3       R       8.5    8.5    0   11    11 (-2.7)    0 (-10.9)    0 (-10.9)    0 (-11.1)    0 (-11.1)    13 (-2.1)     3 (-9.6)     3 (-9.6)     3 (-9.6)     3 (-9.6)
+Left minor    L       0.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       2.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  R       0.3    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               52.6                    64 (-16.5)    60 (-3.7)    60 (-3.7)    63 (-2.2)    63 (-2.2)   75 (-13.4)    72 (-2.2)    73 (-1.2)    72 (-2.2)    73 (-1.2)
+Bloc R               47.4                            89           61           61           61           61           93           69           68           69           68
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                              12.15        21.86        21.85        21.13        21.13         9.47        16.11        16.33        16.11        16.33
+  Party seat deficit                     24.09        31.66        31.60        30.90        30.90        20.57        26.91        26.91        26.91        26.91
+  Party deficit (rounded)                   25           32           32           30           30           21           28           28           28           28
+  Max party deficit                       6.67        16.64        16.64        17.08        17.08         5.88        14.56        15.56        14.56        15.56
+  Bloc seat deficit                      16.51         3.67         3.67         2.25         2.25        13.40         2.19         1.19         2.19         1.19
+  Bloc deficit (countable)               15.37         2.77         2.77         1.32         1.32        12.15         1.14         0.14         1.14         0.14
+  Either-choice party deficit            15.24         3.07         2.76         1.58         1.46        12.01         1.31         0.31         1.31         0.31
+  Either-choice max party def.            6.72         1.87         0.87         1.51         0.69         5.92         1.15         0.16         1.15         0.16
+  Either-choice bloc deficit             15.24         2.67         2.67         1.22         1.22        12.01         1.03         0.03         1.03         0.03
+  Extra seats (a) party≤1                  111          117         >279          117         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                   102            6            4            6            1            -            -            -            -            -
+  Extra (c) either-party≤1                 105            5            0            3            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                  102            6            4            6            1            -            -            -            -            -
+
+====================================================================================================
+Scenario 3: Left:Right 49%:51% | strategic s_L=45% s_R=9% s_M=30% | personal π=5% | minor parties 5.2% | wasted both ticks 5.7%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      28.3   34.0   43   39           43           43           43           43           43           46           46           50           46           50
+Left 2        L       9.8    9.9    0   14           14    13 (-0.6)    13 (-0.6)    13 (-0.6)    13 (-0.6)           16           16    15 (-0.8)           16    15 (-0.8)
+Left 3        L       3.3    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left 4        L       0.8    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left 5        L       0.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 1       R      27.2   28.6   28   38    38 (-1.2)    36 (-1.9)    37 (-0.9)    36 (-1.9)    37 (-0.9)    44 (-0.2)    44 (-0.2)    43 (-1.2)    44 (-0.2)    43 (-1.2)
+Right 2       R       5.9    6.0    0    8     8 (-0.5)     8 (-0.2)     8 (-0.2)     8 (-0.2)     8 (-0.2)     9 (-0.6)     9 (-0.6)     9 (-0.6)     9 (-0.6)     9 (-0.6)
+Right 3       R       3.3    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 4       R       0.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre 1      R       8.6    8.6    0   12    12 (-0.3)    11 (-0.9)    11 (-0.9)    11 (-0.9)    11 (-0.9)           14           14    13 (-0.9)           14    13 (-0.9)
+Centre 2      R       7.2    7.2    0   10    10 (-0.3)           10     9 (-1.0)           10     9 (-1.0)           12           12    11 (-0.6)           12    11 (-0.6)
+Left minor    L       1.5    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       1.0    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       2.3    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               46.4                     57 (-1.0)    56 (-0.1)    56 (-0.1)    56 (-0.1)    56 (-0.1)    62 (-3.4)    62 (-3.4)    65 (-0.4)    62 (-3.4)    65 (-0.4)
+Bloc R               53.6                            68           65           65           65           65           79           79           76           79           76
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               1.49         2.46         2.33         2.46         2.33         0.36         0.36         2.25         0.36         2.25
+  Party seat deficit                      2.28         3.59         3.59         3.59         3.59         0.73         0.73         4.07         0.73         4.07
+  Party deficit (rounded)                    1            4            4            4            4            1            1            5            1            5
+  Max party deficit                       1.15         1.90         0.99         1.90         0.99         0.56         0.56         1.16         0.56         1.16
+  Bloc seat deficit                       1.00         0.15         0.15         0.15         0.15         3.43         3.43         0.43         3.43         0.43
+  Bloc deficit (countable)                1.27         0.41         0.41         0.41         0.41         3.73         3.73         0.73         3.73         0.73
+  Either-choice party deficit             1.03         0.32         0.00         0.32         0.00         3.67         3.67         0.00         3.67         0.00
+  Either-choice max party def.            1.03         0.08         0.00         0.08         0.00         3.67         3.67         0.00         3.67         0.00
+  Either-choice bloc deficit              0.14         0.00         0.00         0.00         0.00         2.45         2.45         0.00         2.45         0.00
+  Extra seats (a) party≤1                    2            3            0            3            0            -            -            -            -            -
+  Extra seats (b) bloc≤1                  >279            0            0            0            0            -            -            -            -            -
+  Extra (c) either-party≤1                >279            0            0            0            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                    0            0            0            0            0            -            -            -            -            -
+
+====================================================================================================
+Scenario 4: Left:Right 44%:56% | strategic s_L=6% s_R=77% s_M=85% | personal π=2% | minor parties 5.9% | wasted both ticks 6.0%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      22.3   26.5    0   33    33 (-1.3)    32 (-1.5)    32 (-1.5)    32 (-1.8)    32 (-1.5)    39 (-0.9)    38 (-1.0)    38 (-1.0)    38 (-1.0)    38 (-1.0)
+Left 2        L      12.9   13.0    0   19    19 (-0.8)    18 (-1.4)    16 (-3.4)    19 (-0.5)    16 (-3.4)           23    22 (-0.6)    19 (-3.6)    22 (-0.6)    19 (-3.6)
+Left 3        L       2.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left 4        L       1.7    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left 5        L       0.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Māori 1       L       1.7    1.9    6    3            6            6            6            6            6            6            6            6            6            6
+Māori 2       L       1.2    1.3    1    2            2     1 (-0.8)     1 (-0.8)     1 (-0.8)     1 (-0.8)     2 (-0.2)     1 (-1.1)     1 (-1.1)     1 (-1.1)     1 (-1.1)
+Right 1       R      42.5   51.4   64   64    64 (-1.4)           64           66    64 (-0.3)           66    74 (-1.9)    74 (-0.3)           77    74 (-0.3)           77
+Right 2       R       3.7    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre 1      R       2.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre 2      R       3.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left minor    L       1.7    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       1.5    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       2.2    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               46.3                            60           57    55 (-1.0)           58    55 (-1.0)           70           67    64 (-1.3)           67    64 (-1.3)
+Bloc R               53.7                     64 (-2.6)    64 (-1.0)           66    64 (-1.5)           66    74 (-3.3)    74 (-1.7)           77    74 (-1.7)           77
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               2.28         2.40         3.26         2.32         3.26         1.79         1.74         2.81         1.74         2.81
+  Party seat deficit                      3.55         3.68         5.68         3.44         5.68         2.98         3.05         5.72         3.05         5.72
+  Party deficit (rounded)                    3            4            6            4            6            3            3            6            3            6
+  Max party deficit                       1.37         1.50         3.37         1.78         3.37         1.91         1.11         3.57         1.11         3.57
+  Bloc seat deficit                       2.59         0.98         1.02         1.51         1.02         3.33         1.72         1.28         1.72         1.28
+  Bloc deficit (countable)                3.81         2.17         0.17         2.71         0.17         4.74         3.10         0.10         3.10         0.10
+  Either-choice party deficit             3.29         1.66         0.00         2.45         0.00         4.14         2.52         0.00         2.52         0.00
+  Either-choice max party def.            3.29         1.66         0.00         2.20         0.00         4.14         2.52         0.00         2.52         0.00
+  Either-choice bloc deficit              3.29         1.66         0.00         2.20         0.00         4.14         2.52         0.00         2.52         0.00
+  Extra seats (a) party≤1                   31            9         >279            9         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                  >279         >279            0         >279            0            -            -            -            -            -
+  Extra (c) either-party≤1                >279         >279            0         >279            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                 >279         >279            0         >279            0            -            -            -            -            -
+
+====================================================================================================
+Scenario 5: Left:Right 50%:50% | strategic s_L=57% s_R=32% s_M=81% | personal π=12% | minor parties 8.9% | wasted both ticks 7.5%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      27.6   33.0   36   43    43 (-3.1)    40 (-3.6)    41 (-2.6)    40 (-3.6)    41 (-2.6)    51 (-0.9)    49 (-1.8)    48 (-2.8)    49 (-1.8)    48 (-2.8)
+Left 2        L       7.7    7.9    0   12    12 (-0.8)    11 (-1.1)    10 (-2.1)    11 (-1.1)    10 (-2.1)    14 (-0.4)    14 (-0.1)    12 (-2.1)    14 (-0.1)    12 (-2.1)
+Left 3        L       4.9    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left 4        L       1.9    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left 5        L       0.8    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Māori 1       L       2.0    3.1    7    3            7            7            7            7            7            7            7            7            7            7
+Māori 2       L       0.9    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 1       R      15.9   24.0   28   25           28           28           32           28           32    29 (-0.9)    29 (-0.2)           36    29 (-0.2)           36
+Right 2       R      10.7   11.0    0   17    17 (-0.8)    16 (-0.9)    14 (-2.9)    16 (-0.9)    14 (-2.9)    20 (-0.1)    19 (-0.7)    17 (-2.7)    19 (-0.7)    17 (-2.7)
+Right 3       R       6.7    7.0    0   11    11 (-0.1)    10 (-0.5)     9 (-1.5)    10 (-0.5)     9 (-1.5)    12 (-0.5)    12 (-0.3)    11 (-1.3)    12 (-0.3)    11 (-1.3)
+Right 4       R       3.8    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 5       R       2.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre 1      R       6.2    6.4    0   10    10 (-0.3)     9 (-0.8)     8 (-1.8)     9 (-0.8)     8 (-1.8)    11 (-0.6)    11 (-0.4)    10 (-1.4)    11 (-0.4)    10 (-1.4)
+Left minor    L       1.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       6.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       0.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               47.5                            62           58           58           58           58           72           70           67           70           67
+Bloc R               52.5                     66 (-1.2)    63 (-0.6)    63 (-0.6)    63 (-0.6)    63 (-0.6)    72 (-3.6)    71 (-3.1)    74 (-0.1)    71 (-3.1)    74 (-0.1)
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               2.88         3.67         5.48         3.67         5.48         1.80         1.97         4.49         1.97         4.49
+  Party seat deficit                      5.20         6.83        10.83         6.83        10.83         3.33         3.41        10.18         3.41        10.18
+  Party deficit (rounded)                    5            8           12            8           12            4            3           10            3           10
+  Max party deficit                       3.09         3.57         2.87         3.57         2.87         0.85         1.77         2.77         1.77         2.77
+  Bloc seat deficit                       1.23         0.56         0.56         0.56         0.56         3.64         3.06         0.06         3.06         0.06
+  Bloc deficit (countable)                0.80         0.15         0.15         0.15         0.15         3.15         2.59         0.41         2.59         0.41
+  Either-choice party deficit             3.81         2.07         0.00         2.07         0.00         6.79         6.04         0.00         6.04         0.00
+  Either-choice max party def.            3.81         2.07         0.00         2.07         0.00         6.79         6.04         0.00         6.04         0.00
+  Either-choice bloc deficit              0.00         0.00         0.00         0.00         0.00         1.63         1.09         0.00         1.09         0.00
+  Extra seats (a) party≤1                   10           23         >279           23         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                     0            0            0            0            0            -            -            -            -            -
+  Extra (c) either-party≤1                >279         >279            0         >279            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                    0            0            0            0            0            -            -            -            -            -
+
+====================================================================================================
+Scenario 6: Left:Right 66%:34% | strategic s_L=89% s_R=98% s_M=63% | personal π=9% | minor parties 1.1% | wasted both ticks 1.2%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      52.0   61.0   67   71           71           71           75           71           75    82 (-0.2)    82 (-0.2)           87    82 (-0.2)           87
+Left 2        L       7.5    7.6    0   10    10 (-0.2)    10 (-0.2)     9 (-1.2)    10 (-0.2)     9 (-1.2)           12           12    11 (-0.8)           12    11 (-0.8)
+Left 3        L       4.5    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left 4        L       0.3    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 1       R      15.7   16.0    4   21    21 (-0.3)    21 (-0.3)    20 (-1.3)    21 (-0.3)    20 (-1.3)           25           25    23 (-1.8)           25    23 (-1.8)
+Right 2       R      14.0   14.1    0   19           19           19    17 (-2.0)           19    17 (-2.0)    22 (-0.1)    22 (-0.1)    20 (-2.1)    22 (-0.1)    20 (-2.1)
+Centre 1      L       4.9    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left minor    L       0.9    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       0.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       0.0    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               70.1                     81 (-3.9)    81 (-3.9)    84 (-0.9)    81 (-3.9)    84 (-0.9)    94 (-4.9)    94 (-4.9)    98 (-0.9)    94 (-4.9)    98 (-0.9)
+Bloc R               29.9                            40           40           37           40           37           47           47           43           47           43
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               0.34         0.34         3.03         0.34         3.03         0.17         0.17         2.82         0.17         2.82
+  Party seat deficit                      0.47         0.47         4.46         0.47         4.46         0.33         0.33         4.80         0.33         4.80
+  Party deficit (rounded)                    0            0            4            0            4            0            0            5            0            5
+  Max party deficit                       0.31         0.31         1.99         0.31         1.99         0.20         0.20         2.13         0.20         2.13
+  Bloc seat deficit                       3.88         3.88         0.88         3.88         0.88         4.91         4.91         0.91         4.91         0.91
+  Bloc deficit (countable)                3.45         3.45         0.45         3.45         0.45         4.41         4.41         0.41         4.41         0.41
+  Either-choice party deficit             1.16         1.16         0.00         1.16         0.00         2.08         2.08         0.00         2.08         0.00
+  Either-choice max party def.            1.16         1.16         0.00         1.16         0.00         2.08         2.08         0.00         2.08         0.00
+  Either-choice bloc deficit              1.01         1.01         0.00         1.01         0.00         1.56         1.56         0.00         1.56         0.00
+  Extra seats (a) party≤1                    0            0         >279            0         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                  >279         >279            0         >279            0            -            -            -            -            -
+  Extra (c) either-party≤1                >279         >279            0         >279            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                   22           22            0           22            0            -            -            -            -            -
+
+====================================================================================================
+Scenario 7: Left:Right 52%:48% | strategic s_L=45% s_R=28% s_M=90% | personal π=0% | minor parties 7.5% | wasted both ticks 3.0%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      41.3   45.4   50   57    57 (-2.0)    53 (-4.1)    53 (-4.1)    53 (-4.1)    53 (-4.1)    66 (-2.5)    63 (-3.6)    62 (-4.6)    63 (-3.6)    62 (-4.6)
+Left 2        L       2.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Māori 1       L       2.0    2.3    7    3            7            7            7            7            7            7            7            7            7            7
+Right 1       R      16.5   21.7   14   23    23 (-0.6)           23           27           23           27    27 (-0.4)    26 (-0.7)           31    26 (-0.7)           31
+Right 2       R      12.8   12.9    0   18    18 (-0.4)           18    16 (-1.8)           18    16 (-1.8)    21 (-0.3)           21    19 (-1.7)           21    19 (-1.7)
+Right 3       R       6.0    6.0    0    8     8 (-0.6)     8 (-0.3)     7 (-1.3)     8 (-0.3)     7 (-1.3)           10           10     9 (-0.7)           10     9 (-0.7)
+Centre 1      L       3.3    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre 2      R       8.8    8.8    0   12    12 (-0.5)    12 (-0.1)    11 (-1.1)    12 (-0.1)    11 (-1.1)    14 (-0.5)    14 (-0.1)    13 (-1.1)    14 (-0.1)    13 (-1.1)
+Left minor    L       1.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       5.2    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       0.4    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               50.7                            64    60 (-1.3)    60 (-1.3)    60 (-1.3)    60 (-1.3)    73 (-0.5)    70 (-1.4)    69 (-2.4)    70 (-1.4)    69 (-2.4)
+Bloc R               49.3                     61 (-0.7)           61           61           61           61           72           71           72           71           72
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               2.69         3.48         4.47         3.48         4.47         2.20         2.65         3.85         2.65         3.85
+  Party seat deficit                      4.17         4.60         8.38         4.60         8.38         3.72         4.37         8.14         4.37         8.14
+  Party deficit (rounded)                    5            4            8            4            8            3            5            9            5            9
+  Max party deficit                       2.02         4.13         4.13         4.13         4.13         2.47         3.58         4.58         3.58         4.58
+  Bloc seat deficit                       0.66         1.31         1.31         1.31         1.31         0.47         1.44         2.44         1.44         2.44
+  Bloc deficit (countable)                2.55         0.51         0.51         0.51         0.51         1.71         0.68         0.32         0.68         0.32
+  Either-choice party deficit             4.86         3.97         0.50         3.97         0.50         5.32         5.43         0.66         5.43         0.66
+  Either-choice max party def.            4.86         3.97         0.24         3.97         0.24         5.32         5.43         0.43         5.43         0.43
+  Either-choice bloc deficit              2.48         0.45         0.45         0.45         0.45         1.64         0.61         0.15         0.61         0.15
+  Extra seats (a) party≤1                   39           99         >279           99         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                    95            0            0            0            0            -            -            -            -            -
+  Extra (c) either-party≤1                >279         >279            0         >279            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                   95            0            0            0            0            -            -            -            -            -
+
+====================================================================================================
+Scenario 8: Left:Right 65%:35% | strategic s_L=59% s_R=11% s_M=34% | personal π=0% | minor parties 7.9% | wasted both ticks 12.3%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      19.2   23.4   69   30           69           69           69           69           69           69           69           69           69           69
+Left 2        L      12.3   12.3    0   19    19 (-6.6)    8 (-11.3)    7 (-12.3)    8 (-11.3)    7 (-13.1)    23 (-5.0)    13 (-9.5)   10 (-12.5)    13 (-9.5)   10 (-12.5)
+Left 3        L      11.7   11.7    0   19    19 (-5.3)    8 (-10.4)    6 (-12.4)    8 (-10.4)    7 (-12.1)    21 (-5.6)    12 (-9.4)   10 (-11.4)    12 (-9.4)   10 (-11.4)
+Left 4        L       8.3    8.3    0   13    13 (-4.3)     5 (-8.1)     4 (-9.1)     5 (-8.1)     5 (-8.6)    15 (-3.9)     8 (-7.2)     7 (-8.2)     8 (-7.2)     7 (-8.2)
+Left 5        L       3.2    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 1       R      17.8   24.3    2   28    28 (-8.9)    26 (-1.9)           31    26 (-1.9)           33    33 (-7.4)    31 (-1.6)           39    31 (-1.6)           39
+Right 2       R       2.9    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 3       R       2.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right 4       R       2.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre 1      L       7.8    7.8    0   12    12 (-4.1)     5 (-7.2)     4 (-8.2)     5 (-7.2)     5 (-7.7)    14 (-3.6)     8 (-6.2)     6 (-8.2)     8 (-6.2)     6 (-8.2)
+Centre 2      R       4.3    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left minor    L       0.2    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       5.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       2.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               64.8                           132           95           90           95           93          142          110          102          110          102
+Bloc R               35.2                    28 (-28.4)   26 (-16.6)   31 (-11.6)   26 (-16.6)   33 (-11.4)   33 (-28.7)   31 (-18.7)   39 (-10.7)   31 (-18.7)   39 (-10.7)
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                              14.23        25.26        25.97        25.26        24.36        11.33        18.91        20.14        18.91        20.14
+  Party seat deficit                     29.17        38.88        41.94        38.88        41.55        25.44        33.90        40.35        33.90        40.35
+  Party deficit (rounded)                   29           38           41           38           42           26           34           40           34           40
+  Max party deficit                       8.94        11.33        12.37        11.33        13.13         7.40         9.53        12.53         9.53        12.53
+  Bloc seat deficit                      28.39        16.65        11.65        16.65        11.41        28.68        18.70        10.70        18.70        10.70
+  Bloc deficit (countable)               16.28         7.49         2.49         7.49         1.87        15.43         8.02         0.02         8.02         0.02
+  Either-choice party deficit            16.22         7.44         4.15         7.44         2.07        15.37         7.97         0.00         7.97         0.00
+  Either-choice max party def.           16.22         7.44         2.44         7.44         1.82        15.37         7.97         0.00         7.97         0.00
+  Either-choice bloc deficit             16.22         7.44         2.44         7.44         1.82        15.37         7.97         0.00         7.97         0.00
+  Extra seats (a) party≤1                  141          145         >279          145         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                  >279         >279            7         >279            4            -            -            -            -            -
+  Extra (c) either-party≤1                >279         >279            7         >279            4            -            -            -            -            -
+  Extra (d) either-bloc≤1                 >279         >279            7         >279            4            -            -            -            -            -
+
+====================================================================================================
+Scenario 9: Left:Right 39%:61% | strategic s_L=9% s_R=20% s_M=58% | personal π=10% | minor parties 7.7% | wasted both ticks 1.6%
+party         bloc  vote%  opt2% elec entl          MMP        MMP-T       MMP-BV      MMP-T-X     MMP-BV-X       MMP141     MMP-T141    MMP-BV141   MMP-T-X141  MMP-BV-X141
+Left 1        L      18.8   20.9    0   25    25 (-1.1)    23 (-2.1)    23 (-2.1)    23 (-2.3)    24 (-1.3)    29 (-1.2)    27 (-2.2)    28 (-1.2)    27 (-2.2)    28 (-1.2)
+Left 2        L      11.6   11.8    1   15    15 (-1.1)    14 (-1.5)    13 (-2.5)    14 (-1.6)    13 (-2.6)    18 (-0.6)    17 (-1.0)    15 (-3.0)    17 (-1.0)    15 (-3.0)
+Left 3        L       8.5    8.7    0   11    11 (-0.8)    10 (-1.3)    10 (-1.3)    10 (-1.4)    10 (-1.4)    13 (-0.7)    12 (-1.2)    11 (-2.2)    12 (-1.2)    11 (-2.2)
+Māori 1       L       1.4    1.4    7    2            7            7            7            7            7            7            7            7            7            7
+Right 1       R      50.5   55.7   63   68    68 (-2.1)    67 (-0.3)           68           68           68    79 (-2.2)    78 (-0.4)           80    78 (-0.4)           80
+Right 2       R       2.1    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Left minor    L       1.6    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Right minor   R       5.0    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Centre minor  L       0.5    0.0    0    -          out          out          out          out          out          out          out          out          out          out
+Bloc L               42.4                            58           54           53           54           54           67           63           61           63           61
+Bloc R               57.6                     68 (-4.6)    67 (-2.7)    68 (-1.7)    68 (-2.3)    68 (-2.3)    79 (-5.1)    78 (-3.2)    80 (-1.2)    78 (-3.2)    80 (-1.2)
+  (party shortfalls against the party yardstick; bloc shortfalls against the bloc yardstick)
+  Gallagher                               3.23         3.45         3.66         3.49         3.52         2.66         2.80         3.23         2.80         3.23
+  Party seat deficit                      5.08         5.16         5.86         5.29         5.29         4.78         4.85         6.43         4.85         6.43
+  Party deficit (rounded)                    5            4            5            5            5            5            4            6            4            6
+  Max party deficit                       2.08         2.07         2.45         2.27         2.58         2.20         2.21         3.00         2.21         3.00
+  Bloc seat deficit                       4.59         2.71         1.71         2.29         2.29         5.11         3.23         1.23         3.23         1.23
+  Bloc deficit (countable)                3.74         1.90         0.90         1.47         1.47         4.13         2.29         0.29         2.29         0.29
+  Either-choice party deficit             1.10         1.33         1.33         1.28         1.28         0.16         0.39         0.39         0.39         0.39
+  Either-choice max party def.            0.27         0.33         0.33         0.32         0.32         0.04         0.10         0.10         0.10         0.10
+  Either-choice bloc deficit              0.00         0.00         0.00         0.00         0.00         0.00         0.00         0.00         0.00         0.00
+  Extra seats (a) party≤1                  160          144         >279          144         >279            -            -            -            -            -
+  Extra seats (b) bloc≤1                  >279         >279            0         >279            2            -            -            -            -            -
+  Extra (c) either-party≤1                   0            0            0            0            0            -            -            -            -            -
+  Extra (d) either-bloc≤1                    0            0            0            0            0            -            -            -            -            -

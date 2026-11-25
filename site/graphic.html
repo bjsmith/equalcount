@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Everyone Counts Once</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --ballot: #FBFCF7; --orange: #F47B20;
+  --a: #6A3FB5; --a-soft: #EEE8F8;
+  --b: #0E8C7F; --b-soft: #E2F3F1;
+  --other: #C9D3CF;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--paper); }
+body { font-family: var(--body); color: var(--ink); }
+.g { width: 1080px; height: 1350px; padding: 44px 72px 30px; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+
+.kicker { font-family: var(--display); font-weight: 900; font-size: 32px; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
+h1 { font-family: var(--display); font-weight: 900; font-size: 70px; line-height: .98; letter-spacing: -.025em; margin: 10px 0 14px; }
+.punch { font-size: 27px; line-height: 1.3; font-weight: 700; margin: 0 0 8px; max-width: 920px; }
+.punch span { background: linear-gradient(transparent 60%, #FFE36E 60%); }
+.lede { font-size: 23px; line-height: 1.35; color: var(--muted); margin: 0; max-width: 900px; }
+.lede b { color: var(--ink); }
+
+/* ballot */
+.ballot { margin: 26px auto 0; width: 800px; background: var(--ballot); border: 2px solid var(--ink); border-radius: 6px; box-shadow: 6px 6px 0 var(--ink); }
+.ballot .cap { font-family: var(--display); font-weight: 800; font-size: 16px; letter-spacing: .14em; text-transform: uppercase; padding: 10px 20px; border-bottom: 2px solid var(--ink); display: flex; justify-content: space-between; }
+.ballot .cap span { color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: none; font-family: var(--body); font-size: 18px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; }
+.row { display: grid; grid-template-columns: 1fr 44px; align-items: center; padding: 12px 20px 16px; column-gap: 14px; row-gap: 8px; }
+.row .k { grid-column: 1 / -1; }
+.row + .row { border-left: 2px solid var(--ink); }
+.row .k { font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: .1em; text-transform: uppercase; }
+.row .v { font-size: 25px; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+.dot { width: 18px; height: 18px; border-radius: 50%; flex: none; }
+.row.pv .k { color: var(--b); } .row.pv .dot { background: var(--b); }
+.row.ev .k { color: var(--a); } .row.ev .dot { background: var(--a); }
+.tick { width: 40px; height: 40px; border: 2.5px solid var(--ink); border-radius: 4px; display: grid; place-items: center; background: #fff; }
+.tick svg { width: 30px; height: 30px; }
+
+/* question + fork */
+.q { margin: 28px auto 0; text-align: center; font-family: var(--display); font-weight: 800; font-size: 31px; line-height: 1.15; max-width: 860px; }
+.q em { font-style: normal; background: linear-gradient(transparent 58%, #FFE36E 58%); padding: 0 4px; }
+.fork { position: relative; width: 936px; height: 104px; margin: 8px auto 0; }
+.fork svg { display: block; }
+.pill { position: absolute; top: 34px; transform: translateX(-50%); font-family: var(--display); font-weight: 900; font-size: 34px; letter-spacing: .04em; line-height: 1; color: #fff; padding: 9px 26px 8px; border-radius: 999px; border: 3px solid var(--ink); }
+.pill.no { background: var(--b); }
+.pill.yes { background: var(--a); }
+
+/* outcome cards */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.card { background: var(--card); border: 2px solid var(--ink); border-radius: 8px; padding: 20px 26px 22px; display: flex; flex-direction: column; }
+.card.b { border-top: 12px solid var(--b); }
+.card.a { border-top: 12px solid var(--a); }
+.tag { font-family: var(--display); font-weight: 800; font-size: 16px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.card h2 { font-family: var(--display); font-weight: 900; font-size: 36px; line-height: 1.02; letter-spacing: -.015em; margin: 8px 0 12px; }
+.card.b h2 span { color: var(--b); }
+.card.a h2 span { color: var(--a); }
+.card p { margin: 0; font-size: 21px; line-height: 1.35; color: var(--muted); }
+.card p b { color: var(--ink); }
+
+/* mini parliament */
+.parl { margin-top: auto; padding-top: 16px; }
+.parl .lab { font-size: 15px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: flex; justify-content: space-between; }
+.seats { display: grid; grid-template-columns: repeat(20, 1fr); gap: 3px; }
+.seats i { aspect-ratio: 1; border-radius: 50%; background: var(--other); display: block; }
+.seats i.a { background: var(--a); }
+.seats i.b { background: var(--b); }
+.seats i.you { box-shadow: 0 0 0 3px #fff, 0 0 0 6px var(--orange); position: relative; }
+
+.same { margin: 22px 0 4px; text-align: center; font-size: 25px; color: var(--muted); }
+.same b { color: var(--ink); }
+
+/* footer */
+.foot { margin-top: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; border-top: 2px solid var(--ink); padding-top: 18px; }
+.ai { margin: 16px 0 0; text-align: center; font-size: 16px; color: var(--muted); letter-spacing: .02em; }
+.foot div { display: flex; gap: 12px; align-items: flex-start; font-size: 21px; line-height: 1.25; font-weight: 600; }
+.foot svg { flex: none; width: 28px; height: 28px; margin-top: 1px; }
+</style>
+</head>
+<body>
+<div class="g">
+  <div class="kicker">Don't bin MMP. Tweak it.</div>
+  <h1>How to fix overhang seats under MMP</h1>
+  <p class="punch">Keep the electorates. Keep the party lists. <span>Guarantee your share of the vote is your share of Parliament.</span></p>
+  <p class="lede">The idea: you cast two votes, but each voter fills <b>one share</b> of Parliament. Usually your party vote fills it. Sometimes your electorate vote does.</p>
+
+  <div class="ballot" aria-label="A split ballot">
+    <div class="cap">Your ballot <span>a split vote</span></div>
+    <div class="cols">
+    <div class="row pv">
+      <div class="k">Party vote</div>
+      <div class="v"><i class="dot"></i>Party B</div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#121A17" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></div>
+    </div>
+    <div class="row ev">
+      <div class="k">Electorate vote</div>
+      <div class="v"><i class="dot"></i>Party A's candidate</div>
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#121A17" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="q">Does your electorate winner <em>need your vote</em><br>to fill their party's share of Parliament?</div>
+
+  <div class="fork">
+    <svg width="936" height="104" viewBox="0 0 936 104" aria-hidden="true">
+      <path d="M468 2 V26 M468 26 H227 V98 M468 26 H709 V98" fill="none" stroke="#121A17" stroke-width="4"/>
+      <path d="M216 88 L227 101 L238 88" fill="none" stroke="#121A17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M698 88 L709 101 L720 88" fill="none" stroke="#121A17" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>
+    <div class="pill no" style="left:227px">NO</div>
+    <div class="pill yes" style="left:709px">YES</div>
+  </div>
+
+  <div class="cards">
+    <div class="card b">
+      <div class="tag">Their seats are already covered</div>
+      <h2>Your <span>party vote</span> fills Parliament</h2>
+      <p>Party A's own party votes already cover the electorates it won. <b>Your party vote counts for Party B</b>, exactly as today.</p>
+      <div class="parl">
+        <div class="lab"><span>Parliament</span><span style="color:var(--orange)">● your share</span></div>
+        <div class="seats" id="s1"></div>
+      </div>
+    </div>
+    <div class="card a">
+      <div class="tag">They won extra electorates</div>
+      <h2>Your <span>electorate vote</span> fills Parliament</h2>
+      <p>Party A won more electorates than its party votes cover. <b>Your share goes with the MP you elected</b>, so their seat sits inside a proportional Parliament.</p>
+      <div class="parl">
+        <div class="lab"><span>Parliament</span><span style="color:var(--orange)">● your share</span></div>
+        <div class="seats" id="s2"></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="same">Same party for both votes? <b>Nothing changes for you.</b></p>
+
+  <div class="foot">
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="#F47B20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>Parliament stays at 120 seats</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="#F47B20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>Every electorate MP keeps their seat</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="#F47B20" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13l5 5L20 6"/></svg>Only as many votes as needed, shared evenly</div>
+  </div>
+  <p class="ai">Created with AI. Parties A and B are hypothetical.</p>
+</div>
+<script>
+// 40 dots = a stylised Parliament: 8 Party A, 9 Party B, 23 others
+function fill(id, youParty) {
+  const el = document.getElementById(id);
+  const parts = [['a', 8], ['b', 9], ['', 23]];
+  let html = '';
+  for (const [cls, n] of parts) {
+    for (let i = 0; i < n; i++) {
+      const you = cls === youParty && i === n - 1;
+      html += `<i class="${cls}${you ? ' you' : ''}"></i>`;
+    }
+  }
+  el.innerHTML = html;
+}
+fill('s1', 'b');
+fill('s2', 'a');
+</script>
+</body>
+</html>
