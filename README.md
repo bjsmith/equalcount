@@ -28,7 +28,6 @@ The raw ballot states (`runs/*/records.jsonl.gz`), per-run measures (`runs/*/mea
 ```bash
 pip install -r requirements.txt
 python3 build_site.py                                                      # regenerate docs/ from the sources above
-OVERHANG_REPO_URL=https://github.com/<user>/<repo> python3 build_site.py   # also link file names to GitHub
 ./run_all_measures.sh                                                      # rerun every experiment (several hours)
 ```
 

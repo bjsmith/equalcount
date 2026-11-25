@@ -656,7 +656,7 @@ td { font-variant-numeric: tabular-nums; }
 <hr />
 <h2 id="7-the-simulations-method-and-results">7. The simulations: method and results</h2>
 <h3 id="71-common-framework">7.1 Common framework</h3>
-<p>All three experiments use the same seat-allocation engine (<code>mc_overhang.py</code>) and the same measures.</p>
+<p>All three experiments use the same seat-allocation engine (<a href="https://github.com/bjsmith/equalcount/blob/main/mc_overhang.py"><code>mc_overhang.py</code></a>) and the same measures.</p>
 <p><strong>Ballots, not just totals.</strong> Each electorate's votes are held as a table of party vote × electorate candidate, so every rule can see exactly which ballots elected which MP and where their party votes went. That is what the transfer rules need.</p>
 <p><strong>Seat rules.</strong> Sainte-Laguë; 5% threshold, waived for any party winning an electorate; qualification decided on raw party votes before anything is moved.</p>
 <p><strong>Measures.</strong></p>
@@ -941,7 +941,7 @@ td { font-variant-numeric: tabular-nums; }
 <p>The rules fall into two groups.</p>
 <ul>
 <li><strong>General rules</strong> (<code>mc_future.respond</code>) apply after every election under every system. They cover learning under MMP (partners split more each time their leader overhangs and keeps the seats; TPM's Māori-seat strategy strengthens while it pays), learning under the reforms (each partner's split rate falls by a share of itself, larger if the party lost seats to transfers, scaled by awareness <em>a</em>), awareness itself (rising faster after an election with visible transfers), the threshold squeeze on parties polling under 5% (weakened under MMP-BV in proportion to <em>a</em>), and the Backup Vote's effects on small parties.</li>
-<li><strong>Election-specific rules</strong> (<code>futures_reason.py</code>) encode the conditional reasoning for 2032, 2035, 2038 and 2041, such as the two-tick campaigns, TPM's targets and recovery rates, the reduction in personal splitting from 2035 wherever left parties lost two or more seats to transfers at the last election, and consolidation from 2038. Each rule reads the triggering conditions from that future's own last result under that system, so the same rule fires in some futures and systems and not others.</li>
+<li><strong>Election-specific rules</strong> (<a href="https://github.com/bjsmith/equalcount/blob/main/futures_reason.py"><code>futures_reason.py</code></a>) encode the conditional reasoning for 2032, 2035, 2038 and 2041, such as the two-tick campaigns, TPM's targets and recovery rates, the reduction in personal splitting from 2035 wherever left parties lost two or more seats to transfers at the last election, and consolidation from 2038. Each rule reads the triggering conditions from that future's own last result under that system, so the same rule fires in some futures and systems and not others.</li>
 </ul>
 <p><strong>Drawing rule strengths.</strong> Every numerical strength in the reasoning (32 in all) is a parameter. Each of the 1,000 walks draws its own value for each one, independently and uniformly from a range that brackets the hand-reasoned value. Some examples:</p>
 <div class="table-wrap"><table>
@@ -1015,7 +1015,7 @@ td { font-variant-numeric: tabular-nums; }
 </tr>
 </tbody>
 </table></div>
-<p>The full list is in <code>mc_future_walks.py</code>.</p>
+<p>The full list is in <a href="https://github.com/bjsmith/equalcount/blob/main/mc_future_walks.py"><code>mc_future_walks.py</code></a>.</p>
 <p><strong>Each walk then runs as follows.</strong></p>
 <ol>
 <li>The fixed 2026 result is simulated under MMP.</li>
@@ -1381,21 +1381,21 @@ td { font-variant-numeric: tabular-nums; }
 <td>Experiment 3: 1,000 adaptive futures from 2026, escalation scenarios, pure-PR benchmark</td>
 </tr>
 <tr>
-<td><code>futures_walks/results.csv</code></td>
+<td><a href="https://github.com/bjsmith/equalcount/blob/main/futures_walks/results.csv"><code>futures_walks/results.csv</code></a></td>
 <td>Experiment 3 election-level results, used here for the year-by-year Gallagher and overhang figures in Section 6.1</td>
 </tr>
 <tr>
-<td><code>mc_results.csv</code>, <code>mc_results_calibrated.csv</code></td>
+<td><a href="https://github.com/bjsmith/equalcount/blob/main/mc_results.csv"><code>mc_results.csv</code></a>, <a href="https://github.com/bjsmith/equalcount/blob/main/mc_results_calibrated.csv"><code>mc_results_calibrated.csv</code></a></td>
 <td>Experiment 1 and 2 scenario-level results, used here for the countable bloc yardstick figures in Section 6.2</td>
 </tr>
 <tr>
-<td><code>results_2026.json</code></td>
+<td><a href="https://github.com/bjsmith/equalcount/blob/main/results_2026.json"><code>results_2026.json</code></a></td>
 <td>2026 provisional result and transfer estimate</td>
 </tr>
 </tbody>
 </table></div>
 <nav class="pager" aria-label="Report pages"><span></span><a href="../report/transfer-explainer.html">The proposal, explained →</a></nav>
-<p class="foot">Generated from <code>overall_report.md</code>. This describes proposals for discussion, not current electoral law.</p>
+<p class="foot">Generated from <a href="https://github.com/bjsmith/equalcount/blob/main/overall_report.md"><code>overall_report.md</code></a>. This describes proposals for discussion, not current electoral law.</p>
 </article>
 </div>
 </body>

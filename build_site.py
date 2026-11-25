@@ -25,7 +25,7 @@ import markdown
 
 ROOT = Path(__file__).parent
 DOCS = ROOT / "docs"
-REPO_URL = os.environ.get("OVERHANG_REPO_URL", "").rstrip("/") or None  # e.g. "https://github.com/<user>/<repo>"
+REPO_URL = os.environ.get("OVERHANG_REPO_URL", "https://github.com/bjsmith/equalcount").rstrip("/") or None
 BRANCH = "main"
 TODAY = dt.date.today()
 
