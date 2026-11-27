@@ -407,7 +407,7 @@ def build_reports():
 <p class="draft"><strong>Working draft.</strong> Last updated {updated}. The analysis is still being refined and figures may change as simulations are rerun.</p>
 {body}
 <nav class="pager" aria-label="Report pages">{prev_link}{next_link}</nav>
-<p class="foot">Generated from {src_link}. This describes proposals for discussion, not current electoral law.</p>
+<p class="foot">Generated from {src_link}. This describes proposals for discussion, not current electoral law. Text and figures <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; code <a href="{REPO_URL}/blob/main/LICENSE">MIT</a>.</p>
 </article>
 </div>"""
         write(out, shell(out, title, desc, "Full report", page_body))
@@ -466,7 +466,7 @@ directly. The raw ballot states and per-run measures are too large for the repos
 <h2 id="reproduce">Reproducing the results</h2>
 <p><code>run_all_measures.sh</code> reruns Experiments 1–3, stores the raw ballot states in <code>runs/</code>, and computes every shared measure from them.
 The full run takes several hours. <code>analyse_measures.py</code> then rebuilds the summary tables.</p>
-<p class="foot">Election data: <a href="https://www.electionresults.govt.nz/">Electoral Commission</a>. Seats are allocated with the Sainte-Laguë formula used in New Zealand elections.</p>
+<p class="foot">Election data: <a href="https://www.electionresults.govt.nz/">Electoral Commission</a>. Seats are allocated with the Sainte-Laguë formula used in New Zealand elections. Reports and simulation outputs <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; code <a href="{REPO_URL}/blob/main/LICENSE">MIT</a>.</p>
 </article></div>"""
     write(out, shell(out, "Data and code", "Simulation outputs, raw ballot states and scripts behind the overhang reform analysis.",
                      "Data &amp; code", body))

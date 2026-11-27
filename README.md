@@ -36,3 +36,9 @@ Preview locally with `python3 -m http.server 8765 --directory docs`.
 ## Publishing
 
 On GitHub: Settings → Pages → Deploy from a branch → `main` / `/docs`.
+
+## License
+
+- **Code** (the `.py` and `.sh` files): [MIT](LICENSE).
+- **Reports, explainers, website text and graphics, and the simulation outputs:** [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). You may reuse and adapt them with credit to Ben J. Smith and a link to this repository.
+- **Election data** in `data/raw/` comes from the [Electoral Commission](https://www.electionresults.govt.nz/) and remains subject to its terms of use.
