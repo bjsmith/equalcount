@@ -1,22 +1,24 @@
 # Reasoning before the 2032 election (after 2029)
 
-> **Note (rerun):** the reasoning rules now follow roles (left leader, right partners, …) rather than party names, so they keep working if, say, the Greens overtake Labour. The figures quoted below are from the run that prompted this reasoning; the current digests in this folder come from the role-based rerun and differ slightly.
+> **Note (official-count rerun, 27 November 2026):** these futures now start from the official 2026 count; they first started from the preliminary count. The reasoning rules are unchanged, and follow roles (left leader, right partners, …) rather than party names, so they keep working if, say, the Greens overtake Labour. The figures below come from this rerun and match the digests in this folder.
 
 ## What 2029 showed
 
-- **Under MMP** every world had an overhang of 11–17 seats, a 132–136 seat House,
-  and the same two engines as 2026: National winning far more electorates than
-  its party vote (ACT and NZ First voters ticking National candidates), and
-  Te Pāti Māori winning 5–7 Māori seats on well under 1% of the party vote
-  (Labour and Green voters ticking TPM candidates; TPM's own supporters
-  party-voting Green or Labour).
-- **Under MMP-T and MMP-BV** (first election under each) voters had barely
-  changed behaviour (awareness 0.2), so the same overhangs had to be
-  transferred: 55,000–220,000 party votes moved. ACT and NZ First each lost
-  2–5 seats where National overhung; Labour and Green lost 2–4 each (some
-  through their voters' personal votes for National MPs, most through the TPM
-  transfer). TPM's overhang could not be covered even with every eligible
-  ballot, so it was absorbed: the left paid for TPM's seats in list seats.
+- **Under MMP** every world had an overhang, of 5–18 seats, and a House of
+  126–139 seats. The two engines were the same as in 2026: National winning
+  far more electorates than its party vote (ACT and NZ First voters ticking
+  National candidates), and Te Pāti Māori winning 6–7 Māori seats on
+  0.3–1.1% of the party vote (Labour and Green voters ticking TPM
+  candidates; TPM's own supporters party-voting Green or Labour).
+- **Under MMP-T and MMP-BV** (the first election under each) voters had
+  barely changed behaviour (awareness 0.2), so the same overhangs had to be
+  transferred: 38,000–288,000 party votes moved. Where National overhung,
+  ACT lost 2–5 seats and NZ First up to 4; Labour lost 2–5 and the Greens
+  1–4 (some through their voters' personal votes for National MPs, most
+  through the TPM transfer). TPM's overhang could not be covered even with
+  every eligible ballot, so it was absorbed in all 20 reform worlds: the left
+  paid for TPM's seats in list seats. National's overhang was absorbed too in
+  5 of the 20.
 
 ## How each group of voters responds
 

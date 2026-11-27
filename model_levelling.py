@@ -4,7 +4,7 @@
 party's entitlement covers its electorates, so no overhang is left and every
 other party is topped up (the German 2013-2020 approach).
 
-Scenarios, for 2023 and the 2026 preliminary count:
+Scenarios, for 2023 and the 2026 official count:
 
   A. Actual ballots (real split voting).
      - current law, Review rule, proposal (adjusted votes from model.py /
@@ -201,7 +201,7 @@ def tpm_cross_2023():
 def tpm_cross_2026():
     """Estimated ballots for each winning TPM candidate by party vote (model_2026)."""
     cross = {}
-    with open(ROOT / "data/raw/2026_preliminary/electorates.csv", encoding="utf-8") as f:
+    with open(ROOT / "data/raw/2026_official/electorates.csv", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             if row["winner_party"] != "TPM":
                 continue
@@ -220,7 +220,7 @@ def straight(year):
     else:
         elecs, votes, total, _ = load_2026()
         cross, _ = tpm_cross_2026()
-        with open(ROOT / "data/raw/2026_preliminary/electorates.csv", encoding="utf-8") as f:
+        with open(ROOT / "data/raw/2026_official/electorates.csv", encoding="utf-8") as f:
             won = {r["electorate"] for r in csv.DictReader(f) if r["winner_party"] == "TPM"}
         tpm_seats = lambda name: name in won
     v = {p: float(x) for p, x in votes.items()}

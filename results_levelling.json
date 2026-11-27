@@ -283,78 +283,78 @@
   "2026": {
     "A_actual_ballots": {
       "party_votes": {
-        "Labour": 710330,
-        "Green": 321902,
-        "Te Pāti Māori": 13845,
-        "Opportunity": 144298,
-        "National": 706680,
-        "ACT": 264121,
-        "NZ First": 236630
+        "Labour": 863238,
+        "Green": 406356,
+        "Te Pāti Māori": 18310,
+        "Opportunity": 175093,
+        "National": 819012,
+        "ACT": 304521,
+        "NZ First": 277565
       },
       "electorates": {
-        "Labour": 21,
-        "Green": 2,
+        "Labour": 22,
+        "Green": 3,
         "Te Pāti Māori": 5,
         "Opportunity": 0,
-        "National": 42,
+        "National": 40,
         "ACT": 1,
         "NZ First": 0
       },
       "entitlement_120": {
         "Labour": 36,
-        "Green": 16,
+        "Green": 17,
         "Te Pāti Māori": 1,
         "Opportunity": 7,
-        "National": 35,
+        "National": 34,
         "ACT": 13,
         "NZ First": 12
       },
       "overhang_considered": {
-        "National": 7
+        "National": 6
       },
       "rules": {
         "current_law": {
-          "house": 131,
-          "added_seats": 11,
-          "gallagher": 3.56,
+          "house": 130,
+          "added_seats": 10,
+          "gallagher": 3.42,
           "bloc_seats_above_fair_share": {
-            "Right": 1.0,
-            "Left": -0.2
+            "Right": 1.4,
+            "Left": -0.5
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 3.2,
-            "Left": -2.6
+            "Right": 3.5,
+            "Left": -2.8
           },
           "seats": {
             "Labour": 36,
-            "Green": 16,
+            "Green": 17,
             "Te Pāti Māori": 5,
             "Opportunity": 7,
-            "National": 42,
+            "National": 40,
             "ACT": 13,
             "NZ First": 12
           },
-          "added_for_overhang_rule": 7,
+          "added_for_overhang_rule": 6,
           "ignored_tpm_extra": 4
         },
         "review_rule": {
           "house": 124,
           "added_seats": 4,
-          "gallagher": 5.03,
+          "gallagher": 4.52,
           "bloc_seats_above_fair_share": {
-            "Right": 2.6,
-            "Left": -2.1
+            "Right": 2.3,
+            "Left": -1.8
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 4.7,
-            "Left": -4.5
+            "Right": 4.4,
+            "Left": -4.1
           },
           "seats": {
-            "Labour": 32,
-            "Green": 15,
+            "Labour": 33,
+            "Green": 16,
             "Te Pāti Māori": 5,
             "Opportunity": 7,
-            "National": 42,
+            "National": 40,
             "ACT": 12,
             "NZ First": 11
           },
@@ -362,48 +362,48 @@
           "ignored_tpm_extra": 4
         },
         "levelling_raw_votes": {
-          "house": 146,
-          "added_seats": 26,
+          "house": 143,
+          "added_seats": 23,
           "gallagher": 2.22,
           "bloc_seats_above_fair_share": {
-            "Right": -1.5,
-            "Left": 2.3
+            "Right": -2.0,
+            "Left": 2.7
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 0.6,
-            "Left": -0.1
+            "Right": 0.1,
+            "Left": 0.4
           },
           "seats": {
             "Labour": 42,
-            "Green": 19,
+            "Green": 20,
             "Te Pāti Māori": 5,
             "Opportunity": 8,
-            "National": 42,
-            "ACT": 16,
-            "NZ First": 14
+            "National": 40,
+            "ACT": 15,
+            "NZ First": 13
           },
-          "added_for_overhang_rule": 22,
+          "added_for_overhang_rule": 19,
           "ignored_tpm_extra": 4
         },
         "proposal": {
           "house": 124,
           "added_seats": 4,
-          "gallagher": 5.05,
+          "gallagher": 4.37,
           "bloc_seats_above_fair_share": {
-            "Right": -1.4,
-            "Left": 1.9
+            "Right": -0.7,
+            "Left": 1.2
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 0.7,
-            "Left": -0.5
+            "Right": 1.4,
+            "Left": -1.1
           },
           "seats": {
             "Labour": 35,
-            "Green": 16,
+            "Green": 17,
             "Te Pāti Māori": 5,
             "Opportunity": 7,
-            "National": 42,
-            "ACT": 9,
+            "National": 40,
+            "ACT": 10,
             "NZ First": 10
           },
           "added_for_overhang_rule": 0,
@@ -412,22 +412,22 @@
         "proposal_plus_levelling": {
           "house": 124,
           "added_seats": 4,
-          "gallagher": 5.05,
+          "gallagher": 4.37,
           "bloc_seats_above_fair_share": {
-            "Right": -1.4,
-            "Left": 1.9
+            "Right": -0.7,
+            "Left": 1.2
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 0.7,
-            "Left": -0.5
+            "Right": 1.4,
+            "Left": -1.1
           },
           "seats": {
             "Labour": 35,
-            "Green": 16,
+            "Green": 17,
             "Te Pāti Māori": 5,
             "Opportunity": 7,
-            "National": 42,
-            "ACT": 9,
+            "National": 40,
+            "ACT": 10,
             "NZ First": 10
           },
           "added_for_overhang_rule": 0,
@@ -435,28 +435,28 @@
         }
       },
       "proposal_adjusted_votes": {
-        "Labour": 700902,
-        "Green": 317556,
-        "Te Pāti Māori": 13761,
-        "Opportunity": 134253,
-        "National": 835687,
-        "ACT": 191302,
-        "NZ First": 207150
+        "Labour": 853638,
+        "Green": 401658,
+        "Te Pāti Māori": 18208,
+        "Opportunity": 164757,
+        "National": 949823,
+        "ACT": 231323,
+        "NZ First": 247762
       }
     },
     "B_straight_ticket_tpm_aligned": {
       "party_votes": {
-        "National": 705359,
-        "Labour": 685465,
-        "Green": 292328,
-        "ACT": 263816,
-        "NZ First": 234543,
-        "Opportunity": 142887,
-        "Te Pāti Māori": 74697
+        "National": 817400,
+        "Labour": 833213,
+        "Green": 370196,
+        "ACT": 304143,
+        "NZ First": 275068,
+        "Opportunity": 173380,
+        "Te Pāti Māori": 92215
       },
       "electorates": {
-        "National": 40,
-        "Labour": 26,
+        "National": 37,
+        "Labour": 29,
         "Green": 0,
         "ACT": 0,
         "NZ First": 0,
@@ -464,8 +464,8 @@
         "Te Pāti Māori": 5
       },
       "entitlement_120": {
-        "National": 35,
-        "Labour": 34,
+        "National": 34,
+        "Labour": 35,
         "Green": 15,
         "ACT": 13,
         "NZ First": 12,
@@ -473,49 +473,49 @@
         "Te Pāti Māori": 4
       },
       "overhang_considered": {
-        "National": 5
+        "National": 3
       },
       "rules": {
         "current_law": {
-          "house": 126,
-          "added_seats": 6,
-          "gallagher": 2.18,
+          "house": 124,
+          "added_seats": 4,
+          "gallagher": 1.41,
           "bloc_seats_above_fair_share": {
-            "Right": 1.8,
-            "Left": -1.3
+            "Right": 1.6,
+            "Left": -1.1
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 2.3,
-            "Left": -1.9
+            "Right": 2.1,
+            "Left": -1.6
           },
           "seats": {
-            "National": 40,
-            "Labour": 34,
+            "National": 37,
+            "Labour": 35,
             "Green": 15,
             "ACT": 13,
             "NZ First": 12,
             "Opportunity": 7,
             "Te Pāti Māori": 5
           },
-          "added_for_overhang_rule": 5,
+          "added_for_overhang_rule": 3,
           "ignored_tpm_extra": 1
         },
         "review_rule": {
           "house": 121,
           "added_seats": 1,
-          "gallagher": 3.24,
+          "gallagher": 1.88,
           "bloc_seats_above_fair_share": {
-            "Right": 2.3,
-            "Left": -2.1
+            "Right": 1.0,
+            "Left": -0.7
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 2.9,
-            "Left": -2.8
+            "Right": 1.6,
+            "Left": -1.3
           },
           "seats": {
-            "National": 40,
-            "Labour": 32,
-            "Green": 14,
+            "National": 37,
+            "Labour": 34,
+            "Green": 15,
             "ACT": 12,
             "NZ First": 11,
             "Opportunity": 7,
@@ -525,45 +525,45 @@
           "ignored_tpm_extra": 1
         },
         "levelling_raw_votes": {
-          "house": 135,
-          "added_seats": 15,
-          "gallagher": 0.6,
+          "house": 130,
+          "added_seats": 10,
+          "gallagher": 0.7,
           "bloc_seats_above_fair_share": {
-            "Right": 0.3,
-            "Left": -0.2
+            "Right": -0.4,
+            "Left": 0.2
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 0.7,
-            "Left": -0.7
+            "Right": 0.1,
+            "Left": -0.2
           },
           "seats": {
-            "National": 40,
-            "Labour": 38,
-            "Green": 16,
-            "ACT": 15,
-            "NZ First": 13,
+            "National": 37,
+            "Labour": 37,
+            "Green": 17,
+            "ACT": 14,
+            "NZ First": 12,
             "Opportunity": 8,
             "Te Pāti Māori": 5
           },
-          "added_for_overhang_rule": 14,
+          "added_for_overhang_rule": 9,
           "ignored_tpm_extra": 1
         },
         "proposal": {
           "house": 121,
           "added_seats": 1,
-          "gallagher": 3.24,
+          "gallagher": 1.88,
           "bloc_seats_above_fair_share": {
-            "Right": 2.3,
-            "Left": -2.1
+            "Right": 1.0,
+            "Left": -0.7
           },
           "bloc_seats_above_fair_share_ex_tpm": {
-            "Right": 2.9,
-            "Left": -2.8
+            "Right": 1.6,
+            "Left": -1.3
           },
           "seats": {
-            "National": 40,
-            "Labour": 32,
-            "Green": 14,
+            "National": 37,
+            "Labour": 34,
+            "Green": 15,
             "ACT": 12,
             "NZ First": 11,
             "Opportunity": 7,
@@ -574,8 +574,8 @@
           "note": "no split ballots: same as Review rule"
         }
       },
-      "tpm_votes_gained_from_alignment": 60852,
-      "tpm_party_vote_pct": 3.09
+      "tpm_votes_gained_from_alignment": 73905,
+      "tpm_party_vote_pct": 3.19
     }
   }
 }

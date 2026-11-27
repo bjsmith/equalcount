@@ -71,6 +71,23 @@ td { font-variant-numeric: tabular-nums; }
   padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
 .foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
 .meta { color: var(--muted); }
+a.gloss { color: inherit; text-decoration: underline dotted var(--accent); text-decoration-thickness: 2px;
+  text-underline-offset: 4px; cursor: help; }
+a.gloss:hover, a.gloss[aria-expanded="true"] { color: var(--accent); }
+.gloss-pop { position: absolute; z-index: 20; max-width: calc(100vw - 32px); background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,.18);
+  padding: 12px 14px; font-size: 15px; line-height: 1.45; font-weight: 400; text-align: left; }
+.gloss-pop p { margin: 0 0 8px; }
+.gloss-more { font-size: 14px; font-weight: 600; }
+article p[id^="gloss-"] { scroll-margin-top: 16px; border-radius: 6px; }
+article p[id^="gloss-"]:target { background: var(--mark); box-shadow: 0 0 0 6px var(--mark); }
+td.q0 { background: rgba(30, 150, 90, .26); }
+td.q1 { background: rgba(30, 150, 90, .12); }
+td.q2 { background: rgba(200, 165, 30, .14); }
+td.q3 { background: rgba(230, 120, 40, .17); }
+td.q4 { background: rgba(215, 55, 45, .24); }
+.shade-note { color: var(--muted); font-size: 14px; margin: -12px 0 20px; }
+.shade-key { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin: 0 2px -1px; }
 
 .sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
   justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
@@ -83,14 +100,14 @@ td { font-variant-numeric: tabular-nums; }
 </head>
 <body>
 <nav class="sx-nav" aria-label="Site">
-  <a class="sx-brand" href="../">One ballot, counted twice</a>
-  <div class="sx-links"><a href="../">2023</a><a href="../2026/">2026</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
+  <a class="sx-brand" href="../">Every voter counts equally</a>
+  <div class="sx-links"><a href="../">2026</a><a href="../2023/">2023</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
 </nav>
 <div class="layout">
 <aside class="toc"><div class="toc-inner">
   <details open><summary class="meta" style="cursor:pointer;margin-bottom:8px">Contents</summary>
   <ul><li><a href="#summary">Summary</a></li><li><a href="#question">Question</a></li><li><a href="#design">Design</a></li><li><a href="#results">Results</a></li><li><a href="#interpretation">Interpretation</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#reproducing">Reproducing</a></li></ul></details>
-  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html" aria-current="page">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li></ul></div>
+  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html" aria-current="page">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li><li><a href="../report/prior-art.html">Prior art</a></li></ul></div>
 </div></aside>
 <article>
 <p class="draft"><strong>Working draft.</strong> Last updated 21 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
@@ -966,7 +983,7 @@ python3 mc_calibrated.py run 5000
 python3 mc_analyse.py mc_results_calibrated.csv mc_summary_calibrated.md
 </code></pre>
 <nav class="pager" aria-label="Report pages"><a href="../report/experiment-1.html">← Experiment 1: stress test</a><a href="../report/experiment-3.html">Experiment 3: futures from 2026 →</a></nav>
-<p class="foot">Generated from <a href="https://github.com/bjsmith/equalcount/blob/main/report_experiment2.md"><code>report_experiment2.md</code></a>. This describes proposals for discussion, not current electoral law.</p>
+<p class="foot">Generated from <a href="https://github.com/bjsmith/equalcount/blob/main/report_experiment2.md"><code>report_experiment2.md</code></a>. This describes proposals for discussion, not current electoral law. Text and figures <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; code <a href="https://github.com/bjsmith/equalcount/blob/main/LICENSE">MIT</a>.</p>
 </article>
 </div>
 </body>

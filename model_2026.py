@@ -1,9 +1,10 @@
-"""2026 NZ election (preliminary count) under the proposed overhang-transfer rule.
+"""2026 NZ election under the proposed overhang-transfer rule.
 
-Inputs (data/raw/2026_preliminary): party votes and electorate winners from the
-preliminary count, treated as final (special votes ignored).
+Inputs: party votes and electorate winners from either the official count
+(data/raw/2026_official, the default) or the preliminary count
+(data/raw/2026_preliminary, special votes not included).
 
-Split votes are not published for preliminary results, so they are estimated:
+Split votes are not yet published for 2026, so they are estimated:
 for each electorate won by an overhanging party, the number of ballots with an
 electorate vote for its winner and a party vote for party q is
 
@@ -19,15 +20,20 @@ If even a 100% transfer can't cover a party's overhang, the rest is handled by
 the Independent Electoral Review's rule (other parties get fewer list seats),
 so Parliament stays at 120.
 
-Run:  python3 model_2026.py      (writes results_2026.json)
+Run:  python3 model_2026.py               (official count -> results_2026.json)
+      python3 model_2026.py preliminary   (preliminary count -> results_2026_preliminary.json)
 """
 import csv
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 RAW23 = ROOT / "data" / "raw" / "2023"
-RAW26 = ROOT / "data" / "raw" / "2026_preliminary"
+COUNT = sys.argv[1] if len(sys.argv) > 1 else "official"
+assert COUNT in ("official", "preliminary"), "usage: model_2026.py [official|preliminary]"
+RAW26 = ROOT / "data" / "raw" / f"2026_{COUNT}"
+OUT = ROOT / ("results_2026.json" if COUNT == "official" else "results_2026_preliminary.json")
 SEATS = 120
 Q = ["NAT", "LAB", "GRN", "ACT", "NZF", "TOP", "TPM"]
 NAMES23 = {"NAT": "National Party", "LAB": "Labour Party", "GRN": "Green Party",
@@ -206,7 +212,8 @@ def main():
         return d
 
     result = {
-        "note": "Preliminary count treated as final; split votes estimated from 2023 patterns.",
+        "note": ("Official count" if COUNT == "official" else "Preliminary count treated as final")
+                + "; split votes estimated from 2023 patterns.",
         "party_votes": {SHORT[q]: votes[q] for q in order},
         "qualifying_total": int(qual_total),
         "vote_share_of_qualifying": {
@@ -224,7 +231,7 @@ def main():
                   "germany_rule": row(germany), "proposal": row(proposal)},
         "per_electorate_estimates": {SHORT[P]: v for P, v in per_elec.items()},
     }
-    (ROOT / "results_2026.json").write_text(json.dumps(result, indent=2, ensure_ascii=False))
+    OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False))
     show = {k: v for k, v in result.items() if k != "per_electorate_estimates"}
     print(json.dumps(show, indent=2, ensure_ascii=False))
 

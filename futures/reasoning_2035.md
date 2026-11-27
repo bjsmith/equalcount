@@ -1,21 +1,23 @@
 # Reasoning before the 2035 election (after 2032)
 
-> **Note (rerun):** the reasoning rules now follow roles (left leader, right partners, …) rather than party names, so they keep working if, say, the Greens overtake Labour. The figures quoted below are from the run that prompted this reasoning; the current digests in this folder come from the role-based rerun and differ slightly.
+> **Note (official-count rerun, 27 November 2026):** these futures now start from the official 2026 count; they first started from the preliminary count. The reasoning rules are unchanged, and follow roles (left leader, right partners, …) rather than party names, so they keep working if, say, the Greens overtake Labour. The figures below come from this rerun and match the digests in this folder.
 
 ## What 2032 showed
 
-- **MMP**: overhangs of 4–26 seats; Houses of 126–147. Te Pāti Māori kept
-  winning 4–7 Māori seats on under 1–1.6% of the party vote. In world 9
+- **MMP**: overhangs of 5–26 seats; Houses of 126–147. Te Pāti Māori kept
+  winning 4–7 Māori seats on 0.2–1.8% of the party vote. In world 9
   National overhung by 19 (147-seat House). No world produced a majority for
   the bloc with fewer votes, but seat shares ran well ahead of vote shares.
-- **MMP-T / MMP-BV**: ACT and NZ First voters split far less (split rates
-  0.14–0.31, from 0.35), so their seat losses fell. But National still
-  overhung by 1–14 seats in most right-leaning worlds: that overhang now
-  comes mainly from **winning electorates on plurality**, not from partners'
+- **MMP-T / MMP-BV**: ACT and NZ First voters split less (split rates now
+  0.14–0.41, from 0.35), so their seat losses fell. But National still
+  overhung by 4–14 seats in right-leaning worlds: that overhang now comes
+  mainly from **winning electorates on plurality**, not from partners'
   splitting. The pool of split ballots is thinner, so National's overhang was
-  absorbed in three worlds, and **Labour lost 2–6 seats** because some Labour
-  voters ticked a National MP they liked. TPM's party vote rose to 1.8–4.7%
-  and its overhang shrank to 1–4, but was still absorbed in most worlds.
+  absorbed in 8 of the 20 reform worlds, and **Labour lost 2–6 seats** because
+  some Labour voters ticked a National MP they liked. TPM's party vote rose to
+  1.8–4.8% and its overhang shrank to 1–5, but was still absorbed in 17 of 20.
+  In one world (4, MMP-T) the right won a majority, 61 of 121, on 48.6% of the
+  vote: the left paid for TPM's absorbed overhang in list seats.
 
 ## How voters respond
 

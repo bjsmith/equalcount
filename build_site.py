@@ -3,8 +3,9 @@
 Nothing in the project is moved: every page is generated from the working
 files where they live, so other work can carry on editing them.
 
-  site/counted-twice.html        -> docs/index.html          (2023 explainer, the landing page)
-  site/counted-twice-2026.html   -> docs/2026/index.html     (2026 explainer)
+  site/counted-twice-2026.html   -> docs/index.html          (2026 explainer, the landing page)
+  site/counted-twice.html        -> docs/2023/index.html     (2023 explainer)
+  (redirect)                     -> docs/2026/index.html     (old 2026 address, sends readers to the landing page)
   overall_report.md + appendices -> docs/report/*.html       (full analysis, rendered from markdown)
   DATASETS / scripts below       -> docs/data/index.html     (data & code index, sizes read at build time)
 
@@ -31,14 +32,14 @@ TODAY = dt.date.today()
 
 # ---------------------------------------------------------------- explainers
 PAGES = [
-    ("counted-twice.html", "index.html",
+    ("counted-twice.html", "2023/index.html",
      "How about 41,000 split ballots affected Parliament in 2023, and a proposed change to the overhang rules.",
-     "One Ballot, Counted Twice",
+     "Every Voter Counts Equally",
      "How split voting gave Parliament 2 overhang seats in 2023, and how a proposed rule change would keep seats in line with the party vote."),
-    ("counted-twice-2026.html", "2026/index.html",
-     "How split voting gave the 2026 Parliament 11 overhang seats, and how a proposed change to the overhang rules would work. Based on the preliminary count.",
-     "One Ballot, Counted Twice (2026)",
-     "National and Te Pāti Māori won 11 overhang seats in 2026. See how a proposed rule change would keep Parliament at 120 seats."),
+    ("counted-twice-2026.html", "index.html",
+     "How split voting gave the 2026 Parliament 10 overhang seats, and how a proposed change to the overhang rules would work. Based on the official count.",
+     "Every Voter Counts Equally (2026)",
+     "National and Te Pāti Māori won 10 overhang seats in 2026. See how a proposed rule change would keep Parliament at 120 seats."),
 ]
 
 # ------------------------------------------------------------------- reports
@@ -49,6 +50,7 @@ REPORTS = [
     ("experiment1_report.md", "report/experiment-1.html", "Experiment 1: stress test"),
     ("report_experiment2.md", "report/experiment-2.html", "Experiment 2: NZ elections 2005–2023"),
     ("report_experiment3.md", "report/experiment-3.html", "Experiment 3: futures from 2026"),
+    ("literature_prior_art.md", "report/prior-art.html", "Prior art"),
 ]
 
 # ---------------------------------------------------------------------- data
@@ -63,13 +65,15 @@ RELEASE_ONLY = [
 DATASETS = [
     ("Inputs", [
         ("data/raw/2023/", "Electoral Commission 2023 results and split-vote tables (general and Māori electorates)."),
+        ("data/raw/2026_official/", "2026 official count by electorate and nationally."),
         ("data/raw/2026_preliminary/", "2026 preliminary count by electorate and nationally (special votes not included)."),
         ("data/raw/history/", "Election results 2005–2023 used for the historical recounts and calibration."),
         ("2026_Preliminary_Results_-_Vote_Splitting_Analysis.xlsx", "Spreadsheet working of the 2026 preliminary vote-splitting estimate."),
     ]),
     ("Worked examples", [
         ("results_2023.json", "2023 under the transfer rule (the explainer's example)."),
-        ("results_2026.json", "2026 provisional result and transfer estimate."),
+        ("results_2026.json", "2026 official result and transfer estimate (split votes estimated)."),
+        ("results_2026_preliminary.json", "2026 preliminary result and transfer estimate, for comparison."),
         ("results_levelling.json", "Extra list seats needed for full proportionality, with and without the transfer."),
         ("results_straight_ticket.json", "Counterfactual where every voter votes a straight ticket."),
     ]),
@@ -143,7 +147,7 @@ def human_size(path):
 
 
 # ------------------------------------------------------------------- shared UI
-NAV_ITEMS = [("index.html", "2023"), ("2026/index.html", "2026"),
+NAV_ITEMS = [("index.html", "2026"), ("2023/index.html", "2023"),
              ("report/index.html", "Full report"), ("data/index.html", "Data &amp; code")]
 
 
@@ -159,7 +163,7 @@ def nav(out, current):
         f'<a href="{rel(out, href)}"{" aria-current=\"page\"" if label == current else ""}>{label}</a>'
         for href, label in NAV_ITEMS)
     return f"""<nav class="sx-nav" aria-label="Site">
-  <a class="sx-brand" href="{rel(out, 'index.html')}">One ballot, counted twice</a>
+  <a class="sx-brand" href="{rel(out, 'index.html')}">Every voter counts equally</a>
   <div class="sx-links">{links}</div>
 </nav>"""
 
@@ -212,13 +216,13 @@ DEEPER_CSS = """
 # ---------------------------------------------------------------- explainers
 def build_explainer(src_name, out_name, desc, og_title, og_desc):
     src = (ROOT / "site" / src_name).read_text(encoding="utf-8")
-    is_2026 = out_name.startswith("2026")
+    is_2026 = "2026" in src_name
     deeper = DEEPER.format(
         report=rel(out_name, "report/index.html"), data=rel(out_name, "data/index.html"),
-        other=rel(out_name, "index.html" if is_2026 else "2026/index.html"),
+        other=rel(out_name, "2023/index.html" if is_2026 else "index.html"),
         other_label="The 2023 version" if is_2026 else "The 2026 version",
         other_text=("The same story with the 2023 final results: 2 overhang seats." if is_2026 else
-                    "The same story with the 2026 preliminary count: 11 overhang seats."))
+                    "The same story with the 2026 official count: 10 overhang seats."))
     assert src.count("<footer>") == 1, f"{src_name}: expected one <footer> to place the links before"
     src = src.replace("<footer>", deeper + "\n<footer>", 1)
     page = f"""<!doctype html>
@@ -238,6 +242,22 @@ def build_explainer(src_name, out_name, desc, og_title, og_desc):
 </html>
 """
     write(out_name, page)
+
+
+def build_redirect(out_name, to_out):
+    """A stub that sends an old address on to where the page lives now."""
+    target = rel(out_name, to_out)
+    write(out_name, f"""<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={target}">
+<link rel="canonical" href="{target}">
+<title>Every Voter Counts Equally (2026)</title>
+</head>
+<body><p>This page has moved: <a href="{target}">Every Voter Counts Equally (2026)</a>.</p></body>
+</html>
+""")
 
 
 # ------------------------------------------------------------------- reports
@@ -302,7 +322,74 @@ td { font-variant-numeric: tabular-nums; }
   padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
 .foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
 .meta { color: var(--muted); }
+a.gloss { color: inherit; text-decoration: underline dotted var(--accent); text-decoration-thickness: 2px;
+  text-underline-offset: 4px; cursor: help; }
+a.gloss:hover, a.gloss[aria-expanded="true"] { color: var(--accent); }
+.gloss-pop { position: absolute; z-index: 20; max-width: calc(100vw - 32px); background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,.18);
+  padding: 12px 14px; font-size: 15px; line-height: 1.45; font-weight: 400; text-align: left; }
+.gloss-pop p { margin: 0 0 8px; }
+.gloss-more { font-size: 14px; font-weight: 600; }
+article p[id^="gloss-"] { scroll-margin-top: 16px; border-radius: 6px; }
+article p[id^="gloss-"]:target { background: var(--mark); box-shadow: 0 0 0 6px var(--mark); }
+td.q0 { background: rgba(30, 150, 90, .26); }
+td.q1 { background: rgba(30, 150, 90, .12); }
+td.q2 { background: rgba(200, 165, 30, .14); }
+td.q3 { background: rgba(230, 120, 40, .17); }
+td.q4 { background: rgba(215, 55, 45, .24); }
+.shade-note { color: var(--muted); font-size: 14px; margin: -12px 0 20px; }
+.shade-key { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin: 0 2px -1px; }
 """
+
+# Glossary popups: a link to #gloss-<term> opens that glossary entry in a popup
+# (hover on desktop, tap anywhere). Without JavaScript it jumps to the glossary.
+GLOSS_JS = """<script>
+(() => {
+  const pop = document.createElement("div");
+  pop.className = "gloss-pop"; pop.setAttribute("role", "tooltip"); pop.id = "gloss-pop"; pop.hidden = true;
+  document.body.appendChild(pop);
+  let cur = null, pinned = false, timer = null;
+  function show(a, pin) {
+    const id = a.getAttribute("href").slice(1), src = document.getElementById(id);
+    if (!src) return;
+    if (cur && cur !== a) cur.setAttribute("aria-expanded", "false");
+    const entry = src.cloneNode(true); entry.removeAttribute("id");
+    const more = document.createElement("a");
+    more.href = "#" + id; more.className = "gloss-more"; more.textContent = "See all terms in the glossary";
+    more.addEventListener("click", hide);
+    pop.replaceChildren(entry, more); pop.hidden = false;
+    cur = a; pinned = pin; a.setAttribute("aria-expanded", "true"); a.setAttribute("aria-describedby", "gloss-pop");
+    const vw = document.documentElement.clientWidth, w = Math.min(380, vw - 32), r = a.getBoundingClientRect();
+    pop.style.width = w + "px";
+    pop.style.left = (scrollX + Math.max(16, Math.min(r.left, vw - w - 16))) + "px";
+    const h = pop.offsetHeight, above = r.bottom + 8 + h > innerHeight && r.top - 8 - h > 0;
+    pop.style.top = (scrollY + (above ? r.top - 8 - h : r.bottom + 8)) + "px";
+  }
+  function hide() {
+    pop.hidden = true; pinned = false;
+    if (cur) { cur.setAttribute("aria-expanded", "false"); cur.removeAttribute("aria-describedby"); }
+    cur = null;
+  }
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a.gloss");
+    if (a) { e.preventDefault(); (cur === a && pinned) ? hide() : show(a, true); return; }
+    if (cur && !pop.contains(e.target)) hide();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && cur) { const a = cur; hide(); a.focus(); } });
+  if (matchMedia("(hover: hover)").matches) {
+    document.addEventListener("mouseover", e => {
+      const a = e.target.closest("a.gloss");
+      if (a || pop.contains(e.target)) clearTimeout(timer);
+      if (a && cur !== a && !pinned) show(a, false);
+    });
+    document.addEventListener("mouseout", e => {
+      if (!pinned && (e.target.closest("a.gloss") || pop.contains(e.target)))
+        timer = setTimeout(() => { if (!pinned) hide(); }, 250);
+    });
+  }
+  addEventListener("resize", hide);
+})();
+</script>"""
 
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
@@ -343,7 +430,68 @@ def link_code_spans(body, out):
             return f'<a href="{url}">{m.group(0)}</a>'
         return m.group(0)
 
+    def sub_href(m):
+        # Markdown links to another report's source file go to its page, so the
+        # sources link correctly on GitHub and the site.
+        name = html.unescape(m.group(1))
+        return f'href="{rel(out, pages[name])}{m.group(2) or ""}"' if name in pages else m.group(0)
+
+    body = re.sub(r'href="([\w./\-]+\.md)(#[\w\-]+)?"', sub_href, body)
     return re.sub(r"<code>([\w./\-]+)</code>", sub, body)
+
+
+# Results tables: shade each measure column from best (green) to worst (red).
+# Every headline measure in the report is "lower is better". Rows in italics
+# (benchmarks, side comparisons) are left unshaded and not ranked; tables whose
+# cells hold "before → after" pairs, or that mix tests (first header "Test"),
+# are left alone.
+SHADE_COLUMNS = ("house above", "counted differently", "counts differently", "minority-bloc",
+                 "bloc seat", "gallagher", "most seats", "worst-hit", "loses 2+")
+SHADE_NOTE = ('<p class="shade-note">Shading ranks the rows in each column from best '
+              '<span class="shade-key q0" style="background:rgba(30,150,90,.5)"></span> to worst '
+              '<span class="shade-key" style="background:rgba(215,55,45,.5)"></span>; lower is better throughout. '
+              'Rows in italics are for reference and are not ranked.</p>')
+
+
+def shade_tables(body):
+    def strip(s):
+        return html.unescape(re.sub("<[^>]+>", "", s)).strip()
+
+    def one(m):
+        tbl = m.group(0)
+        heads = [strip(h).lower() for h in re.findall(r"<th[^>]*>(.*?)</th>", tbl, re.S)]
+        if not heads or heads[0] == "test" or "→" in tbl:
+            return tbl
+        cols = [i for i, h in enumerate(heads) if i and any(k in h for k in SHADE_COLUMNS)]
+        if not cols:
+            return tbl
+        body_m = re.search(r"<tbody>(.*?)</tbody>", tbl, re.S)
+        rows = re.findall(r"<tr>(.*?)</tr>", body_m.group(1), re.S)
+        cells = [re.findall(r"<td([^>]*)>(.*?)</td>", r, re.S) for r in rows]
+        ranked = [i for i, c in enumerate(cells) if c and not c[0][1].lstrip().startswith("<em>")]
+        cls = [[""] * len(c) for c in cells]
+        for j in cols:
+            vals = {}
+            for i in ranked:
+                if j < len(cells[i]):
+                    num = re.search(r"-?\d+(?:\.\d+)?", strip(cells[i][j][1]))
+                    if num:
+                        vals[i] = float(num.group(0))
+            distinct = sorted(set(vals.values()))
+            if len(vals) < 3 or len(distinct) < 2:
+                continue
+            for i, v in vals.items():
+                cls[i][j] = f"q{round(4 * distinct.index(v) / (len(distinct) - 1))}"
+        if not any(any(r) for r in cls):
+            return tbl
+        new_rows = []
+        for r, c, k in zip(rows, cells, cls):
+            tds = "".join(f'<td{a} class="{q}">{x}</td>' if q else f"<td{a}>{x}</td>" for (a, x), q in zip(c, k))
+            new_rows.append(f"<tr>\n{tds}\n</tr>")
+        tbl = tbl[:body_m.start(1)] + "\n" + "\n".join(new_rows) + "\n" + tbl[body_m.end(1):]
+        return tbl + "\n" + SHADE_NOTE
+
+    return re.sub(r"<table>.*?</table>", one, body, flags=re.S)
 
 
 LIST_ITEM = re.compile(r"^(\s*)([-*+]|\d+[.)])\s")
@@ -382,8 +530,13 @@ def build_reports():
         title = re.sub("<[^>]+>", "", m.group(1)) if m else short
         first_p = re.search(r"<p>(.*?)</p>", body, re.S)
         desc = re.sub("<[^>]+>", "", first_p.group(1))[:220] if first_p else title
+        if src == "overall_report.md":
+            body = shade_tables(body)
         body = re.sub(r"<table>", '<div class="table-wrap"><table>', body).replace("</table>", "</table></div>")
         body = link_code_spans(body, out)
+        if 'href="#gloss-' in body:
+            body = body.replace('<a href="#gloss-', '<a class="gloss" aria-expanded="false" href="#gloss-')
+            body += GLOSS_JS
         built.append((src, out, short, title, desc, body, md.toc_tokens, path.stat().st_mtime))
 
     for i, (src, out, short, title, desc, body, toc_tokens, mtime) in enumerate(built):
@@ -482,6 +635,7 @@ def write(out_name, text):
 if __name__ == "__main__":
     for args in PAGES:
         build_explainer(*args)
+    build_redirect("2026/index.html", "index.html")
     build_reports()
     build_data_page()
     (DOCS / ".nojekyll").touch()

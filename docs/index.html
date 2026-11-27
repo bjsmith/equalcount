@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="How about 41,000 split ballots affected Parliament in 2023, and a proposed change to the overhang rules.">
-<meta property="og:title" content="One Ballot, Counted Twice">
-<meta property="og:description" content="How split voting gave Parliament 2 overhang seats in 2023, and how a proposed rule change would keep seats in line with the party vote.">
+<meta name="description" content="How split voting gave the 2026 Parliament 10 overhang seats, and how a proposed change to the overhang rules would work. Based on the official count.">
+<meta property="og:title" content="Every Voter Counts Equally (2026)">
+<meta property="og:description" content="National and Te Pāti Māori won 10 overhang seats in 2026. See how a proposed rule change would keep Parliament at 120 seats.">
 <style>[hidden]{display:none!important} img{max-width:100%} body{margin:0}
 .sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
   justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
@@ -28,10 +28,10 @@
 </head>
 <body>
 <nav class="sx-nav" aria-label="Site">
-  <a class="sx-brand" href="./">One ballot, counted twice</a>
-  <div class="sx-links"><a href="./" aria-current="page">2023</a><a href="2026/">2026</a><a href="report/">Full report</a><a href="data/">Data &amp; code</a></div>
+  <a class="sx-brand" href="./">Every voter counts equally</a>
+  <div class="sx-links"><a href="./" aria-current="page">2026</a><a href="2023/">2023</a><a href="report/">Full report</a><a href="data/">Data &amp; code</a></div>
 </nav>
-<title>One Ballot, Counted Twice</title>
+<title>Every Voter Counts Equally (2026)</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,6 +55,7 @@
   --tpm: #7B2152;
   --waste: #9AA6A0;
   --orange: #F47B20;
+  --top: #12A0B3;
   --fair: #DCE4E0;
   --on-orange: #141414;
   --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
@@ -64,14 +65,14 @@
   :root:not([data-theme="light"]) {
     --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
     --mark: #6B5A00; --ballot: #1B2420;
-    --nat: #4C8FE0; --lab: #EF5257; --grn: #4CC06B; --act: #F2CB2E; --nzf: #B9C2BE; --tpm: #D0609A; --waste: #6C7A74; --fair: #2F3B37;
+    --nat: #4C8FE0; --lab: #EF5257; --grn: #4CC06B; --act: #F2CB2E; --nzf: #B9C2BE; --tpm: #D0609A; --waste: #6C7A74; --fair: #2F3B37; --top: #4CC5D4;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
   --mark: #6B5A00; --ballot: #1B2420;
-  --nat: #4C8FE0; --lab: #EF5257; --grn: #4CC06B; --act: #F2CB2E; --nzf: #B9C2BE; --tpm: #D0609A; --waste: #6C7A74; --fair: #2F3B37;
+  --nat: #4C8FE0; --lab: #EF5257; --grn: #4CC06B; --act: #F2CB2E; --nzf: #B9C2BE; --tpm: #D0609A; --waste: #6C7A74; --fair: #2F3B37; --top: #4CC5D4;
   color-scheme: dark;
 }
 
@@ -211,6 +212,7 @@ a { color: inherit; }
 .verdict ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
 .section-head { display: grid; gap: 10px; max-width: 40em; }
 .section-head h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 800; }
+.qa-lede { font-size: 19px; max-width: 40em; margin-top: 10px; }
 .qa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 40px; }
 .qa div { display: grid; gap: 6px; border-top: 1.5px solid var(--ink); padding-top: 14px; }
 .qa h3 { font-family: var(--body); font-size: 19px; font-weight: 700; line-height: 1.3; }
@@ -257,39 +259,39 @@ footer p { max-width: 75ch; }
 
 <header class="hero">
   <div>
-    <p class="eyebrow">Aotearoa New Zealand · 2023 General Election</p>
-    <h1>One ballot, counted twice</h1>
-    <p class="lede">Under MMP, your party vote decides how many seats each party gets in Parliament. In 2023, split voting in 6 Māori electorates meant some parties got more seats than their share of the party vote.</p>
-    <p class="lede-2">Find out what happened, and how a proposed change to the rules would fix it.</p>
+    <p class="eyebrow">Aotearoa New Zealand · 2026 General Election</p>
+    <h1>Every voter counts equally</h1>
+    <p class="lede">Under MMP, your party vote decides how many seats each party gets in Parliament. In 2026, split voting meant National and Te Pāti Māori won 10 more electorates than their party votes give them. Parliament grows to 130 seats.</p>
+    <p class="lede-2">Find out what happened, and how a proposed change to the rules would work. Based on the official count.</p>
     <p class="scroll-hint">
       <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v11M3 8l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
       Scroll down
     </p>
   </div>
   <div style="min-width:0">
-    <div class="ballot" role="img" aria-label="An example split ballot: party vote for Labour, electorate vote for the Te Pāti Māori candidate">
-      <div class="ballot-head"><span>Example voting paper</span><span>Waiariki</span></div>
+    <div class="ballot" role="img" aria-label="An example split ballot: party vote for ACT, electorate vote for the National candidate">
+      <div class="ballot-head"><span>Example voting paper</span><span>Coromandel</span></div>
       <div class="ballot-cols">
         <div class="bcell head"><h3>Party vote</h3><small>Tick 1 party</small></div>
         <div class="bcell head right"><h3>Electorate vote</h3><small>Tick 1 candidate</small></div>
-        <div class="bcell"><div class="option"><span class="pdot" style="background:#2E9E4B" aria-hidden="true"></span><span class="oname">Green Party</span><span class="oval"></span></div></div>
+        <div class="bcell"><div class="option"><span class="pdot" style="background:#E8B800" aria-hidden="true"></span><span class="oname">ACT New Zealand</span><span class="oval"><svg viewBox="0 0 40 36"><path class="tick" d="M4 20 L14 30 L36 4"/></svg></span></div></div>
         <div class="bcell right"><div class="option empty"></div></div>
-        <div class="bcell"><div class="option"><span class="pdot" style="background:#D7262B" aria-hidden="true"></span><span class="oname">Labour Party</span><span class="oval"><svg viewBox="0 0 40 36"><path class="tick" d="M4 20 L14 30 L36 4"/></svg></span></div></div>
-        <div class="bcell right"><div class="option"><span class="pdot" style="background:#D7262B" aria-hidden="true"></span><span class="oname">BOYNTON, Toni<span class="oparty">Labour Party</span></span><span class="oval"></span></div></div>
+        <div class="bcell"><div class="option"><span class="pdot" style="background:#D7262B" aria-hidden="true"></span><span class="oname">Labour Party</span><span class="oval"></span></div></div>
+        <div class="bcell right"><div class="option"><span class="pdot" style="background:#D7262B" aria-hidden="true"></span><span class="oname">BENNETT, Glen<span class="oparty">Labour Party</span></span><span class="oval"></span></div></div>
         <div class="bcell"><div class="option"><span class="pdot" style="background:#0B57A4" aria-hidden="true"></span><span class="oname">National Party</span><span class="oval"></span></div></div>
+        <div class="bcell right"><div class="option"><span class="pdot" style="background:#0B57A4" aria-hidden="true"></span><span class="oname">SIMPSON, Scott<span class="oparty">National Party</span></span><span class="oval"><svg viewBox="0 0 40 36"><path class="tick t2" d="M4 20 L14 30 L36 4"/></svg></span></div></div>
+        <div class="bcell"><div class="option"><span class="pdot" style="background:#2B2F2D" aria-hidden="true"></span><span class="oname">New Zealand First Party</span><span class="oval"></span></div></div>
         <div class="bcell right"><div class="option empty"></div></div>
-        <div class="bcell"><div class="option"><span class="pdot" style="background:#7B2152" aria-hidden="true"></span><span class="oname">Te Pāti Māori</span><span class="oval"></span></div></div>
-        <div class="bcell right"><div class="option"><span class="pdot" style="background:#7B2152" aria-hidden="true"></span><span class="oname">WAITITI, Rawiri<span class="oparty">Te Pāti Māori</span></span><span class="oval"><svg viewBox="0 0 40 36"><path class="tick t2" d="M4 20 L14 30 L36 4"/></svg></span></div></div>
-        <div class="bcell"><div class="option"><span class="pdot" style="background:#9AA0A6" aria-hidden="true"></span><span class="oname">Vision New Zealand</span><span class="oval"></span></div></div>
-        <div class="bcell right"><div class="option"><span class="pdot" style="background:#9AA0A6" aria-hidden="true"></span><span class="oname">HUNIA, Charles Tiki<span class="oparty">Vision New Zealand</span></span><span class="oval"></span></div></div>
+        <div class="bcell"><div class="option empty"></div></div>
+        <div class="bcell right"><div class="option more"><span class="oname">+ 5 other candidates</span></div></div>
         <div class="bcell foot"></div><div class="bcell foot right"></div>
       </div>
       <div class="ballot-notes">
-        <p>This party vote counts <b>in full</b> towards Labour’s seats.</p>
-        <p>This electorate vote helps elect an extra MP who <b>isn’t counted</b> in any party’s share.</p>
+        <p>This party vote counts <b>in full</b> towards ACT’s seats.</p>
+        <p>This electorate vote helps elect an extra National MP who <b>isn’t counted</b> in any party’s share.</p>
       </div>
     </div>
-    <p class="ballot-caption">You can split your vote like this, and lots of people do. When many people in the same electorates do it, the seats in Parliament can stop matching the party vote.</p>
+    <p class="ballot-caption">You can split your vote like this, and lots of people do. When many people do it, the seats in Parliament can stop matching the party vote.</p>
   </div>
 </header>
 
@@ -297,19 +299,19 @@ footer p { max-width: 75ch; }
   <div class="figure" id="fig" aria-live="polite">
     <div class="fig-text">
       <span class="mode" id="mode">Current rules</span>
-      <div class="fig-caption" id="figCaption">Parliament after the 2023 General Election</div>
+      <div class="fig-caption" id="figCaption">Parliament after the 2026 General Election</div>
       <div class="fig-sub" id="figSub">Each dot is an MP · dotted line marks a majority</div>
     </div>
     <svg class="chart" id="chart" viewBox="0 0 520 340" role="img" aria-labelledby="figCaption">
       <g id="seats"></g>
       <g id="majLayer" class="layer">
         <line class="maj" x1="260" y1="270" x2="260" y2="18"></line>
-        <text class="lbl-muted start" x="266" y="13" id="majText">62 for a majority</text>
-        <text class="bloc start" x="22" y="296" id="blocL">Lab · Grn · TPM 55</text>
-        <text class="bloc end" x="498" y="296" id="blocR">Nat · ACT · NZF 67</text>
+        <text class="lbl-muted start" x="266" y="13" id="majText">66 for a majority</text>
+        <text class="bloc start" x="22" y="296" id="blocL">Lab · Grn · TPM 58</text>
+        <text class="bloc end" x="498" y="296" id="blocR">Nat · ACT · NZF 65</text>
       </g>
       <g id="ballotLayer" class="layer" style="opacity:0">
-        <text class="ttl" x="260" y="94" text-anchor="middle" id="moveTitle" style="opacity:0">Now counted for Te Pāti Māori</text>
+        <text class="ttl" x="260" y="112" text-anchor="middle" id="moveTitle" style="opacity:0"></text>
         <g id="groupLabels"></g>
         <g id="voteKey"></g>
       </g>
@@ -319,7 +321,7 @@ footer p { max-width: 75ch; }
       </g>
       <g id="bdots"></g>
       <g id="seatLabel" class="layer">
-        <text class="lbl" x="260" y="312" id="seatCount" style="font-size:40px;font-family:var(--display);font-weight:800">122</text>
+        <text class="lbl" x="260" y="312" id="seatCount" style="font-size:40px;font-family:var(--display);font-weight:800">130</text>
         <text class="lbl-muted" x="260" y="333">seats</text>
       </g>
       <g id="blocLayer" class="layer" style="opacity:0"></g>
@@ -329,75 +331,87 @@ footer p { max-width: 75ch; }
 
   <div class="steps">
     <section class="step" data-state="current">
-      <p class="eyebrow">The 2023 result</p>
-      <h2>In 2023, Parliament ended up with 122 seats, 2 more than usual</h2>
+      <p class="eyebrow">The 2026 result</p>
+      <h2>After the 2026 election, Parliament has 130 seats, 10 more than usual</h2>
       <p>Under MMP, you have 2 votes. Your party vote decides how many seats each party gets in Parliament. Your electorate vote chooses your local MP.</p>
-      <p>Electorate MPs normally count as part of their party’s share of seats. That way, the party vote decides the overall result. In 2023, it didn’t quite work that way.</p>
-      <p class="fine">A by-election in Port Waikato later added a 123rd seat. It isn’t included here.</p>
+      <p>Electorate MPs normally count as part of their party’s share of seats. In 2026, 2 parties won more electorates than their party vote gives them.</p>
+      <p class="fine">These figures use the official count, published on 27 November.</p>
     </section>
 
     <section class="step" data-state="overhang">
       <p class="eyebrow">Overhang seats</p>
-      <h2>Te Pāti Māori won 6 electorates, but its party vote covered only 4 of them</h2>
-      <p>When a party wins more electorates than its party vote covers, it keeps them all. The seats that aren’t covered are called <mark>overhang seats</mark>. Parliament grows to fit them, and every other party still gets its full share.</p>
+      <h2>National won 40 electorates, but its party vote covers only 34 of them</h2>
+      <p>Te Pāti Māori won 5 electorates, but its party vote covers only 1.</p>
+      <p>A party keeps every electorate it wins, so Parliament grows to fit the seats that aren’t covered. That’s 10 <mark>overhang seats</mark>, the most since MMP began in 1996.</p>
     </section>
 
-    <section class="step" data-state="split">
-      <p class="eyebrow">Split votes</p>
-      <h2>Many of those electorate votes came from people who party-voted Labour or Green</h2>
-      <p>Across the 6 electorates Te Pāti Māori won, about 41,000 people gave their electorate vote to its candidate and their party vote to another party. In Waiariki alone, 59% of people who party-voted Labour gave their electorate vote to Rawiri Waititi.</p>
-      <p>These voters helped elect the 2 overhang MPs, and their party votes still counted in full for Labour and the Greens.</p>
+    <section class="step" data-state="splitnat">
+      <p class="eyebrow">Split votes · National</p>
+      <h2>Many people who voted for a National candidate gave their party vote to ACT or NZ First</h2>
+      <p>We estimate about 292,000 people in National’s 40 electorates gave their electorate vote to the National candidate and their party vote to another party. About 166,000 of them party-voted ACT, and about 67,000 party-voted NZ First.</p>
+      <p>Their party votes counted in full for ACT and NZ First. Their electorate votes helped elect National’s 6 overhang MPs.</p>
+    </section>
+
+    <section class="step" data-state="splittpm">
+      <p class="eyebrow">Split votes · Te Pāti Māori</p>
+      <h2>Most of Te Pāti Māori’s electorate votes came from Green and Labour voters</h2>
+      <p>Te Pāti Māori got 18,310 party votes across the country. Its 5 winning candidates got about 83,000 electorate votes.</p>
+      <p>We estimate about 74,000 of those came from people who gave their party vote to another party, mostly the Green Party (about 36,000) and Labour (about 30,000).</p>
     </section>
 
     <section class="step" data-state="sharenow">
       <p class="eyebrow">The overall result</p>
-      <h2>Labour, the Greens and Te Pāti Māori got more seats than their party vote gives them</h2>
-      <p>Together they won 44.1% of the party vote for parties in Parliament. That’s about 53.8 of the 122 seats. They got 55.</p>
-      <p>National, ACT and NZ First won 55.9%, which is about 68.2 seats. They got 67.</p>
+      <h2>The two overhangs mostly cancel out, but Parliament grows by 10</h2>
+      <p>National, ACT and NZ First won 48.9% of the party vote for parties in Parliament. That’s about 63.6 of 130 seats. They got 65, 1 short of a majority.</p>
+      <p>Labour, the Green Party and Te Pāti Māori won 45.0%, about 58.5 seats. They got 58. The Opportunity Party won 6.1%, about 7.9 seats. It got 7.</p>
       <p class="fine">These figures leave out votes for parties that didn’t get into Parliament.</p>
     </section>
 
     <section class="step turn" data-state="turn">
       <p class="eyebrow">He huarahi hou · A different approach</p>
       <h2>What if the rules were different?</h2>
-      <p>So far, this is what happened under the current rules. The rest of this page looks at a proposed change to the law, and how the 2023 result would have looked under it.</p>
+      <p>So far, this is what happened under the current rules. The rest of this page looks at a proposed change to the law, and how the 2026 result would look under it.</p>
     </section>
 
-    <section class="step" data-state="seats">
-      <p class="eyebrow">How it would work</p>
-      <h2>2 of Te Pāti Māori’s seats aren’t covered by its party vote</h2>
-      <p>Think of each electorate seat as needing to be covered by party votes. Te Pāti Māori’s party vote covers 4 of the 6 electorates it won. The other 2 are empty.</p>
-      <p>The change only applies when a party has empty seats like these. It fills them with the party votes of people who split their vote: they gave a Te Pāti Māori candidate their electorate vote, but gave their party vote to someone else.</p>
+    <section class="step" data-state="vacnat">
+      <p class="eyebrow">How it would work · National</p>
+      <h2>6 of National’s seats aren’t covered by its party vote</h2>
+      <p>Think of each electorate seat as needing to be covered by party votes. National’s party vote covers 34 of the 40 electorates it won. The other 6 are empty.</p>
+      <p>The change only applies when a party has empty seats like these. It fills them with the party votes of people who split their vote: they gave a National candidate their electorate vote, but gave their party vote to someone else.</p>
     </section>
 
-    <section class="step" data-state="move1">
-      <p class="eyebrow">How it would work · 1</p>
-      <h2>First, votes for parties that didn’t get into Parliament</h2>
-            <p>About 3,000 of them gave their party vote to a party that didn’t get into Parliament. Under the current rules, those votes don’t elect anyone. Under the proposal, they’d count for Te Pāti Māori instead.</p>
-      <p class="fine">That’s not enough to cover even 1 seat.</p>
+    <section class="step" data-state="movenat">
+      <p class="eyebrow">How it would work · National</p>
+      <h2>45% of each split vote would count for National</h2>
+      <p>It starts with about 3,100 party votes for parties that didn’t get into Parliament. Then the same share of every other split vote moves, until National’s party vote covers its 40 electorates. That share is 45%.</p>
+      <p>That’s about 134,000 votes. Most come from ACT (about 75,000) and NZ First (about 31,000) voters, because they made up most of the split votes.</p>
     </section>
 
-    <section class="step" data-state="transfer">
-      <p class="eyebrow">How it would work · 2</p>
-      <h2>Then, the same share of every other split vote</h2>
-      <p>Te Pāti Māori’s party vote needs about 35,000 more votes to cover its 6 electorate seats. So the same share of each remaining split vote counts for Te Pāti Māori instead. In 2023, that share was:</p>
-      <p class="big num">84%</p>
-      <p>These aren’t new votes. Every one comes from someone who gave Te Pāti Māori their electorate vote. Most come from Labour and Green voters, because they made up most of the split votes.</p>
+    <section class="step" data-state="vactpm">
+      <p class="eyebrow">How it would work · Te Pāti Māori</p>
+      <h2>Te Pāti Māori’s party vote covers 1 of its 5 seats</h2>
+      <p>The same applies to Te Pāti Māori. It won 5 electorates, and its party vote covers 1 of them, so 4 seats are empty.</p>
+    </section>
+
+    <section class="step" data-state="movetpm">
+      <p class="eyebrow">How it would work · Te Pāti Māori</p>
+      <h2>Every split vote for a Te Pāti Māori candidate would count for the party</h2>
+      <p>Most people who gave a Te Pāti Māori candidate their electorate vote gave their party vote to the Green Party or Labour. Under the change, all of those votes, about 73,000, would count for Te Pāti Māori. That covers 4 of its 5 electorates.</p>
+      <p class="fine">The fifth seat comes off the other parties’ list seats, as the Independent Electoral Review recommended, so Parliament still has 120 seats.</p>
     </section>
 
     <section class="step" data-state="proposal">
       <p class="eyebrow">The result</p>
-      <h2>Te Pāti Māori keeps its 6 MPs, and Parliament stays at 120 seats</h2>
-      <p>Every electorate keeps the MP its voters chose. The 2 seats come from Labour and the Green Party, 1 each, because it was mostly their voters who split. National, ACT and NZ First don’t change.</p>
-      <p>In 2023, the same parties would have formed the Government. In a closer election, 1 or 2 seats could decide it.</p>
+      <h2>Every electorate keeps its MP, and Parliament has 120 seats</h2>
+      <p>National keeps its 40 seats and Te Pāti Māori keeps 5. ACT has 4 fewer seats and NZ First 2 fewer, because many of their voters gave their electorate vote to National. Labour and the Green Party each have 2 fewer, mostly because many of their voters gave their electorate vote to Te Pāti Māori.</p>
+      <p>National, ACT and NZ First would have 59 of 120 seats, 2 short of a majority. Under the current rules they have 65 of 130, 1 short.</p>
     </section>
 
     <section class="step" data-state="sharefix">
       <p class="eyebrow">Proportional representation</p>
-      <h2>Seats match the party vote again</h2>
-      <p>With the change, Labour, the Green Party and Te Pāti Māori would get 53 of 120 seats. Their party vote gives them about 52.9.</p>
-      <p>National, ACT and NZ First would get 67, against about 67.1.</p>
-      <p class="fine">The rule would work the same way for any party with overhang seats, on either side of politics.</p>
+      <h2>Each side’s seats are closer to its party vote</h2>
+      <p>With the change, National, ACT and NZ First get 59 of 120 seats. Their party vote gives them about 58.7. Labour, the Green Party and Te Pāti Māori get 54, against about 54.0. The Opportunity Party gets 7, against about 7.3.</p>
+      <p class="fine">The Opportunity Party isn’t counted in either group.</p>
     </section>
   </div>
 </main>
@@ -406,22 +420,22 @@ footer p { max-width: 75ch; }
   <div class="verdict">
     <div class="col">
       <p class="eyebrow">Current rules</p>
-      <h3>122 seats</h3>
+      <h3>130 seats</h3>
       <ul>
-        <li>Te Pāti Māori keeps its 6 electorate MPs</li>
-        <li>Labour and the Green Party keep all their list seats</li>
-        <li>Parliament gets 2 extra seats</li>
-        <li>Labour, Green and Te Pāti Māori get 45.1% of the seats with 44.1% of the party vote</li>
+        <li>National keeps 6 overhang seats, and Te Pāti Māori keeps 4</li>
+        <li>ACT, NZ First, Labour and the Green Party keep all their list seats</li>
+        <li>Parliament gets 10 extra seats</li>
+        <li>National, ACT and NZ First get 50.0% of the seats with 48.9% of the party vote</li>
       </ul>
     </div>
     <div class="col fix">
       <p class="eyebrow">With the proposed change</p>
       <h3>120 seats</h3>
       <ul>
-        <li>Te Pāti Māori keeps its 6 electorate MPs</li>
-        <li>84% of split votes count for the electorate vote’s party</li>
-        <li>Labour 33 (1 fewer), Green Party 14 (1 fewer)</li>
-        <li>Labour, Green and Te Pāti Māori get 44.2% of the seats with 44.1% of the party vote</li>
+        <li>Every electorate MP keeps their seat</li>
+        <li>45% of National’s split votes, and all of Te Pāti Māori’s, count for the electorate vote’s party</li>
+        <li>ACT 9 (4 fewer), NZ First 10 (2 fewer), Labour 34 (2 fewer), Green Party 15 (2 fewer)</li>
+        <li>National, ACT and NZ First get 49.2% of the seats with 48.9% of the party vote</li>
       </ul>
     </div>
   </div>
@@ -429,6 +443,7 @@ footer p { max-width: 75ch; }
   <div class="section-head">
     <p class="eyebrow">Ngā pātai · Common questions</p>
     <h2>Does this change my vote?</h2>
+    <p class="qa-lede">Not how you vote. You still have 2 votes, and you can still split them. The change only matters if you give your electorate vote to the candidate of a party whose party vote doesn’t cover all its electorates. Then part of your party vote counts for that candidate’s party.</p>
   </div>
   <div class="qa">
     <div>
@@ -436,12 +451,12 @@ footer p { max-width: 75ch; }
       <p>No. If part of your party vote moves, it counts for the party of the candidate you gave your electorate vote to. You chose both.</p>
     </div>
     <div>
-      <h3>Would it change who wins my electorate?</h3>
-      <p>No. Every electorate winner keeps their seat. Only list seats change.</p>
+      <h3>Why would ACT and NZ First lose seats?</h3>
+      <p>Many of their voters gave their electorate vote to a National candidate. That helped National win more electorates than its party vote covers. Under the change, part of those party votes would count for National instead.</p>
     </div>
     <div>
-      <h3>Does it only affect parties on the left?</h3>
-      <p>No. It applies to any party with overhang seats. If National won more electorate seats than its party vote gave it, some party votes would move to National instead.</p>
+      <h3>Does it only affect one side?</h3>
+      <p>No. In 2026 it affects both. Votes move to National from ACT and NZ First voters, and to Te Pāti Māori from Labour and Green voters.</p>
     </div>
     <div>
       <h3>Could a small party drop out of Parliament?</h3>
@@ -449,11 +464,11 @@ footer p { max-width: 75ch; }
     </div>
     <div>
       <h3>Why not just leave out the extra MPs?</h3>
-      <p>Germany does this. Here, it would have left 2 Māori electorates, Te Tai Tokerau and Tāmaki Makaurau, without the MP their voters chose.</p>
+      <p>Germany does this. In 2026, it would leave 6 National electorates and 4 Māori electorates without the MP their voters chose.</p>
     </div>
     <div>
-      <h3>Would this happen every election?</h3>
-      <p>Probably not. If splitting your vote can’t win extra seats, there’s less reason to do it tactically.</p>
+      <h3>Which numbers are estimates?</h3>
+      <p>Only the split votes. The party votes, electorate results and seats come from the official count. How split voters gave their party vote, for example how many people who voted for a National candidate gave their party vote to ACT, is estimated from 2023 patterns until the Electoral Commission publishes the 2026 split-vote figures. The real figures could change the result under the proposed change by a seat or so.</p>
     </div>
   </div>
 </section>
@@ -468,9 +483,9 @@ footer p { max-width: 75ch; }
       <h3>Read the report</h3>
       <p>Costs and benefits of the transfer and the alternatives, tested on 2005–2026 elections, 5,000 synthetic elections, and 1,000 simulated futures.</p>
     </a>
-    <a class="sx-card" href="2026/">
-      <h3>The 2026 version</h3>
-      <p>The same story with the 2026 preliminary count: 11 overhang seats.</p>
+    <a class="sx-card" href="2023/">
+      <h3>The 2023 version</h3>
+      <p>The same story with the 2023 final results: 2 overhang seats.</p>
     </a>
     <a class="sx-card" href="data/">
       <h3>Data and code</h3>
@@ -481,13 +496,18 @@ footer p { max-width: 75ch; }
 
 <footer>
   <p><strong>This describes a proposal for discussion. It is not current electoral law.</strong></p>
-  <p>Data: official 2023 General Election results and split-voting statistics from the <a href="https://www.electionresults.govt.nz/electionresults_2023/statistics/split-votes-index.html" target="_blank" rel="noopener">Electoral Commission</a>. Split vote counts are worked out from the published percentages for each electorate, so they may differ from exact counts by a few votes. Seats are allocated with the Sainte-Laguë formula used in New Zealand elections. In the dot pictures, 1 dot is about 1,000 votes.</p>
+  <p><strong>How we worked this out.</strong> We used the official count of the 7 November 2026 election, published by the <a href="https://www.electionresults.govt.nz/electionresults_2026/" target="_blank" rel="noopener">Electoral Commission</a> on 27 November. It includes special votes.</p>
+  <p>The Electoral Commission hasn’t published split-vote figures for 2026 yet (they’re expected by 18 December), so we estimated them. For each electorate National or Te Pāti Māori won, we assumed each party’s voters split their votes the same way as in 2023 (using general electorates for National and Māori electorates for Te Pāti Māori). We then scaled the numbers so they add up to the winning candidate’s 2026 vote. Electorate boundaries changed in 2025, so this is an approximation.</p>
+  <p>If moving all of a party’s split votes isn’t enough to cover its overhang, the rest comes off other parties’ list seats, as the Independent Electoral Review recommended. In 2026 this applies to 1 Te Pāti Māori seat.</p>
+  <p>National, ACT and NZ First are grouped together, as are Labour, the Green Party and Te Pāti Māori. The Opportunity Party isn’t counted in either group.</p>
+  <p>We tested other assumptions about how people split their votes. In most, National, ACT and NZ First get 59 or 60 seats, ACT 9 or 10, NZ First 10, Labour 34 and the Green Party 15. In the most extreme case we tried, where every other party’s voters split their vote the same way, National, ACT and NZ First get 61, a majority by 1 seat, and Labour 32.</p>
+  <p>Seats are allocated with the Sainte-Laguë formula used in New Zealand elections. In the split-vote pictures, 1 dot is about 5,000 votes.</p>
 </footer>
 
 <script>
 (function () {
   const NS = "http://www.w3.org/2000/svg";
-  const W = 520, CX = 260, CY = 270, R_OUT = 238, R_IN = 104, ROWS = 7, DOT = 8.6;
+  const W = 520, CX = 260, CY = 270, R_OUT = 240, R_IN = 92, ROWS = 8, DOT = 7.7;
   const $ = id => document.getElementById(id);
   const col = k => `var(--${k})`;
   const fmt = n => n.toLocaleString("en-NZ");
@@ -499,28 +519,36 @@ footer p { max-width: 75ch; }
     parent.appendChild(e); return e;
   }
 
-  // Seating order, left to right.
+  // Seating order, left to right. Figures from model_2026.py (official count, results_2026.json).
   const PARTIES = [
     { k: "tpm", name: "Te Pāti Māori" },
     { k: "grn", name: "Green" },
     { k: "lab", name: "Labour" },
+    { k: "top", name: "Opportunity" },
     { k: "nat", name: "National" },
     { k: "act", name: "ACT" },
     { k: "nzf", name: "NZ First" },
   ];
-  const CURRENT  = { tpm: 6, grn: 15, lab: 34, nat: 48, act: 11, nzf: 8 };
-  const PROPOSAL = { tpm: 6, grn: 14, lab: 33, nat: 48, act: 11, nzf: 8 };
+  const CURRENT  = { tpm: 5, grn: 17, lab: 36, top: 7, nat: 40, act: 13, nzf: 12 };
+  const PROPOSAL = { tpm: 5, grn: 15, lab: 34, top: 7, nat: 40, act: 9,  nzf: 10 };
+  const ENTITLED = { nat: 34, tpm: 1 };
 
-  // Split votes: electorate vote for a winning Te Pāti Māori candidate,
-  // party vote elsewhere. Totals and moved counts from model.py; 1 dot ≈ 1,000.
-  const GROUPS = [
-    { k: "lab",   label: "Labour",        total: 23697, moved: 19953, n: 24, move: 20 },
-    { k: "grn",   label: "Green",         total: 8248,  moved: 6945,  n: 8,  move: 7 },
-    { k: "waste", label: "Didn’t get in", total: 3010,  moved: 3010,  n: 3,  move: 3 },
-    { k: "nat",   label: "National",      total: 2920,  moved: 2459,  n: 3,  move: 2 },
-    { k: "nzf",   label: "NZ First",      total: 2637,  moved: 2220,  n: 3,  move: 2 },
-    { k: "act",   label: "ACT",           total: 536,   moved: 451,   n: 1,  move: 0 },
-  ];
+  // Estimated split votes for winning candidates; 1 dot ≈ 5,000 votes.
+  const POOLS = {
+    nat: { target: "nat", name: "National", groups: [
+      { k: "act",   label: "ACT",           total: 165528, moved: 75237, n: 33, move: 15 },
+      { k: "nzf",   label: "NZ First",      total: 67396,  moved: 30633, n: 13, move: 6 },
+      { k: "top",   label: "Opportunity",   total: 23374,  moved: 10624, n: 5,  move: 2 },
+      { k: "lab",   label: "Labour",        total: 21709,  moved: 9867,  n: 4,  move: 2 },
+      { k: "grn",   label: "Green",         total: 10623,  moved: 4828,  n: 2,  move: 1 },
+      { k: "waste", label: "Didn’t get in", total: 3073,   moved: 3073,  n: 1,  move: 1 },
+    ] },
+    tpm: { target: "tpm", name: "Te Pāti Māori", groups: [
+      { k: "grn",   label: "Green",         total: 36160, moved: 36160, n: 7, move: 7 },
+      { k: "lab",   label: "Labour",        total: 30025, moved: 30025, n: 6, move: 6 },
+      { k: "waste", label: "Others",        total: 7210,  moved: 7210,  n: 1, move: 1 },
+    ] },
+  };
 
   // ---------- Parliament ----------
   function hemicycle(n) {
@@ -585,37 +613,42 @@ footer p { max-width: 75ch; }
   })();
 
   // ---------- Split votes ----------
-  const GW = 3 * 19, GAP = 22, X0 = (W - (GROUPS.length * GW + (GROUPS.length - 1) * GAP)) / 2, BASE = 258, STEP = 19;
+  const COLS = 4, STEP = 17, GAP = 16, BASE = 258;
   const bdots = [];
-  GROUPS.forEach((g, gi) => {
-    g.gi = gi;
-    g.x0 = X0 + gi * (GW + GAP);
-    el("text", { x: g.x0 + GW / 2, y: BASE + 30, class: "lbl", style: "font-size:13.5px" }, $("groupLabels"), g.label);
-    g.countEl = el("text", { x: g.x0 + GW / 2, y: BASE + 48, class: "lbl-muted num" }, $("groupLabels"), fmt(g.total));
-    for (let i = 0; i < g.n; i++) {
-      const v = voteDot($("bdots"), 7.6, "tpm", g.k, "bdot");
-      bdots.push({ el: v.g, pv: v.pv, g, i, moved: i >= g.n - g.move });
-    }
+  Object.entries(POOLS).forEach(([pk, pool]) => {
+    const gw = COLS * STEP, n = pool.groups.length;
+    const x0 = (W - (n * gw + (n - 1) * GAP)) / 2;
+    pool.labels = el("g", {}, $("groupLabels"));
+    let pileN = 0;
+    pool.groups.forEach((g, gi) => {
+      g.gi = gi; g.x0 = x0 + gi * (gw + GAP);
+      el("text", { x: g.x0 + gw / 2, y: BASE + 30, class: "lbl", style: "font-size:13px" }, pool.labels, g.label);
+      g.countEl = el("text", { x: g.x0 + gw / 2, y: BASE + 48, class: "lbl-muted num" }, pool.labels, fmt(g.total));
+      for (let i = 0; i < g.n; i++) {
+        const v = voteDot($("bdots"), 6.8, pool.target, g.k, "bdot");
+        const d = { el: v.g, pv: v.pv, pk, g, i, moved: i >= g.n - g.move };
+        bdots.push(d);
+      }
+    });
+    bdots.filter(d => d.pk === pk && d.moved && d.g.k === "waste").forEach(d => d.pile = pileN++);
+    bdots.filter(d => d.pk === pk && d.moved && d.g.k !== "waste").forEach(d => d.pile = pileN++);
   });
-  // Order in the Te Pāti Māori pile: wasted votes first, then the rest by group.
-  let pileN = 0;
-  bdots.filter(d => d.moved && d.g.k === "waste").forEach(d => d.pile = pileN++);
-  bdots.filter(d => d.moved && d.g.k !== "waste").forEach(d => d.pile = pileN++);
-  const gridPos = (g, i) => ({ x: g.x0 + 9.5 + (i % 3) * STEP, y: BASE - Math.floor(i / 3) * STEP });
+  const gridPos = (g, i) => ({ x: g.x0 + STEP / 2 + (i % COLS) * STEP, y: BASE - Math.floor(i / COLS) * STEP });
 
-  // ---------- Seats vs party vote, by bloc ----------
-  const QUAL = 2692168;
-  const BLOCS = [
-    { name: "Labour · Green · Te Pāti Māori", parties: ["lab", "grn", "tpm"], votes: 1186291 },
-    { name: "National · ACT · NZ First", parties: ["nat", "act", "nzf"], votes: 1505877 },
+  // ---------- Seats vs party vote, by group ----------
+  const QUAL = 2864095;
+  const GROUPS = [
+    { name: "Labour · Green · Te Pāti Māori", parties: ["lab", "grn", "tpm"], votes: 1287904, box: [4, 4, 252, 206] },
+    { name: "National · ACT · NZ First", parties: ["nat", "act", "nzf"], votes: 1401098, box: [264, 4, 252, 206] },
+    { name: "Opportunity", parties: ["top"], votes: 175093, strip: true },
   ];
 
   // One line saying how a group's seats compare with its share, with the mark used on the grid.
   // Whole seats only: a group 0.2 under its share has no seat missing.
   function shareLine(g, x, y, n, F) {
     const k = n - Math.round(F), a = Math.abs(k);
-    if (k > 0) { const o = el("circle", { cx: x + 7, cy: y - 5, r: 7.2, class: "over" }, g); o.style.fill = "var(--muted)"; }
-    if (k < 0) el("circle", { cx: x + 7, cy: y - 5, r: 6.4, class: "short" }, g);
+    if (k > 0) { const o = el("circle", { cx: x + 7, cy: y - 5, r: 6.2, class: "over" }, g); o.style.fill = "var(--muted)"; }
+    if (k < 0) el("circle", { cx: x + 7, cy: y - 5, r: 5.4, class: "short" }, g);
     el("text", { x: k ? x + 22 : x, y, class: "diff start" }, g,
       k ? `${a} seat${a > 1 ? "s" : ""} ${k > 0 ? "more" : "fewer"} than their share` : "Seats match their share");
   }
@@ -631,33 +664,47 @@ footer p { max-width: 75ch; }
     if (L % cols <= cols - 5) el("text", { x: cx(L) + ST + 4, y: cy(L) + ST / 2 + 4.5, class: "note start" }, g, "← " + txt);
     else el("text", { x: cx(L) + ST, y: cy(L) + ST + 14, class: "note", style: "text-anchor:end" }, g, txt + " ↑");
   }
-  function drawBlocs(counts, total) {
+  function drawGroups(counts, total) {
     const g = $("blocLayer"); g.textContent = "";
-    const COLS = 11, ST = 20, BW = 250;
-    BLOCS.forEach((b, bi) => {
-      const x0 = bi ? 266 : 4;
+    const ST = 17;
+    const diffText = (n, F) => {
+      const d = n - F, a = Math.abs(d).toFixed(1);
+      return `${a} seat${Math.abs(d) >= 1.05 ? "s" : ""} ${d > 0 ? "over" : "under"} their share`;
+    };
+    GROUPS.forEach(b => {
       const share = b.votes / QUAL, F = share * total;
       const n = b.parties.reduce((a, k) => a + counts[k], 0);
-      el("rect", { x: x0, y: 4, width: BW, height: 270, rx: 10, class: "blocbox" }, g);
-      el("text", { x: x0 + 14, y: 28, class: "ttl start" }, g, b.name);
-      el("text", { x: x0 + 14, y: 46, class: "lbl-muted start" }, g, (share * 100).toFixed(1) + "% of the party vote");
-      const gx = x0 + (BW - COLS * ST) / 2, gy = 58;
-      const cx = i => gx + (i % COLS) * ST, cy = i => gy + Math.floor(i / COLS) * ST;
+      let cx, cy;
+      if (!b.strip) {
+        const [x0, y0, w, h] = b.box, C = 12;
+        el("rect", { x: x0, y: y0, width: w, height: h, rx: 10, class: "blocbox" }, g);
+        el("text", { x: x0 + 12, y: y0 + 20, class: "ttl start", style: "font-size:13.5px" }, g, b.name);
+        el("text", { x: x0 + 12, y: y0 + 36, class: "lbl-muted start" }, g, (share * 100).toFixed(1) + "% of the party vote");
+        const gx = x0 + (w - C * ST) / 2, gy = y0 + 44;
+        cx = i => gx + (i % C) * ST; cy = i => gy + Math.floor(i / C) * ST;
+        el("text", { x: x0 + 12, y: y0 + 166, class: "ttl start" }, g, `Got ${n} seats`);
+        shareKey(g, x0 + 12, y0 + 182, F);
+        shareLine(g, x0 + 12, y0 + 199, n, F);
+      } else {
+        el("rect", { x: 4, y: 216, width: 512, height: 50, rx: 10, class: "blocbox" }, g);
+        el("text", { x: 16, y: 237, class: "ttl start", style: "font-size:13.5px" }, g, b.name);
+        el("text", { x: 16, y: 254, class: "lbl-muted start" }, g, (share * 100).toFixed(1) + "% of the party vote");
+        cx = i => 150 + i * ST; cy = () => 232;
+        shareKey(g, 306, 237, F, ` · got ${n}`);
+        shareLine(g, 306, 254, n, F);
+      }
       for (let i = 0; i < Math.ceil(F); i++) {
         el("rect", { x: cx(i), y: cy(i), width: ST * Math.min(1, F - i), height: ST, class: "fair" }, g);
       }
       let i = 0;
       b.parties.forEach(k => {
         for (let j = 0; j < counts[k]; j++, i++) {
-          const c = el("circle", { cx: cx(i) + ST / 2, cy: cy(i) + ST / 2, r: 7.2, class: i >= Math.round(F) ? "over" : "" }, g);
+          const c = el("circle", { cx: cx(i) + ST / 2, cy: cy(i) + ST / 2, r: 6.2, class: i >= Math.round(F) ? "over" : "" }, g);
           c.style.fill = col(k);
         }
       });
-      for (; i < Math.round(F); i++) el("circle", { cx: cx(i) + ST / 2, cy: cy(i) + ST / 2, r: 6.4, class: "short" }, g);
-      markNote(g, cx, cy, COLS, ST, n, F);
-      el("text", { x: x0 + 14, y: 222, class: "ttl start" }, g, `Got ${n} seats`);
-      shareKey(g, x0 + 14, 242, F);
-      shareLine(g, x0 + 14, 262, n, F);
+      for (; i < Math.round(F); i++) el("circle", { cx: cx(i) + ST / 2, cy: cy(i) + ST / 2, r: 5.4, class: "short" }, g);
+      markNote(g, cx, cy, b.strip ? 0 : 12, ST, n, F);
     });
   }
 
@@ -665,9 +712,12 @@ footer p { max-width: 75ch; }
   // ---------- Electorate seats, as boxes filled with party votes ----------
   // A seat is "covered" when its box is full of party votes. Seats the party's
   // own party vote covers start full; the rest start empty (dashed), and the
-  // votes that move under the proposal fill them.
+  // votes that move under the proposal fill them. A seat is about 24,000
+  // votes, so about 5 dots; moved votes are spread evenly over the `fill`
+  // seats they cover.
   const SEATSETS = {
-    tpm: { name: "Te Pāti Māori", n: 6, base: 4, cap: 17, cols: 6, step: 11, sc: 0.6, perRow: 6, gap: 10 },
+    nat: { name: "National", n: 40, base: 34, fill: 6, cap: 5, cols: 3, step: 8, sc: 0.55, perRow: 14, gap: 2 },
+    tpm: { name: "Te Pāti Māori", n: 5, base: 1, fill: 3, cap: 5, cols: 3, step: 13, sc: 0.9, perRow: 5, gap: 10 },
   };
   Object.entries(SEATSETS).forEach(([k, S]) => {
     const rows = Math.ceil(S.cap / S.cols);
@@ -690,10 +740,10 @@ footer p { max-width: 75ch; }
   function cellPos(S, box, j) {
     return { x: box.x + 2 + S.step / 2 + (j % S.cols) * S.step, y: box.y + 2 + S.step / 2 + Math.floor(j / S.cols) * S.step };
   }
-  // Where the m-th moved vote lands: the next empty spot in the first seat not yet full.
+  // Where the m-th moved vote lands: dealt round the empty seats in turn.
   function seatPos(k, m) {
     const S = SEATSETS[k];
-    return cellPos(S, S.boxes[S.base + Math.floor(m / S.cap)], m % S.cap);
+    return cellPos(S, S.boxes[S.base + (m % S.fill)], Math.floor(m / S.fill));
   }
   function showSlots(k, now) {
     Object.entries(SEATSETS).forEach(([kk, S]) => S.g.style.opacity = kk === k ? 1 : 0);
@@ -721,20 +771,24 @@ footer p { max-width: 75ch; }
     $("legend").style.opacity = 1;
   }
 
-  const DOTS_NOTE = "Each dot is about 1,000 votes";
+  const DOTS = "Each dot is about 5,000 votes (estimated)";
+  const PARL = "Each dot is an MP · dotted line marks a majority";
   const STATES = {
-    current:  { cap: "Parliament after the 2023 General Election", sub: "Each dot is an MP · dotted line marks a majority" },
-    overhang: { cap: "Te Pāti Māori: 6 electorate seats, party vote covers 4", sub: "The 2 outlined dots are seats its party vote doesn’t cover" },
-    split:    { cap: "Split votes in the 6 electorates Te Pāti Māori won", sub: "People who gave Te Pāti Māori their electorate vote, by where their party vote went · " + DOTS_NOTE },
-    sharenow: { cap: "Seats compared with the party vote", sub: "Current rules · 122 seats" },
-    turn:     { cap: "Parliament after the 2023 General Election", sub: "Each dot is an MP · dotted line marks a majority" },
-    seats:    { cap: "Te Pāti Māori’s 6 electorate seats", sub: "Each box is an electorate seat, full when party votes cover it · " + DOTS_NOTE },
-    move1:    { cap: "First: party votes for parties outside Parliament", sub: "From people who gave Te Pāti Māori their electorate vote · " + DOTS_NOTE + " · Each box is an electorate seat, full when its party vote covers it" },
-    transfer: { cap: "Then: 84% of every other split vote", sub: "From people who gave Te Pāti Māori their electorate vote · " + DOTS_NOTE + " · Each box is an electorate seat, full when its party vote covers it" },
-    proposal: { cap: "Parliament with the proposed change", sub: "Each dot is an MP · dotted line marks a majority" },
+    current:  { cap: "Parliament after the 2026 General Election", sub: PARL },
+    overhang: { cap: "National and Te Pāti Māori: 10 overhang seats", sub: "The outlined dots are seats their party vote doesn’t cover" },
+    splitnat: { cap: "Split votes in the 40 electorates National won", sub: "People who gave National their electorate vote, by party vote · " + DOTS },
+    splittpm: { cap: "Split votes in the 5 electorates Te Pāti Māori won", sub: "People who gave Te Pāti Māori their electorate vote, by party vote · " + DOTS },
+    sharenow: { cap: "Seats compared with the party vote", sub: "Current rules · 130 seats" },
+    turn:     { cap: "Parliament after the 2026 General Election", sub: PARL },
+    vacnat:   { cap: "National’s 40 electorate seats", sub: "Each box is an electorate seat, full when party votes cover it · " + DOTS },
+    vactpm:   { cap: "Te Pāti Māori’s 5 electorate seats", sub: "Each box is an electorate seat, full when party votes cover it · " + DOTS },
+    movenat:  { cap: "National: 45% of each split vote", sub: "From people who gave National their electorate vote · " + DOTS + " · Each box is an electorate seat, full when its party vote covers it" },
+    movetpm:  { cap: "Te Pāti Māori: its split votes", sub: "From people who gave Te Pāti Māori their electorate vote · " + DOTS + " · Each box is an electorate seat, full when its party vote covers it" },
+    proposal: { cap: "Parliament with the proposed change", sub: PARL },
     sharefix: { cap: "Seats compared with the party vote", sub: "With the proposed change · 120 seats" },
   };
-  const ALT = ["turn", "seats", "move1", "transfer", "proposal", "sharefix"];
+  const ALT = ["turn", "vacnat", "vactpm", "movenat", "movetpm", "proposal", "sharefix"];
+  const BALLOT = { splitnat: ["nat", false], splittpm: ["tpm", false], vacnat: ["nat", false], vactpm: ["tpm", false], movenat: ["nat", true], movetpm: ["tpm", true] };
 
   function show(state) {
     const s = STATES[state];
@@ -745,54 +799,60 @@ footer p { max-width: 75ch; }
     $("fig").classList.toggle("faded", state === "turn");
 
     const parl = ["current", "overhang", "proposal", "turn"].includes(state);
-    const ballots = ["split", "seats", "move1", "transfer"].includes(state);
-    const blocs = state === "sharenow" || state === "sharefix";
+    const groups = state === "sharenow" || state === "sharefix";
+    const [poolK, moving] = BALLOT[state] || [null, false];
 
     // Parliament
     const pro = state === "proposal";
     const L = pro ? L_PRO : L_CUR, counts = pro ? PROPOSAL : CURRENT;
     seats.forEach(d => {
       const list = L[d.k], here = d.i < list.length, p = list[Math.min(d.i, list.length - 1)];
-      d.el.classList.toggle("extra", d.k === "tpm" && d.i >= 4 && (state === "current" || state === "overhang"));
+      const isOver = d.k in ENTITLED && d.i >= ENTITLED[d.k];
+      d.el.classList.toggle("extra", isOver && (state === "current" || state === "overhang"));
       let op = parl && here ? 1 : 0;
-      if (state === "overhang" && d.k !== "tpm") op = .15;
+      if (state === "overhang" && !isOver) op = .15;
       d.el.style.opacity = op;
       d.el.style.transform = parl ? tr(p.x, p.y, here ? 1 : 0.01) : tr(CX, CY - 60, 0.01);
     });
     $("seatLabel").style.opacity = parl ? 1 : 0;
     $("majLayer").style.opacity = parl ? 1 : 0;
-    const total = pro ? 120 : 122;
+    const total = pro ? 120 : 130;
     $("seatCount").textContent = total;
     $("majText").textContent = (Math.floor(total / 2) + 1) + " for a majority";
     $("blocL").textContent = "Lab · Grn · TPM " + (counts.lab + counts.grn + counts.tpm);
     $("blocR").textContent = "Nat · ACT · NZF " + (counts.nat + counts.act + counts.nzf);
 
     // Split votes
-    $("ballotLayer").style.opacity = ballots ? 1 : 0;
-    const movedNow = d => d.moved && (state === "transfer" || (state === "move1" && d.g.k === "waste"));
+    $("ballotLayer").style.opacity = poolK ? 1 : 0;
     let pileTotal = 0;
-    GROUPS.forEach(g => {
-      const gone = state === "transfer" || (state === "move1" && g.k === "waste");
-      if (gone) pileTotal += g.moved;
-      g.countEl.textContent = gone ? (g.total - g.moved ? fmt(g.total - g.moved) + " left" : "all moved") : fmt(g.total);
+    Object.entries(POOLS).forEach(([pk, pool]) => {
+      pool.labels.style.opacity = pk === poolK ? 1 : 0;
+      pool.groups.forEach(g => {
+        const gone = pk === poolK && moving;
+        if (gone) pileTotal += g.moved;
+        g.countEl.textContent = gone ? (g.total - g.moved ? fmt(g.total - g.moved) + " left" : "all moved") : fmt(g.total);
+      });
     });
-    if (state === "seats" || state === "move1" || state === "transfer") showSlots("tpm", state === "transfer" ? 6 : 4);
+    const COVER = { vacnat: ["nat", 34], vactpm: ["tpm", 1], movenat: ["nat", 40], movetpm: ["tpm", 4] }[state];
+    if (COVER) showSlots(...COVER);
     else showSlots(null);
-    $("moveTitle").style.opacity = state === "move1" || state === "transfer" ? 1 : 0;
-    $("moveTitle").textContent = "Now counted for Te Pāti Māori: " + fmt(pileTotal);
+    if (poolK) key.ev.style.fill = col(POOLS[poolK].target);
+    $("moveTitle").style.opacity = moving ? 1 : 0;
+    if (poolK) $("moveTitle").textContent = `Now counted for ${POOLS[poolK].name}: ${fmt(pileTotal)}`;
     bdots.forEach(d => {
-      const m = movedNow(d);
-      const pos = m ? seatPos("tpm", d.pile) : gridPos(d.g, d.i);
-      d.el.style.transitionDelay = m && state === "transfer" ? (d.g.gi * 0.35 + (d.pile % 5) * 0.03) + "s" : "0s";
-      d.pv.style.fill = m ? col("tpm") : col(d.g.k);
+      const vis = d.pk === poolK;
+      const m = vis && moving && d.moved;
+      const pos = m ? seatPos(d.pk, d.pile) : gridPos(d.g, d.i);
+      d.el.style.transitionDelay = m ? (d.g.gi * 0.3 + (d.pile % 6) * 0.03) + "s" : "0s";
+      d.pv.style.fill = m ? col(POOLS[d.pk].target) : col(d.g.k);
       d.pv.style.transitionDelay = d.el.style.transitionDelay;
-      d.el.style.opacity = ballots ? 1 : 0;
-      d.el.style.transform = tr(pos.x, pos.y, ballots ? (m ? SEATSETS.tpm.sc : 1) : 0.01);
+      d.el.style.opacity = vis ? 1 : 0;
+      d.el.style.transform = tr(pos.x, pos.y, vis ? (m ? SEATSETS[d.pk].sc : 1) : 0.01);
     });
 
     // Seats vs party vote
-    $("blocLayer").style.opacity = blocs ? 1 : 0;
-    if (blocs) drawBlocs(state === "sharefix" ? PROPOSAL : CURRENT, state === "sharefix" ? 120 : 122);
+    $("blocLayer").style.opacity = groups ? 1 : 0;
+    if (groups) drawGroups(state === "sharefix" ? PROPOSAL : CURRENT, state === "sharefix" ? 120 : 130);
 
     if (parl) legend(counts, pro ? CURRENT : null);
     else $("legend").style.opacity = 0;

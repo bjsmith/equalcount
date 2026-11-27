@@ -1,4 +1,4 @@
-"""Experiment 3: five future elections (2029–2041) from the 2026 provisional result.
+"""Experiment 3: five future elections (2029–2041) from the 2026 official result.
 
 Each "world" carries a party system, a persistent electoral map and voter
 behaviour forward from one election to the next. Three pathways share the same
@@ -18,7 +18,7 @@ Between elections the world changes in two ways:
               after reviewing each round (futures/overrides_<year>.json).
 
 Starting point (2026): national party votes and each electorate's party votes
-from the provisional count; the electoral map is each party's local share
+from the official count; the electoral map is each party's local share
 relative to its national share. Behaviour starts from the ABC posterior
 (abc_summary.md) and is fitted so the 2026 electorate winners are reproduced
 (fit_2026()).
@@ -66,7 +66,7 @@ ROLE = {"TPM": "maori", "TOP": "centre"}
 # ======================= starting point =======================
 
 def load_2026():
-    raw = ROOT / "data/raw/2026_preliminary"
+    raw = ROOT / "data/raw/2026_official"
     with open(raw / "electorates.csv", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     nat = {}
@@ -277,7 +277,7 @@ def simulate(w, system, rng=None, keep_state=False):
 
 def fit_2026():
     """Grid-search the 2026 strategic rates and standouts so the simulated
-    winners match the provisional result."""
+    winners match the official result."""
     shares, els = load_2026()
     w = new_world(0)
     actual = [e["winner"] for e in els]
@@ -541,8 +541,9 @@ def load():
     return json.loads(path("worlds.json").read_text())
 
 
-# Fitted to the 2026 winners on a finer grid across three seeds (electorate
-# counts off by 2: Labour 20 vs 21, TPM 6 vs 5).
+# Fitted to the 2026 winners (official count) on a finer grid across three
+# seeds (electorate counts off by 2: Labour 21 vs 22, TPM 6 vs 5). The same
+# values were also the best fit to the preliminary count.
 FIT_2026 = {"s_L": 0.15, "s_R": 0.35, "s_M": 0.40}
 
 
@@ -623,7 +624,7 @@ def cmd_round(year):
 
 def cmd_summary():
     worlds = load()
-    # 2026 is the fixed starting point (the provisional result); only 2029 on is simulated
+    # 2026 is the fixed starting point (the official result); only 2029 on is simulated
     years = sorted({h["year"] for w in worlds.values() for h in w["history"] if h["year"] >= 2029})
     out = ["| Year | System | Overhang (raw) median/max | House median | Bloc deficit median/max | Party def. median | "
            "Gallagher median | Wasted % median | Majority L/R/none |", "|---|---|---|---|---|---|---|---|---|"]

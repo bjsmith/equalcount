@@ -1,6 +1,6 @@
 """Experiment 3 at scale: 1,000 random walks from 2026 to 2041.
 
-Each walk is a world started from the fixed 2026 provisional result and run
+Each walk is a world started from the fixed 2026 official result and run
 through five elections (2029–2041) under all ten pathways, with the same
 random events (swings, drift, new parties) in every pathway of a walk.
 

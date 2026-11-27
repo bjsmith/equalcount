@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prior art for the Overhang Transfer: literature check</title>
+<meta name="description" content="23 November 2026. Purpose: before the transfer is pitched, find out whether it has been proposed before, which close relatives exist, and what objections have already been raised against them. The search was done by web ">
+<meta property="og:title" content="Prior art for the Overhang Transfer: literature check">
+<meta property="og:description" content="23 November 2026. Purpose: before the transfer is pitched, find out whether it has been proposed before, which close relatives exist, and what objections have already been raised against them. The search was done by web ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root {
+  --paper: #F2F5F4; --card: #FFFFFF; --ink: #121A17; --muted: #5A6862; --line: #D3DCD8;
+  --accent: #0B57A4; --mark: #FFF4C2; --code: #E6ECE9;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+    --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --card: #161E1B; --ink: #E7EEEA; --muted: #97A69F; --line: #2A3531;
+  --accent: #7FB2EE; --mark: #3A3410; --code: #1F2925; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 16px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body);
+  font-size: 18px; line-height: 1.6; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+.sx-brand { color: var(--ink); }
+.layout { max-width: 1120px; margin: 0 auto; display: grid; gap: 40px; padding-block: 32px 80px;
+  grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1000px) { .layout { grid-template-columns: 240px minmax(0, 1fr); } }
+.toc { font-size: 14px; line-height: 1.4; }
+.toc-inner { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow: auto; padding-right: 8px; }
+.toc p { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin: 0 0 8px; }
+.toc ul { list-style: none; margin: 0; padding: 0; }
+.toc ul ul { padding-left: 12px; }
+.toc li { margin: 6px 0; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+.toc .group { margin-top: 24px; }
+@media (max-width: 999px) { .toc-inner { position: static; max-height: none; }
+  .toc details:not([open]) ul { display: none; } }
+article { max-width: 760px; min-width: 0; }
+article h1, article h2, article h3, article h4 { font-family: var(--display); line-height: 1.15; text-wrap: balance; }
+article h1 { font-size: clamp(32px, 4.4vw, 48px); font-weight: 800; letter-spacing: -.015em; margin: 0 0 12px; }
+article h1 + h3 { font-family: var(--body); font-weight: 400; font-size: 21px; color: var(--muted); margin-top: 0; }
+article h2 { font-size: 28px; margin: 56px 0 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+article h3 { font-size: 21px; margin: 36px 0 8px; }
+article h4 { font-size: 18px; margin: 28px 0 6px; }
+article hr { border: 0; border-top: 1px solid var(--line); margin: 40px 0; }
+article blockquote { margin: 20px 0; padding: 4px 18px; border-left: 3px solid var(--line); color: var(--muted); }
+article code { font-size: .86em; background: var(--code); padding: .1em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+article pre { background: var(--code); padding: 14px; border-radius: 8px; overflow: auto; font-size: 14px; }
+article pre code { background: none; padding: 0; }
+article img { max-width: 100%; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+table { border-collapse: collapse; font-size: 15px; line-height: 1.4; min-width: 100%; }
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+th { font-weight: 700; background: var(--code); }
+tr:last-child td { border-bottom: 0; }
+td { font-variant-numeric: tabular-nums; }
+.draft { background: var(--mark); border-radius: 8px; padding: 12px 16px; font-size: 15px; margin-bottom: 28px; }
+.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-top: 56px;
+  padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
+.foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
+.meta { color: var(--muted); }
+a.gloss { color: inherit; text-decoration: underline dotted var(--accent); text-decoration-thickness: 2px;
+  text-underline-offset: 4px; cursor: help; }
+a.gloss:hover, a.gloss[aria-expanded="true"] { color: var(--accent); }
+.gloss-pop { position: absolute; z-index: 20; max-width: calc(100vw - 32px); background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,.18);
+  padding: 12px 14px; font-size: 15px; line-height: 1.45; font-weight: 400; text-align: left; }
+.gloss-pop p { margin: 0 0 8px; }
+.gloss-more { font-size: 14px; font-weight: 600; }
+article p[id^="gloss-"] { scroll-margin-top: 16px; border-radius: 6px; }
+article p[id^="gloss-"]:target { background: var(--mark); box-shadow: 0 0 0 6px var(--mark); }
+td.q0 { background: rgba(30, 150, 90, .26); }
+td.q1 { background: rgba(30, 150, 90, .12); }
+td.q2 { background: rgba(200, 165, 30, .14); }
+td.q3 { background: rgba(230, 120, 40, .17); }
+td.q4 { background: rgba(215, 55, 45, .24); }
+.shade-note { color: var(--muted); font-size: 14px; margin: -12px 0 20px; }
+.shade-key { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin: 0 2px -1px; }
+
+.sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-family: var(--body); font-size: 15px; }
+.sx-brand { font-family: var(--display); font-weight: 800; text-decoration: none; letter-spacing: -.01em; }
+.sx-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.sx-links a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.sx-links a:hover, .sx-links a[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+</style>
+</head>
+<body>
+<nav class="sx-nav" aria-label="Site">
+  <a class="sx-brand" href="../">Every voter counts equally</a>
+  <div class="sx-links"><a href="../">2026</a><a href="../2023/">2023</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
+</nav>
+<div class="layout">
+<aside class="toc"><div class="toc-inner">
+  <details open><summary class="meta" style="cursor:pointer;margin-bottom:8px">Contents</summary>
+  <ul><li><a href="#bottom-line">Bottom line</a></li><li><a href="#1-the-closest-precedent-germanys-rule-for-independents-61-sentence-2-federal-electoral-act">1. The closest precedent: Germany's rule for independents (§6(1), sentence 2, Federal Electoral Act)</a></li><li><a href="#2-the-closest-mechanism-wahlrechtde-forum-2011">2. The closest mechanism: wahlrecht.de forum, 2011</a></li><li><a href="#3-the-main-doctrinal-obstacle-bverfge-95-335-overhang-seats-ii-1997">3. The main doctrinal obstacle: BVerfGE 95, 335 (Overhang Seats II, 1997)</a></li><li><a href="#4-the-vote-linkage-family-precedents-and-warnings">4. The vote-linkage family: precedents and warnings</a></li><li><a href="#5-germanys-current-debate-where-the-transfer-could-fit">5. Germany's current debate: where the transfer could fit</a></li><li><a href="#6-new-zealands-reviews-and-current-debate">6. New Zealand's reviews and current debate</a></li><li><a href="#7-implications-for-the-pitch">7. Implications for the pitch</a></li><li><a href="#gaps">Gaps</a></li><li><a href="#sources">Sources</a></li></ul></details>
+  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li><li><a href="../report/prior-art.html" aria-current="page">Prior art</a></li></ul></div>
+</div></aside>
+<article>
+<p class="draft"><strong>Working draft.</strong> Last updated 23 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
+<h1 id="prior-art-for-the-overhang-transfer-literature-check">Prior art for the Overhang Transfer: literature check</h1>
+<p><em>23 November 2026. Purpose: before the transfer is pitched, find out whether it has been proposed before, which close relatives exist, and what objections have already been raised against them. The search was done by web search and by reading primary sources where they could be fetched. It is not exhaustive: see "Gaps" at the end.</em></p>
+<h2 id="bottom-line">Bottom line</h2>
+<ul>
+<li><strong>No published academic or official proposal of the transfer, as we specify it, turned up.</strong> We specify it as ballot-level, applying only when a party overhangs, and counting split voters' party votes for the party of the candidate they elected rather than discarding them. None of the following discusses it:<ul>
+<li>New Zealand's 1986, 2012 or 2023 reviews;</li>
+<li>the current New Zealand debate;</li>
+<li>the German Constitutional Court's overhang cases;</li>
+<li>the German reform debate.</li>
+</ul>
+</li>
+<li><strong>The principle has a strong precedent.</strong> German law has excluded the party votes of voters who elect an independent since 1956. The Constitutional Court upheld that rule in 1957 and 1988, as a way to stop those voters gaining a "double vote weight".</li>
+<li><strong>The closest mechanism is an amateur proposal.</strong> It appeared on the wahlrecht.de forum in 2011, used a different mechanism (down-weighting), drew objections, and went nowhere.</li>
+<li><strong>The main doctrinal obstacle is a 1997 German Constitutional Court ruling.</strong> It explicitly refused to treat overhang as double vote weight for split voters, and gave three reasons. Any German-literate expert will cite them, so we need answers to all three (section 3).</li>
+<li><strong>The wider family the transfer belongs to has a mixed record.</strong> That family is vote linkage, where constituency votes affect the list count:<ul>
+<li>Italy's scorporo was defeated by decoy lists.</li>
+<li>Hungary's version is seen as a winner's bonus.</li>
+<li>Bochsler argues vote linkage resists list-splitting.</li>
+</ul>
+</li>
+<li><strong>The transfer avoids the scorporo's flaw</strong> because it follows each voter's own ballot, not a candidate's declared list link.</li>
+</ul>
+<p>So the honest claim is: <strong>a ballot-level extension of an established anti-double-counting rule, which no one has worked through for overhang</strong>. It is not "a new idea".</p>
+<hr />
+<h2 id="1-the-closest-precedent-germanys-rule-for-independents-61-sentence-2-federal-electoral-act">1. The closest precedent: Germany's rule for independents (§6(1), sentence 2, Federal Electoral Act)</h2>
+<p><strong>The rule.</strong> Second votes (party votes) of voters whose first vote went to a successful constituency candidate are not counted in the proportional allocation, where that candidate is either:</p>
+<ul>
+<li>an independent, or</li>
+<li>from a party with no list in that state.</li>
+</ul>
+<p>The rule has been in place since 1956.</p>
+<p><strong>The 1957 decision (BVerfGE 7, 63).</strong> The Court held that the rule stops the voters of a successful independent from doubling their vote weight. It called the rule a necessary consequence of offsetting electorate seats against list seats.</p>
+<p><strong>The 1988 decision (BVerfGE 79, 161; 2 BvC 3/88).</strong> The Court upheld the rule again and gave the reasoning that matters most for us:</p>
+<ul>
+<li><strong>Ordinary splitting gives no double effect</strong>, because a winning candidate's seat is offset against their party's list seats.</li>
+<li><strong>The Court named overhang as the exception:</strong> a split voter's first vote cannot win the other party more seats than its second votes justify, apart from overhang seats.</li>
+<li><strong>Splitting raises a voter's weight only where an electorate seat is not offset.</strong> That covers independents, parties without a list, and parties below the threshold, and the rule stops the resulting "double success" in those cases.</li>
+</ul>
+<p><strong>Why it matters.</strong></p>
+<ul>
+<li>The transfer applies the same logic to overhang seats: where an electorate seat isn't offset, the split voter's two votes both count.</li>
+<li>Germany handles it by discarding those voters' party votes. The transfer instead counts them for the party of the candidate they elected.</li>
+<li>That gives the overhang seat a vote share behind it and leaves the other parties' entitlements as they were.</li>
+</ul>
+<p><strong>Contrast with New Zealand.</strong> New Zealand treats independent winners differently: the number of list seats shared out is reduced by one, so every other party pays. The 2023 Review described exactly this ("This approach currently applies to seats won by independent candidates", para. 4.98) when recommending the same treatment for overhang.</p>
+<p>So the two countries already embody the two opposite answers to "who pays for an uncompensated electorate seat?":</p>
+<ul>
+<li><strong>Germany:</strong> the voters who elected it pay.</li>
+<li><strong>New Zealand:</strong> everyone else pays.</li>
+</ul>
+<p>The transfer is the German answer applied to overhang. <strong>This contrast is our best framing device.</strong></p>
+<p><strong>Status check needed.</strong> I couldn't fetch the current text of §6 (the official statute site failed to resolve). The 2023 reform restructured §6, and the Court's 30 July 2024 decision (2 BvF 1/23) found §6(1) compatible with the Basic Law. Confirm the current wording before quoting it.</p>
+<hr />
+<h2 id="2-the-closest-mechanism-wahlrechtde-forum-2011">2. The closest mechanism: wahlrecht.de forum, 2011</h2>
+<p>A thread titled "Zweitstimmen von Überhangmandaten ausschließen" ("excluding the second votes behind overhang seats") was posted by "Arno Nymus" on 30 April 2011.</p>
+<p><strong>The proposal.</strong> In each state with overhang, the second votes of <em>every</em> voter who elected one of the overhanging party's winners are down-weighted by (seats the party's vote justifies) ÷ (electorates it won). For the CSU in Bavaria in 2009 that factor is 42/45. The down-weighting covers straight-ticket voters too, and it is solved iteratively.</p>
+<p><strong>How it differs from the transfer:</strong></p>
+<ul>
+<li>It down-weights votes rather than reassigning them.</li>
+<li>It touches every voter behind the winners, straight-ticket included, rather than only split ballots. Under the transfer, straight-ticket ballots need no change, because both votes already go to the same party.</li>
+</ul>
+<p><strong>Objections raised in the thread</strong> (the most useful part):</p>
+<ol>
+<li><strong>No common currency between the votes</strong> ("Ratinger Linke"). A constituency vote has success or failure, not a value. Its effective size varies from about 25% to 70% of the electorate vote, depending on turnout and competition.</li>
+<li><strong>Voters can't know in advance which vote will count.</strong> This conflicts with the German principle of directness (Unmittelbarkeit), and it makes splitting risky, "worse than negative vote weight".</li>
+<li><strong>Negative vote weight.</strong> It was raised against the broader "Teilgraben" variant, in which the second votes of every successful constituency candidate's voters are ignored. There, giving your first vote to your own party's winner harms that party. The poster disputed calling this negative weight; others insisted it was.</li>
+<li><strong>Political feasibility.</strong> Smaller parties (the FDP then) would block it, and the Union wants to keep its own overhang while removing others'.</li>
+<li><strong>For it</strong> ("Werner Fischer"). If independents' voters lose their second vote because of double weight, why should overhang, which is also double weight, be treated differently?</li>
+</ol>
+<p><strong>Outcome.</strong> No uptake beyond the forum. The replies cited the 1988 and 1997 decisions as having settled the question.</p>
+<p>Halina Wawzyniak (Die Linke MP) blogged on §6(1) in 2013. She argued that the double-weight rationale also covers ordinary two-party splitting once overhang is common, but drew the conclusion that a single-vote system was needed, not an extension of the rule.</p>
+<hr />
+<h2 id="3-the-main-doctrinal-obstacle-bverfge-95-335-overhang-seats-ii-1997">3. The main doctrinal obstacle: BVerfGE 95, 335 (<em>Overhang Seats II</em>, 1997)</h2>
+<p><strong>The case.</strong> Lower Saxony challenged uncompensated overhang. The Court split 4–4, so the law stood.</p>
+<p><strong>The four judges who upheld it</strong> held that overhang is not double vote weight for split voters. Their reasons were:</p>
+<ul>
+<li><strong>(a)</strong> Overhang gives no voter a <em>foreseeable</em> double success in advance. The independent rule is justified because that voter's double chance is foreseeable.</li>
+<li><strong>(b)</strong> Split and straight-ticket voters both contribute to overhang.</li>
+<li><strong>(c)</strong> No one can determine which overhang seat arises from which voter's vote.</li>
+<li>Overhang reflects the collective vote, and is acceptable within limits.</li>
+</ul>
+<p><strong>The four dissenting judges</strong> held that overhang distorts the equal value of votes. Their remedies were offsetting overhang against lists in other states, and compensation seats. Neither side proposed disregarding or reassigning split voters' second votes.</p>
+<p><strong>The case also links splitting to overhang.</strong> It records that the CDU's two overhang seats in Baden-Württemberg in 1994 were probably due to targeted splitting. The 2012 decision (2 BvF 3/11) held that the risk of abuse through splitting was "abstract" and didn't affect constitutionality.</p>
+<p><strong>Our answers to the three reasons:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>1997 reason</th>
+<th>Response</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(a) No foreseeable double success</td>
+<td>The transfer doesn't rely on foreseeability. It corrects the double effect that actually occurred, and only when it occurred. The foreseeability point cuts the other way too: under absorption, voters can't foresee whether their own party's list will shrink. Directness is not a New Zealand constitutional doctrine, but the point has persuasive force. Concede that voters can't know in advance whether their party vote will be partly transferred, and argue that this is the price of a contingent rule, which every overhang rule shares</td>
+</tr>
+<tr>
+<td>(b) Straight-ticket voters contribute too</td>
+<td>Agreed, but their ballots aren't double counted: both votes go to the same party, which is exactly why the transfer leaves them alone. Only a split ballot can elect a seat for one party while its party vote funds another. This is the strongest of our three answers</td>
+</tr>
+<tr>
+<td>(c) Can't identify which voter caused which seat</td>
+<td>The transfer doesn't try to. It attributes the overhang collectively to all split ballots behind the overhanging party's winners, which is consistent with the majority's own "collective vote" reasoning. This is also our real weakness (the uniform transfer share). A variant that transfers only from pivotal ballots, in seats where the split votes exceeded the winning margin, would answer (c) much more directly</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="4-the-vote-linkage-family-precedents-and-warnings">4. The vote-linkage family: precedents and warnings</h2>
+<p>The literature divides compensatory mixed systems in two:</p>
+<ul>
+<li><strong>Seat linkage</strong>, or top-up: electorate seats are subtracted from list seats. New Zealand, Germany and Scotland work this way.</li>
+<li><strong>Vote linkage</strong>, or vote transfer: constituency votes are added to or subtracted from the list count. Italy and Hungary work this way.</li>
+</ul>
+<p>The transfer is a contingent, ballot-level form of vote linkage.</p>
+<p><strong>Italy, scorporo (1993–2005; "Mattarellum").</strong></p>
+<ul>
+<li><strong>The mechanism.</strong> Seats were 75% first-past-the-post. A winning candidate's votes (the margin needed to win) were subtracted from the list vote of the list <em>the candidate was linked to</em>.</li>
+<li><strong>How it was beaten.</strong> In 2001 the House of Freedoms linked its candidates to a decoy list, "Abolizione Scorporo", so the subtraction fell on an empty list. The mechanism was later dropped.</li>
+<li><strong>Lesson.</strong> Linkage by candidate declaration can be gamed. Linkage by the voter's own ballot can't be gamed the same way: a decoy party gains nothing, because the transfer follows the actual party votes on the ballots that elected the winner. Say this explicitly. A critic who knows the scorporo will raise it.</li>
+</ul>
+<p><strong>Hungary, positive and negative vote transfer.</strong></p>
+<ul>
+<li><strong>Before 2014:</strong> losing candidates' votes went to the compensation tier.</li>
+<li><strong>From 2014:</strong> winners' surplus votes (winner's total minus the runner-up's, plus one) also go there.</li>
+<li><strong>The critique.</strong> Csató's modelling finds the change in transfer formula decisive for Fidesz's two-thirds majority in 2014. Defenders attribute it to the larger number of single-member seats.</li>
+<li><strong>Lesson.</strong> Vote transfer is associated with majoritarian bonuses. The transfer runs the opposite way: it reduces the over-represented party's partners rather than rewarding winners. But expect the association.</li>
+</ul>
+<p><strong>Bochsler.</strong></p>
+<ul>
+<li>His 2012 article ("A quasi-proportional electoral system 'only for honest men'?", <em>International Political Science Review</em> 33(4): 401–20) shows how coordinated split-ticket voting and decoy lists defeat compensation, using Albania 2005, Italy, Lesotho and Venezuela.</li>
+<li>His 2014 work on positive vote transfer argues that list-splitting is impossible under that system. He also notes that such systems are proportional only when more than half the seats are compensatory.</li>
+<li><strong>Lesson.</strong> The academic literature on decoy lists already treats vote linkage as the remedy for list-splitting. The transfer is a targeted version of that remedy. Cite it as support. I couldn't read the 2015 rejoinder in full (expired certificate).</li>
+</ul>
+<p><strong>Lesotho (2007 to 2011).</strong> The two largest parties ran their electorate candidates and their list under separate parties, a decoy-list arrangement. The 2011 reform, agreed across parties, moved to a <strong>single ballot</strong> that counts for both tiers. It is the real precedent for Spinoff Option 5 (one combined vote), and evidence that countries facing decoy lists do change rules.</p>
+<p><strong>South Korea (2020, 2024).</strong> Under a semi-compensatory system, both major parties created satellite parties that ran only for list seats. A bill to ban satellite parties was rejected. <strong>Lesson:</strong> when compensation can be gamed through party structures, the big parties will do it and won't legislate against themselves.</p>
+<p><strong>Scotland (2021, Alba).</strong> Under the Additional Member System, which has no overhang seats (absorption by design), the Alba party's list-only strategy was widely called a decoy. Proposed remedies were STV, open-list PR, or compensation seats (Strauss). No vote-linkage remedy turned up.</p>
+<hr />
+<h2 id="5-germanys-current-debate-where-the-transfer-could-fit">5. Germany's current debate: where the transfer could fit</h2>
+<ul>
+<li><strong>The 2023 reform</strong> introduced "Zweitstimmendeckung": seats must be covered by party votes, so uncovered constituency winners don't take seats. That is Spinoff Option 4. The Court upheld the principle on 30 July 2024 and struck down the abolition of the rule that lets a party winning three constituencies bypass the threshold.</li>
+<li><strong>The 2025 coalition agreement</strong> aims to seat every constituency winner again (according to Vehrkamp).</li>
+<li><strong>The seat-side proposals on the table:</strong><ul>
+<li>the 2022–23 Electoral Law Commission's "Ersatzstimme": a substitute vote decides the constituency if the winner is uncovered;</li>
+<li>Grotz and Vehrkamp (Bertelsmann, 2025): seat the best <em>covered</em> candidate, working down the field until one is covered;</li>
+<li>multi-member districts (Mehr Demokratie).</li>
+</ul>
+</li>
+</ul>
+<p><strong>The opportunity.</strong> Germany now wants exactly what the transfer offers: every electorate winner seated, no growth in the House, proportionality kept. Every German proposal works on the seat side, and none on the vote side. A New Zealand result showing the transfer works would be of interest there too. It is also a second audience for the idea.</p>
+<hr />
+<h2 id="6-new-zealands-reviews-and-current-debate">6. New Zealand's reviews and current debate</h2>
+<ul>
+<li><strong>1986 Royal Commission.</strong> It expected overhang to be an "unlikely event", to be met by temporarily adding seats. Its prediction that deliberate manipulation would "attract an electoral backlash" is now being quoted against reform (Peoples, below).</li>
+<li><strong>2012 Electoral Commission review.</strong> It considered only one way of abolishing overhang: reducing the number of Sainte-Laguë quotients, i.e. absorption. It recommended that only together with abolishing coat-tailing, and found the effect on proportionality "minimal" on 1996–2011 results. There was no split-vote option. The review cited:<ul>
+<li>the New Zealand Election Study's 2000 warning that strategic behaviour may reduce "the credibility and legitimacy of the electoral system";</li>
+<li>a 2011 poll in which 55% opposed National signalling for Epsom voters to tick John Banks, against 29% in support.</li>
+</ul>
+</li>
+</ul>
+<p>That is useful evidence that the public dislikes engineered splitting.
+- <strong>2023 Independent Electoral Review.</strong> It recommended abolishing overhang by absorption (paras. 4.88–4.103). It explicitly recorded the objections:
+    - absorption gives parties with strong local support a "windfall";
+    - it "could encourage parties, candidates, and voters to act strategically".</p>
+<p>It still recommended absorption, conditional on abolishing coat-tailing and moving to a 3.5% threshold. There was no split-vote option. This is useful: the Review saw the incentive problem with its own rule and had no alternative to offer.
+- <strong>The 2026 debate:</strong>
+    - <strong>The open letter</strong>, "Keep the 'P' in MMP" (Geddis and 45 others), calls for a select committee and floats a softer Option 4 plus weighting votes in the House.
+    - <strong>Edgeler</strong> thinks National's overhang may be largely organic. He has floated the German approach and limiting each party's votes on bills to its party-vote entitlement.
+    - <strong>Geddis</strong> sees Te Pāti Māori's overhang as engineered and National's as more organic.
+    - <strong>Nissen</strong> (Lincoln, via The Conversation) favours the German approach, more list seats, and the shelved 2012 and 2023 recommendations.
+    - <strong>Peoples</strong> (Spinoff, "In defence of MMP", 23 November) argues overhang is MMP working as designed, opposes "penalising split-voting", and prefers more list seats or a lower threshold.</p>
+<p>None of them mentions reassigning votes. <strong>Peoples's piece is the clearest statement of the objection the transfer will face:</strong> voters who split are "actively choosing to weight local representation higher", and a rule that changes the value of their party vote penalises a choice the ballot invites.</p>
+<p><strong>The organic-versus-engineered debate affects the pitch.</strong> If National's 7-seat overhang is mostly organic, it is the plurality kind, where splitting played a small part. Then fewer split ballots sit behind it, and the transfer looks like a penalty on ordinary personal voting rather than a fix for gaming.</p>
+<p>Our 2026 estimate has 155,000 ACT voters ticking National winners, which suggests substantial splitting. But that figure is extrapolated from 2023 rates. The Electoral Commission's split-vote statistics, due with or after the official results (27 November), will settle how much of the overhang was splitting. <strong>Hold any public claim about 2026 until then.</strong></p>
+<hr />
+<h2 id="7-implications-for-the-pitch">7. Implications for the pitch</h2>
+<ol>
+<li><strong>Lead with the German independents rule as precedent</strong>: same principle, upheld twice by the German Constitutional Court. The transfer extends it to overhang, and counts the vote rather than discarding it.</li>
+<li><strong>Frame the choice as "who pays for an uncompensated electorate seat?"</strong> New Zealand's existing answer for independents (everyone else) against Germany's (the voters who elected it) makes this concrete. It is already in both statutes.</li>
+<li><strong>Pre-empt the 1997 Court reasons</strong> with section 3's answers, and take the pivotal-ballot variant seriously as the response to reason (c).</li>
+<li><strong>Distinguish the transfer from the scorporo</strong> (ballot linkage, not candidate linkage, so decoys don't work) and from Hungary (it penalises over-representation rather than rewarding winners).</li>
+<li><strong>Engage Peoples's objection directly.</strong> Under MMP the split voter isn't just "weighting local representation". When the seat overhangs, the voter is also shifting party seats, and the transfer only bites in that case.</li>
+<li><strong>Offer the idea to the German debate</strong>, where the 2025 coalition goal (seat every constituency winner, keep the House fixed and proportional) is exactly the transfer's niche.</li>
+<li><strong>Wait for the official 2026 split-vote data</strong> before any public claim about 2026.</li>
+</ol>
+<h2 id="gaps">Gaps</h2>
+<ul>
+<li><strong>The current §6 text</strong> couldn't be fetched (DNS failure), and <strong>Bochsler's 2015 rejoinder</strong> couldn't be read (expired certificate). Both need checking by another route.</li>
+<li><strong>Not searched in depth:</strong><ul>
+<li>New Zealand academic work (Vowles, Nagel, Geddis's own writing on overhang);</li>
+<li>German academic literature beyond court decisions (Behnke, Pukelsheim's offsetting proposals, Grotz);</li>
+<li>the 2022–23 German Electoral Law Commission materials;</li>
+<li>Scottish and Welsh reform submissions.</li>
+</ul>
+</li>
+</ul>
+<p>A specialist database search (JSTOR, SSRN, Electoral Studies, Representation) is the next step if we want to claim novelty with confidence.
+- <strong>Pages ~366–391 of BVerfGE 95, 335</strong> (the dissent's treatment of splitting) weren't read verbatim.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>German Federal Electoral Act §6: https://www.gesetze-im-internet.de/bwahlg/__6.html</li>
+<li>BVerfG 1988, 2 BvC 3/88 (independents rule): https://www.wahlrecht.de/wahlpruefung/19881123.htm</li>
+<li>BVerfGE 7, 63 (1957): https://www.servat.unibe.ch/dfr/bv007063.html</li>
+<li>BVerfGE 95, 335 (1997, Überhangmandate II): https://www.servat.unibe.ch/dfr/bv095335.html</li>
+<li>BVerfG 2012, 2 BvF 3/11, headnotes: https://www.bundesverfassungsgericht.de/SharedDocs/Downloads/DE/2012/07/fs20120725_2bvf000311.pdf</li>
+<li>wahlrecht.de forum, "Zweitstimmen von Überhangmandaten ausschließen" (2011): https://wahlrecht.de/forum/messages/172/4658.html</li>
+<li>Wawzyniak, "Der § 6 Abs. 1 S. 2 Bundeswahlgesetz" (2013): https://blog.wawzyniak.de/der-%C2%A7-6-abs-1-s-2-bundeswahlgesetz/</li>
+<li>Bundestag research service on the 2022 reform options (WD 3 - 3000 - 117/22): https://www.bundestag.de/resource/blob/916908/b6b6d93b8c360555df03d65038f7c630/WD-3-117-22-pdf.pdf</li>
+<li>Grotz and Vehrkamp, "Beste Sieger im Wahlkreis" (Bertelsmann, 2025): https://www.bertelsmann-stiftung.de/fileadmin/files/BSt/Publikationen/GrauePublikationen/EINWURF_08_2025_Beste_Sieger_im_Wahlkreis.pdf</li>
+<li>LTO on the 2023 reform: https://www.lto.de/recht/hintergruende/h/bundestag-wahlrecht-reform-erststimme-zweitstimme-ersatzstimme-wahlkreis-ueberhang-direkt-mandat-ampel</li>
+<li>Oelbermann and Pukelsheim, Augsburg preprint: https://opus.bibliothek.uni-augsburg.de/opus4/files/1441/mpreprint_10_011.pdf</li>
+<li>Bochsler 2012 (abstract): https://research.ceu.edu/en/publications/a-quasi-proportional-electoral-system-only-for-honest-men-the-hid/</li>
+<li>Bochsler rejoinder (2015): https://bochsler.eu/uploads/publi/bochsler_2-15.pdf</li>
+<li>Csató, vote transfer systems (Hungary): https://arxiv.org/abs/1507.01477</li>
+<li>Scorporo: https://en.wikipedia.org/wiki/Scorporo ; Italian commentary: https://www.forumcostituzionale.it/wordpress/wp-content/uploads/pre_2006/394.pdf</li>
+<li>Lesotho 2011 agreement: https://www.peaceagreements.org/view/730/ ; ACE Project: https://aceproject.org/today/feature-articles/the-mmp-electoral-system-faces-political-challenges-in-lesotho</li>
+<li>South Korea satellite parties: https://keia.org/the-peninsula/how-does-south-koreas-new-election-system-work/</li>
+<li>Scotland and Alba (Strauss): https://ukconstitutionallaw.org/2021/04/07/kathrin-strauss-ausgleichsmandate-for-the-scottish-parliament-scotlands-mixed-electoral-system-and-the-alba-party/</li>
+<li>Electoral Commission, 2012 MMP review report: https://elections.nz/assets/2012-report-of-the-Electoral-Commission-on-the-review-of-mmp.pdf</li>
+<li>Independent Electoral Review final report (2023): local copy, <a href="https://github.com/bjsmith/equalcount/blob/main/Independent-Electoral-Review-Final-Report-November-2023.pdf"><code>Independent-Electoral-Review-Final-Report-November-2023.pdf</code></a>, paras. 4.88–4.103</li>
+<li>Spinoff, "Ten ways to fix MMP, explained": https://thespinoff.co.nz/politics/19-11-2026/ten-ways-to-fix-mmp-explained</li>
+<li>Spinoff, "In defence of MMP" (Peoples): https://thespinoff.co.nz/politics/23-11-2026/in-defence-of-mmp</li>
+<li>Nissen, 1News / The Conversation: https://www.1news.co.nz/2026/11/19/the-election-was-an-mmp-special-tune-the-system-dont-scapegoat-it/</li>
+<li>RNZ, "Was the overhang artificially caused?": https://www.rnz.co.nz/news/politics_election-2026/2448753/election-results-was-the-overhang-artificially-caused</li>
+<li>Open letter, "Keep the 'P' in MMP": https://www.interest.co.nz/sites/default/files/2026-11/Open%20letter%20Keep%20the%20%E2%80%9CP%E2%80%9D%20in%20MMP%20%281%29.pdf</li>
+</ul>
+<nav class="pager" aria-label="Report pages"><a href="../report/experiment-3.html">← Experiment 3: futures from 2026</a></nav>
+<p class="foot">Generated from <a href="https://github.com/bjsmith/equalcount/blob/main/literature_prior_art.md"><code>literature_prior_art.md</code></a>. This describes proposals for discussion, not current electoral law. Text and figures <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; code <a href="https://github.com/bjsmith/equalcount/blob/main/LICENSE">MIT</a>.</p>
+</article>
+</div>
+</body>
+</html>

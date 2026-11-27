@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Overhang reform under MMP: the costs and benefits of the options</title>
-<meta name="description" content="This report assesses four options for handling overhang in New Zealand&#x27;s MMP system: keeping the current rules (MMP); enlarging Parliament to 141 seats by adding 20 list seats (MMP141); and combining that enlargement wit">
-<meta property="og:title" content="Overhang reform under MMP: the costs and benefits of the options">
-<meta property="og:description" content="This report assesses four options for handling overhang in New Zealand&#x27;s MMP system: keeping the current rules (MMP); enlarging Parliament to 141 seats by adding 20 list seats (MMP141); and combining that enlargement wit">
+<title>Counting each vote once: the Overhang Transfer</title>
+<meta name="description" content="Draft for discussion, 27 November 2026. The 2026 figures use the official count, published on 27 November; split votes are still estimated from 2023 patterns, and will be updated when the Electoral Commission publishes i">
+<meta property="og:title" content="Counting each vote once: the Overhang Transfer">
+<meta property="og:description" content="Draft for discussion, 27 November 2026. The 2026 figures use the official count, published on 27 November; split votes are still estimated from 2023 patterns, and will be updated when the Electoral Commission publishes i">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
@@ -71,6 +71,23 @@ td { font-variant-numeric: tabular-nums; }
   padding-top: 20px; border-top: 1px solid var(--line); font-weight: 600; }
 .foot { color: var(--muted); font-size: 14px; margin-top: 24px; }
 .meta { color: var(--muted); }
+a.gloss { color: inherit; text-decoration: underline dotted var(--accent); text-decoration-thickness: 2px;
+  text-underline-offset: 4px; cursor: help; }
+a.gloss:hover, a.gloss[aria-expanded="true"] { color: var(--accent); }
+.gloss-pop { position: absolute; z-index: 20; max-width: calc(100vw - 32px); background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 28px rgba(0,0,0,.18);
+  padding: 12px 14px; font-size: 15px; line-height: 1.45; font-weight: 400; text-align: left; }
+.gloss-pop p { margin: 0 0 8px; }
+.gloss-more { font-size: 14px; font-weight: 600; }
+article p[id^="gloss-"] { scroll-margin-top: 16px; border-radius: 6px; }
+article p[id^="gloss-"]:target { background: var(--mark); box-shadow: 0 0 0 6px var(--mark); }
+td.q0 { background: rgba(30, 150, 90, .26); }
+td.q1 { background: rgba(30, 150, 90, .12); }
+td.q2 { background: rgba(200, 165, 30, .14); }
+td.q3 { background: rgba(230, 120, 40, .17); }
+td.q4 { background: rgba(215, 55, 45, .24); }
+.shade-note { color: var(--muted); font-size: 14px; margin: -12px 0 20px; }
+.shade-key { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin: 0 2px -1px; }
 
 .sx-nav { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center;
   justify-content: space-between; gap: 6px 20px; padding: 12px 0; border-bottom: 1px solid var(--line);
@@ -83,133 +100,114 @@ td { font-variant-numeric: tabular-nums; }
 </head>
 <body>
 <nav class="sx-nav" aria-label="Site">
-  <a class="sx-brand" href="../">One ballot, counted twice</a>
-  <div class="sx-links"><a href="../">2023</a><a href="../2026/">2026</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
+  <a class="sx-brand" href="../">Every voter counts equally</a>
+  <div class="sx-links"><a href="../">2026</a><a href="../2023/">2023</a><a href="../report/" aria-current="page">Full report</a><a href="../data/">Data &amp; code</a></div>
 </nav>
 <div class="layout">
 <aside class="toc"><div class="toc-inner">
   <details open><summary class="meta" style="cursor:pointer;margin-bottom:8px">Contents</summary>
-  <ul><li><a href="#summary">Summary</a></li><li><a href="#1-the-starting-intuition-every-vote-should-count-equally">1. The starting intuition: every vote should count equally</a></li><li><a href="#2-the-problem-in-numbers">2. The problem in numbers</a></li><li><a href="#3-the-options">3. The options</a></li><li><a href="#4-how-mmp-t-the-overhang-transfer-works">4. How MMP-T (the Overhang Transfer) works</a></li><li><a href="#5-how-mmp-bv-the-backup-vote-works">5. How MMP-BV (the Backup Vote) works</a></li><li><a href="#6-the-properties-that-matter-and-why">6. The properties that matter, and why</a></li><li><a href="#7-the-simulations-method-and-results">7. The simulations: method and results</a></li><li><a href="#8-costs-and-benefits-of-each-option">8. Costs and benefits of each option</a></li><li><a href="#9-recommendation">9. Recommendation</a></li><li><a href="#10-limitations-and-open-questions">10. Limitations and open questions</a></li><li><a href="#sources">Sources</a></li></ul></details>
-  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/" aria-current="page">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li></ul></div>
+  <ul><li><a href="#summary">Summary</a></li><li><a href="#1-overhang-in-new-zealand">1. Overhang in New Zealand</a></li><li><a href="#2-the-principle-one-voter-one-share">2. The principle: one voter, one share</a></li><li><a href="#3-three-changes">3. Three changes</a></li><li><a href="#4-what-the-evidence-shows">4. What the evidence shows</a></li><li><a href="#5-costs-and-where-the-changes-do-worse">5. Costs, and where the changes do worse</a></li><li><a href="#6-the-debate">6. The debate</a></li><li><a href="#7-conclusion">7. Conclusion</a></li><li><a href="#appendix-a-method">Appendix A. Method</a></li><li><a href="#appendix-b-measures">Appendix B. Measures</a></li><li><a href="#appendix-c-glossary">Appendix C. Glossary</a></li><li><a href="#appendix-d-sources">Appendix D. Sources</a></li></ul></details>
+  <div class="group"><p>Report and appendices</p><ul><li><a href="../report/" aria-current="page">Full report</a></li><li><a href="../report/transfer-explainer.html">The proposal, explained</a></li><li><a href="../report/experiment-1.html">Experiment 1: stress test</a></li><li><a href="../report/experiment-2.html">Experiment 2: NZ elections 2005–2023</a></li><li><a href="../report/experiment-3.html">Experiment 3: futures from 2026</a></li><li><a href="../report/prior-art.html">Prior art</a></li></ul></div>
 </div></aside>
 <article>
-<p class="draft"><strong>Working draft.</strong> Last updated 23 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
-<h1 id="overhang-reform-under-mmp-the-costs-and-benefits-of-the-options">Overhang reform under MMP: the costs and benefits of the options</h1>
-<h3 id="overhang-transfer-and-backup-vote-rules-for-new-zealand-compared-with-a-larger-parliament-and-the-status-quo">Overhang Transfer and Backup Vote rules for New Zealand, compared with a larger Parliament and the status quo</h3>
-<p>This report assesses four options for handling overhang in New Zealand's MMP system: keeping the current rules (<strong>MMP</strong>); enlarging Parliament to 141 seats by adding 20 list seats (<strong>MMP141</strong>); and combining that enlargement with one of two counting reforms, the <strong>Overhang Transfer (MMP-T141)</strong> or the <strong>Backup Vote (MMP-BV141)</strong>.</p>
+<p class="draft"><strong>Working draft.</strong> Last updated 27 November 2026. The analysis is still being refined and figures may change as simulations are rerun.</p>
+<h1 id="counting-each-vote-once-the-overhang-transfer">Counting each vote once: the Overhang Transfer</h1>
+<h3 id="what-one-change-to-how-votes-are-counted-would-do-about-overhang-in-new-zealand-tested-on-the-elections-since-2005-the-2026-result-and-160000-simulated-elections">What one change to how votes are counted would do about overhang in New Zealand, tested on the elections since 2005, the 2026 result, and 160,000 simulated elections</h3>
+<p><em>Draft for discussion, 27 November 2026. The 2026 figures use the official count, published on 27 November; split votes are still estimated from 2023 patterns, and will be updated when the Electoral Commission publishes its split-vote statistics (due by 18 December). The code behind every figure is on <a href="https://github.com/bjsmith/equalcount">GitHub</a>.</em></p>
 <hr />
 <h2 id="summary">Summary</h2>
-<p><strong>The normative starting point.</strong> Each voter should contribute one equal share to the party make-up of Parliament. In a compensatory system the party vote normally carries that share, and the electorate vote decides only which candidates fill part of a party's allocation. Overhang breaks this. Voters who split their ballot to elect an MP whose seat is not covered by that party's proportional entitlement shape the make-up of Parliament through both votes. Voters for parties below the threshold, conversely, contribute nothing. Restoring one share per voter requires that, for some voters, the <strong>electorate vote</strong> rather than the party vote counts towards proportionality.</p>
-<p><strong>The reforms.</strong></p>
+<p><strong>The context.</strong> New Zealand has elected its Parliament by <a class="gloss" aria-expanded="false" href="#gloss-mmp">MMP</a> since 1996. Each voter has two ticks: a <strong>party vote</strong>, which sets each party's share of the 120 seats, and an <strong>electorate vote</strong> for a local MP. A party's electorate MPs come out of its share, and its list fills the rest. When a party wins more electorates than its share allows, it keeps the extra seats. That is an <a class="gloss" aria-expanded="false" href="#gloss-overhang">overhang</a>, and the House grows to fit it.</p>
+<p>Until 2026 overhangs were 0–2 seats. The 2026 election produced the largest yet, and Parliament grew to <strong>130 seats</strong>, ten above its base:</p>
 <ul>
-<li><strong>MMP-T</strong> applies only when a party overhangs. It counts just enough of the split ballots behind that party's winning electorate candidates as though the party vote had followed the electorate vote. It uses party votes for non-qualifying parties first, then a uniform fraction <em>f</em> of party votes for other qualifying parties. Any overhang left over is absorbed within a fixed House (the Independent Electoral Review's rule) or, in the "-X" variants, added to the House as under current law.</li>
-<li><strong>MMP-BV</strong> applies at every election. A party vote for a non-qualifying party is counted for the party of the voter's electorate candidate, if that party qualifies. Any remaining overhang is then handled as under MMP-T. In effect the electorate vote becomes a contingent second preference, close to the "spare vote" the Review discussed, without any change to the ballot paper.</li>
+<li>National won 6 more electorates than its party vote entitled it to.</li>
+<li>Te Pāti Māori won 5 electorates on about 0.6% of the party vote, 4 more than its entitlement.</li>
 </ul>
-<p><strong>How the options were tested.</strong> Three complementary methods were used, referred to below as Experiments 1–3. All apply the seat rules to ballot-level data: party vote by electorate candidate, in every electorate.</p>
+<p><strong>The problem.</strong> With two ticks but only one Parliament to make up, MMP works because each voter has an equal hand in that Parliament's party make-up. Usually the party vote carries that hand, and the electorate vote only decides who fills some of a party's seats. The 2026 overhangs came mostly from <a class="gloss" aria-expanded="false" href="#gloss-split">split ballots</a>: an electorate vote for one party's candidate and a party vote for another party. Those ballots shaped Parliament twice. They elected an MP whose seat no party votes cover, and their party votes still counted in full for another party. Nothing in the rules discourages this, and the simulations here show that if it spreads, Parliament can reach 180 seats or more.</p>
+<p><strong>Three changes, tested together and apart:</strong></p>
 <ol>
-<li><strong>A synthetic stress test.</strong> A Monte Carlo of 5,000 elections spanning party systems, geographies and levels of strategic ticket-splitting far more varied than New Zealand's. Ballots are held fixed across rules, to show where each rule fails.</li>
-<li><strong>Empirical counterfactuals and a calibrated Monte Carlo.</strong> The 2005–2023 elections were recounted under each rule from the Electoral Commission's split-vote tables. A further 5,000 synthetic elections were generated with parameters measured from those elections, or fitted to their electorate results by approximate Bayesian computation.</li>
-<li><strong>A dynamic simulation.</strong> 1,000 futures of five elections each, starting from the 2026 provisional result. Voters' and parties' strategies respond between elections to each rule's incentives. Further scenarios let split-list strategies escalate under current rules.</li>
+<li><strong>Twenty more list seats (141 in all).</strong> The simple fix, in the direction the 2023 Independent Electoral Review recommended when it called for more list seats as Parliament grows. It can be combined with a hard limit on the House.</li>
+<li><strong>The Overhang Transfer.</strong> When, and only when, a party wins more electorates than its party vote entitles it to, count just enough of the party votes on the ballots that elected its winning candidates for that party. Every electorate MP keeps their seat, and the House doesn't need to grow to fit them.</li>
+<li><strong>The Backup Vote.</strong> Built on the transfer's machinery: at every election, a party vote for a party below the <a class="gloss" aria-expanded="false" href="#gloss-threshold">threshold</a> counts for the voter's electorate candidate's party, if that party is in Parliament.</li>
 </ol>
-<p>Outcomes are measured at party level (the Gallagher index) and at bloc level: each governing bloc's seat shortfall relative to its share of all party votes, and the frequency of <strong>majority reversals</strong>, where the bloc with fewer votes wins a majority of seats.</p>
-<p><strong>What the evidence shows.</strong></p>
+<p><strong>What each change adds.</strong> The table comes from <a class="gloss" aria-expanded="false" href="#gloss-exp3">Experiment 3</a>, a behavioural simulation: 1,000 simulated futures of five elections each (2029–2041), starting from the 2026 result. Between elections, voters and parties change their strategies in response to the incentives each system creates; for example, a partner party that loses seats to the transfer campaigns for both ticks. <strong>Those responses are modelled rules, reasoned out by the author and varied in strength, not observed behaviour.</strong> Lower is better in every column.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th></th>
-<th>Stay with MMP</th>
-<th>MMP141</th>
-<th>MMP-T141</th>
-<th>MMP-BV141</th>
+<th>Option</th>
+<th><a class="gloss" aria-expanded="false" href="#gloss-house">House above base</a>: median / max</th>
+<th><a class="gloss" aria-expanded="false" href="#gloss-touched">Voters whose party vote counts differently</a></th>
+<th><a class="gloss" aria-expanded="false" href="#gloss-mbm">Minority-bloc majority</a></th>
+<th><a class="gloss" aria-expanded="false" href="#gloss-blocgap">Bloc seat–vote gap</a>, points</th>
+<th><a class="gloss" aria-expanded="false" href="#gloss-gallagher">Standard Gallagher</a></th>
+<th><a class="gloss" aria-expanded="false" href="#gloss-adj">Adjusted Gallagher</a></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Bloc-level proportionality</td>
-<td>Worst</td>
-<td>Little better</td>
-<td>Better</td>
-<td><strong>Best</strong></td>
+<td>Current MMP (121)</td><td class="q4">11 / 34</td><td class="q0">0%</td><td class="q4">5.7%</td><td class="q4">1.70</td><td class="q4">4.82</td><td class="q4">1.37</td>
 </tr>
 <tr>
-<td>Majority reversals (dynamic simulation)</td>
-<td>5.6%</td>
-<td>4.3%</td>
-<td>4.6%</td>
-<td><strong>4.0%</strong> (3.6% with the grow fallback)</td>
+<td>1. 20 more list seats (141)</td><td class="q2">6 / 32</td><td class="q0">0%</td><td class="q1">4.2%</td><td class="q3">1.33</td><td class="q3">3.84</td><td class="q3">0.92</td>
 </tr>
 <tr>
-<td>Party-level proportionality to votes as cast</td>
-<td>Poor once splitting is entrenched</td>
-<td>Good</td>
-<td><strong>Best once voters adapt</strong></td>
-<td>Good, but never exact by design</td>
+<td>2. … + the transfer</td><td class="q0">0 / 9</td><td class="q2">0.9%</td><td class="q3">4.4%</td><td class="q1">1.22</td><td class="q0">3.35</td><td class="q1">0.26</td>
 </tr>
 <tr>
-<td>Size of Parliament</td>
-<td>Variable: 131 in 2026, up to 155 (180 if splitting escalates)</td>
-<td>141 to 171 (197 if splitting escalates)</td>
-<td><strong>Fixed at 141</strong></td>
-<td><strong>Fixed at 141</strong></td>
+<td>3. … + the Backup Vote</td><td class="q0">0 / 10</td><td class="q4">4.0%</td><td class="q0">3.7%</td><td class="q0">1.00</td><td class="q1">3.58</td><td class="q0">0.21</td>
 </tr>
 <tr>
-<td>Removes the payoff from strategic splitting</td>
-<td>No</td>
-<td>No</td>
-<td><strong>Yes</strong></td>
-<td><strong>Yes</strong></td>
+<td><em>The transfer without the extra seats (121)</em></td><td>1 / 17</td><td>3.9%</td><td>5.9%</td><td>1.82</td><td>4.67</td><td>0.65</td>
 </tr>
 <tr>
-<td>Counts party votes exactly as cast</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No, when there's an overhang</td>
-<td>No, for sub-threshold votes and overhang</td>
-</tr>
-<tr>
-<td>Extra MPs</td>
-<td>None</td>
-<td>20</td>
-<td>20</td>
-<td>20</td>
+<td><em>Benchmark: pure proportional representation, 3.5% threshold</em></td><td><em>0 / 0</em></td><td><em>0%</em></td><td><em>2.9%</em></td><td><em>0.70</em></td><td><em>1.61</em></td><td><em>0.24</em></td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>The main conclusions.</strong></p>
-<ol>
-<li><strong>The reforms trade a little party-level proportionality for a lot of bloc-level proportionality.</strong> On fixed ballots, both have a higher Gallagher index than MMP141, because they deliberately count some votes for a party other than the one ticked. But they keep each <em>bloc</em> much closer to its combined vote. Since New Zealand governments are formed by blocs, that is the dimension of proportionality that decides who governs.</li>
-<li><strong>Once voters adapt, the party-level cost largely disappears.</strong> The reforms remove the reward for splitting, so splitting falls and overhang shrinks. In the dynamic simulation, MMP-T141's median Gallagher index is 0.45 by 2041, against 3.4 under MMP141 and 4.1 under MMP.</li>
-<li><strong>The reforms need a larger list tier.</strong> At 121 seats, overhang from plurality wins (a large party winning many electorates against a divided opposition) has few split ballots behind it to transfer. Absorbing it within a fixed House charges the other bloc. In the dynamic simulation that makes the absorbing reforms <em>more</em> prone to majority reversals than MMP (7–8% against 5.6%). At 141 seats this failure mode largely disappears.</li>
-<li><strong>Their strongest benefit is insurance against escalation.</strong> Under current rules the split-list strategy pays: a bloc leader's supporters tick its electorate candidates but party-vote a partner. If blocs adopt it because it pays, median overhang reaches 30 seats by 2041, the House up to 180, and majority reversals 11% of elections. Every reform is immune, because the strategy gains nothing under a transfer rule. Enlargement alone (MMP141) gives no such protection: its House reaches 197.</li>
-<li><strong>MMP-BV141 comes closest to the equal-share principle.</strong> Under all three methods it has the smallest bloc-level deviation, and it has the fewest majority reversals. It rescues many votes that the threshold wastes. Its costs are a larger departure from counting party votes as cast, a permanent (if small) party-level deviation, and a mild reward for small-party supporters who give their electorate vote to a large ally.</li>
-<li><strong>MMP-T141 is the narrower reform.</strong> It leaves the count unchanged unless a party overhangs, and is the most party-proportional option once voters adapt. It does less for bloc-level proportionality, because it does nothing about wasted votes.</li>
-<li><strong>MMP141 alone buys party-level proportionality but not resistance to gaming.</strong> It costs the same 20 seats as the reforms, leaves House size unbounded, and barely improves bloc-level proportionality on realistic elections.</li>
-<li><strong>The status quo is cheapest now and riskiest later.</strong> Overhang was 0–2 seats per election from 2005 to 2023, and 11 in 2026. The main risk is not today's distortion but the persistence of an incentive that nothing constrains.</li>
-<li><strong>No overhang rule addresses the threshold.</strong> Most bloc-level deviation remaining under every option comes from votes for parties below 5%. Lowering the threshold to 3.5% would reduce it more than any overhang rule. MMP-BV is the only option considered here that addresses it at all.</li>
-</ol>
-<p><strong>Bottom line.</strong> If the rules are to change, the evidence favours <strong>MMP-BV141</strong>, with overhang that transfers can't cover handled by letting the House grow (the "-X" fallback, MMP-BV-X141). <strong>MMP-T141</strong> is a sound alternative for those who give more weight to counting party votes as cast. Enlargement alone (MMP141) is the weakest of the three changes. Retaining MMP is defensible only on the expectation that split-list strategies will not escalate.</p>
-<hr />
-<h2 id="1-the-starting-intuition-every-vote-should-count-equally">1. The starting intuition: every vote should count equally</h2>
-<h3 id="one-voter-one-share">One voter, one share</h3>
-<p>A proportional system rests on a simple idea: every voter should have an equal say in what Parliament looks like. Under MMP, each voter has two ticks, but there is only one Parliament to make up, so each voter should get <strong>one equal share</strong> of its party make-up.</p>
-<p>Normally the <strong>party vote</strong> fills that share. The party vote decides each party's total seats, <em>including</em> its electorate seats. A party's electorate MPs come out of the share its party vote earns, and its list fills the rest. So for most voters:</p>
+<p class="shade-note">Shading ranks the rows in each column from best <span class="shade-key q0" style="background:rgba(30,150,90,.5)"></span> to worst <span class="shade-key" style="background:rgba(215,55,45,.5)"></span>; lower is better throughout. Rows in italics are for reference and are not ranked.</p>
+<p><strong>What the evidence shows:</strong></p>
 <ul>
-<li>the <strong>party vote</strong> decides the make-up of Parliament;</li>
-<li>the <strong>electorate vote</strong> decides who their local MP is, within some party's share.</li>
+<li><strong>More list seats do real work on their own.</strong> They cut the risk of the bloc with fewer votes winning a majority from 5.7% to 4.2% of elections. But the House still grows (by a median of 6 seats, up to 32), and nothing stops engineered splitting: if it spreads, MMP at 141 reaches 198 seats.</li>
+<li><strong>The transfer adds control of the House and immunity to gaming.</strong> At 141 seats, the House stays within 9 seats of base, the split-list strategy gains nothing, and both proportionality indices improve. It does not lower wrong-winner risk further (4.2% → 4.4%, within the margin of error).</li>
+<li><strong>The Backup Vote is what lowers wrong-winner risk further</strong> (to 3.7%), at the cost of touching more voters (4.0%, at every election).</li>
+<li><strong>Both reforms need the extra list seats.</strong> Without them, the transfer controls the House but leaves wrong-winner risk and the bloc gap no better than MMP, because the overhang left over comes from <a class="gloss" aria-expanded="false" href="#gloss-plurality">plurality wins</a> with few split ballots behind them.</li>
 </ul>
-<h3 id="where-this-breaks">Where this breaks</h3>
-<p><strong>Overhang.</strong> Overhang seats aren't covered by any party votes, but someone's ballot elected those MPs. Under current law, those same voters' party votes still count in full for another party. Their ballots have shaped Parliament's make-up twice: once for the seat with no party votes behind it, and again for their party's list seats. Parliament grows to fit both, and every other voter's share is diluted.</p>
-<p><strong>Wasted votes.</strong> A voter whose party vote goes to a party below the 5% threshold (and that wins no electorate) gets no share at all. Their party vote is discarded, and their electorate vote, which elected or helped elect someone, doesn't count towards proportionality either.</p>
-<p>So today, some voters count more than once, and some count zero times.</p>
-<h3 id="the-fix-sometimes-the-electorate-vote-has-to-count">The fix: sometimes the electorate vote has to count</h3>
-<p>There are only two ways to keep a voter at one share when their electorate MP is an overhang seat: discount their party vote, or grow Parliament so that everyone else counts for a little less. Current law does the second. The reforms do the first, with one important refinement: <strong>the voter's share isn't thrown away, it's filled by their other tick.</strong> Their electorate vote, which already elected an MP of that party, counts for that party.</p>
+<p><strong>Conclusion.</strong> If voters and parties adapt to the incentives each system creates, 141 seats with a reform is clearly better than 141 seats alone. Between the two reforms the choice turns on one judgement: whether votes for parties below the threshold should count towards a bloc's fair share. If they should, the Backup Vote version is best; if not, the transfer version is best and touches far fewer voters. <strong>That voters adapt is an assumption, not a finding</strong>, and it matters: on <a class="gloss" aria-expanded="false" href="#gloss-fixed">fixed ballots</a> the reforms are slightly worse than MMP at 141 on the standard index (section 4).</p>
+<p><strong>What it costs.</strong> On the official 2026 result, the transfer would count part of the party vote of 12.6% of voters for another party, about 204,000 votes' worth, and ACT would lose 3 of its 13 seats. The cost falls in the simulations as voters stop splitting behind overhanging winners: at 141 seats the median share of voters affected is 0.9%. 2026 is also the one test where the transfer looks worst on proportionality, because the two blocs' overhangs happened to balance out. Relying on that balance is itself a cost of doing nothing (section 5). Section 5 also lists every measure on which the reforms do worse.</p>
+<p><strong>Still to come:</strong> 2026 figures recalculated from the official split-vote statistics (due by 18 December), and results for a narrower variant that transfers only pivotal ballots (section 7).</p>
+<hr />
+<h2 id="1-overhang-in-new-zealand">1. Overhang in New Zealand</h2>
+<p><strong>Overhang was small until 2026.</strong> From 2005 to 2023 overhangs were 0–2 seats per election, almost all from Māori parties winning Māori electorates.</p>
+<p><strong>2023.</strong> Te Pāti Māori won 6 electorates on 3.08% of the party vote, which entitled it to 4 seats, and Parliament grew to 122. The left bloc won 44.1% of the counted party vote and 45.1% of the seats.</p>
+<p><strong>2026 (official count).</strong> Both blocs overhung:</p>
+<ul>
+<li>National won 40 electorates against an entitlement of 34.</li>
+<li>Te Pāti Māori won 5 against an entitlement of 1.</li>
+<li>Parliament grew to <strong>130</strong>.</li>
+</ul>
+<p>Because both blocs gained, the effects largely cancelled between them. The right won 48.9% of the party vote for parties in Parliament and 50.0% of the seats (65 of 130, one short of a majority). The case against the status quo in 2026 is not a tilt between the blocs. It is ten extra MPs, a balance that depended on both sides gaming the rules about equally, and an incentive that nothing limits (section 5).</p>
+<p><strong>Who can game the status quo.</strong> Three plays are open, in rising order of difficulty:</p>
+<ol>
+<li><strong>Te Pāti Māori's built-in advantage.</strong> It can win Māori electorates while its supporters give their party vote elsewhere. The message is simple, but the play is capped by the 7 Māori seats, at about 6 overhang seats.</li>
+<li><strong>The major-party <a class="gloss" aria-expanded="false" href="#gloss-splitlist">split-list</a> play.</strong> It is open to whichever of National or Labour wins many electorates: its supporters tick the party's candidates and party-vote a partner. The overhang scales with electorates won, so it needs a competitive major party with a reliable partner. On the 2026 map that is National's 40 electorates against Labour's 22, but Labour won 46 in 2020.</li>
+<li><strong>The left's combined play.</strong> It needs two instructions: on the Māori roll, tick Te Pāti Māori and party-vote Labour; on the general roll, tick Labour and party-vote Green. Mechanically this is no harder than the right's play, since each voter is on one roll and gets one instruction, and the two plays don't compete for the same seats. The difficulty is messaging: a national campaign with two different asks, one of which tells Labour supporters not to give Labour their party vote. In our judgement it is a messaging problem rather than a structural one, and the left's real limit is how many general electorates Labour wins.</li>
+</ol>
+<p>Once one bloc games the rules, the other has every reason to copy, so the realistic risk is escalation on both sides. The current rules reward whichever bloc dominates the electorates. The transfer applies the same rule to both.</p>
+<hr />
+<h2 id="2-the-principle-one-voter-one-share">2. The principle: one voter, one share</h2>
+<p>MMP gives each voter two ticks, but there is only one Parliament to make up. What the system promises is that every voter has an equal hand in its party make-up: <strong>one share each</strong>.</p>
+<p>Usually the <strong>party vote</strong> carries that share. It sets each party's total number of seats. The party's electorate MPs are drawn from that total, and its list fills the rest. So for most voters the party vote decides the shape of Parliament, and the electorate vote decides who their local MP is within some party's share.</p>
+<p><strong>Overhang breaks this.</strong> An overhang seat isn't covered by any party votes, but someone's ballot elected that MP. Under current law, if those voters split their ballot, their party votes still count in full for another party. Their ballots have shaped the make-up of Parliament twice: once for the seat with no party votes behind it, and again for their party's list seats. Parliament grows to fit both, and every other voter's share is diluted.</p>
+<p>There are only two ways to keep such a voter at one share:</p>
+<ul>
+<li><strong>grow Parliament</strong>, so everyone else counts for a little less. This is current law.</li>
+<li><strong>count the voter once.</strong> The transfer does this, with one refinement: the voter's share isn't thrown away but filled by their other tick. Their electorate vote, which already elected an MP of that party, counts for that party.</li>
+</ul>
 <div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Your ballot</th>
 <th>Current MMP</th>
-<th>MMP-T</th>
-<th>MMP-BV</th>
+<th>With the transfer</th>
 </tr>
 </thead>
 <tbody>
@@ -217,1185 +215,926 @@ td { font-variant-numeric: tabular-nums; }
 <td>Both ticks for the same party</td>
 <td>One share, to that party</td>
 <td>Same</td>
-<td>Same</td>
 </tr>
 <tr>
 <td>Split; your MP's seat is covered by their party's own votes</td>
 <td>One share, by party vote</td>
-<td>Same</td>
 <td>Same</td>
 </tr>
 <tr>
 <td>Split; your MP holds an overhang seat</td>
 <td><strong>More than one share</strong>: the MP's seat plus your full party vote</td>
 <td>One share: just enough of these ballots count for the MP's party to cover the seat</td>
-<td>Same as MMP-T</td>
 </tr>
 <tr>
-<td>Party vote for a party below the threshold; electorate vote for a qualifying party's candidate</td>
+<td>Party vote for a party below the threshold; electorate vote elected an overhanging party's candidate</td>
 <td><strong>No share</strong></td>
-<td>One share <em>only if</em> your MP's party overhangs and needs it; otherwise none</td>
-<td><strong>One share</strong>, to your electorate candidate's party, at every election</td>
+<td>One share, for the MP's party, used before any other ballot</td>
 </tr>
 <tr>
-<td>Both ticks for parties that don't qualify</td>
+<td>Party vote below the threshold, electorate vote for anyone else</td>
 <td>No share</td>
-<td>No share</td>
-<td>No share</td>
+<td>No share (the Backup Vote changes this)</td>
 </tr>
 </tbody>
 </table></div>
-<p>Nobody has a choice taken away. The question is only <em>which</em> of a voter's two choices fills their one share. And anyone who wants to be sure their share goes to a particular party can give that party both ticks: a straight ballot is never counted differently.</p>
-<h3 id="why-this-matters-at-the-level-of-blocs">Why this matters at the level of blocs</h3>
-<p>Governments in New Zealand are formed by groups of parties. Strategic splitting happens <em>inside</em> those groups: an ACT voter ticks the National candidate; a Labour voter ticks the Te Pāti Māori candidate. When a reform counts some of those ballots for the electorate MP's party, the votes move from one partner to another. <strong>The group's total doesn't change.</strong> So once every voter counts once, each group's seats track its combined vote. Equal votes for voters and fair shares for blocs turn out to be the same goal.</p>
+<p>Nobody has a choice taken away; the question is only which of a voter's two choices fills their one share. A voter who wants to be sure their share goes to a particular party can give that party both ticks. A straight ballot is never counted differently.</p>
+<p><strong>Why this matters for governments.</strong> Governments in New Zealand are formed by groups of parties (<a class="gloss" aria-expanded="false" href="#gloss-bloc">blocs</a>), and strategic splitting happens inside those groups: an ACT voter ticks the National candidate; a Labour voter ticks the Te Pāti Māori candidate. When the transfer counts some of those ballots for the electorate MP's party, votes move from one partner to another, and the group's total barely changes. Under current law, the group that overhangs gets seats on top of its share.</p>
 <hr />
-<h2 id="2-the-problem-in-numbers">2. The problem in numbers</h2>
-<p><strong>Overhang has been small, until now.</strong> From 2005 to 2023, overhangs were 0–2 seats per election, almost all from Māori parties winning Māori electorates (Experiment 2, Part A).</p>
-<p><strong>2023.</strong> Te Pāti Māori won 6 electorates on 3.08% of the party vote, which entitled it to 4 seats. Parliament grew to 122. The left bloc won 44.1% of the counted party vote but 45.1% of Parliament. It needed about 21,600 party votes per seat; the right bloc needed about 22,500.</p>
-<p><strong>2026 (provisional).</strong> Both blocs overhung. National won 42 electorates on an entitlement of 35; Te Pāti Māori won 5 on about 0.6% of the party vote, an entitlement of 1. Parliament grew to <strong>131</strong>. Because both blocs gained, the effects largely cancelled between them. The party that lost out was the one in neither: Opportunity won 6.0% of the counted vote but 5.3% of the seats.</p>
-<p><strong>The risk is escalation.</strong> The 2026 pattern is the "split-list" playbook working on both sides: a bloc leader's voters tick its electorate candidates but give their party vote to a partner. Nothing in current law penalises it. Experiment 3 asks what happens if it spreads (Section 7.4).</p>
-<hr />
-<h2 id="3-the-options">3. The options</h2>
-<p>All options keep 71 electorates (64 general, 7 Māori), a 5% threshold waived for any party winning an electorate, and the Sainte-Laguë formula.</p>
+<h2 id="3-three-changes">3. Three changes</h2>
+<h3 id="31-more-list-seats-with-or-without-a-hard-limit">3.1 More list seats, with or without a hard limit</h3>
+<p>The simplest change is a larger list tier. Overhang happens when a party wins more electorates than its share of the House, so more list seats mean a party needs a smaller share to cover its electorates. With 71 electorates and 50 list seats, a party winning 40 electorates needs about 33% of the qualifying vote to cover them; with 70 list seats it needs about 28%. Twenty more list seats (141 in all) is the size tested here.</p>
+<p>The idea isn't new. The 1986 Royal Commission thought the ideal House would have about 140 seats, though it recommended 120. The 2023 Independent Electoral Review recommended fixing the ratio of electorate to list seats at 60:40 and letting Parliament grow with the population, so that there are always enough list seats to keep Parliament proportional (Recommendation R10). The Electoral Commission had suggested the same ratio in 2012. 141 seats goes further than the Review's ratio: 71 electorates with 70 list seats is close to 50:50.</p>
+<p>More list seats reduce overhang but don't remove it, and they do nothing about engineered splitting: a bloc that gains from overhang at 121 seats still gains at 141. A <strong>hard limit</strong> at 141 would stop the House growing. It applies the 2023 Review's rule at the larger size: any overhang is absorbed within the 141 seats by taking list seats from other parties.</p>
+<p>Reducing the number of electorates is another way to change the ratio. It was not tested.</p>
+<h3 id="32-the-overhang-transfer">3.2 The Overhang Transfer</h3>
+<p>The count is unchanged unless a party overhangs. When one does:</p>
+<ol>
+<li><strong>Apply the threshold</strong> on raw party votes, before anything is moved, so no transfer can push a party in or out of Parliament.</li>
+<li><strong>Check for an overhang.</strong> Allocate seats by Sainte-Laguë. If no party has won more electorates than its entitlement, the result stands. Once voters adapt, most counts end here.</li>
+<li><strong>Use wasted votes first.</strong> On ballots where the electorate vote went to a <em>winning</em> candidate of the overhanging party and the party vote went to a party below the threshold, count the party vote for the overhanging party, only as many as needed.</li>
+<li><strong>Then transfer the same fraction of other split ballots.</strong> On ballots where the electorate vote went to one of its winning candidates and the party vote went to another qualifying party, count the same fraction <em>f</em> of every such party vote for the overhanging party, with <em>f</em> just high enough to cover the overhang. Nothing is chosen at random, so a recount gives the same answer, and each party loses votes in proportion to how many of its voters split this way.</li>
+<li><strong>Leftover overhang is treated exactly as now.</strong> If even <em>f</em> = 1 isn't enough, the party keeps its extra electorates and the House grows by the remainder. (Absorbing the remainder within a fixed House instead was also tested. At 121 seats it makes wrong-winner outcomes <em>more</em> likely than MMP once voters adapt, 7.8% against 5.7%, so it is not the version shown.)</li>
+<li><strong>Allocate seats</strong> on the adjusted votes. The overhanging party's entitlement now matches its electorates, and every other party's seats are proportional to its counted votes.</li>
+</ol>
+<p><strong>Example: 2023.</strong> Te Pāti Māori's two-seat overhang was covered by 35,038 votes: all 3,010 wasted party votes on ballots for its winning candidates, then 84% of every other split party vote behind them (<em>f</em> = 0.842). The fraction is high because the overhang was concentrated in six electorates: in Waiariki, 59% of Labour party voters ticked Rawiri Waititi.</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Option</th>
-<th>Seats</th>
-<th>How overhang is handled</th>
+<th>2023</th>
+<th>Current law (House grows)</th>
+<th>With the transfer</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>MMP</strong> (status quo)</td>
-<td>121, growing</td>
-<td>Overhanging party keeps its extra electorates; the House grows.</td>
-</tr>
-<tr>
-<td><strong>MMP141</strong></td>
-<td>141, growing</td>
-<td>As MMP, with 20 more list seats (71 electorates, 70 list).</td>
-</tr>
-<tr>
-<td><strong>MMP-T141</strong></td>
-<td>141</td>
-<td>Overhang Transfer (Section 4), then a fallback for anything left.</td>
-</tr>
-<tr>
-<td><strong>MMP-BV141</strong></td>
-<td>141</td>
-<td>Backup Vote at every election, then the Overhang Transfer, then a fallback (Section 5).</td>
-</tr>
-</tbody>
-</table></div>
-<p>The experiments use 121 seats as the base so that a 71-electorate Parliament has 50 list seats; New Zealand's actual base is 120. The reforms were also tested at 121 seats (MMP-T and MMP-BV), which is how they would work without enlarging Parliament. That turns out to matter a great deal (Section 6.6).</p>
-<p><strong>The fallback.</strong> A transfer can only move as many votes as there are split ballots behind an overhanging party's winners. If that isn't enough, something else has to happen. Two fallbacks were tested:</p>
-<ul>
-<li><strong>Absorb</strong> (the Independent Electoral Review's rule): the House stays fixed and other parties receive fewer list seats. This is the default in MMP-T141 and MMP-BV141.</li>
-<li><strong>Grow</strong> (the "-X" variants, MMP-T-X141 and MMP-BV-X141): the remaining overhang is handled as under current law, and the House grows.</li>
-</ul>
-<p>The choice matters less than the choice of system, but it does matter (Section 6.5).</p>
-<hr />
-<h2 id="4-how-mmp-t-the-overhang-transfer-works">4. How MMP-T (the Overhang Transfer) works</h2>
-<p>MMP-T changes nothing unless a party overhangs. When one does, it counts only as many split ballots as needed towards the overhanging party, starting with votes that would otherwise be wasted.</p>
-<p><strong>Step 1: Apply the threshold.</strong> Decide which parties qualify, using raw party votes. This happens before anything is moved, so no party can be pushed below the threshold by a transfer.</p>
-<p><strong>Step 2: Check for an overhang.</strong> Allocate seats by Sainte-Laguë. If no party has won more electorates than its entitlement, the result stands. At most elections under a reformed system, this is where the count ends.</p>
-<p><strong>Step 3: Use wasted votes first.</strong> Take ballots where the electorate vote went to a <em>winning</em> candidate of the overhanging party and the party vote went to a party that didn't qualify. Count those party votes for the overhanging party, only as many as needed.</p>
-<p><strong>Step 4: Transfer the same fraction of other split ballots.</strong> If an overhang remains, take ballots where the electorate vote went to a winning candidate of the overhanging party and the party vote went to <em>another qualifying party</em>. The same fraction <em>f</em> of every such party vote is counted for the overhanging party, with <em>f</em> set just high enough to cover the overhang. No ballots are chosen at random, so a recount gives the same answer, and each party loses votes in proportion to how many of its voters split this way.</p>
-<p><strong>Step 5: Fallback.</strong> If even <em>f</em> = 1 isn't enough, absorb the remainder (MMP-T141) or let the House grow (MMP-T-X141).</p>
-<p><strong>Step 6: Allocate seats</strong> with the adjusted votes. The overhanging party's entitlement now matches its electorates, and every other party's seats are proportional to its counted votes.</p>
-<h3 id="a-real-example-2023">A real example: 2023</h3>
-<p>Te Pāti Māori's two-seat overhang was covered by 35,038 votes: all 3,010 wasted party votes on ballots for its winning candidates, and then 84% of every other split party vote behind them (<em>f</em> = 0.842). The 84% is high because the overhang was concentrated in six electorates; in Waiariki, 59% of Labour party voters ticked Rawiri Waititi.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th></th>
-<th>Current law</th>
-<th>MMP-T</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Parliament</td>
+<td>Size of Parliament</td>
 <td>122</td>
 <td>120</td>
 </tr>
 <tr>
-<td>Te Pāti Māori</td>
+<td>Te Pāti Māori seats (all 6 electorates kept)</td>
 <td>6</td>
 <td>6</td>
 </tr>
 <tr>
-<td>Labour / Green</td>
+<td>Labour / Green seats</td>
 <td>34 / 15</td>
 <td>33 / 14</td>
 </tr>
 <tr>
-<td>Left bloc share of seats (vote share 44.1%)</td>
+<td>Left bloc's share of seats (its share of counted party votes: 44.1%)</td>
 <td>45.1%</td>
 <td><strong>44.2%</strong></td>
 </tr>
+</tbody>
+</table></div>
+<p>Te Pāti Māori keeps every electorate MP. The cost of its overhang falls on the parties whose voters created it.</p>
+<p><strong>Example: 2026 (official count, split votes estimated).</strong></p>
+<div class="table-wrap"><table>
+<thead>
 <tr>
-<td>Party votes per seat: left / right</td>
-<td>21,569 / 22,476</td>
-<td><strong>22,383 / 22,476</strong></td>
+<th>Seats</th>
+<th>National</th>
+<th>Labour</th>
+<th>Green</th>
+<th>ACT</th>
+<th>NZ First</th>
+<th>Opportunity</th>
+<th>Te Pāti Māori</th>
+<th>House</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current law</td>
+<td>40</td>
+<td>36</td>
+<td>17</td>
+<td>13</td>
+<td>12</td>
+<td>7</td>
+<td>5</td>
+<td>130</td>
+</tr>
+<tr>
+<td>With the transfer</td>
+<td>40</td>
+<td>34</td>
+<td>15</td>
+<td><strong>10</strong></td>
+<td>10</td>
+<td>7</td>
+<td>5</td>
+<td><strong>121</strong></td>
 </tr>
 </tbody>
 </table></div>
-<p>Te Pāti Māori keeps every electorate MP. The cost of its overhang falls on the parties whose voters created it, Labour and the Greens, and the left bloc's seat share returns almost exactly to its vote share.</p>
-<h3 id="properties-of-mmp-t">Properties of MMP-T</h3>
 <ul>
-<li><strong>Targeted.</strong> It does nothing in an election with no overhang.</li>
-<li><strong>Keeps every electorate MP.</strong> Unlike Germany's 2023 rule, no electorate winner is denied their seat. In New Zealand, where most overhangs have come from the Māori electorates, that matters.</li>
-<li><strong>Fixed size.</strong> With the absorbing fallback, Parliament never grows.</li>
-<li><strong>Works on parties, not blocs.</strong> Nobody has to define which parties are allies. Bloc fairness falls out of the rule, because splitting happens within blocs.</li>
-<li><strong>Splitters who cross blocs are counted the same way.</strong> A Labour voter who ticks a popular local National MP whose seat is an overhang is treated like an ACT voter who does. Their vote moves to the National bloc. That is arguably fair, since they chose a National MP, but it means the bloc correction is close rather than exact.</li>
-<li><strong>Does nothing for wasted votes</strong> unless they sit on ballots behind an overhanging party.</li>
+<li><strong>National's overhang (6 seats)</strong> is covered by moving 45% of the party votes on split ballots behind its 40 winners. About 75,000 of those are ACT votes, 31,000 NZ First, 11,000 Opportunity, 9,900 Labour and 4,800 Green.</li>
+<li><strong>Te Pāti Māori's overhang can't be fully covered.</strong> Even moving every split ballot behind its winners leaves one seat over, so the House grows to 121. The ballots moved include about 66,000 Labour and Green party votes cast in the Māori electorates.</li>
+<li><strong>The right's seat share</strong> moves from 50.0% to 49.6%, closer to its 48.9% share of the party vote for parties in Parliament.</li>
+</ul>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><strong>Targeted.</strong> Nothing changes in an election without overhang: 2017 and 2020 would have been counted exactly as they were.</li>
+<li><strong>Every electorate MP keeps their seat</strong>, including every Māori-electorate MP.</li>
+<li><strong>No blocs need to be defined.</strong> The rule works on parties; the effect on blocs follows because splitting mostly happens within them.</li>
+<li><strong>Cross-bloc splitters are counted the same way.</strong> A Labour voter who ticks a popular local National MP whose seat is an overhang is treated like an ACT voter who does.</li>
+<li><strong>Decoys gain nothing.</strong> The transfer follows each voter's own ballot, not a declared link between a candidate and a list. That is the flaw that let decoy lists defeat Italy's <em>scorporo</em> (section 6.2).</li>
+</ul>
+<h3 id="33-the-backup-vote">3.3 The Backup Vote</h3>
+<p>The transfer already uses wasted votes, but only when an overhang needs them. Its first step counts sub-threshold party votes on ballots behind an overhanging party's winners, and only as many as the overhang requires.</p>
+<p>The Backup Vote uses the same mechanism <strong>at every election, for every sub-threshold voter</strong>: a party vote for a party below the threshold is counted for the party of the voter's electorate candidate, if that party is in Parliament, whether or not the candidate won. In effect the electorate vote becomes a contingent second preference, close to the "spare vote" the 2023 Review discussed, with no change to the ballot paper. Any overhang that remains is then handled by the transfer as above.</p>
+<p>It answers a different problem (wasted votes, not overhang), so it belongs as much to the threshold debate as to this one. It is included because it makes Parliament more proportional between the blocs, which is what decides who governs: it gives the lowest bloc seat–vote gap and wrong-winner rate of any option tested, on fixed and adapting ballots alike. It does not improve the standard Gallagher index, which it makes slightly worse than the transfer alone (section 4), because it counts some party votes for a party other than the one ticked.</p>
+<hr />
+<h2 id="4-what-the-evidence-shows">4. What the evidence shows</h2>
+<h3 id="41-how-it-was-tested">4.1 How it was tested</h3>
+<p>Every rule was applied to the same ballots, held as a table of party vote × electorate candidate for each electorate, so each rule can see which ballots elected which MP. There were four tests (details in Appendix A):</p>
+<ul>
+<li><strong>Real elections.</strong> The 2005–2023 elections recounted from the Electoral Commission's split-vote tables, and 2026 with split votes estimated.</li>
+<li><strong>Experiment 1, a stress test.</strong> 5,000 synthetic elections far more fragmented and split than New Zealand's, to find where each rule breaks.</li>
+<li><strong>Experiment 2, typical New Zealand elections.</strong> 5,000 synthetic elections calibrated to 2005–2023.</li>
+<li><strong>Experiment 3, adapting futures.</strong> 1,000 futures of five elections from the 2026 result, in which voters and parties respond to each system's incentives. Two further scenarios let the split-list strategy spread under current rules.</li>
+</ul>
+<p>The real elections and Experiments 1 and 2 use <strong>fixed ballots</strong>: voters behave the same whatever the rules. Only Experiment 3 lets them adapt.</p>
+<p><strong>The key assumption.</strong> Every rule here changes incentives, and voters and parties respond to incentives. A party that loses seats to the transfer has reason to ask its supporters for both ticks; a strategy that stops paying is abandoned. Experiment 3 models those responses, and its results are the main evidence. But the responses are judgements about behaviour, written as rules and varied in strength, not observations. Where results differ between fixed and adapting ballots, both are shown.</p>
+<p>The same six measures are used throughout (defined in Appendix B): House above base, voters whose party vote counts differently, minority-bloc majority, the bloc seat–vote gap, and two versions of the Gallagher index. The <strong>standard</strong> index compares seats with all party votes as cast: it makes no allowance for the threshold or for the reforms' aim. The <strong>adjusted</strong> index makes both allowances, counting each voter once and counting sub-threshold voters for their electorate candidate's party. One leans towards current MMP and the other towards the reforms, so they are always shown together.</p>
+<h3 id="42-step-by-step">4.2 Step by step</h3>
+<p><strong>Experiment 3, voters and parties adapt</strong> (1,000 futures × 5 elections, 2029–2041; minority-bloc majority with its 95% margin):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>House above base: median / max</th>
+<th>Voters counted differently</th>
+<th>Minority-bloc majority</th>
+<th>Bloc seat–vote gap, points</th>
+<th>Standard Gallagher</th>
+<th>Adjusted Gallagher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current MMP (121)</td><td class="q4">11 / 34</td><td class="q0">0%</td><td class="q4">5.7% ±0.7</td><td class="q4">1.70</td><td class="q4">4.82</td><td class="q4">1.37</td>
+</tr>
+<tr>
+<td>1. 20 more list seats (141)</td><td class="q2">6 / 32</td><td class="q0">0%</td><td class="q1">4.2% ±0.6</td><td class="q3">1.33</td><td class="q3">3.84</td><td class="q3">0.92</td>
+</tr>
+<tr>
+<td>2. … + the transfer</td><td class="q0">0 / 9</td><td class="q2">0.9%</td><td class="q3">4.4% ±0.6</td><td class="q1">1.22</td><td class="q0">3.35</td><td class="q1">0.26</td>
+</tr>
+<tr>
+<td>3. … + the Backup Vote</td><td class="q0">0 / 10</td><td class="q4">4.0%</td><td class="q0">3.7% ±0.5</td><td class="q0">1.00</td><td class="q1">3.58</td><td class="q0">0.21</td>
+</tr>
+<tr>
+<td><em>The transfer at 121</em></td><td>1 / 17</td><td>3.9%</td><td>5.9% ±0.7</td><td>1.82</td><td>4.67</td><td>0.65</td>
+</tr>
+<tr>
+<td><em>Benchmark: pure PR, 3.5%</em></td><td><em>0 / 0</em></td><td><em>0%</em></td><td><em>2.9% ±0.4</em></td><td><em>0.70</em></td><td><em>1.61</em></td><td><em>0.24</em></td>
+</tr>
+</tbody>
+</table></div>
+<p class="shade-note">Shading ranks the rows in each column from best <span class="shade-key q0" style="background:rgba(30,150,90,.5)"></span> to worst <span class="shade-key" style="background:rgba(215,55,45,.5)"></span>; lower is better throughout. Rows in italics are for reference and are not ranked.</p>
+<p><strong>Experiment 2, fixed ballots</strong> (5,000 elections calibrated to 2005–2023; voters behave the same under every system):</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>House above base: median / max</th>
+<th>Voters counted differently</th>
+<th>Minority-bloc majority</th>
+<th>Bloc seat–vote gap, points</th>
+<th>Standard Gallagher</th>
+<th>Adjusted Gallagher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current MMP (121)</td><td class="q4">2 / 18</td><td class="q0">0%</td><td class="q4">6.8% ±0.7</td><td class="q4">1.70</td><td class="q4">3.70</td><td class="q4">0.79</td>
+</tr>
+<tr>
+<td>1. 20 more list seats (141)</td><td class="q2">1 / 10</td><td class="q0">0%</td><td class="q3">6.5% ±0.7</td><td class="q3">1.54</td><td class="q0">3.41</td><td class="q1">0.56</td>
+</tr>
+<tr>
+<td>2. … + the transfer</td><td class="q0">0 / 4</td><td class="q2">0.7%</td><td class="q1">5.8% ±0.6</td><td class="q1">1.29</td><td class="q2">3.50</td><td class="q0">0.55</td>
+</tr>
+<tr>
+<td>3. … + the Backup Vote</td><td class="q0">0 / 4</td><td class="q4">5.3%</td><td class="q0">3.5% ±0.5</td><td class="q0">0.74</td><td class="q4">3.70</td><td class="q3">0.58</td>
+</tr>
+<tr>
+<td><em>The transfer at 121</em></td><td>1 / 6</td><td>0.9%</td><td>5.9% ±0.7</td><td>1.41</td><td>3.88</td><td>0.78</td>
+</tr>
+<tr>
+<td><em>Benchmark: pure PR, 3.5%</em></td><td><em>0 / 0</em></td><td><em>0%</em></td><td><em>6.0% ±0.7</em></td><td><em>1.22</em></td><td><em>3.79</em></td><td><em>0.28</em></td>
+</tr>
+</tbody>
+</table></div>
+<p class="shade-note">Shading ranks the rows in each column from best <span class="shade-key q0" style="background:rgba(30,150,90,.5)"></span> to worst <span class="shade-key" style="background:rgba(215,55,45,.5)"></span>; lower is better throughout. Rows in italics are for reference and are not ranked.</p>
+<p><strong>How to read the steps:</strong></p>
+<ul>
+<li><strong>Step 1, more list seats,</strong> improves every measure in the adapting futures, and is the step that deals with overhang from plurality wins. On fixed ballots it barely moves wrong-winner risk.</li>
+<li><strong>Step 2, the transfer,</strong> holds the House near base and, when voters adapt, cuts both Gallagher indices. On fixed ballots it is slightly worse on the standard index (3.41 → 3.50) and level on the adjusted one. Its wrong-winner rate is level with step 1 when voters adapt and slightly better on fixed ballots.</li>
+<li><strong>Step 3, the Backup Vote,</strong> gives the lowest wrong-winner rate and bloc gap in both tests, but touches 4–5% of voters at every election and slightly worsens the standard index.</li>
+<li><strong>The transfer at 121</strong> shows why the list seats matter: without them, the overhang left over comes from plurality wins, and wrong-winner risk and the bloc gap are no better than MMP's.</li>
+<li><strong>In Experiment 2 the pure-PR benchmark is not a floor:</strong> at a 3.5% threshold it still produces a minority-bloc majority in 6.0% of elections, because sub-threshold votes still elect no one.</li>
+</ul>
+<h3 id="43-does-the-conclusion-depend-on-the-measure">4.3 Does the conclusion depend on the measure?</h3>
+<p>Four versions of the Gallagher index were computed for every election (defined in Appendix B). Two lean in known directions:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Option at 141</th>
+<th>Standard</th>
+<th>Qualifying parties</th>
+<th>One-share</th>
+<th>Adjusted (one-share + rescued voters)</th>
+<th>Sainte-Laguë index</th>
+<th>Minority-bloc majority: all votes / qualifying votes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exp 3 (adapt)</td>
+<td>MMP</td>
+<td>3.84</td>
+<td>3.23</td>
+<td>0.88</td>
+<td>0.92</td>
+<td>26.2</td>
+<td>4.2% / 4.1%</td>
+</tr>
+<tr>
+<td>Exp 3 (adapt)</td>
+<td>+ transfer</td>
+<td>3.35</td>
+<td>0.80</td>
+<td>0.18</td>
+<td>0.26</td>
+<td>6.3</td>
+<td>4.4% / 1.7%</td>
+</tr>
+<tr>
+<td>Exp 3 (adapt)</td>
+<td>+ Backup Vote</td>
+<td>3.58</td>
+<td>1.52</td>
+<td>0.18</td>
+<td>0.21</td>
+<td>6.5</td>
+<td>3.7% / 2.3%</td>
+</tr>
+<tr>
+<td>Exp 2 (fixed)</td>
+<td>MMP</td>
+<td>3.41</td>
+<td>0.87</td>
+<td>0.27</td>
+<td>0.56</td>
+<td>9.4</td>
+<td>6.5% / 2.5%</td>
+</tr>
+<tr>
+<td>Exp 2 (fixed)</td>
+<td>+ transfer</td>
+<td>3.50</td>
+<td>0.93</td>
+<td>0.26</td>
+<td>0.55</td>
+<td>9.5</td>
+<td>5.8% / 1.1%</td>
+</tr>
+<tr>
+<td>Exp 2 (fixed)</td>
+<td>+ Backup Vote</td>
+<td>3.70</td>
+<td>1.70</td>
+<td>0.55</td>
+<td>0.58</td>
+<td>9.6</td>
+<td>3.5% / 3.2%</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>When voters adapt, every proportionality measure favours the reforms over MMP at 141.</strong></li>
+<li><strong>On fixed ballots, it depends on the measure.</strong> The indices built on votes as cast slightly favour MMP; the one-share indices are level, except that the Backup Vote does worse on plain one-share. The transfer is better than MMP on wrong winners on both yardsticks. The Backup Vote is much better on the headline yardstick but slightly worse than MMP on qualifying votes.</li>
+<li><strong>Between the two reforms, the bloc yardstick decides.</strong> Counting votes for parties below the threshold in each bloc's total (the headline yardstick) favours the Backup Vote, because it counts exactly those votes. Counting only qualifying votes favours the transfer, in both tests.</li>
 </ul>
 <hr />
-<h2 id="5-how-mmp-bv-the-backup-vote-works">5. How MMP-BV (the Backup Vote) works</h2>
-<p>MMP-BV adds one rule to MMP-T, applied at every election whether or not there is an overhang.</p>
-<p><strong>Step 1: Apply the threshold</strong> on raw party votes, as before.</p>
-<p><strong>Step 2: The backup vote.</strong> Every party vote for a party that didn't qualify is counted for the party of the voter's electorate candidate, <em>if that party qualifies</em>. If the electorate vote also went to a non-qualifying party, or to an independent, the ballot still counts for nothing.</p>
-<p><strong>Step 3 onwards:</strong> If a party still overhangs, apply MMP-T's split-ballot transfer (its Step 4), then the fallback.</p>
-<p>In effect, the electorate vote doubles as a <strong>second preference</strong> for the party vote. It is close to the "spare vote" the Independent Electoral Review discussed in 2023, but it needs no change to the ballot paper.</p>
-<h3 id="example">Example</h3>
-<p>Suppose a small party wins 3% of the party vote, below the threshold. Under current law, all those votes are discarded. Under MMP-BV, a supporter who gave their electorate vote to a Labour candidate counts for Labour, and one who ticked a National candidate counts for National. A supporter who ticked their own party's candidate still counts for nothing, because that candidate's party didn't qualify.</p>
-<h3 id="properties-of-mmp-bv">Properties of MMP-BV</h3>
-<p>Everything listed for MMP-T applies, plus:</p>
+<h2 id="5-costs-and-where-the-changes-do-worse">5. Costs, and where the changes do worse</h2>
+<p><strong>Some voters' party votes count for another party.</strong> Two figures describe it, and both should be given together: the share of voters any part of whose party vote is moved (the cautious headline figure), and the votes' worth actually moved.</p>
 <ul>
-<li><strong>Fewer wasted votes at every election.</strong> In the calibrated elections (Experiment 2), only a median 1.3% of voters wasted both ticks. Under current MMP, every sub-threshold party vote is wasted.</li>
-<li><strong>Reduces the threshold's bias between blocs.</strong> When one bloc's minor party falls just short (NZ First in 2008, the Conservatives in 2011 and 2014), that bloc loses all those votes. Most such voters give their electorate vote to an ally, so MMP-BV returns most of them to their own bloc.</li>
-<li><strong>Removes the "wasted vote" fear for small parties.</strong> Supporters of a small party can party-vote it sincerely without risking their share, provided they tick a qualifying candidate. Small parties gain a little as a result (Experiment 3).</li>
-<li><strong>A permanent, deliberate departure from party-vote shares.</strong> Backup votes add seats to parties beyond their raw party-vote share at every election. No size of Parliament undoes that (Section 7.2).</li>
-<li><strong>A mild new incentive to split.</strong> A small-party supporter who ticks their own party's candidate wastes both votes; one who ticks a big ally's candidate keeps their share. So MMP-BV rewards a particular kind of strategic electorate vote: by small-party supporters, for a qualifying ally. It accounts for most of the rare cases where MMP-BV141 does worse than current MMP on bloc fairness (Section 7.1). It is small in seats, but it runs against the general aim of reducing strategic electorate voting.</li>
+<li>On the official 2026 result: 12.6% of voters, about 204,000 votes' worth (about 7% of the party vote).</li>
+<li>In the adapting futures at 141 seats: a median of 0.9% of voters for the transfer and 4.0% for the Backup Vote. At 121 seats the transfer's median is 3.9%.</li>
 </ul>
-<hr />
-<h2 id="6-the-properties-that-matter-and-why">6. The properties that matter, and why</h2>
-<h3 id="61-slightly-less-proportional-by-party-vote-by-design">6.1 Slightly less proportional by party vote, by design</h3>
-<p>The <strong>Gallagher index</strong> is computed here against party votes <em>as cast</em>. Both reforms score worse on it than MMP141 on fixed ballots, for a simple reason: they count some votes for a party other than the one ticked, and the index measures the gap from the ticks.</p>
-<p>That isn't the same as a loss of fairness. The yardstick itself counts every split ballot's party vote in full, including the ballots that already elected an overhang MP. Measured against "one share per voter", the reforms are <em>more</em> proportional, not less. Still, the cost is real in one sense: some voters' party choice does not determine where their share goes, and some parties (usually the partners of an overhanging party) receive fewer seats than their raw party vote would earn.</p>
-<p><strong>How big is the cost?</strong></p>
+<p><strong>Partner parties lose seats.</strong> In 2026 ACT would fall from 13 to 10, NZ First from 12 to 10, and Labour and the Greens by 2 each. These are the parties that campaign openly for split votes, and several are in government, so they hold a veto over any change.</p>
+<p><strong>Losses can be concentrated.</strong> The most seats any party loses against its entitlement on raw votes, in the adapting futures:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Gallagher index, median</th>
-<th>MMP</th>
-<th>MMP141</th>
-<th>MMP-T141</th>
-<th>MMP-BV141</th>
+<th>Option</th>
+<th>Most seats a party loses: median / max</th>
+<th>Worst-hit party's vote moved: median / 1 election in 10</th>
+<th>Elections where some party loses 2+ seats</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Experiment 1: wide synthetic range, fixed ballots</td>
-<td>4.4</td>
-<td><strong>2.6</strong></td>
-<td>3.5</td>
-<td>5.2</td>
+<td>The transfer at 121</td><td class="q2">2 / 12</td><td class="q4">7.6% / 22.1%</td><td class="q3">54%</td>
 </tr>
 <tr>
-<td>Experiment 2: calibrated to NZ, fixed ballots</td>
-<td>1.4</td>
-<td><strong>0.9</strong></td>
-<td><strong>0.9</strong></td>
-<td>1.7</td>
+<td>The transfer at 141</td><td class="q0">1 / 11</td><td class="q0">1.0% / 11.8%</td><td class="q0">32%</td>
 </tr>
 <tr>
-<td>Experiment 3: from 2026, voters adapt (all elections 2029–41)</td>
-<td>4.1</td>
-<td>3.2</td>
-<td><strong>1.5</strong></td>
-<td>1.8</td>
+<td>… + the Backup Vote</td><td class="q0">1 / 11</td><td class="q2">2.7% / 13.8%</td><td class="q1">41%</td>
 </tr>
 <tr>
-<td>Experiment 3: 2041 only</td>
-<td>4.1</td>
-<td>3.4</td>
-<td><strong>0.45</strong></td>
-<td>1.3</td>
+<td>MMP at 141 with a hard limit</td><td class="q4">3 / 10</td><td>–</td><td class="q4">91%</td>
 </tr>
 </tbody>
 </table></div>
-<p>Two patterns stand out:</p>
-<ul>
-<li><strong>On fixed ballots, MMP-T141 costs little and MMP-BV141 costs more.</strong> MMP-T141 matches MMP141 on realistic elections (0.9 each). MMP-BV141 is a little worse, because its backup votes move seats at every election.</li>
-<li><strong>Once voters adapt, the reforms become the <em>most</em> party-proportional options.</strong> Under current MMP, overhang is the main source of disproportionality (it accounts for almost all of MMP's Gallagher index of 4.1 in Experiment 3; pure proportional allocation on the same ballots scores 0.4). The reforms remove the reward for splitting, splitting falls, overhang shrinks, and with it the need to transfer anything. The share of elections with any overhang under MMP-T141 falls from 96% in 2029 to 41% in 2041, and its Gallagher index falls from 2.9 to 0.45. Under MMP141, overhang persists in 98% of elections and the index <em>rises</em>, from 3.1 to 3.4.</li>
-</ul>
-<p>So "a bit less proportional by party vote" is true of the reforms on today's voting behaviour, and in the first election or two after a change. It is not true of where they lead.</p>
-<h3 id="62-more-proportional-at-the-bloc-level">6.2 More proportional at the bloc level</h3>
-<p>The <strong>bloc seat deficit</strong> measures how many seats the worse-off bloc is short of its share of all party votes. Each bloc is credited with every vote for its parties, including those below the threshold, and centrists count with their ally.</p>
-<p>The reforms do better on this measure for two reasons:</p>
-<ol>
-<li><strong>Transfers mostly stay inside blocs.</strong> Strategic splitting is a within-bloc activity, so counting split ballots for the overhanging party moves votes between partners without changing the bloc's total. The bloc that overhangs no longer gets seats on top of its share.</li>
-<li><strong>The Backup Vote rescues votes the threshold wastes, and mostly returns them to their own bloc.</strong> Sub-threshold voters overwhelmingly tick candidates from their own side.</li>
-</ol>
+<p class="shade-note">Shading ranks the rows in each column from best <span class="shade-key q0" style="background:rgba(30,150,90,.5)"></span> to worst <span class="shade-key" style="background:rgba(215,55,45,.5)"></span>; lower is better throughout. Rows in italics are for reference and are not ranked.</p>
+<p><strong>The first election is a shock.</strong> Before voters adapt, almost every election involves a transfer: at 121 seats, 8.3% of voters are affected in the first simulated election and some party loses two or more seats in 82% of them. This falls to 3.1% and 38% by 2041. With 20 more list seats it falls faster, and by 2035 the median election has no transfer at all. The fall is the modelled adaptation, and it is also the political price of the transition.</p>
+<p><strong>Splitters who are not gaming pay too.</strong> The same fraction is moved from every split ballot behind an overhanging winner: safe seats as well as marginal ones, personal votes as well as tactical ones. A variant that moves only <em>pivotal</em> ballots (in seats where the split votes exceeded the winning margin) would answer this more directly. It is being tested.</p>
+<p><strong>The Māori electorates.</strong> In 2026 about 66,000 Labour and Green party votes cast in Māori electorates would be counted for Te Pāti Māori. Every Māori-electorate MP keeps their seat, and the votes are counted for the party those voters elected locally.</p>
+<p><strong>If splitting becomes extreme and voters don't respond</strong> (Experiment 1, the stress test), the transfer still controls the House (median 1 seat above base, against 13) and reduces wrong winners (9.5% → 7.5%), but a median 13% of voters are affected, and in half of elections the worst-hit party loses a quarter or more of its party vote to transfers.</p>
+<p><strong>Where the transfer does worse.</strong> Each row is a measure on which the transfer (with leftover growing the House) does worse than the same system without it, on the same elections:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Bloc seat deficit: median / 90th percentile</th>
-<th>MMP</th>
-<th>MMP141</th>
-<th>MMP-T141</th>
-<th>MMP-BV141</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Experiment 1: wide synthetic range</td>
-<td>6.2 / 14.5</td>
-<td>5.2 / 13.5</td>
-<td>3.7 / 9.7</td>
-<td><strong>1.5 / 5.1</strong></td>
-</tr>
-<tr>
-<td>Experiment 2: calibrated to NZ</td>
-<td>2.1 / 5.1</td>
-<td>2.2 / 5.5</td>
-<td>1.8 / 5.1</td>
-<td><strong>1.1 / 2.8</strong></td>
-</tr>
-<tr>
-<td>Experiment 3: from 2026, voters adapt</td>
-<td>2.2 / 5.5</td>
-<td>2.0 / 5.3</td>
-<td>1.6 / 4.3</td>
-<td><strong>1.4 / 3.8</strong></td>
-</tr>
-</tbody>
-</table></div>
-<p>MMP-BV141 is best in every experiment. MMP-T141 is consistently better than MMP141. MMP141, on realistic elections, is no better than MMP at all (2.2 against 2.1 in Experiment 2): more list seats reduce overhang but do nothing about where the remaining overhang's seats go, or about wasted votes.</p>
-<p><strong>A caution on the yardstick.</strong> The bloc yardstick counts sub-threshold votes, which only MMP-BV can use, so it favours MMP-BV by construction. The experiments also report a "countable" bloc yardstick that leaves out voters who wasted both ticks, since no rule can count them. MMP-BV141's lead is even larger on that measure: a median of 0.6 seats in both Experiments 1 and 2, against 2.7 and 1.4 for MMP-T141, 4.2 and 1.8 for MMP141, and 5.3 and 1.7 for MMP. Its blocs are within one seat in 74–75% of scenarios, against 10–37% for the others.</p>
-<h3 id="63-less-likely-to-hand-the-minority-bloc-a-majority">6.3 Less likely to hand the minority bloc a majority</h3>
-<p>The outcome that matters most is whether the bloc with fewer votes ends up with a majority of seats. Experiment 3 is the only experiment that measured this directly.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th></th>
-<th>MMP</th>
-<th>MMP141</th>
-<th>MMP-T141</th>
-<th>MMP-BV141</th>
-<th>MMP-T-X141</th>
-<th>MMP-BV-X141</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Minority-bloc majority, all elections 2029–41</td>
-<td>5.6%</td>
-<td>4.3%</td>
-<td>4.6%</td>
-<td>4.0%</td>
-<td>4.6%</td>
-<td><strong>3.6%</strong></td>
-</tr>
-<tr>
-<td>In close elections (blocs 48–52%)</td>
-<td>27%</td>
-<td>23%</td>
-<td>26%</td>
-<td>23%</td>
-<td>25%</td>
-<td><strong>20%</strong></td>
-</tr>
-<tr>
-<td>Futures with at least one, over five elections</td>
-<td>23%</td>
-<td>19%</td>
-<td>21%</td>
-<td>18%</td>
-<td>20%</td>
-<td><strong>16%</strong></td>
-</tr>
-<tr>
-<td>As above, if gaming escalates</td>
-<td><strong>37%</strong></td>
-<td><strong>31%</strong></td>
-<td>21%</td>
-<td>18%</td>
-<td>20%</td>
-<td>16%</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li><strong>MMP-BV141 is less likely than any other option to produce a wrong-winner Parliament</strong>, especially with the grow fallback.</li>
-<li><strong>MMP-T141 is about level with MMP141 in the baseline</strong> (4.6% against 4.3%), and better than MMP. Its advantage shows when gaming escalates, when MMP141 deteriorates and MMP-T141 doesn't.</li>
-<li><strong>There is a floor.</strong> Allocating seats by pure proportional representation on the same ballots, with no electorates and so no overhang, still gives the minority bloc a majority in 4.6–4.8% of elections at a 5% threshold. MMP-BV-X141 beats that floor, because the Backup Vote rescues votes the threshold would otherwise waste. Lowering the threshold to 3.5% would bring the floor down to 2.7–2.9%.</li>
-</ul>
-<h3 id="64-resistance-to-gaming">6.4 Resistance to gaming</h3>
-<p>This is the reforms' strongest property.</p>
-<p><strong>The split-list playbook gains nothing.</strong> If a bloc leader's voters tick its candidates but party-vote a partner, the leader overhangs. Under a transfer rule, the split ballots behind that overhang are counted back towards the leader, and the bloc ends up with about its combined vote: exactly what it would have had without splitting. The same applies to "decoy" parties that stand only electorate candidates.</p>
-<p><strong>What happens if the playbook spreads</strong> (Experiment 3's escalation scenario):</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>If gaming escalates</th>
-<th>MMP</th>
-<th>MMP141</th>
-<th>Any reform</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Median overhang in 2041</td>
-<td>30 seats (11 in the baseline)</td>
-<td>not reported</td>
-<td>unchanged from baseline</td>
-</tr>
-<tr>
-<td>Largest House</td>
-<td>180 (155 in the baseline)</td>
-<td>197 (171 in the baseline)</td>
-<td>unchanged: 141, or at most 152 with -X</td>
-</tr>
-<tr>
-<td>Gallagher index in 2041</td>
-<td>9.7 (4.1 in the baseline)</td>
-<td>not reported</td>
-<td>unchanged</td>
-</tr>
-<tr>
-<td>Bloc seat deficit, median, 2029–41</td>
-<td>3.9 (2.2)</td>
-<td>3.0 (2.0)</td>
-<td>unchanged</td>
-</tr>
-<tr>
-<td>Minority-bloc majority, 2029–41</td>
-<td>9.4% (5.6%)</td>
-<td>7.7% (4.3%)</td>
-<td>unchanged: 3.6–4.6% at 141</td>
-</tr>
-</tbody>
-</table></div>
-<p>Under MMP, escalation is self-reinforcing: each bloc that sees the other gain more seats than votes has a reason to copy it. Under the reforms there is nothing to copy. <strong>A larger Parliament without a reform is no protection</strong>: MMP141's House reaches 197.</p>
-<p><strong>Other safeguards built into the rules:</strong></p>
-<ul>
-<li>The threshold is applied before any transfer, so a transfer can't push a party out of Parliament, and nobody can be pushed <em>in</em> by one either.</li>
-<li>There is no exemption for voters whose party stood no candidate locally. Such an exemption would be gamed by allied parties withdrawing candidates.</li>
-<li>Transfers use a fixed fraction of every eligible ballot, not a random selection, so results are reproducible on a recount.</li>
-</ul>
-<p><strong>New incentives the reforms create:</strong></p>
-<ul>
-<li><strong>Partners compete for electorates.</strong> Under either reform, a small party whose voters hand electorates to a big ally loses party votes when that ally overhangs. Experiment 3's reasoning has ACT and NZ First running "two ticks" campaigns after their first visible losses. That is a healthy incentive: it is the behaviour MMP was designed around.</li>
-<li><strong>Te Pāti Māori rebuilds its party vote.</strong> Under the absorbing reforms, a Māori-seat overhang gains the left nothing, so TPM switches to asking for the party vote and rebuilds to about 5.7% by 2041 (from 0.5% under MMP).</li>
-<li><strong>Consolidation to deny the other side's plurality wins.</strong> Under the absorbing reforms, once deliberate splitting has stopped, any remaining overhang comes from a big party winning electorates on a plurality, and it costs the <em>other</em> bloc list seats. Partner voters in marginal seats begin backing their own side's strongest candidate. This is ordinary electorate competition, not double-counting.</li>
-<li><strong>The Backup Vote's small reward for strategic electorate votes</strong> by small-party supporters (Section 5).</li>
-<li><strong>Under the grow fallback, a small residual reward remains.</strong> Overhang that transfers can't cover still adds seats for its bloc, so TPM's Māori-seat strategy partly survives (party vote stays about 0.5–0.6%). The reward is much smaller than under MMP, because transfers cover most of the overhang first.</li>
-</ul>
-<h3 id="65-the-fallback-absorb-or-grow">6.5 The fallback: absorb or grow</h3>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>At 141 seats, Experiment 3</th>
-<th>MMP-T141 (absorb)</th>
-<th>MMP-T-X141 (grow)</th>
-<th>MMP-BV141 (absorb)</th>
-<th>MMP-BV-X141 (grow)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bloc seat deficit, median</td>
-<td>1.6</td>
-<td>1.7</td>
-<td>1.4</td>
-<td>1.4</td>
-</tr>
-<tr>
-<td>Minority-bloc majority</td>
-<td>4.6%</td>
-<td>4.6%</td>
-<td>4.0%</td>
-<td><strong>3.6%</strong></td>
-</tr>
-<tr>
-<td>House: median / max</td>
-<td>141</td>
-<td>141 / 150</td>
-<td>141</td>
-<td>141 / 152</td>
-</tr>
-<tr>
-<td>Gallagher</td>
-<td>1.5</td>
-<td><strong>0.7</strong></td>
-<td>1.8</td>
-<td>1.4</td>
-</tr>
-<tr>
-<td>TPM party vote in 2041</td>
-<td>5.6%</td>
-<td>0.5%</td>
-<td>5.7%</td>
-<td>0.6%</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>Absorbing</strong> keeps Parliament fixed and gives the strongest incentives, but when the leftover overhang comes from plurality wins, it charges the <em>other</em> bloc for it. <strong>Growing</strong> avoids that, at the cost of a slightly variable House and a weaker incentive for parties built on electorates. At 141 seats, overhang is rare enough that either works. The grow fallback gives slightly better outcomes on every measure except the incentive on electorate-based parties.</p>
-<p>At 121 seats the difference is large (next section).</p>
-<h3 id="66-why-the-reforms-need-more-list-seats">6.6 Why the reforms need more list seats</h3>
-<p>There are two kinds of overhang:</p>
-<ul>
-<li><strong>Overhang from splitting:</strong> voters tick one party's candidate and party-vote another. Transfers fix this, because the split ballots are there to transfer.</li>
-<li><strong>Overhang from plurality wins:</strong> a large party wins many electorates on well under half the vote in each, against a divided opposition. There may be few split ballots behind those wins, so there is little to transfer.</li>
-</ul>
-<p>The reforms are designed to make the first kind disappear. Once it does, the second kind is what's left, and it depends on the ratio of list seats to electorates. With 71 electorates and 50 list seats, a party winning 42 electorates needs about 35% of the qualifying vote to cover them. With 70 list seats, it needs about 30%. In 2026, National's 42 electorates on 29.5% of the counted vote gave it a seven-seat overhang at 120; at 141 seats the same vote share is worth about 41–42 seats.</p>
-<p>That is why the reforms at 121 seats disappoint:</p>
-<ul>
-<li>In Experiment 1, with low strategic voting, MMP-T at 121 did slightly <em>worse</em> than current MMP on bloc fairness (median 6.5 against 5.3), and MMP-BV barely better (5.1).</li>
-<li>In Experiment 3, once voters adapted, MMP-T and MMP-BV at 121 gave the minority bloc a majority in 7.8% and 7.4% of elections, against 5.6% under MMP. Over 2029–2041, one future in three had at least one such Parliament.</li>
-</ul>
-<p>The reforms succeed at removing the incentive, and that very success leaves behind the kind of overhang they can't cover. More list seats close that gap. With the grow fallback (MMP-T-X, MMP-BV-X), the reforms at 121 come back to MMP's level (5.2–5.7%) with a House that grows by about 2 seats typically. But only at 141 do they clearly beat MMP.</p>
-<p>Adding 20 list seats is one way to get the ratio. Reducing the number of electorates is another; it wasn't tested here.</p>
-<h3 id="67-what-no-overhang-rule-fixes">6.7 What no overhang rule fixes</h3>
-<p>Under every option, some bloc imbalance remains, and it drifts upward over 2029–2041 (from 1.0 to 1.7 seats under MMP-BV-X141; from 2.2 to 2.6 under MMP). Under MMP-BV-X141, the remaining imbalance is correlated with the share of wasted votes (0.48), not with overhang (0.04).</p>
-<p>Of MMP's median bloc seat deficit of 2.2 seats in Experiment 3, only about 0.8 comes from overhang. The other 1.4 is caused by the 5% threshold. MMP-BV-X141 removes all of the overhang-caused part and a little of the threshold-caused part. Lowering the threshold to 3.5%, the Independent Electoral Review's recommendation, would roughly halve what remains (to 0.7–0.8 seats). That is complementary to any overhang reform, not an alternative.</p>
-<hr />
-<h2 id="7-the-simulations-method-and-results">7. The simulations: method and results</h2>
-<h3 id="71-common-framework">7.1 Common framework</h3>
-<p>All three experiments use the same seat-allocation engine (<a href="https://github.com/bjsmith/equalcount/blob/main/mc_overhang.py"><code>mc_overhang.py</code></a>) and the same measures.</p>
-<p><strong>Ballots, not just totals.</strong> Each electorate's votes are held as a table of party vote × electorate candidate, so every rule can see exactly which ballots elected which MP and where their party votes went. That is what the transfer rules need.</p>
-<p><strong>Seat rules.</strong> Sainte-Laguë; 5% threshold, waived for any party winning an electorate; qualification decided on raw party votes before anything is moved.</p>
-<p><strong>Measures.</strong></p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
+<th>Where</th>
 <th>Measure</th>
-<th>What it captures</th>
+<th>Without → with the transfer</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Bloc seat deficit</strong></td>
-<td>Seats the worse-off bloc is short of its share of all party votes, sub-threshold votes included. Every party is assigned to a bloc; centrists count with their ally.</td>
+<td>Every test</td>
+<td>Voters whose party vote counts differently</td>
+<td>0 → 0.6–13.1%</td>
 </tr>
 <tr>
-<td><strong>Gallagher index</strong></td>
-<td>Conventional party-level disproportionality against qualifying party votes as cast.</td>
+<td>2005–2023</td>
+<td>Standard Gallagher</td>
+<td>slightly worse in 3 of 5 overhang years</td>
 </tr>
 <tr>
-<td><strong>Party seat deficit</strong></td>
-<td>Each party's shortfall against its party-vote share, rounded to whole seats and summed.</td>
+<td>2026</td>
+<td>Standard Gallagher</td>
+<td>3.39 → 4.87</td>
 </tr>
 <tr>
-<td><strong>Minority-bloc majority</strong></td>
-<td>The bloc with fewer party votes holds a majority of seats (Experiment 3).</td>
+<td>2026</td>
+<td>Adjusted Gallagher (approximate)</td>
+<td>0.64 → 0.71</td>
 </tr>
 <tr>
-<td><strong>Extra seats needed</strong></td>
-<td>How many list seats would have to be added before (a) no party or (b) no bloc is more than one seat short. A diagnostic, not a proposal.</td>
+<td>Typical NZ, fixed ballots (Exp 2)</td>
+<td>Standard Gallagher</td>
+<td>3.70 → 3.88 at 121; 3.41 → 3.50 at 141</td>
 </tr>
 <tr>
-<td><strong>Overhang</strong></td>
-<td>Electorates won beyond entitlement on raw party votes at the system's base size.</td>
+<td>Extreme, fixed ballots (Exp 1)</td>
+<td>Standard Gallagher</td>
+<td>8.45 → 10.73 at 121; 7.24 → 8.14 at 141</td>
+</tr>
+<tr>
+<td>Adapting futures (Exp 3), at 121 only</td>
+<td>Bloc seat–vote gap</td>
+<td>1.70 → 1.82 (mean difference +0.08 ±0.05)</td>
+</tr>
+<tr>
+<td>Small vote changes (paradox test)</td>
+<td>A party gains party votes and loses a seat</td>
+<td>0 → about 10 in 10,000 changes (7 at 141)</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="72-experiment-1-a-stress-test">7.2 Experiment 1: a stress test</h3>
-<p><strong>Design.</strong> 5,000 synthetic elections, deliberately spanning far more fragmented party systems than New Zealand has had: 2–5 parties per bloc, blocs from 30:70 to 70:30, strategic splitting anywhere from 0% to 100% per bloc, 0–2 Māori electorate parties, 0–2 centrists, random geography. The same ballots are counted under every system. Median overhang was 13 seats, far beyond New Zealand's history: the point was to see where each rule breaks, not to forecast.</p>
-<p><strong>What it showed.</strong></p>
+<p>The <a class="gloss" aria-expanded="false" href="#gloss-paradox">monotonicity paradox</a> is rare and confined to elections where leftover overhang grows the House. Absorbing the leftover instead almost removes it (0.4 in 10,000), but at 121 seats that raises wrong-winner risk.</p>
+<p><strong>Why 2026 looks bad for the transfer.</strong> On the official 2026 result the transfer is clearly worse on the standard index (3.39 → 4.87) and slightly worse on the adjusted one (0.64 → 0.71). That is because the overhangs on the left and the right largely cancelled out: National's 6 seats against Te Pāti Māori's 4. Each bloc's double count offset the other's, so Parliament as a whole stayed roughly in line with the party vote. The transfer removes both overhangs, and moving about 204,000 votes' worth to do it shows up as a gap against the ticks as cast. Even so, it narrows the gap between the blocs (1.07 → 0.66 points).</p>
+<p><strong>The real costs of not changing.</strong> A Parliament that is proportional only because both sides overhang by similar amounts is proportional by accident, and that cuts against the spirit of MMP:</p>
 <ul>
-<li><strong>The party–bloc trade-off is real.</strong> MMP-BV141 had the best bloc fairness (median deficit 1.5, against 5.2 for MMP141) and the worst party-level proportionality (Gallagher 5.2, against 2.6). MMP-T141 sat between them on both, closer to MMP141 on party proportionality (median party seat deficit 6 against 5).</li>
-<li><strong>Size does much of the work.</strong> 141 seats improved every rule.</li>
-<li><strong>The reforms do best when strategic splitting is high</strong>, and least when it is low, because low splitting leaves little to transfer. In the scenarios with the least splitting, MMP-T at 121 was slightly worse than MMP. That is the first sign of the problem in Section 6.6.</li>
-<li><strong>Reforms rarely do worse than the status quo.</strong> MMP-BV141 was more than one seat worse than MMP141 on bloc fairness in 3% of scenarios. Where it was at least a seat worse than both MMP and MMP141 (1.7% of scenarios), the main causes were uneven numbers of fully wasted ballots between blocs, and the Backup Vote's reward for small-party supporters who tick a big ally. Leaving out voters who wasted both ticks, MMP-BV141 was at least a seat worse than MMP141 in only 0.7% of scenarios.</li>
-<li><strong>No Parliament size fixes MMP's bloc unfairness in the hard cases.</strong> In 45% of scenarios, no MMP House up to 400 seats brought both blocs within one seat. MMP-BV always got there, needing no extra seats at all in 52% of scenarios.</li>
+<li><strong>It is brittle.</strong> The balance holds only while the two sides game the rules about equally. Section 1 shows they can't: Te Pāti Māori's play is capped at about 6 seats, while the major-party split-list play grows with the electorates a party wins. When one side finds it can engineer more overhang than the other, the balance breaks. In the escalation scenario, minority-bloc majorities rise from 5.7% to 9.6% of elections.</li>
+<li><strong>It makes voters cast votes they wouldn't otherwise cast.</strong> To keep their side level, supporters are asked to split their ballots strategically: to tick a candidate or party they wouldn't otherwise choose, just so their bloc isn't outdone. A system in which each side must match the other's gaming asks voters to vote for the rules rather than for what they want.</li>
 </ul>
-<h3 id="73-experiment-2-new-zealands-actual-elections-and-elections-like-them">7.3 Experiment 2: New Zealand's actual elections, and elections like them</h3>
-<p><strong>Part A: rerunning 2005–2023.</strong> Using the Electoral Commission's split-vote tables (495 electorate tables over seven elections), each election was recounted under every system at 120 seats. Current MMP reproduced every real Parliament.</p>
+<p><strong>The defence.</strong> The transfer moves a voter's party vote only when that voter's own electorate vote has elected an MP their party vote does not pay for. Without it, that voter shapes Parliament twice, and everyone else pays through a larger House, or through an arms race that keeps the two sides level only for as long as neither gets ahead.</p>
+<hr />
+<h2 id="6-the-debate">6. The debate</h2>
+<h3 id="61-alternatives-why-not-the-other-proposals">6.1 Alternatives: why not the other proposals?</h3>
+<p>The debate after the 2026 election has produced plenty of proposals. <a href="https://thespinoff.co.nz/politics/19-11-2026/ten-ways-to-fix-mmp-explained">The Spinoff listed ten</a>, and 46 experts have called for a select committee inquiry. None of them reassigns votes. Each is a different answer to one question: <strong>when a party wins an electorate seat that its party vote doesn't cover, who pays for it?</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Proposal</th>
+<th>Who pays for the uncovered seat</th>
+<th>On the 2026 official count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current law ("tune the system, don't scapegoat it")</td>
+<td>Every other voter, through a bigger House</td>
+<td>130 seats</td>
+</tr>
+<tr>
+<td>More list seats (Spinoff Option 2)</td>
+<td>The same, less often</td>
+<td>Tested as step 1 (sections 3.1 and 4)</td>
+</tr>
+<tr>
+<td>Absorb within a fixed House (Option 1; the 2012 and 2023 reviews)</td>
+<td>The other parties' list seats, mostly the other bloc's</td>
+<td>120 seats; the right goes from 50.0% to 50.8% of seats on 48.9% of the vote</td>
+</tr>
+<tr>
+<td>Compensation seats (Option 3)</td>
+<td>Every voter, through a much bigger House</td>
+<td>About 142 seats if Te Pāti Māori's overhang is left alone; about 700 if it isn't</td>
+</tr>
+<tr>
+<td>Party vote overrides electorate wins (Option 4; Germany since 2023)</td>
+<td>The electorate winners, who aren't seated</td>
+<td>10 electorates without the MP they elected, 4 of them Māori electorates</td>
+</tr>
+<tr>
+<td>One combined vote (Option 5)</td>
+<td>Every voter, who loses the split ballot at every election</td>
+<td>A different ballot paper</td>
+</tr>
+<tr>
+<td>Weighted voting in the House (Option 6)</td>
+<td>No one in divisions; everyone through a bigger House</td>
+<td>130 seats, with unequal votes</td>
+</tr>
+<tr>
+<td><strong>The Overhang Transfer</strong></td>
+<td><strong>The voters whose ballots elected the uncovered MPs.</strong> Part of their party vote counts for the party they elected locally</td>
+<td>121 seats; every electorate MP seated; about 204,000 votes' worth moved (section 5)</td>
+</tr>
+</tbody>
+</table></div>
+<p>These alternatives weren't run through the simulations. The evidence in section 4 compares the transfer only with current MMP, with 20 more list seats, and with a hard limit at 141. The figures below are seat arithmetic on the 2026 official count, with split votes estimated where they matter.</p>
+<p><strong>Keep growing the House</strong> (current law). This is the strongest rival, because it is already the law and moves no votes. The best case for it is 2026 itself: the two blocs' overhangs largely cancelled, and the right won 50.0% of the seats on 48.9% of the vote. Against it:</p>
+<ul>
+<li><strong>It costs ten extra MPs now and sets no limit later.</strong> In the adapting futures, if the split-list play spreads (section 4), MMP's House reaches 60 seats above base, and 57 above base even at 141 seats. The bloc with fewer votes wins a majority in 9.6% of elections.</li>
+<li><strong>It rewards whichever bloc dominates the electorates.</strong> In those futures, 457 of the 469 minority-bloc majorities under MMP went to the bloc holding more electorates (on today's map, the right). Not all of that tilt comes from gaming: under the transfer, 271 of 286 still go the same way, because plurality wins and wasted votes also favour that bloc. But gaming makes it much worse. The tilt would reverse in a year like 2020, when Labour won 46 electorates. Either way the rule hands an advantage to whoever is already winning.</li>
+<li><strong>Nothing in the rules discourages any of this.</strong> Section 1 sets out who can game the status quo and how.</li>
+</ul>
+<p><strong>Absorb the overhang within a fixed House</strong> (Option 1, recommended by both the 2012 and 2023 reviews). It keeps the House at 120 and unseats no one, but it moves the cost to the parties that didn't create the overhang.</p>
+<ul>
+<li><strong>In 2026 it would turn a near-even result into a tilt.</strong> Labour would lose 4 seats, and the Greens, ACT and NZ First 2 each. The right would end up with 61 of 120 seats (50.8%) on 48.9% of the vote. This is the Spinoff's main objection.</li>
+<li><strong>It doesn't remove the payoff from splitting.</strong> The bloc that creates the overhang keeps it, and everyone shares the cost.</li>
+<li><strong>At 141 seats it is affordable only with the transfer</strong>, because the transfer leaves little overhang to absorb:</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Experiment 3, at 141 seats</th>
+<th>House above base: median / max</th>
+<th>Voters counted differently</th>
+<th>Minority-bloc majority</th>
+<th>Bloc seat–vote gap, points</th>
+<th>Standard Gallagher</th>
+<th>Adjusted Gallagher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MMP, House grows</td><td class="q4">6 / 32</td><td class="q0">0%</td><td class="q1">4.2% ±0.6</td><td class="q3">1.33</td><td class="q3">3.84</td><td class="q3">0.92</td>
+</tr>
+<tr>
+<td>MMP, hard limit</td><td class="q0">0 / 0</td><td class="q0">0%</td><td class="q4">6.1% ±0.7</td><td class="q4">1.65</td><td class="q4">4.34</td><td class="q4">1.15</td>
+</tr>
+<tr>
+<td>Transfer, House grows</td><td class="q0">0 / 9</td><td class="q1">0.9%</td><td class="q2">4.4% ±0.6</td><td class="q2">1.22</td><td class="q0">3.35</td><td class="q1">0.26</td>
+</tr>
+<tr>
+<td>Transfer, hard limit</td><td class="q0">0 / 0</td><td class="q2">1.7%</td><td class="q3">4.6% ±0.6</td><td class="q1">1.19</td><td class="q1">3.40</td><td class="q1">0.26</td>
+</tr>
+<tr>
+<td>Backup Vote, House grows</td><td class="q0">0 / 10</td><td class="q3">4.0%</td><td class="q0">3.7% ±0.5</td><td class="q0">1.00</td><td class="q2">3.58</td><td class="q0">0.21</td>
+</tr>
+<tr>
+<td>Backup Vote, hard limit</td><td class="q0">0 / 0</td><td class="q4">4.4%</td><td class="q1">4.2% ±0.6</td><td class="q0">1.00</td><td class="q2">3.64</td><td class="q1">0.26</td>
+</tr>
+</tbody>
+</table></div>
+<p class="shade-note">Shading ranks the rows in each column from best <span class="shade-key q0" style="background:rgba(30,150,90,.5)"></span> to worst <span class="shade-key" style="background:rgba(215,55,45,.5)"></span>; lower is better throughout. Rows in italics are for reference and are not ranked.</p>
+<p>Without the transfer, a hard limit puts wrong-winner risk back at MMP-at-121 levels, and some party loses two or more list seats in 91% of elections. If gaming escalates it is the worst option tested: minority-bloc majorities reach 11.2% of elections, and 41% of futures have at least one. (The limited House without a transfer is run on the ballots of the uncapped MMP141 futures, so its voters aren't modelled as adapting to the limit.)</p>
+<p><strong>More list seats or fewer electorates</strong> (Option 2). This is step 1 of the evidence. Twenty more list seats do real work on their own (section 4), and the evidence favours the transfer <em>with</em> them, not instead of them. They reduce overhang but don't remove it, and they leave engineered splitting as profitable as before. Fewer electorates would work the same way, at the cost of larger electorates and new boundaries. It wasn't tested.</p>
+<p><strong>Compensation seats</strong> (Option 3; Germany 2013–2021). Give the other parties extra list seats until the result is proportional again. It moves no votes and unseats no one, but in New Zealand the arithmetic rules it out:</p>
+<ul>
+<li><strong>About 142 seats in 2026 if only National's overhang is compensated</strong> (the Spinoff's figure). Te Pāti Māori's 4 extra seats would then sit uncompensated on top, so its play would keep paying.</li>
+<li><strong>About 700 seats to compensate Te Pāti Māori too</strong>, because it holds 5 electorates on 0.6% of the party vote.</li>
+<li><strong>Germany abandoned the rule</strong> after the Bundestag grew from a standard 598 seats to 736.</li>
+</ul>
+<p><strong>Party vote overrides electorate wins</strong> (Option 4; Germany's 2023 rule). An overhanging party's electorate winners with the lowest vote shares aren't seated. This is the cleanest fix on paper: the House is fixed, no votes move, and it is exactly proportional. Germany's Constitutional Court upheld the principle in 2024. On 2026 its bloc result is the same as the transfer's. The difference is who pays:</p>
+<ul>
+<li><strong>It would unseat 10 electorate MPs in 2026</strong>: National's 6 with the lowest shares, and 4 of Te Pāti Māori's 5.</li>
+<li><strong>Two of the Te Pāti Māori MPs unseated won outright majorities</strong>: Debbie Ngarewa-Packer in Te Tai Hauāuru (54.5%) and Oriini Kaipara in Tāmaki Makaurau (52.5%). The other two are Rawiri Waititi in Waiariki (44.5%) and Aperahama Edwards in Te Tai Tokerau (30.2%). Only Hauraki-Waikato (67.9%) would keep its MP.</li>
+<li><strong>Removing majority-elected MPs from Māori electorates would be widely criticised as anti-Māori</strong>, with some justification. We regard that as politically decisive.</li>
+<li><strong>The open letter's softer version</strong>, letting each party keep up to two overhang seats, would still unseat Waititi and Edwards, and four National MPs.</li>
+<li><strong>A version that exempts the Māori electorates</strong> would remove National's overhang and keep Te Pāti Māori's. The right would see that as rigged, and it would be hard to argue otherwise.</li>
+<li><strong>The transfer seats every electorate MP and applies one rule to both blocs.</strong></li>
+</ul>
+<p><strong>One combined vote</strong> (Option 5). One tick elects the local MP and counts as the party vote. That ends split ballots, and with them almost all overhang, but:</p>
+<ul>
+<li><strong>It takes away a choice many voters use</strong>, at every election, including the many splits that never create an overhang. Changing the ballot would probably need a referendum, given that 2011 endorsed MMP as it is.</li>
+<li><strong>It squeezes small parties.</strong> A Green voter in a marginal seat who wants to keep National out would have to give Labour their party vote as well.</li>
+<li><strong>It doesn't end overhang from concentrated support.</strong> Te Pāti Māori's electorate candidates won about 3% of all candidate votes in 2026. Counted as party votes, that would still leave it about one seat over.</li>
+</ul>
+<p>The transfer is the same idea applied only where it's needed. It counts a split ballot as a single vote only when that ballot elected an MP whose seat isn't covered, and only to the extent needed to cover it. Every other split is left alone.</p>
+<p><strong>Weighted voting in the House</strong> (Option 6, proposed in the open letter). Overhang MPs take their seats, but each party's votes in the House are weighted by its party vote.</p>
+<ul>
+<li><strong>It removes the overhang's effect on divisions</strong>, including confidence and supply, without moving any votes.</li>
+<li><strong>It leaves everything else in place.</strong> The House still grows. Overhang MPs still bring select-committee places, speaking time, funding and ministerial posts. MPs would no longer have equal votes. Conscience votes would need their own rule.</li>
+<li><strong>It treats the symptom in one place</strong> rather than changing what the ballot does.</li>
+</ul>
+<p><strong>The rest of the list.</strong></p>
+<ul>
+<li><strong>Ranked-choice or multi-member electorates</strong> (Option 7) address plurality winners. They don't stop the split-list play: an ACT voter can rank the National candidate first as easily as tick them.</li>
+<li><strong>Abolishing the Māori seats</strong> (Option 8) is a political non-starter, and it wouldn't touch National's overhang, which was 6 of the 10 extra seats in 2026.</li>
+<li><strong>Abolishing electorates</strong> (Option 9) is the pure-PR benchmark in section 4. It ends overhang by ending local representation.</li>
+</ul>
+<p><strong>Lowering the threshold and ending coat-tailing</strong> (the 2023 Review) answer a different problem: votes for parties that miss the threshold. They complement any overhang rule rather than replacing one. The Backup Vote (section 3.3) is this project's contribution to that debate.</p>
+<p><strong>Where this leaves the transfer.</strong> It is the only proposal on the list that does all four of these:</p>
+<ul>
+<li>seats every electorate winner, including every Māori-electorate MP;</li>
+<li>keeps the House at or near its base: a median of 0–1 seats above it, and at most 9 above at 141 seats. Gaming can't push it higher;</li>
+<li>applies one rule to both blocs;</li>
+<li>leaves straight ballots, and splits that create no overhang, untouched.</li>
+</ul>
+<p>Its price is that some split voters' party votes count partly for the party they elected locally. Section 5 sets out that cost in full.</p>
+<h3 id="62-what-critics-will-say">6.2 What critics will say</h3>
+<p><strong>"This isn't new."</strong> Agreed, in principle.</p>
+<ul>
+<li>Since 1956, German law has excluded the party votes of voters who elect an independent, to stop them gaining a "double vote weight". The Constitutional Court upheld the rule in 1957 and 1988. In 1988 it named overhang as the exception that splitting can exploit.</li>
+<li>The transfer extends that rule to overhang, and counts the vote for the party the voter elected rather than discarding it.</li>
+<li>New Zealand gives the opposite answer for independents: the list seats shared out are reduced, so every other party pays. The 2023 Review recommended the same treatment for overhang.</li>
+<li>No published proposal of the ballot-level, overhang-only transfer was found. The search was not exhaustive; see the <a href="../report/prior-art.html">review of prior art</a>.</li>
+</ul>
+<p><strong>"Vote linkage has been gamed before."</strong> Yes, but through a different kind of link.</p>
+<ul>
+<li>Italy's <a href="https://en.wikipedia.org/wiki/Scorporo"><em>scorporo</em></a> subtracted votes from the list linked to a winning candidate, and was defeated by decoy lists in 2001.</li>
+<li>The transfer follows each voter's own ballot, not a declared link. A decoy party gains nothing, because the transfer counts back the party votes actually cast on the ballots that elected the winner.</li>
+</ul>
+<p><strong>"The party vote is the one that counts"</strong> (the MMP defender; compare Tom Peoples, <a href="https://thespinoff.co.nz/politics/23-11-2026/in-defence-of-mmp">"In defence of MMP"</a>, The Spinoff, 23 November). The split voter is "weighting local representation", and a rule that changes the value of their party vote penalises a choice the ballot invites.</p>
+<ul>
+<li>When the seat is covered by the party's own votes, nothing changes. The transfer bites only when the voter's electorate vote has created a seat that their party vote doesn't pay for. At that point the voter isn't just choosing a local MP, but adding a seat to one party while funding another.</li>
+<li>Expect a call for a referendum.</li>
+</ul>
+<p><strong>"You're giving my voters' votes to National"</strong> (the partner-party politician). There is a real weakness here. The uniform fraction includes safe-seat and cross-bloc personal votes: in 2026, about 9,900 Labour and 4,800 Green votes counted for National. The pivotal-ballot variant is the answer being tested.</p>
+<p><strong>"The problem is 71 electorates against 50 list seats"</strong> (the structuralist). Conceded. Once splitting stops, the remaining overhang comes from plurality wins, which the transfer can't fix. That is why the evidence favours the transfer <em>with</em> more list seats.</p>
+<p><strong>"Nobody can say which voter caused which overhang seat."</strong> This was one of the German Court's reasons in 1997 for not treating overhang as double vote weight. The transfer doesn't try to identify individuals. It attributes the overhang collectively to the split ballots behind the overhanging party's winners. Straight-ticket ballots aren't double counted, which is why the transfer leaves them alone.</p>
+<p><strong>"It needs new counting machinery"</strong> (the administrator). True. The official count would need the party-vote × candidate table for each electorate, which is currently published only as statistics after the count.</p>
+<p><strong>"The models are yours"</strong> (the methodologist). Also true. The adaptation and escalation responses are reasoned judgements, varied across ranges but not observed, and the 2026 split votes are estimated. The code, inputs and stored results are published so the results can be checked (Appendix A).</p>
+<hr />
+<h2 id="7-conclusion">7. Conclusion</h2>
+<p><strong>The finding.</strong> If voters and parties adapt to the incentives each system creates, 141 seats with a reform is clearly better than 141 seats alone. It holds the House near its base size, removes the payoff from engineered splitting, and is more proportional on every proportionality measure. The two reforms differ on one judgement:</p>
+<ul>
+<li><strong>The Backup Vote at 141</strong> is best if votes for parties below the threshold should count towards a bloc's fair share: it has the lowest wrong-winner rate (3.7%) and bloc gap (1.00 points).</li>
+<li><strong>The transfer at 141</strong> is best if they shouldn't: it has the lowest wrong-winner rate on qualifying votes (1.7%) and the best standard index, and it affects far fewer voters (0.9% against 4.0%).</li>
+</ul>
+<p><strong>The assumption it rests on.</strong> That voters adapt. In the simulations, the transfer's cost falls and its proportionality gains appear because splitting behind overhanging winners declines once it stops paying. That is a modelled response. If voters kept splitting regardless, the fixed-ballot results would apply instead, and there the reforms are slightly <em>less</em> proportional than MMP at 141 on the standard index, while still better on House size and, for the transfer, on wrong winners.</p>
+<p><strong>Other limitations:</strong></p>
+<ul>
+<li><strong>The escalation scenarios show what happens if gaming spreads, not how likely it is.</strong></li>
+<li><strong>2026 split votes are estimated</strong> from 2023 patterns. The official statistics may change how much of National's overhang came from splitting rather than plurality wins; if much of it is plurality wins, the transfer covers less and looks more like a penalty on personal voting. Public claims about 2026 should wait for them.</li>
+<li><strong>Bloc assignments are judgements.</strong> Opportunity is counted with the left in the simulations. The transfer itself needs no blocs.</li>
+<li><strong>The Māori electorates are simplified</strong>, and the calibrated model over-predicts Māori-party wins in some years.</li>
+<li><strong>Costs outside the model</strong> are likely to decide the question in practice: the fiscal cost of extra MPs, new counting machinery, public acceptance, and how well the rule can be explained.</li>
+</ul>
+<p><strong>Still to come.</strong> This is a working draft, and two additions are planned:</p>
+<ul>
+<li><strong>2026 with real split votes.</strong> The Electoral Commission's split-vote statistics are due by 18 December. The 2026 figures in this report will then be recalculated from actual ballots instead of estimates.</li>
+<li><strong>A narrower transfer.</strong> A variant that moves only <em>pivotal</em> ballots, in seats where the split votes exceeded the winning margin, is being tested. It would spare split voters in safe seats and personal votes for popular MPs.</li>
+</ul>
+<p>Other variants have not been tested yet: a limit of one seat lost per party per election, the transfer without its wasted-vote first step, and fewer electorates instead of more list seats.</p>
+<hr />
+<h2 id="appendix-a-method">Appendix A. Method</h2>
+<h3 id="common-framework">Common framework</h3>
+<ul>
+<li><strong>Ballots, not just totals.</strong> Every election, real or simulated, is held as a table of party vote × electorate candidate for each electorate. That is how each rule can see which ballots elected which MP, and where their party votes went.</li>
+<li><strong>Seat rules.</strong> Sainte-Laguë allocation; a 5% threshold, waived for any party winning an electorate; qualification decided on raw party votes before anything is moved.</li>
+<li><strong>Base size.</strong> 121 seats, so that 71 electorates sit with 50 list seats (120 for the real 2005–2023 elections, as used at the time), and 141 for the larger House.</li>
+<li><strong>The systems.</strong> Every system was run on identical ballots: current MMP, the transfer (leftover grows or is absorbed), the transfer with the Backup Vote, all at 121 and 141 seats, and the Review's hard limit at 141.</li>
+</ul>
+<h3 id="real-elections">Real elections</h3>
+<p>The 2005–2023 elections recounted at 120 seats from the Electoral Commission's split-vote tables (MMP → transfer in each cell):</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
 <th>Year</th>
 <th>Overhang</th>
-<th>Bloc seat deficit: MMP / MMP-T / MMP-BV</th>
-<th>Votes transferred (MMP-T)</th>
+<th>House</th>
+<th>Voters counted differently</th>
+<th>Bloc seat–vote gap, points</th>
+<th>Standard Gallagher</th>
+<th>Adjusted Gallagher</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>2005</td>
 <td>Māori Party 1</td>
-<td>0.1 / 0.5 / 0.5</td>
-<td>16,978</td>
+<td>121 → 120</td>
+<td>0.9%</td>
+<td>0.05 → 0.40</td>
+<td>1.18 → 1.29</td>
+<td>0.22 → 0.26</td>
 </tr>
 <tr>
 <td>2008</td>
 <td>Māori Party 2</td>
-<td>4.4 / 4.5 / <strong>3.5</strong></td>
-<td>26,596</td>
+<td>122 → 120</td>
+<td>1.4%</td>
+<td>3.62 → 3.73</td>
+<td>3.94 → 4.03</td>
+<td>0.34 → 0.13</td>
 </tr>
 <tr>
 <td>2011</td>
 <td>Māori Party 1</td>
-<td>0.2 / 0.7 / 0.3</td>
-<td>13,154</td>
+<td>121 → 120</td>
+<td>0.6%</td>
+<td>0.17 → 0.56</td>
+<td>2.38 → 2.32</td>
+<td>0.45 → 0.53</td>
 </tr>
 <tr>
 <td>2014</td>
 <td>United Future 1</td>
-<td>0.4 / 0.9 / <strong>0.1</strong></td>
-<td>4,195</td>
+<td>121 → 120</td>
+<td>0.6%</td>
+<td>0.35 → 0.75</td>
+<td>3.76 → 3.68</td>
+<td>0.40 → 0.52</td>
 </tr>
 <tr>
 <td>2017</td>
 <td>none</td>
-<td>1.8 / 1.8 / <strong>0.8</strong></td>
-<td>–</td>
+<td>120</td>
+<td>0</td>
+<td>1.48</td>
+<td>2.81</td>
+<td>0.07</td>
 </tr>
 <tr>
 <td>2020</td>
 <td>none</td>
-<td><strong>0.2</strong> / <strong>0.2</strong> / 1.2</td>
-<td>–</td>
+<td>120</td>
+<td>0</td>
+<td>0.21</td>
+<td>4.22</td>
+<td>0.11</td>
 </tr>
 <tr>
 <td>2023</td>
 <td>Te Pāti Māori 2</td>
-<td>1.5 / <strong>0.4</strong> / <strong>0.4</strong></td>
-<td>35,038</td>
+<td>122 → 120</td>
+<td>1.4%</td>
+<td>1.25 → 0.34</td>
+<td>2.82 → 2.96</td>
+<td>0.26 → 0.37</td>
 </tr>
 </tbody>
 </table></div>
+<p>Every historical overhang was fully covered, so the House would have stayed at 120 every time; at most one party lost one seat; no election produced a minority-bloc majority under either rule. The differences in the indices are within a seat's rounding: one seat at 120 is 0.83 points of seat share.</p>
+<p><strong>2026</strong>, with split votes estimated: House 130 → 121; 12.6% of voters counted differently; no minority-bloc majority under either rule; bloc seat–vote gap 1.07 → 0.66 points; standard Gallagher 3.39 → 4.87; adjusted Gallagher 0.64 → 0.71. Two caveats. The adjusted index is approximate, because only the split ballots behind National's and Te Pāti Māori's winners are estimated. The bloc gap needs the 0.86% of votes for sub-threshold parties assigned to blocs; they are split evenly here, and the gap ranges from 0.64 to 1.50 under MMP depending on that choice, but the transfer narrows it by about 0.4 points under every allocation.</p>
+<h3 id="the-experiments">The experiments</h3>
 <ul>
-<li>Every historical overhang was covered by transferring at most about 37,000 votes (1.3% of the party vote). Parliament would have stayed at 120 every time.</li>
-<li>The largest bloc imbalance, in 2008, came from NZ First falling below the threshold, not from overhang. Only MMP-BV reduced it.</li>
-<li>MMP-BV did worse in one election, 2020, by one seat: the votes it rescued did not split between the blocs in proportion to the blocs' sub-threshold votes. MMP-T matched MMP in years without overhang, as it must.</li>
-<li>Party-level effects were small: one or two seats per party at most.</li>
+<li><strong>Experiment 1, a stress test.</strong> 5,000 synthetic elections spanning far more fragmented party systems and splitting rates than New Zealand has had: 2–5 parties per bloc, blocs from 30:70 to 70:30, and strategic splitting anywhere from 0% to 100%. Ballots are fixed. The median overhang is 13. See <a href="../report/experiment-1.html"><code>experiment1_report.md</code></a>.</li>
+<li><strong>Experiment 2, New Zealand.</strong> 5,000 synthetic elections, every parameter drawn from the seven elections from 2005 to 2023 (495 per-electorate split-vote tables). Voter behaviour is fitted to each election's electorate results by approximate Bayesian computation. Ballots are fixed. See <a href="../report/experiment-2.html"><code>report_experiment2.md</code></a>.</li>
+<li><strong>Experiment 3, adaptation.</strong><ul>
+<li>1,000 futures of five elections (2029–2041) from the 2026 result. Events outside strategy (swings, party drift, new parties) are shared across systems within a future.</li>
+<li>Voters' and parties' responses depend on what each system's last election taught them. Examples: partners campaign for two ticks after losing seats to transfers; Te Pāti Māori rebuilds its party vote when its overhang no longer pays.</li>
+<li>The responses were reasoned through by hand for ten futures, encoded as rules, and run with each rule's strength drawn per future from a range around the hand-reasoned value. The ranking of systems doesn't hinge on those strengths: no drawn strength correlates with a future's bloc fairness beyond 0.10. The rules' form was not varied, and they were written by the same analyst who proposed the transfer.</li>
+<li>Two scenarios add escalation of the split-list strategy under current rules. Under escalation MMP reaches 20 seats above base at the median and up to 181 seats, with minority-bloc majorities in 9.6% of elections; MMP at 141 reaches 198 seats and 8.0%. The reforms are unaffected by construction, because the split ballots behind an engineered overhang are exactly what the transfer counts back.</li>
+<li>See <a href="../report/experiment-3.html"><code>report_experiment3.md</code></a>.</li>
 </ul>
-<p><strong>Part B: 5,000 calibrated elections.</strong> The Experiment 1 generator, with every parameter drawn from what the seven elections show. Party structure, geography and turnout were measured directly. Voter behaviour (personal votes, strategic splitting by each partner party, Māori-seat splitting, standout local candidates like Epsom's) was fitted to each election's electorate results by approximate Bayesian computation. The fitted behaviour reproduces the partner parties' observed splits within 5–6 points every year. The calibrated elections have a median overhang of 2 seats (99th percentile 10), 83% of it from Māori parties.</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Calibrated elections</th>
-<th>MMP</th>
-<th>MMP141</th>
-<th>MMP-T141</th>
-<th>MMP-BV141</th>
-<th>MMP-BV-X141</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Bloc seat deficit: median / 90th</td>
-<td>2.1 / 5.1</td>
-<td>2.2 / 5.5</td>
-<td>1.8 / 5.1</td>
-<td><strong>1.1 / 2.8</strong></td>
-<td><strong>1.0 / 2.9</strong></td>
-</tr>
-<tr>
-<td>Blocs within one seat</td>
-<td>25%</td>
-<td>24%</td>
-<td>29%</td>
-<td><strong>48%</strong></td>
-<td><strong>48%</strong></td>
-</tr>
-<tr>
-<td>Gallagher</td>
-<td>1.4</td>
-<td><strong>0.9</strong></td>
-<td><strong>0.9</strong></td>
-<td>1.7</td>
-<td>1.7</td>
-</tr>
-<tr>
-<td>House: median / max</td>
-<td>123 / 139</td>
-<td>142 / 151</td>
-<td>141</td>
-<td>141</td>
-<td>141 / 145</td>
-</tr>
-</tbody>
-</table></div>
-<ul>
-<li><strong>Most bloc imbalance in realistic elections comes from wasted votes, not overhang.</strong> With no overhang at all, MMP's median bloc deficit was still 1.7 seats; MMP-BV's was 0.9.</li>
-<li><strong>MMP-BV almost never does worse than MMP on bloc fairness</strong>: more than one seat worse in 1% of scenarios, and never more than two.</li>
-<li><strong>MMP-BV's party-level cost is permanent.</strong> In 42% of scenarios no Parliament size brings every party within one seat of its raw party-vote share, against 5% under MMP. That is the measurable form of "counting some votes for a different party".</li>
-</ul>
-<h3 id="74-experiment-3-where-each-system-leads-from-2026">7.4 Experiment 3: where each system leads from 2026</h3>
-<p><strong>Design.</strong> Experiments 1 and 2 hold ballots fixed. Experiment 3 lets voters and parties respond. Starting from the 2026 provisional result, 1,000 futures were simulated over five elections (2029–2041) under ten systems, with each reform taking effect in 2029.</p>
-<ul>
-<li><strong>Events outside strategy</strong> (bloc swings, party drift, new parties, map drift) are shared across systems within each future.</li>
-<li><strong>Strategic responses</strong> depend on what each group learned from the last election under its own system. They were first reasoned through by hand, then encoded as rules and run at scale. Both stages are described below.</li>
-<li><strong>Two escalation scenarios</strong> add the split-list playbook spreading under MMP: by reaction to the other side ("copycat"), or also because it pays ("escalation").</li>
-<li><strong>A benchmark</strong> reallocates every simulated election by pure proportional representation, to show how much imbalance no overhang rule can remove.</li>
-</ul>
-<h4 id="what-the-reasoning-acts-on">What the reasoning acts on</h4>
-<p>Each future carries a small set of behavioural state variables, which the election simulator turns into ballots in every electorate:</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Meaning</th>
-<th>2026 value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>s</em><sub>p</sub></td>
-<td>Share of partner party <em>p</em>'s voters who give their electorate vote to their bloc leader's candidate</td>
-<td>0.15 (left partners), 0.35 (right partners)</td>
-</tr>
-<tr>
-<td><em>s</em><sub>M</sub></td>
-<td>Share of left voters in the Māori electorates who tick the Māori-party candidate</td>
-<td>0.40</td>
-</tr>
-<tr>
-<td>π</td>
-<td>Personal vote: share of all voters who back a liked local candidate regardless of party</td>
-<td>0.20</td>
-</tr>
-<tr>
-<td>Party vote shares</td>
-<td>National party votes, with each party's local strength from the 2026 electoral map</td>
-<td>2026 result</td>
-</tr>
-<tr>
-<td>Split-list share</td>
-<td>Share of a bloc leader's supporters who keep ticking its candidates but party-vote a partner</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Awareness <em>a</em></td>
-<td>How well voters understand the reform in force (0–1); scales most responses under a reform</td>
-<td>0.2 before 2029</td>
-</tr>
-</tbody>
-</table></div>
-<p>The reasoning changes these variables between elections. It never touches the seat rules or the ballots directly.</p>
-<h4 id="stage-1-ten-futures-reasoned-by-hand">Stage 1: ten futures reasoned by hand</h4>
-<p>Ten futures were started from 2026, each with its own exogenous events (swings, drift, new parties), and run under all ten systems. After each election:</p>
-<ol>
-<li><strong>A digest was produced</strong> for every future × system: party votes, electorates won, overhang, votes transferred, which parties lost seats relative to their raw party vote, each bloc's seats against its fair share, and who won the majority (<code>futures/digest_&lt;year&gt;.md</code>).</li>
-<li><strong>The digests were read and the reasoning written down</strong> (<code>futures/reasoning_&lt;year&gt;.md</code>). For each system, the reasoning sets out what the election showed and then takes each group in turn (partner parties and their voters, leader parties' voters, Te Pāti Māori, voters in the Māori electorates, sub-threshold parties' voters) and asks what that group, in its own position and with partial attention, would do differently next time.</li>
-<li><strong>The reasoning was translated into rules</strong> that change the state variables, with explicit triggers read from the last result (for example, "this party lost seats to transfers" or "the other bloc's leader overhung by four or more").</li>
-<li><strong>The next election was simulated</strong> with the adjusted behaviour, and the cycle repeated through 2041.</li>
-</ol>
-<p>The first version of the rules named parties. Because party systems drift (in about 22% of simulated elections the left or right leader, or TPM's size, ends up somewhere the hand-reasoned futures never went), the rules were rewritten by role (left leader, right partners, and so on) and the ten futures rerun. Two rules remain tied to particular parties because the reasoning is about them specifically: the fast "two ticks" response of ACT and NZ First, whose voters are unusually engaged, and Te Pāti Māori's party-vote strategy, which is specific to the Māori electorates.</p>
-<h4 id="an-example-the-reasoning-before-2032">An example: the reasoning before 2032</h4>
-<p><strong>What 2029 showed.</strong> Under MMP, every future had an overhang of 11–17 seats, from the same two sources as 2026: National winning far more electorates than its party vote covers (ACT and NZ First voters ticking National candidates), and TPM winning 5–7 Māori electorates on well under 1% of the party vote. Under the reforms, in their first election, voters had barely adapted (<em>a</em> = 0.2), so the same overhangs had to be transferred: 55,000–220,000 party votes. ACT and NZ First each lost 2–5 seats where National overhung; Labour and the Greens lost 2–4 each, mostly through the transfer to TPM. TPM's overhang could not be fully covered, so under absorption the left paid for TPM's seats in list seats.</p>
-<p><strong>How each group responds</strong>, as written in the reasoning:</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Group</th>
-<th>Reasoning</th>
-<th>Rule</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>Under MMP:</em> ACT and NZ First voters</td>
-<td>Splitting worked and nothing penalised it, so they keep ticking National candidates, a little more each time National overhangs.</td>
-<td>General rule: <em>s</em><sub>p</sub> + 0.03 for each partner whenever its leader overhangs.</td>
-</tr>
-<tr>
-<td><em>Under MMP:</em> Green voters</td>
-<td>Where the right won more seats than votes and the majority, left strategists run "tick Labour in marginals" campaigns. Many Greens still tick Green.</td>
-<td>If the right won the majority with ≥1.5 seats above its fair share: left partners' <em>s</em><sub>p</sub> × 1.4.</td>
-</tr>
-<tr>
-<td><em>Under MMP:</em> National voters</td>
-<td>Where the left won on an overhang, National copies the split-list playbook more openly: about a point of its vote goes to a partner's list while those voters keep ticking National.</td>
-<td>Mirror trigger: shift 1 point from the right leader to its largest partner, with those voters' electorate votes staying with the leader.</td>
-</tr>
-<tr>
-<td><em>Under a reform:</em> ACT and NZ First</td>
-<td>They lost seats because their voters ticked National candidates. Both run "two ticks" campaigns. Their voters are engaged, so the response is fast.</td>
-<td><em>s</em><sub>p</sub> × 0.55 if the party lost 3+ seats, × 0.70 otherwise, on top of the general learning rule.</td>
-</tr>
-<tr>
-<td><em>Under a reform:</em> Green and Opportunity voters</td>
-<td>They respond more slowly: their splits are more often personal (a liked local MP) than tactical.</td>
-<td><em>s</em><sub>p</sub> × 0.75.</td>
-</tr>
-<tr>
-<td><em>Under an absorbing reform:</em> Te Pāti Māori</td>
-<td>Its electorates no longer bring the left extra seats, and the left now pays for them. TPM switches to asking for the party vote. That is party-led, so faster than ordinary voter learning.</td>
-<td>If TPM overhung: move half the gap between its vote and about 3% from Labour and the Greens to TPM; <em>s</em><sub>M</sub> → 0.32.</td>
-</tr>
-<tr>
-<td><em>Under a grow (-X) reform:</em> Te Pāti Māori</td>
-<td>Whatever the transfer can't cover still adds seats for the left, so the strategy still pays and TPM does <em>not</em> change course. The Greens, whose voters' party votes are being transferred to TPM, push for two ticks in Māori seats.</td>
-<td>No party-vote shift; <em>s</em><sub>M</sub> − 0.02.</td>
-</tr>
-<tr>
-<td><em>Under MMP-BV:</em> sub-threshold parties' voters</td>
-<td>After one visible election the backup vote is starting to be understood (<em>a</em> = 0.5). They fear wasting their vote less, and pick a qualifying candidate for their electorate vote.</td>
-<td>Small parties gain a little vote share from their leader; sub-threshold parties' <em>s</em><sub>p</sub> rises with <em>a</em>.</td>
-</tr>
-</tbody>
-</table></div>
-<p><strong>What it produced.</strong> In one hand-reasoned future (run 0), by 2032 TPM's party vote had reached 4.7% under MMP-BV, against 1.6% under MMP-BV-X, and its overhang had fallen to 1 seat, against 4. The divergence between the absorbing and grow fallbacks on TPM's strategy, reported in Section 6.5, comes from this piece of reasoning.</p>
-<h4 id="a-second-example-the-reasoning-that-found-the-failure-mode">A second example: the reasoning that found the failure mode</h4>
-<p>The digests after 2035 showed something not anticipated when the reforms were designed. Under MMP-T and MMP-BV at 121 seats, ACT and NZ First voters now rarely split (split rates of 0.06–0.2) and TPM's overhang had largely gone, yet National still overhung by 3–15 seats in right-leaning futures. That overhang came almost entirely from plurality wins against a divided left. With few split ballots behind it, it was absorbed, and the median bloc seat deficit under the reforms (3.4–4.0) was now <em>worse</em> than under MMP (2.8).</p>
-<p>The reasoning before 2038 then asked how left voters would respond. Under a transfer rule, splitting <em>to</em> another party's winning candidate costs your own party. But backing <em>your own side's</em> strongest candidate where the other bloc's leader would otherwise win costs nothing, and shrinks the overhang that is costing your side list seats. So engaged partner voters in marginal seats begin to consolidate. The rule: where the other side's leader overhung by 4 or more, own-bloc partners' split rate becomes min(0.35, 2<em>s</em><sub>p</sub> + 0.05), with a mirror rule for the right. By 2041 this had cut National's plurality overhang sharply in some futures (from 11 seats to 1 in one, 10 to 0 in another) but not where the left was most fragmented (9–15 seats remained). This is the evidence behind Section 6.6.</p>
-<h4 id="stage-2-encoding-for-1000-walks">Stage 2: encoding for 1,000 walks</h4>
-<p>The rules fall into two groups.</p>
-<ul>
-<li><strong>General rules</strong> (<code>mc_future.respond</code>) apply after every election under every system. They cover learning under MMP (partners split more each time their leader overhangs and keeps the seats; TPM's Māori-seat strategy strengthens while it pays), learning under the reforms (each partner's split rate falls by a share of itself, larger if the party lost seats to transfers, scaled by awareness <em>a</em>), awareness itself (rising faster after an election with visible transfers), the threshold squeeze on parties polling under 5% (weakened under MMP-BV in proportion to <em>a</em>), and the Backup Vote's effects on small parties.</li>
-<li><strong>Election-specific rules</strong> (<a href="https://github.com/bjsmith/equalcount/blob/main/futures_reason.py"><code>futures_reason.py</code></a>) encode the conditional reasoning for 2032, 2035, 2038 and 2041, such as the two-tick campaigns, TPM's targets and recovery rates, the reduction in personal splitting from 2035 wherever left parties lost two or more seats to transfers at the last election, and consolidation from 2038. Each rule reads the triggering conditions from that future's own last result under that system, so the same rule fires in some futures and systems and not others.</li>
-</ul>
-<p><strong>Drawing rule strengths.</strong> Every numerical strength in the reasoning (32 in all) is a parameter. Each of the 1,000 walks draws its own value for each one, independently and uniformly from a range that brackets the hand-reasoned value. Some examples:</p>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>Rule</th>
-<th>Hand-reasoned value</th>
-<th>Range drawn</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Awareness before the first reformed election</td>
-<td>0.20</td>
-<td>0.10–0.30</td>
-</tr>
-<tr>
-<td>Awareness gain after an election with visible / no transfers</td>
-<td>0.30 / 0.15</td>
-<td>0.15–0.45 / 0.05–0.25</td>
-</tr>
-<tr>
-<td>General cut in a partner's split rate, if it lost seats / otherwise (× <em>a</em>)</td>
-<td>0.45 / 0.15</td>
-<td>0.25–0.65 / 0.05–0.25</td>
-</tr>
-<tr>
-<td>MMP: partners' extra splitting per overhang</td>
-<td>+0.03</td>
-<td>0.01–0.05</td>
-</tr>
-<tr>
-<td>MMP: left "tick the leader" push (2032)</td>
-<td>× 1.4</td>
-<td>1.15–1.65</td>
-</tr>
-<tr>
-<td>Reform: ACT / NZ First two-tick campaign (large / small loss)</td>
-<td>× 0.55 / × 0.70</td>
-<td>0.40–0.75 / 0.55–0.85</td>
-</tr>
-<tr>
-<td>Reform: other partners' two-tick campaign</td>
-<td>× 0.75</td>
-<td>0.60–0.90</td>
-</tr>
-<tr>
-<td>Reform: TPM party-vote target (2032 / later)</td>
-<td>3% / 4%</td>
-<td>2.5–3.5% / 3–5%</td>
-</tr>
-<tr>
-<td>Reform: TPM recovery, share of gap closed</td>
-<td>0.5</td>
-<td>0.25–0.75</td>
-</tr>
-<tr>
-<td>Reform: cut in left personal splitting (2035)</td>
-<td>× 0.85</td>
-<td>0.75–0.95</td>
-</tr>
-<tr>
-<td>Reform: consolidation (multiplier / addition / cap)</td>
-<td>× 2 / + 0.05 / 0.35</td>
-<td>1.3–2.7 / 0–0.10 / 0.20–0.50</td>
-</tr>
-<tr>
-<td>Threshold squeeze on sub-5% parties</td>
-<td>15% of share</td>
-<td>8–22%</td>
-</tr>
-</tbody>
-</table></div>
-<p>The full list is in <a href="https://github.com/bjsmith/equalcount/blob/main/mc_future_walks.py"><code>mc_future_walks.py</code></a>.</p>
-<p><strong>Each walk then runs as follows.</strong></p>
-<ol>
-<li>The fixed 2026 result is simulated under MMP.</li>
-<li>For each of the ten systems, and for each election from 2029 to 2041:<ol>
-<li>the general rules respond to that system's last result;</li>
-<li>exogenous events are applied, drawn from a random seed that depends only on the walk and the year, so every system in a walk faces the same swings, drift and new parties;</li>
-<li>in the escalation scenarios only, the split-list adoption rule is applied (never under a reform, where it gains nothing);</li>
-<li>the election-specific rules for that year respond to the last result;</li>
-<li>the election is simulated under that system's seat rule.</li>
-</ol>
 </li>
-</ol>
-<p>Because every response is conditioned on that system's own previous result, the ten systems within a walk start from the same place and face the same events, but their voters' behaviour diverges as each learns from a different history.</p>
-<p><strong>Checks.</strong> Rerunning the ten hand-reasoned futures with the role-based, encoded rules gives results consistent with the 1,000 walks. Across the walks, the correlation between any drawn rule strength and a future's average bloc seat deficit is at most 0.12 in absolute value, so the ranking of systems does not hinge on the particular values chosen in the hand reasoning.</p>
-<p><strong>What this approach can and can't establish.</strong> The rules make the behavioural assumptions explicit and auditable, and the drawn ranges test sensitivity to their strength. They don't test their form: every walk assumes the same <em>kinds</em> of response (partners campaign for two ticks; TPM rebuilds its party vote; voters consolidate), triggered at the same thresholds, with strengths drawn independently of one another. Responses the hand reasoning never considered are absent. The reasoning was also written by the same analyst who proposed the reforms, although it was this reasoning that uncovered the reforms' main failure mode at 121 seats.</p>
-<p><strong>Results across the four options</strong> (all elections 2029–2041):</p>
+<li><strong>Paradox test.</strong> Small changes to the ballots of 2,000 elections from Experiments 1 and 2 (160,000 perturbations), checking whether any party or bloc gains votes but loses seats (<a href="https://github.com/bjsmith/equalcount/blob/main/paradox_summary.md"><code>paradox_summary.md</code></a>).</li>
+</ul>
+<p>Rates carry a 95% Monte Carlo margin, clustered by future in Experiment 3.</p>
+<h3 id="reproducibility">Reproducibility</h3>
+<ul>
+<li><strong>All the experimental code, inputs and summary results are public</strong> in the <a href="https://github.com/bjsmith/equalcount">project's GitHub repository</a>. The raw ballot states are too large for the repository and are attached to its latest release.</li>
+<li><strong>The raw ballot state of every election is stored</strong>, real and simulated: 7 + 5,000 + 5,000 + 3 × 50,000 elections in <code>runs/&lt;experiment&gt;/records.jsonl.gz</code>. Each state holds national party × candidate tables, the ballots behind each winner, each electorate's winner and margin, and every system's seat allocation and transfer details.</li>
+<li><strong>Every measure in this report is computed from those files</strong> by <a href="https://github.com/bjsmith/equalcount/blob/main/measures.py"><code>measures.py</code></a>. Changing a measure means recomputing, not rerunning the simulations. Full tables, including everything not shown here, are in <a href="https://github.com/bjsmith/equalcount/blob/main/runs/summary_measures.md"><code>runs/summary_measures.md</code></a>, generated by <a href="https://github.com/bjsmith/equalcount/blob/main/analyse_measures.py"><code>analyse_measures.py</code></a>.</li>
+</ul>
+<hr />
+<h2 id="appendix-b-measures">Appendix B. Measures</h2>
+<p><strong>Headline measures</strong> (lower is better on every one):</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th></th>
-<th>MMP</th>
-<th>MMP141</th>
-<th>MMP-T141</th>
-<th>MMP-BV141</th>
-<th>MMP-BV-X141</th>
+<th>Measure</th>
+<th>Definition</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Overhang: median / 90th</td>
-<td>11 / 20</td>
-<td>6 / 15</td>
-<td>3 / 9</td>
-<td>3 / 10</td>
-<td>2 / 9</td>
+<td>House above base</td>
+<td>Seats beyond 121 (or 141, or 120); median and maximum</td>
 </tr>
 <tr>
-<td>House: median / max</td>
-<td>132 / 155</td>
-<td>147 / 171</td>
-<td>141</td>
-<td>141</td>
-<td>141 / 152</td>
-</tr>
-<tr>
-<td>Bloc seat deficit: median / 90th</td>
-<td>2.2 / 5.5</td>
-<td>2.0 / 5.3</td>
-<td>1.6 / 4.3</td>
-<td>1.4 / 3.8</td>
-<td><strong>1.4 / 3.7</strong></td>
-</tr>
-<tr>
-<td>Blocs within one seat</td>
-<td>24%</td>
-<td>27%</td>
-<td>34%</td>
-<td><strong>39%</strong></td>
-<td>38%</td>
-</tr>
-<tr>
-<td>Gallagher</td>
-<td>4.1</td>
-<td>3.2</td>
-<td><strong>1.5</strong></td>
-<td>1.8</td>
-<td>1.4</td>
+<td>Voters whose party vote counts differently</td>
+<td>Share of all voters any part of whose party vote is counted for a party other than the one ticked</td>
 </tr>
 <tr>
 <td>Minority-bloc majority</td>
-<td>5.6%</td>
-<td>4.3%</td>
-<td>4.6%</td>
-<td>4.0%</td>
-<td><strong>3.6%</strong></td>
+<td>The bloc with fewer party votes (sub-threshold votes included; centrists counted with their ally) holds a majority of seats; % of elections</td>
 </tr>
 <tr>
-<td>…if gaming escalates</td>
-<td>9.4%</td>
-<td>7.7%</td>
-<td>4.6%</td>
-<td>4.0%</td>
-<td><strong>3.6%</strong></td>
+<td>Bloc seat–vote gap</td>
+<td>The difference, in percentage points, between a bloc's share of seats and its share of all party votes. With two blocs this is exactly the Gallagher index computed on blocs. Medians shown; 90th percentiles and paired differences are in <a href="https://github.com/bjsmith/equalcount/blob/main/runs/summary_measures.md"><code>runs/summary_measures.md</code></a></td>
+</tr>
+<tr>
+<td>Standard Gallagher</td>
+<td>Least-squares gap between seat shares and shares of all party votes as cast</td>
+</tr>
+<tr>
+<td>Adjusted Gallagher</td>
+<td>The one-share index with rescued voters (below)</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>What it showed.</strong></p>
-<ul>
-<li><strong>Under MMP, overhang becomes entrenched</strong> at about 11 seats per election, with a typical House of 132. Both blocs game and their overhangs partly cancel, so the main harm is a large, unpredictable Parliament and fragile outcomes in close elections, where the minority bloc wins 27% of the time.</li>
-<li><strong>Under the reforms, behaviour changes.</strong> Partner parties campaign for two ticks; TPM rebuilds its party vote (under absorption); overhang falls election by election. At 141 seats it has largely gone by 2035.</li>
-<li><strong>The first election is the hardest.</strong> Before voters adapt, transfers are large: a median of about 54,000 votes under MMP-T141 in 2029, and 160,000 in one election in ten. Partner parties lose seats visibly. That shock is what drives the adaptation, but it is also a political cost of the transition.</li>
-<li><strong>Results are robust to the reasoning assumptions.</strong> The strength drawn for each rule correlates with a future's bloc fairness at most 0.12. The ranking of systems comes from the rules, not the precise assumptions about behaviour.</li>
-</ul>
-<h3 id="75-what-the-three-experiments-agree-on">7.5 What the three experiments agree on</h3>
+<p><strong>The four Gallagher versions</strong>, in increasing order of adjustment:</p>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th>Finding</th>
-<th>Exp. 1</th>
-<th>Exp. 2</th>
-<th>Exp. 3</th>
+<th>Name</th>
+<th>Compares seats with</th>
+<th>Leans towards</th>
+<th>Column in <a href="https://github.com/bjsmith/equalcount/blob/main/measures.py"><code>measures.py</code></a></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>MMP-BV141 has the smallest bloc imbalance</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Standard</td>
+<td>All party votes, as cast</td>
+<td>Current MMP</td>
+<td><code>gallagher_all</code></td>
 </tr>
 <tr>
-<td>MMP-T141 beats MMP and MMP141 on bloc fairness</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
+<td>Qualifying parties</td>
+<td>Party votes for parties that won seats</td>
+<td>MMP over the Backup Vote</td>
+<td><code>gallagher_qual</code></td>
 </tr>
 <tr>
-<td>The reforms cost some party-level proportionality on fixed ballots, BV more than T</td>
-<td>✓</td>
-<td>✓</td>
-<td>—</td>
+<td>One-share</td>
+<td>Each qualifying voter counted once: through the party vote, or through the electorate vote if it elected an MP</td>
+<td>The transfer</td>
+<td><code>os_D_win</code></td>
 </tr>
 <tr>
-<td>Once voters adapt, the reforms are more party-proportional than MMP or MMP141</td>
-<td>—</td>
-<td>—</td>
-<td>✓</td>
-</tr>
-<tr>
-<td>At 121 seats, absorbing leftover overhang can make the reforms worse than MMP</td>
-<td>✓ (low splitting)</td>
-<td>— (overhangs too small)</td>
-<td>✓</td>
-</tr>
-<tr>
-<td>Wasted votes, not overhang, drive most remaining bloc imbalance</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td>The reforms rarely do worse than MMP on bloc fairness</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓ (at 141)</td>
+<td>Adjusted (one-share + rescued voters)</td>
+<td>As one-share, plus sub-threshold voters counted for their winning electorate candidate's party</td>
+<td>The reforms, the Backup Vote slightly</td>
+<td><code>os_C_win</code></td>
 </tr>
 </tbody>
 </table></div>
+<p>Versions of the one-share indices that let <em>any</em> qualifying electorate candidate carry a voter's share, not only winners, were computed as a sensitivity check. They are much more permissive and read close to zero for almost every system.</p>
+<p><strong>Properties that matter for reading the results:</strong></p>
+<ul>
+<li><strong>The standard index has a floor.</strong> It counts votes for parties below the threshold (about 4% of the vote in Experiment 3), which win no seats under any rule. That floor dominates it: with the transfer at 141, the qualifying-parties index is 0.80 but the standard index is 3.35.</li>
+<li><strong>The one-share indices are best cases, so they can reach zero.</strong> A Gallagher index on fixed vote shares can't reach zero, because seats are whole numbers. The one-share indices instead pick, among all the ways of counting each voter once, the one that fits the seats best, and fractions of split ballots can absorb the rounding. They read zero in 12–24% of adapting-future elections under the reforms and pure PR, and in 1–2% under MMP. A zero means "consistent with one share per voter", not "perfectly proportional".</li>
+<li><strong>The one-share indices don't penalise a larger House.</strong> They compare seat <em>shares</em> with vote shares. Under MMP the double count shows up as a bigger House that dilutes everyone else, and these indices can't see that, which is why they must be read alongside House size.</li>
+<li><strong>The minority-bloc majority depends on the yardstick.</strong> Counting sub-threshold votes in the bloc totals (the headline) favours the Backup Vote, which counts exactly those votes. Counting qualifying votes favours the transfer.</li>
+</ul>
+<p>The Sainte-Laguë and Loosemore–Hanby indices, bloc deficits in seats on four yardsticks, minority-bloc majority with centrists set aside, and the tails of every measure are in <a href="https://github.com/bjsmith/equalcount/blob/main/runs/summary_measures.md"><code>runs/summary_measures.md</code></a>. How the measures were chosen is set out in <a href="https://github.com/bjsmith/equalcount/blob/main/measures_deliberations_combined.md"><code>measures_deliberations_combined.md</code></a>.</p>
 <hr />
-<h2 id="8-costs-and-benefits-of-each-option">8. Costs and benefits of each option</h2>
-<h3 id="option-a-stay-with-mmp">Option A: Stay with MMP</h3>
-<p><strong>Benefits</strong></p>
-<ul>
-<li>No change: no legislation, no voter education, no transition shock.</li>
-<li>Party votes are counted exactly as cast.</li>
-<li>Historically, overhang has been small (0–2 seats from 2005 to 2023), and its effects on bloc fairness have been modest.</li>
-<li>When both blocs game, their gains partly cancel (Experiment 3), which limits systematic bias.</li>
-</ul>
-<p><strong>Costs</strong></p>
-<ul>
-<li><strong>Unequal votes.</strong> Voters whose split ballots elect overhang MPs count more than once; sub-threshold voters count not at all. In 2023 the left needed 900 fewer votes per seat than the right.</li>
-<li><strong>Unpredictable size.</strong> 131 seats in 2026; a median of 132 and up to 155 in Experiment 3's baseline.</li>
-<li><strong>Fragile close elections.</strong> In elections where the blocs are within 48–52%, the minority bloc wins a majority 27% of the time in Experiment 3.</li>
-<li><strong>Third parties pay quietly.</strong> When both blocs overhang, the cost falls on parties in neither (Opportunity in 2026).</li>
-<li><strong>Open to escalation.</strong> The incentive to split remains, and nothing limits it. If the split-list playbook spreads because it pays, overhang reaches a median 30 seats by 2041, the House up to 180, and 37% of futures see at least one Parliament where the bloc with fewer votes holds the majority.</li>
-</ul>
-<p><strong>Verdict.</strong> Low cost now, with an uncapped downside. Its case rests on the assumption that the 2026 pattern doesn't spread.</p>
-<h3 id="option-b-mmp141-20-more-list-seats-no-reform">Option B: MMP141 (20 more list seats, no reform)</h3>
-<p><strong>Benefits</strong></p>
-<ul>
-<li>Halves overhang (median 6 against 11 in Experiment 3) by raising each party's entitlement.</li>
-<li>The best party-level proportionality on fixed ballots (Gallagher 0.9 in Experiment 2).</li>
-<li>Somewhat fewer minority-bloc majorities than MMP in the baseline (4.3% against 5.6%).</li>
-<li>No change to how votes are counted.</li>
-</ul>
-<p><strong>Costs</strong></p>
-<ul>
-<li><strong>20 more MPs</strong>, with the cost and public resistance that brings. (In the 1999 citizens-initiated referendum, about 81% voted to reduce Parliament to 99 members.)</li>
-<li><strong>The House still grows</strong>: median 147, up to 171 in Experiment 3's baseline.</li>
-<li><strong>Little gain in bloc fairness</strong> on realistic elections (median deficit 2.2 against MMP's 2.1 in Experiment 2).</li>
-<li><strong>No protection against gaming.</strong> Under escalation the House reaches 197 and minority-bloc majorities rise to 7.7%.</li>
-<li>Does nothing for wasted votes.</li>
-</ul>
-<p><strong>Verdict.</strong> It buys proportionality with seats, but leaves the incentive that causes the problem in place. It pays the main political cost of the reforms (more MPs) without their main benefit.</p>
-<h3 id="option-c-mmp-t141-overhang-transfer-141-seats">Option C: MMP-T141 (Overhang Transfer, 141 seats)</h3>
-<p><strong>Benefits</strong></p>
-<ul>
-<li><strong>Removes the payoff from strategic splitting.</strong> Immune to the split-list playbook and decoy parties.</li>
-<li><strong>Fixed size</strong> with the absorbing fallback; at most 150 with the grow fallback.</li>
-<li><strong>Better bloc fairness</strong> than MMP or MMP141 in every experiment.</li>
-<li><strong>Best party-level proportionality once voters adapt</strong> (Gallagher 1.5 overall, 0.45 by 2041; 0.7 overall with the grow fallback).</li>
-<li><strong>Minimal intervention.</strong> Votes are counted exactly as today unless a party overhangs, which becomes less common as voters adapt (96% of elections in 2029, 41% by 2041).</li>
-<li>Keeps every electorate MP; reproducible on recount; the calculation can be done on paper.</li>
-</ul>
-<p><strong>Costs</strong></p>
-<ul>
-<li><strong>20 more MPs</strong>, as for MMP141.</li>
-<li><strong>Some party votes are counted for another party</strong> when there is an overhang. This is the most important objection ("isn't this disregarding my vote?"), and the answer, that each voter still gets one full share, has to be explained.</li>
-<li><strong>Partner parties lose seats</strong> when their voters hand electorates to an overhanging ally (in the 2026 estimate at 120 seats, ACT would fall from 13 to 9 and NZ First from 12 to 10). They will oppose it, at least until they adapt.</li>
-<li><strong>A transition shock.</strong> The first election under the rule transfers tens of thousands of votes, and the losses are visible.</li>
-<li><strong>Does nothing for wasted votes</strong>, so its bloc fairness is limited by the threshold.</li>
-<li><strong>Wrong-winner risk about level with MMP141</strong> (4.6% against 4.3%) in the baseline, though far better under escalation.</li>
-</ul>
-<p><strong>Verdict.</strong> A targeted, conservative reform that fixes the double-counting problem and its incentives, and ends up the most party-proportional option. It leaves the wasted-vote problem untouched.</p>
-<h3 id="option-d-mmp-bv141-backup-vote-141-seats">Option D: MMP-BV141 (Backup Vote, 141 seats)</h3>
-<p><strong>Benefits</strong></p>
-<ul>
-<li><strong>Everything MMP-T141 offers on gaming resistance and fixed size.</strong></li>
-<li><strong>The best bloc fairness in every experiment</strong> (median deficit 1.5 / 1.1 / 1.4 across Experiments 1–3).</li>
-<li><strong>The fewest minority-bloc majorities</strong>: 4.0% (3.6% with the grow fallback), below what pure proportional representation achieves at a 5% threshold.</li>
-<li><strong>Rescues wasted votes at every election.</strong> It closes part of the gap caused by the threshold, which is the largest remaining source of bloc imbalance.</li>
-<li><strong>Lets small-party supporters vote sincerely</strong> without wasting their share.</li>
-<li><strong>Comes closest to the principle of one equal share per voter</strong>: it addresses both voters who count twice and voters who count zero times.</li>
-</ul>
-<p><strong>Costs</strong></p>
-<ul>
-<li><strong>20 more MPs.</strong></li>
-<li><strong>A bigger change to counting.</strong> Sub-threshold party votes are redirected at every election, not just when there is an overhang. That is more to explain and more to object to.</li>
-<li><strong>A permanent gap from party-vote shares.</strong> Its Gallagher index is a little higher than MMP-T141's in every experiment, and in 42% of calibrated elections no Parliament size would bring every party within a seat of its raw party-vote share.</li>
-<li><strong>A small reward for strategic electorate votes</strong> by small-party supporters, who keep their share only if they tick a qualifying candidate.</li>
-<li><strong>Occasionally worse than MMP</strong> on bloc fairness when rescued votes are unevenly spread between blocs (2020; about 1–3% of simulated elections by more than a seat).</li>
-<li>The same partner-party losses and transition shock as MMP-T141.</li>
-<li>May encourage slightly more voting for small parties, since such votes are no longer wasted.</li>
-</ul>
-<p><strong>Verdict.</strong> The strongest option on fairness between voters and between blocs, and on wrong-winner risk. It asks the most of public understanding.</p>
-<h3 id="scorecard">Scorecard</h3>
+<h2 id="appendix-c-glossary">Appendix C. Glossary</h2>
+<p id="gloss-mmp"><strong>MMP (mixed-member proportional).</strong> New Zealand's electoral system since 1996. Each voter casts a party vote and an electorate vote. Party votes decide each party's share of the seats; electorate votes elect local MPs, who count towards their party's share. List MPs fill the rest.</p>
+<p id="gloss-overhang"><strong>Overhang.</strong> When a party wins more electorates than its party vote entitles it to. Under current law the party keeps the extra seats and the House grows to fit them, so other parties keep their full share.</p>
+<p id="gloss-house"><strong>House above base.</strong> How many seats Parliament has beyond its intended size: 120 today, 121 in the simulations (71 electorates plus 50 list seats) or 141 with 20 more list seats. Under current law every overhang seat adds one.</p>
+<p id="gloss-split"><strong>Split ballot.</strong> A ballot whose two ticks go to different parties: an electorate vote for one party's candidate and a party vote for another. Often tactical, as when a minor party's supporters tick a larger ally's local candidate; sometimes a personal vote for a popular MP.</p>
+<p id="gloss-splitlist"><strong>Split-list strategy.</strong> A deliberate version of splitting: a bloc's main party wins electorates while its supporters give their party votes to a partner. The electorate seats become overhang, and the bloc gains seats beyond its share of the vote.</p>
+<p id="gloss-threshold"><strong>Threshold.</strong> A party needs 5% of the party vote, or one electorate, to share in list seats. Party votes for parties below it elect no one.</p>
+<p id="gloss-plurality"><strong>Plurality win.</strong> Winning an electorate with the most votes but well short of half, usually against a divided opposition. Overhang from plurality wins has few split ballots behind it, so the transfer has little to work with.</p>
+<p id="gloss-gallagher"><strong>Gallagher index.</strong> The standard measure of how far seat shares are from vote shares. Square each party's gap between its percentage of seats and its percentage of votes, add them up, halve the total and take the square root. 0 means seats match votes exactly, which whole seats almost never allow; New Zealand's elections since 2005 score about 1 to 4 on the standard version, which uses all party votes as cast.</p>
+<p id="gloss-adj"><strong>Adjusted Gallagher index.</strong> A Gallagher index measured against what each voter would contribute if counted exactly once: through their party vote, or through their electorate vote if that vote elected an MP. Voters whose party vote is below the threshold are counted for their winning electorate candidate's party. It is a best case over the ways of counting, so unlike the standard index it can reach zero. It leans towards the reforms and is always shown next to the standard index (Appendix B).</p>
+<p id="gloss-sli"><strong>Sainte-Laguë.</strong> The formula New Zealand uses to share out seats in proportion to party votes. The <em>Sainte-Laguë index</em> is a proportionality measure built on the same logic. It weights each gap by the party's size, so small parties that are over- or under-represented count heavily.</p>
+<p id="gloss-bloc"><strong>Bloc.</strong> The group of parties that would govern together: left (Labour, Green, Te Pāti Māori; Opportunity in the simulations) or right (National, ACT, NZ First). The transfer itself doesn't use blocs; they are used only to measure who would govern.</p>
+<p id="gloss-mbm"><strong>Minority-bloc majority.</strong> An election in which the bloc with fewer party votes wins a majority of seats. Political scientists also call this a <em>majority reversal</em> or <em>electoral inversion</em>; this report sometimes says "wrong winner". Sub-threshold votes count towards their bloc's total.</p>
+<p id="gloss-blocgap"><strong>Bloc seat–vote gap.</strong> The difference, in percentage points, between a bloc's share of seats and its share of party votes. A gap of 2 points means one bloc holds about 2.4 seats more than its vote share at 121 seats. With two blocs this equals the Gallagher index computed on blocs instead of parties.</p>
+<p id="gloss-touched"><strong>Voters whose party vote counts differently.</strong> The share of all voters any part of whose party vote is counted for a party other than the one they ticked. It is the reforms' direct cost. It counts a voter even when only a fraction of their vote is moved, so it overstates the votes' worth actually moved.</p>
+<p id="gloss-bv"><strong>Backup Vote.</strong> An extension of the transfer: at every election, a party vote for a party below the threshold is counted for the voter's electorate candidate's party, if that party is in Parliament.</p>
+<p id="gloss-fixed"><strong>Fixed ballots.</strong> Tests in which voters cast the same ballots whatever the rules: the real elections from 2005 to 2026, and Experiments 1 and 2. They show what each rule does to a given set of votes, but not how voters would respond to it.</p>
+<p id="gloss-exp3"><strong>Experiment 3 (adapting futures).</strong> A behavioural simulation of five future elections, from 2029 to 2041, run 1,000 times from the 2026 result. Between elections, voters and parties change strategy in response to what each system rewarded or punished last time. The responses are rules the author reasoned out and varied in strength, not observed behaviour.</p>
+<p id="gloss-paradox"><strong>Monotonicity paradox.</strong> A party gains party votes and ends up with fewer seats. It can happen under the transfer because extra votes can change how much overhang has to be covered.</p>
+<hr />
+<h2 id="appendix-d-sources">Appendix D. Sources</h2>
 <div class="table-wrap"><table>
 <thead>
 <tr>
-<th></th>
-<th>MMP</th>
-<th>MMP141</th>
-<th>MMP-T141</th>
-<th>MMP-BV141</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Equal votes (one share per voter)</td>
-<td>✗</td>
-<td>✗</td>
-<td>Fixes double-counting</td>
-<td>Fixes double-counting and most wasted votes</td>
-</tr>
-<tr>
-<td>Bloc fairness</td>
-<td>Worst</td>
-<td>Little better</td>
-<td>Good</td>
-<td><strong>Best</strong></td>
-</tr>
-<tr>
-<td>Minority-bloc majority risk</td>
-<td>Highest</td>
-<td>Middling</td>
-<td>Middling</td>
-<td><strong>Lowest</strong></td>
-</tr>
-<tr>
-<td>Party-vote proportionality, today's behaviour</td>
-<td>Middling</td>
-<td><strong>Best</strong></td>
-<td><strong>Best</strong> (ties MMP141)</td>
-<td>Middling</td>
-</tr>
-<tr>
-<td>Party-vote proportionality, adapted behaviour</td>
-<td>Worst</td>
-<td>Middling</td>
-<td><strong>Best</strong></td>
-<td>Good</td>
-</tr>
-<tr>
-<td>Resistance to gaming</td>
-<td>None</td>
-<td>None</td>
-<td><strong>Full</strong></td>
-<td><strong>Full</strong></td>
-</tr>
-<tr>
-<td>Predictable Parliament size</td>
-<td>✗</td>
-<td>✗</td>
-<td>✓</td>
-<td>✓</td>
-</tr>
-<tr>
-<td>Simplicity / no change to counting</td>
-<td><strong>✓</strong></td>
-<td>✓</td>
-<td>Change only when overhang</td>
-<td>Change at every election</td>
-</tr>
-<tr>
-<td>Extra MPs</td>
-<td><strong>0</strong></td>
-<td>20</td>
-<td>20</td>
-<td>20</td>
-</tr>
-<tr>
-<td>Transition cost</td>
-<td><strong>None</strong></td>
-<td>Low</td>
-<td>Visible partner losses at first</td>
-<td>Visible partner losses at first</td>
-</tr>
-</tbody>
-</table></div>
-<hr />
-<h2 id="9-recommendation">9. Recommendation</h2>
-<ol>
-<li><strong>If the rules are going to change, change the counting rule, not just the size.</strong> MMP141 pays the political cost of 20 extra MPs without fixing the incentive that drives overhang. Every reform at 141 beats it on bloc fairness and gaming resistance.</li>
-<li><strong>Pair either reform with more list seats, or a lower electorate share.</strong> At 121 seats with absorption, the reforms can be worse than MMP once voters adapt. If Parliament can't grow, use the grow fallback (MMP-BV-X or MMP-T-X), which brings wrong-winner risk back to MMP's level with a House that typically grows by about 2 seats.</li>
-<li><strong>Prefer MMP-BV141, with the grow fallback (MMP-BV-X141).</strong> It is the only option that gives voters below the threshold a share, has the smallest bloc imbalance, and has the lowest risk of a minority-bloc majority. The grow fallback improves on absorption at 141 seats on every outcome measure, at the cost of a House that occasionally reaches about 150 and a weaker incentive for electorate-based parties.</li>
-<li><strong>Choose MMP-T141 if counting party votes as cast is the priority.</strong> It is the smaller change, touches the count only when there's an overhang, and is the most party-proportional option once voters adapt. It does less for bloc fairness.</li>
-<li><strong>Lower the threshold as well.</strong> Moving from 5% to 3.5% would do more for bloc fairness than any overhang rule, and the two changes are complementary.</li>
-</ol>
-<p><strong>What would change this recommendation?</strong></p>
-<ul>
-<li><strong>Strong evidence that gaming won't spread</strong> weakens the case for any reform, and leaves MMP or MMP141 as cheaper options.</li>
-<li><strong>A firm cap on Parliament's size</strong> at 120 makes the -X variants at 121 the only reform worth adopting, and narrows their advantage over MMP to gaming resistance and a more predictable House.</li>
-<li><strong>Weighting party-vote proportionality above bloc fairness</strong> favours MMP-T141 over MMP-BV141.</li>
-<li><strong>Evidence that voters would not adapt</strong> (that splitting would continue despite transfers) would keep transfers large and the party-level cost visible for longer.</li>
-</ul>
-<hr />
-<h2 id="10-limitations-and-open-questions">10. Limitations and open questions</h2>
-<ul>
-<li><strong>Behaviour is modelled, not observed.</strong> Experiments 1 and 2 assume voters behave the same way under every system. Experiment 3 models adaptation, but the responses are reasoned judgements, varied across a range, not tested against real behaviour under these rules.</li>
-<li><strong>The escalation scenarios show what happens if gaming spreads, not how likely it is.</strong></li>
-<li><strong>Bloc assignments are judgements.</strong> The bloc measures depend on allocating every party, including centrists and parties that supported neither government, to a bloc. The rules themselves don't need blocs defined.</li>
-<li><strong>The bloc yardstick favours MMP-BV</strong> by counting sub-threshold votes; the countable yardstick, reported in the experiment reports, reduces but doesn't reverse its lead.</li>
-<li><strong>The Māori electorates are simplified</strong>, and the calibrated model over-predicts Māori-party wins in some years. Most simulated overhang comes from Māori parties, so this probably overstates overhang somewhat.</li>
-<li><strong>The 2026 starting point is provisional</strong>, and Te Pāti Māori's extreme split dominates the early elections in Experiment 3.</li>
-<li><strong>Only one way of changing the electorate–list ratio was tested.</strong> Adding 20 list seats was modelled; reducing the number of electorates, or the Review's 60:40 electorate ratio, was not.</li>
-<li><strong>Untested refinements.</strong> The explainer's optional cap (no party loses more than one seat to transfers) and hybrids between absorbing and growing were not simulated.</li>
-<li><strong>Costs outside the model.</strong> The fiscal cost of 20 MPs, public acceptance, and how well each rule can be explained were not modelled, though they are likely to decide the question in practice.</li>
-</ul>
-<hr />
-<h2 id="sources">Sources</h2>
-<div class="table-wrap"><table>
-<thead>
-<tr>
-<th>File</th>
+<th>Source</th>
 <th>Contents</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="../report/transfer-explainer.html"><code>overhang-transfer-explainer.md</code></a></td>
-<td>Plain-language explainer of the transfer proposal, with 2023 and 2026 worked examples</td>
+<td>Plain-language explainer of the transfer, with 2023 and 2026 worked examples</td>
 </tr>
 <tr>
-<td><a href="../report/experiment-1.html"><code>experiment1_report.md</code></a></td>
-<td>Experiment 1: wide synthetic stress test (5,000 scenarios)</td>
+<td><a href="../report/experiment-1.html"><code>experiment1_report.md</code></a>, <a href="../report/experiment-2.html"><code>report_experiment2.md</code></a>, <a href="../report/experiment-3.html"><code>report_experiment3.md</code></a></td>
+<td>The three experiments in full</td>
 </tr>
 <tr>
-<td><a href="../report/experiment-2.html"><code>report_experiment2.md</code></a></td>
-<td>Experiment 2: actual elections 2005–2023, and 5,000 calibrated scenarios</td>
+<td><a href="../report/prior-art.html">Prior art</a></td>
+<td>Germany's independents rule, vote linkage, the 2012 and 2023 reviews, the 2026 debate</td>
 </tr>
 <tr>
-<td><a href="../report/experiment-3.html"><code>report_experiment3.md</code></a></td>
-<td>Experiment 3: 1,000 adaptive futures from 2026, escalation scenarios, pure-PR benchmark</td>
+<td><a href="https://github.com/bjsmith/equalcount/blob/main/runs/summary_measures.md"><code>runs/summary_measures.md</code></a></td>
+<td>Every measure, for every system and experiment, from the stored raw results</td>
 </tr>
 <tr>
-<td><a href="https://github.com/bjsmith/equalcount/blob/main/futures_walks/results.csv"><code>futures_walks/results.csv</code></a></td>
-<td>Experiment 3 election-level results, used here for the year-by-year Gallagher and overhang figures in Section 6.1</td>
+<td><code>runs/&lt;experiment&gt;/records.jsonl.gz</code>, <code>measures.csv</code></td>
+<td>Raw ballot states and allocations; derived measures</td>
 </tr>
 <tr>
-<td><a href="https://github.com/bjsmith/equalcount/blob/main/mc_results.csv"><code>mc_results.csv</code></a>, <a href="https://github.com/bjsmith/equalcount/blob/main/mc_results_calibrated.csv"><code>mc_results_calibrated.csv</code></a></td>
-<td>Experiment 1 and 2 scenario-level results, used here for the countable bloc yardstick figures in Section 6.2</td>
+<td><a href="https://github.com/bjsmith/equalcount/blob/main/measures.py"><code>measures.py</code></a>, <a href="https://github.com/bjsmith/equalcount/blob/main/analyse_measures.py"><code>analyse_measures.py</code></a></td>
+<td>Shared measures and comparator rules; the summary tables</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bjsmith/equalcount/blob/main/measures_deliberations_combined.md"><code>measures_deliberations_combined.md</code></a></td>
+<td>How the measures were chosen, and the reasoning behind this report's framing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bjsmith/equalcount/blob/main/paradox_summary.md"><code>paradox_summary.md</code></a></td>
+<td>Monotonicity test</td>
 </tr>
 <tr>
 <td><a href="https://github.com/bjsmith/equalcount/blob/main/results_2026.json"><code>results_2026.json</code></a></td>
-<td>2026 provisional result and transfer estimate</td>
+<td>2026 official result and transfer estimate (split votes estimated)</td>
+</tr>
+<tr>
+<td>The Spinoff, <a href="https://thespinoff.co.nz/politics/19-11-2026/ten-ways-to-fix-mmp-explained">"Ten ways to fix MMP, explained"</a> (19 November 2026) and <a href="https://thespinoff.co.nz/politics/23-11-2026/in-defence-of-mmp">"In defence of MMP"</a> (23 November 2026)</td>
+<td>The current debate</td>
+</tr>
+<tr>
+<td>Independent Electoral Review, Final Report (2023), paras. 4.88–4.103 and 4.106–4.111, Recommendations R9–R10</td>
+<td>The absorption rule and its stated drawbacks; the 60:40 ratio of electorate to list seats</td>
+</tr>
+<tr>
+<td>Royal Commission on the Electoral System, Report (1986), pp. 126–127</td>
+<td>An ideal House of about 140 seats</td>
 </tr>
 </tbody>
-</table></div>
+</table></div><script>
+(() => {
+  const pop = document.createElement("div");
+  pop.className = "gloss-pop"; pop.setAttribute("role", "tooltip"); pop.id = "gloss-pop"; pop.hidden = true;
+  document.body.appendChild(pop);
+  let cur = null, pinned = false, timer = null;
+  function show(a, pin) {
+    const id = a.getAttribute("href").slice(1), src = document.getElementById(id);
+    if (!src) return;
+    if (cur && cur !== a) cur.setAttribute("aria-expanded", "false");
+    const entry = src.cloneNode(true); entry.removeAttribute("id");
+    const more = document.createElement("a");
+    more.href = "#" + id; more.className = "gloss-more"; more.textContent = "See all terms in the glossary";
+    more.addEventListener("click", hide);
+    pop.replaceChildren(entry, more); pop.hidden = false;
+    cur = a; pinned = pin; a.setAttribute("aria-expanded", "true"); a.setAttribute("aria-describedby", "gloss-pop");
+    const vw = document.documentElement.clientWidth, w = Math.min(380, vw - 32), r = a.getBoundingClientRect();
+    pop.style.width = w + "px";
+    pop.style.left = (scrollX + Math.max(16, Math.min(r.left, vw - w - 16))) + "px";
+    const h = pop.offsetHeight, above = r.bottom + 8 + h > innerHeight && r.top - 8 - h > 0;
+    pop.style.top = (scrollY + (above ? r.top - 8 - h : r.bottom + 8)) + "px";
+  }
+  function hide() {
+    pop.hidden = true; pinned = false;
+    if (cur) { cur.setAttribute("aria-expanded", "false"); cur.removeAttribute("aria-describedby"); }
+    cur = null;
+  }
+  document.addEventListener("click", e => {
+    const a = e.target.closest("a.gloss");
+    if (a) { e.preventDefault(); (cur === a && pinned) ? hide() : show(a, true); return; }
+    if (cur && !pop.contains(e.target)) hide();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && cur) { const a = cur; hide(); a.focus(); } });
+  if (matchMedia("(hover: hover)").matches) {
+    document.addEventListener("mouseover", e => {
+      const a = e.target.closest("a.gloss");
+      if (a || pop.contains(e.target)) clearTimeout(timer);
+      if (a && cur !== a && !pinned) show(a, false);
+    });
+    document.addEventListener("mouseout", e => {
+      if (!pinned && (e.target.closest("a.gloss") || pop.contains(e.target)))
+        timer = setTimeout(() => { if (!pinned) hide(); }, 250);
+    });
+  }
+  addEventListener("resize", hide);
+})();
+</script>
 <nav class="pager" aria-label="Report pages"><span></span><a href="../report/transfer-explainer.html">The proposal, explained →</a></nav>
-<p class="foot">Generated from <a href="https://github.com/bjsmith/equalcount/blob/main/overall_report.md"><code>overall_report.md</code></a>. This describes proposals for discussion, not current electoral law.</p>
+<p class="foot">Generated from <a href="https://github.com/bjsmith/equalcount/blob/main/overall_report.md"><code>overall_report.md</code></a>. This describes proposals for discussion, not current electoral law. Text and figures <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; code <a href="https://github.com/bjsmith/equalcount/blob/main/LICENSE">MIT</a>.</p>
 </article>
 </div>
 </body>

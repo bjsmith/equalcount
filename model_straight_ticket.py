@@ -57,7 +57,7 @@ def load_2023():
 
 
 def load_2026():
-    raw = ROOT / "data/raw/2026_preliminary"
+    raw = ROOT / "data/raw/2026_official"
     with open(raw / "electorates.csv", encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     elecs = [(r["electorate"], {p: int(r[p]) for p in SHORT}) for r in rows]

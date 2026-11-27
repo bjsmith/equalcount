@@ -71,7 +71,7 @@ tr.total td { border-bottom: none; border-top: 2px solid var(--ink); font-weight
     <div class="pcard">
       <div class="ptag">Current rules</div>
       <svg id="cur" width="440" height="236" viewBox="0 0 440 236"></svg>
-      <div class="pnote"><span class="ring"></span><b>11 overhang seats</b>: electorates not covered by party votes</div>
+      <div class="pnote"><span class="ring"></span><b>10 overhang seats</b>: electorates not covered by party votes</div>
     </div>
     <div class="pcard new">
       <div class="ptag">With the tweak</div>
@@ -88,23 +88,23 @@ tr.total td { border-bottom: none; border-top: 2px solid var(--ink); font-weight
   <div class="maj">
     <div class="mh">With the tweak, seats match votes</div>
     <div class="blocs">
-      <div><span>National · ACT · NZ First</span><b>61 seats</b><i>party vote worth 60.4</i></div>
-      <div><span>Labour · Green · Te Pāti Māori</span><b>52 seats</b><i>party vote worth 52.4</i></div>
-      <div><span>Opportunity</span><b>7 seats</b><i>party vote worth 7.2</i></div>
+      <div><span>National · ACT · NZ First</span><b>59 seats</b><i>party vote worth 58.7</i></div>
+      <div><span>Labour · Green · Te Pāti Māori</span><b>54 seats</b><i>party vote worth 54.0</i></div>
+      <div><span>Opportunity</span><b>7 seats</b><i>party vote worth 7.3</i></div>
     </div>
   </div>
 
-  <div class="foot">Based on the preliminary 2026 count. Split votes estimated from 2023 patterns. One Te Pāti Māori seat comes off other parties' list seats, as the Independent Electoral Review recommended.<br>Created with AI.</div>
+  <div class="foot">Based on the official 2026 count. Split votes estimated from 2023 patterns. One Te Pāti Māori seat comes off other parties' list seats, as the Independent Electoral Review recommended.<br>Created with AI.</div>
 </div>
 <script>
 const P = [
   { k: 'tpm', n: 'Te Pāti Māori', cur: 5,  pro: 5,  over: 4, why: 'Keeps all 5 electorates' },
-  { k: 'grn', n: 'Green',         cur: 16, pro: 14, why: 'Its voters helped elect Te Pāti Māori MPs' },
-  { k: 'lab', n: 'Labour',        cur: 36, pro: 33, why: 'Its voters helped elect Te Pāti Māori MPs' },
+  { k: 'grn', n: 'Green',         cur: 17, pro: 15, why: 'Its voters helped elect Te Pāti Māori MPs' },
+  { k: 'lab', n: 'Labour',        cur: 36, pro: 34, why: 'Its voters helped elect Te Pāti Māori MPs' },
   { k: 'top', n: 'Opportunity',   cur: 7,  pro: 7,  why: 'Few of its voters split this way' },
   { k: 'nzf', n: 'NZ First',      cur: 12, pro: 10, why: 'Its voters helped elect National MPs' },
   { k: 'act', n: 'ACT',           cur: 13, pro: 9,  why: 'Its voters helped elect National MPs' },
-  { k: 'nat', n: 'National',      cur: 42, pro: 42, over: 7, why: 'Keeps all 42 electorates' },
+  { k: 'nat', n: 'National',      cur: 40, pro: 40, over: 6, why: 'Keeps all 40 electorates' },
 ];
 const css = k => getComputedStyle(document.documentElement).getPropertyValue('--' + k).trim();
 
@@ -143,7 +143,7 @@ function draw(id, key, total) {
   out += `<text x="220" y="226" text-anchor="middle" font-family="Source Sans 3, sans-serif" font-weight="700" font-size="17" letter-spacing="2" fill="${css('muted')}">SEATS</text>`;
   svg.innerHTML = out;
 }
-draw('cur', 'cur', 131);
+draw('cur', 'cur', 130);
 draw('pro', 'pro', 120);
 
 const order = ['nat', 'lab', 'grn', 'act', 'nzf', 'top', 'tpm'];
@@ -153,7 +153,7 @@ order.forEach(k => {
   html += `<tr><td><span class="dot" style="background:${css(k)}"></span>${p.n}</td><td>${p.cur}</td><td class="new">${p.pro}</td>
     <td><span class="chg ${d < 0 ? 'down' : 'zero'}">${d < 0 ? '−' + (-d) : '0'}</span></td><td class="why">${p.why}</td></tr>`;
 });
-html += `<tr class="total"><td>Total</td><td>131</td><td class="new">120</td><td><span class="chg down">−11</span></td><td class="why"></td></tr>`;
+html += `<tr class="total"><td>Total</td><td>130</td><td class="new">120</td><td><span class="chg down">−10</span></td><td class="why"></td></tr>`;
 document.getElementById('rows').innerHTML = html;
 </script>
 </body>

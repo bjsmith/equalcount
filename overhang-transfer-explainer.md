@@ -165,21 +165,21 @@ In 2023, Te Pāti Māori won **6 electorates** but its party vote (3.08%) entitl
 
 These are voters in the six electorates Te Pāti Māori won who gave their electorate vote to the Te Pāti Māori candidate but their party vote to another party.
 
-| Party vote went to | Split ballots | Moved under the proposal |
+| Where the party vote went | Split ballots (electorate vote for Te Pāti Māori's winning candidate) | Of those, party votes counted for Te Pāti Māori under the proposal |
 |---|---|---|
-| Parties that didn't qualify | 3,010 | 3,010 *(all, in Step 3)* |
+| Parties below the threshold (wasted) | 3,010 | 3,010 *(all of them, Step 3)* |
 | Labour | 23,696 | 19,953 |
 | Green | 8,248 | 6,945 |
 | National | 2,920 | 2,459 |
 | NZ First | 2,637 | 2,220 |
 | ACT | 536 | 451 |
-| **Total** | **41,047** | **35,038** |
+| **Total** | **41,047** | **35,038** *(84% of the rest, Step 4)* |
 
 The wasted votes alone weren't enough to cover even one seat. Step 4 needed *f* = 0.842, meaning **84% of each eligible split vote** was moved. That's a large share, because the overhang was concentrated in just six electorates. In Waiariki, for example, 59% of people who party-voted Labour also voted for Rawiri Waititi.
 
 ### Seats under each approach
 
-| Party | Current law | Review's rule | Germany's rule | This proposal |
+| Seats won | Current law (House grows) | 2023 Review's rule (overhang absorbed in 120) | Germany's 2023 rule (uncovered winners not seated) | This proposal (Overhang Transfer) |
 |---|---|---|---|---|
 | National | 48 | 47 | 48 | 48 |
 | Labour | 34 | 34 | 34 | 33 |
@@ -187,9 +187,9 @@ The wasted votes alone weren't enough to cover even one seat. Step 4 needed *f* 
 | ACT | 11 | 11 | 11 | 11 |
 | NZ First | 8 | 8 | 8 | 8 |
 | Te Pāti Māori | 6 | 6 | 4 | 6 |
-| **Total** | **122** | **120** | **120** | **120** |
-| *Labour + Green + Te Pāti Māori* | *55* | *54* | *53* | *53* |
-| *National + ACT + NZ First* | *67* | *66* | *67* | *67* |
+| **Size of Parliament** | **122** | **120** | **120** | **120** |
+| *Left bloc: Labour + Green + Te Pāti Māori (44.1% of counted party votes)* | *55 (45.1%)* | *54 (45.0%)* | *53 (44.2%)* | *53 (44.2%)* |
+| *Right bloc: National + ACT + NZ First* | *67 (54.9%)* | *66 (55.0%)* | *67 (55.8%)* | *67 (55.8%)* |
 
 ### What this shows
 
@@ -223,11 +223,11 @@ Once the overhang is covered, every party's seats are proportional to its counte
 |---|---|---|---|
 | **2023:** Labour, Green, Te Pāti Māori | 44.1% (52.9 of 120) | 55 of 122 (45.1%) | 53 of 120 (44.2%) |
 | **2023:** National, ACT, NZ First | 55.9% (67.1 of 120) | 67 of 122 (54.9%) | 67 of 120 (55.8%) |
-| **2026\*:** Labour, Green, Te Pāti Māori | 43.6% (52.4 of 120) | 57 of 131 (43.5%) | 52 of 120 (43.3%) |
-| **2026\*:** National, ACT, NZ First | 50.4% (60.4 of 120) | 67 of 131 (51.1%) | 61 of 120 (50.8%) |
-| **2026\*:** Opportunity | 6.0% (7.2 of 120) | 7 of 131 (5.3%) | 7 of 120 (5.8%) |
+| **2026\*:** Labour, Green, Te Pāti Māori | 45.0% (54.0 of 120) | 58 of 130 (44.6%) | 54 of 120 (45.0%) |
+| **2026\*:** National, ACT, NZ First | 48.9% (58.7 of 120) | 65 of 130 (50.0%) | 59 of 120 (49.2%) |
+| **2026\*:** Opportunity | 6.1% (7.3 of 120) | 7 of 130 (5.4%) | 7 of 120 (5.8%) |
 
-*\*2026 uses the preliminary count, with split votes estimated from 2023 patterns.*
+*\*2026 uses the official count, with split votes estimated from 2023 patterns.*
 
 The rule works on parties, not blocs. Nobody has to define which parties are allies. Fairness between blocs is a result of the rule, not a separate step in it.
 
@@ -235,20 +235,20 @@ The rule works on parties, not blocs. Nobody has to define which parties are all
 
 The bloc result is close, but not perfect, for four reasons:
 
-- **Some splitters cross blocs.** A Labour voter who ticks a popular local National MP gets counted the same way as an ACT voter who does. Those ballots move votes **into** the overhanging party's group. In the 2026 estimate, about 24,000 Labour, Green and Opportunity votes would move to National. That's roughly why the right gets 61 seats, not 60.4. That seems fair: those voters did choose a National MP.
+- **Some splitters cross blocs.** A Labour voter who ticks a popular local National MP gets counted the same way as an ACT voter who does. Those ballots move votes **into** the overhanging party's group. In the 2026 estimate, about 25,000 Labour, Green and Opportunity votes would move to National. That's part of why the right gets 59 seats, not 58.7. That seems fair: those voters did choose a National MP.
 - **Wasted votes join the group.** Party votes for parties that didn't qualify are used first, and they go to the overhanging party's group. Today they count for nobody.
 - **Rounding.** Sainte-Laguë works in whole seats, so each group can be up to about half a seat off.
 - **Very large overhangs.** If there aren't enough split votes to cover the overhang, the remainder is handled by the review's rule, which takes seats from every other party. This happens in the 2026 estimate for Te Pāti Māori, whose party vote was very small compared with its five electorates.
 
 ### What changes inside a bloc
 
-The proposal keeps each group's total about right, but it changes the **split within** the group. In the 2026 estimate, National keeps 42 seats while ACT drops from 13 to 9 and NZ First from 12 to 10. In 2023, Labour and the Greens each lose a seat while Te Pāti Māori keeps 6.
+The proposal keeps each group's total about right, but it changes the **split within** the group. In the 2026 estimate, National keeps 40 seats while ACT drops from 13 to 9 and NZ First from 12 to 10. In 2023, Labour and the Greens each lose a seat while Te Pāti Māori keeps 6.
 
 This is the point of the rule. ACT's 13 seats under current law include the share of ACT voters who had already filled their share of Parliament by electing a National MP. Under the proposal, each of those voters counts once.
 
 ### When both blocs split
 
-The 2026 estimate shows something the 2023 example doesn't. When **both** groups create overhangs, the effects roughly cancel at the bloc level. The parties that lose out are the ones **in neither group**. Opportunity won 6.0% of the counted party vote but would get only 5.3% of a 131-seat Parliament. The proposal brings it back to 5.8%.
+The 2026 estimate shows something the 2023 example doesn't. When **both** groups create overhangs, the effects roughly cancel at the bloc level. The parties that lose out are the ones **in neither group**. Opportunity won 6.1% of the counted party vote but would get only 5.4% of a 130-seat Parliament. The proposal brings it back to 5.8%.
 
 ---
 

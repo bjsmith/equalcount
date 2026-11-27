@@ -1,10 +1,10 @@
-# One ballot, counted twice: overhang reform under MMP
+# Every voter counts equally: overhang reform under MMP
 
 Analysis of overhang seats in New Zealand's MMP system, and of the **Overhang Transfer**: when a party wins more electorate seats than its party vote entitles it to, count just enough of the split ballots behind those seats as though the party vote had followed the electorate vote.
 
 **Website:** the GitHub Pages site is built into [`docs/`](docs/):
 
-- `docs/index.html`: interactive explainer using the 2023 election (`docs/2026/` for the 2026 preliminary count)
+- `docs/index.html`: interactive explainer using the 2026 election, official count (`docs/2023/` for the 2023 election)
 - `docs/report/`: the full report and its appendices (Experiments 1–3)
 - `docs/data/`: index of every dataset and script
 
